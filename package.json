@@ -1,0 +1,48 @@
+{
+    "name": "roma-glushko.github.io",
+    "private": true,
+    "description": "Roman Glushko - Personal Landing Page",
+    "version": "0.1.0",
+    "author": "Roman Glushko <roman.glushko.m@gmail.com>",
+    "dependencies": {
+        "gatsby": "^2.15.15",
+        "gatsby-image": "^2.2.19",
+        "gatsby-plugin-manifest": "^2.2.16",
+        "gatsby-plugin-offline": "^2.2.10",
+        "gatsby-plugin-react-helmet": "^3.1.7",
+        "gatsby-plugin-sharp": "^2.2.22",
+        "gatsby-plugin-web-font-loader": "^1.0.4",
+        "gatsby-source-filesystem": "^2.1.22",
+        "gatsby-transformer-sharp": "^2.2.14",
+        "prop-types": "^15.7.2",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
+        "react-helmet": "^5.2.1",
+        "react-typing-animation": "^1.6.2",
+        "react-typist": "^2.0.5",
+        "typewriter-effect": "^2.10.0"
+    },
+    "devDependencies": {
+        "gatsby-disable-404": "^0.2.1",
+        "prettier": "^1.18.2"
+    },
+    "keywords": [
+        "gatsby"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+        "start": "npm run develop",
+        "serve": "gatsby serve",
+        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    },
+    "bugs": {
+        "url": "https://github.com/gatsbyjs/gatsby/issues"
+    }
+}
