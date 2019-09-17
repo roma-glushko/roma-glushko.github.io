@@ -51,9 +51,14 @@ body {
 .title {
     text-align: center;
     font-size: 1.2rem;
+    line-height: 1.2rem;
 }
 
-.social>ul {
+.social {
+    margin-top: 20px;
+}
+
+.social-list {
     display: flex;
     flex-flow: row wrap;
     flex-grow: 0;
@@ -61,32 +66,29 @@ body {
     justify-content: center;
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.social>ul>li {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+.social-item {
     border: 1px solid #ebebeb;
     border-radius: 50%;
     margin: .25rem;
 }
 
-.social>ul>li>a {
+.social-item>a {
     color: #000000;
-    display: contents;
     text-transform: none;
 }
 
-.social>ul>li:hover {
+.social-item:hover {
     border: 1px solid #8e44ad;
 }
 
-.social>ul>li>a:hover {
+.social-item>a:hover {
     color: #8e44ad;
 }
 
-.social>ul>li>a>svg {
+.social-item>a>svg {
     padding: 10px;
+    vertical-align: middle;
 }
