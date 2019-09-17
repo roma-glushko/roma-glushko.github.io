@@ -52,5 +52,6 @@ module.exports = {
                 pageTransitionDelay: 0,
             },
         },
+        'gatsby-plugin-dark-mode'
     ],
 }

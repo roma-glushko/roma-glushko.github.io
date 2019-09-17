@@ -1,3 +1,8 @@
+/** Theme 1: #8e44ad, #ebebeb, #000000 **/
+
+
+/** Theme 2: #e74c3c, #ebebeb, #000000 **/
+
 html,
 body,
 body>div,
@@ -7,7 +12,11 @@ body>div>div>main {
 }
 
 body {
+    color: var(--bodyTextColor);
+    background-color: var(--bodyBackgroundColor);
     font-family: 'Ledger', serif;
+    transition: color 0.2s ease-out, background 0.2s ease-out;
+    box-sizing: border-box;
 }
 
 .container {
@@ -27,7 +36,7 @@ body {
     border-radius: 50%;
     width: 170px;
     height: 170px;
-    border: 1px solid #ebebeb;
+    border: 1px solid var(--avatarBorderColor);
 }
 
 .logo-img {
@@ -45,7 +54,7 @@ body {
 }
 
 .second-name {
-    color: #8e44ad;
+    color: var(--secondNameColor);
 }
 
 .title {
@@ -70,25 +79,30 @@ body {
 }
 
 .social-item {
-    border: 1px solid #ebebeb;
+    border: 1px solid var(--socialItemBorderColor);
     border-radius: 50%;
     margin: .25rem;
 }
 
 .social-item>a {
-    color: #000000;
+    color: var(--socialLinkColor);
     text-transform: none;
 }
 
 .social-item:hover {
-    border: 1px solid #8e44ad;
+    border: 1px solid var(--socialItemBorderHoverColor);
 }
 
 .social-item>a:hover {
-    color: #8e44ad;
+    color: var(--socialLinkHoverColor);
 }
 
 .social-item>a>svg {
     padding: 10px;
     vertical-align: middle;
+}
+
+.theme-switcher {
+    text-align: center;
+    margin-top: 20px;
 }

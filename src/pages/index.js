@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Logo from "../components/logo"
 import SEO from "../components/seo"
+import ThemeSwitcher from "../components/theme-switcher"
 import ReactRotatingText from 'react-rotating-text';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -25,7 +26,7 @@ const titles = [
 const IndexPage = () => (
     <Layout>
         <SEO title = "About Me" />
-        <div class="container">
+        <div className="container">
             <div className="row">
                 <div className="content">
                     <div className="logo">
@@ -48,6 +49,9 @@ const IndexPage = () => (
                             <li className="social-item"><a href="https://twitter.com/roma_glushko" title="Twitter" target="blank"><FontAwesomeIcon icon={faTwitter} size="sm" /></a></li>
                             <li className="social-item"><a href="https://www.linkedin.com/in/glushko-roman" title="LinkedIn" target="blank"><FontAwesomeIcon icon={faLinkedinIn} size="sm" /></a></li>
                         </ul>
+                    </div>
+                    <div className="theme-switcher">
+                        <ThemeSwitcher />
                     </div>
                 </div>
             </div>
