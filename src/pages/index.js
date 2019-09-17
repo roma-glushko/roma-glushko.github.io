@@ -21,6 +21,7 @@ const titles = [
     'OpenSource Lover 🤝',
     'Matzah Fan ✡️',
     '3x Magento Certified 🏅',
+    'Problem Solver 🧠',
 ]
 
 const IndexPage = () => (

@@ -34,7 +34,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background-color: #fafafa;
+    background-color: var(--themeSwitcherThumbBackgroundColor);
     box-sizing: border-box;
     transition: all .5s cubic-bezier(.23, 1, .32, 1) 0ms;
     -webkit-transform: translateX(0);
