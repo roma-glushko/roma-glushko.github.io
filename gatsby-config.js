@@ -1,6 +1,6 @@
 module.exports = {
     siteMetadata: {
-        title: `Roman Glushko`,
+        title: `Roman Glushko 🧔🛠👨‍💻📚`,
         description: `Roman Glushko`,
         author: `@roma_glushko`,
     },
@@ -24,12 +24,20 @@ module.exports = {
                 background_color: `#663399`,
                 theme_color: `#663399`,
                 display: `minimal-ui`,
-                icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+                icon: `src/images/fav-icon.png`, // This path is relative to the root of the site.
             },
         },
         `gatsby-disable-404`,
+        {
+            resolve: 'gatsby-plugin-web-font-loader',
+            options: {
+                google: {
+                    families: ['Dancing Script', 'Ledger']
+                }
+            }
+        },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
-        // `gatsby-plugin-offline`,
+        `gatsby-plugin-offline`,
     ],
 }
