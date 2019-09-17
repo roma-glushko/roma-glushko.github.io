@@ -2,7 +2,7 @@
     "name": "roma-glushko.github.io",
     "private": true,
     "description": "Roman Glushko - Personal Landing Page",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "author": "Roman Glushko <roman.glushko.m@gmail.com>",
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.22",
@@ -23,20 +23,21 @@
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "react-helmet": "^5.2.1",
-        "react-typing-animation": "^1.6.2",
-        "react-typist": "^2.0.5",
+        "react-rotating-text": "^1.4.1",
         "typewriter-effect": "^2.10.0"
     },
     "devDependencies": {
         "gatsby-disable-404": "^0.2.1",
+        "gh-pages": "^2.1.1",
         "prettier": "^1.18.2"
     },
     "keywords": [
-        "gatsby"
+        "personal-landing-page",
+        "people"
     ],
     "license": "MIT",
     "scripts": {
-        "build": "gatsby build",
+        "build": "gatsby build --prefix-paths && gh-pages -d public",
         "develop": "gatsby develop",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "start": "npm run develop",
@@ -45,9 +46,9 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+        "url": "https://github.com/roma-glushko/roma-glushko.github.io"
     },
     "bugs": {
-        "url": "https://github.com/gatsbyjs/gatsby/issues"
+        "url": "https://github.com/roma-glushko/roma-glushko.github.io/issues"
     }
 }

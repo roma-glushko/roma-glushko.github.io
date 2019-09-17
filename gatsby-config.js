@@ -18,16 +18,15 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `gatsby-starter-default`,
-                short_name: `starter`,
+                name: `Roman Glushko - Personal Landing Page`,
+                short_name: `roma-glushko-page`,
                 start_url: `/`,
                 background_color: `#ffffff`,
-                theme_color: `#000000`,
+                theme_color: `#8e44ad`,
                 display: `minimal-ui`,
                 icon: `src/images/fav-icon.png`,
             },
         },
-        `gatsby-disable-404`,
         {
             resolve: 'gatsby-plugin-web-font-loader',
             options: {

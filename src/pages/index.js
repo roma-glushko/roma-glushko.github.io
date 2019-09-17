@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Logo from "../components/logo"
 import SEO from "../components/seo"
-import Typewriter from 'typewriter-effect';
+import ReactRotatingText from 'react-rotating-text';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faGithubAlt, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
@@ -11,15 +11,15 @@ import { faGithubAlt, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-s
 import "../components/index.css"
 
 const titles = [
-    'Web Developer', 
-    'Magento Specialist', 
-    'Golang Enthusiast', 
-    'Human', 
-    'DataScience Noobie', 
-    'Passive Traveler',
-    'OpenSource Lover',
-    'Matzah Fan',
-    '3x Magento Certified',
+    'Web Developer 🛠', 
+    'Magento Specialist 🛒', 
+    'Golang Enthusiast 🐹', 
+    'Human 🧔', 
+    'DataScience Noobie 🔬', 
+    'Passive Traveler 🏕',
+    'OpenSource Lover 🤝',
+    'Matzah Fan ✡️',
+    '3x Magento Certified 🏅',
 ]
 
 const IndexPage = () => (
@@ -38,11 +38,7 @@ const IndexPage = () => (
                             <span className="first-name">Roman</span> <span className="second-name">Glushko</span>
                         </h1>
                         <div className="title">
-                            <Typewriter options={{
-                                strings: titles,
-                                autoStart: true,
-                                loop: true,
-                            }} />
+                            <ReactRotatingText items={titles} />
                         </div>
                     </div>
                     <div className="social">

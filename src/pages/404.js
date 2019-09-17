@@ -1,33 +1,14 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import Logo from "../components/logo"
 import SEO from "../components/seo"
-import Typist from 'react-typist';
 
-import "../components/index.css"
-
-const IndexPage = () => (
-    <Layout>
-        <SEO title = "About Me" />
-        <div class="container">
-            <div className="row">
-                <div className="content">
-                    <div>
-                        <Logo />
-                    </div>
-                    <div>
-                        <h1 className="title">Roman Glushko</h1>
-                        <div>
-                            <Typist>
-                                Web Developer
-                            </Typist>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </Layout>
+const NotFoundPage = () => (
+  <Layout>
+    <SEO title="404: Not found" />
+    <h1>NOT FOUND</h1>
+    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+  </Layout>
 )
 
-export default IndexPage
+export default NotFoundPage
