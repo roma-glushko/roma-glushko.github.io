@@ -24,7 +24,7 @@ const titles = [
 
 const IndexPage = () => (
     <Layout>
-        <SEO title = "Nice to meet you 👋" />
+        <SEO title = "About Me" />
         <div class="container">
             <div className="row">
                 <div className="content">
@@ -47,10 +47,10 @@ const IndexPage = () => (
                     </div>
                     <div className="social">
                         <ul>
-                            <li><a href="mailto:roman.glushko.m@gmail.com"><FontAwesomeIcon icon={faEnvelope} size="lg" /></a></li>
-                            <li><a href="https://github.com/roma-glushko" target="blank"><FontAwesomeIcon icon={faGithubAlt} size="lg" /></a></li>
-                            <li><a href="https://twitter.com/roma_glushko" target="blank"><FontAwesomeIcon icon={faTwitter} size="lg" /></a></li>
-                            <li><a href="https://www.linkedin.com/in/glushko-roman" target="blank"><FontAwesomeIcon icon={faLinkedinIn} size="lg" /></a></li>
+                            <li><a href="mailto:roman.glushko.m@gmail.com" title="Email"><FontAwesomeIcon icon={faEnvelope} size="sm" /></a></li>
+                            <li><a href="https://github.com/roma-glushko" title="Github" target="blank"><FontAwesomeIcon icon={faGithubAlt} size="sm" /></a></li>
+                            <li><a href="https://twitter.com/roma_glushko" title="Twitter" target="blank"><FontAwesomeIcon icon={faTwitter} size="sm" /></a></li>
+                            <li><a href="https://www.linkedin.com/in/glushko-roman" title="LinkedIn" target="blank"><FontAwesomeIcon icon={faLinkedinIn} size="sm" /></a></li>
                         </ul>
                     </div>
                 </div>

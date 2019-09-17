@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
         title: `Roman Glushko 🧔🛠👨‍💻📚`,
-        description: `Roman Glushko`,
+        description: `Roman Glushko - a certified Magento developer, web developer, golang entusiast, data science noobie, open source lover`,
         author: `@roma_glushko`,
     },
     plugins: [
@@ -21,10 +21,10 @@ module.exports = {
                 name: `gatsby-starter-default`,
                 short_name: `starter`,
                 start_url: `/`,
-                background_color: `#663399`,
-                theme_color: `#663399`,
+                background_color: `#ffffff`,
+                theme_color: `#000000`,
                 display: `minimal-ui`,
-                icon: `src/images/fav-icon.png`, // This path is relative to the root of the site.
+                icon: `src/images/fav-icon.png`,
             },
         },
         `gatsby-disable-404`,
@@ -36,8 +36,22 @@ module.exports = {
                 }
             }
         },
-        // this (optional) plugin enables Progressive Web App + Offline functionality
-        // To learn more, visit: https://gatsby.dev/offline
         `gatsby-plugin-offline`,
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-148139633-1",
+                // Defines where to place the tracking script - `true` in the head and `false` in the body
+                head: false,
+                // Setting this parameter is optional
+                anonymize: true,
+                // Setting this parameter is also optional
+                respectDNT: true,
+                // Avoids sending pageview hits from custom paths
+                exclude: [],
+                // Delays sending pageview hits on route update (in milliseconds)
+                pageTransitionDelay: 0,
+            },
+        },
     ],
 }

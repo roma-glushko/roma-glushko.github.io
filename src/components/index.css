@@ -44,6 +44,10 @@ body {
     font-family: 'Dancing Script', cursive;
 }
 
+.second-name {
+    color: #8e44ad;
+}
+
 .title {
     text-align: center;
     font-size: 1.2rem;
@@ -70,8 +74,17 @@ body {
 }
 
 .social>ul>li>a {
-    text-transform: none;
     color: #000000;
+    display: contents;
+    text-transform: none;
+}
+
+.social>ul>li:hover {
+    border: 1px solid #8e44ad;
+}
+
+.social>ul>li>a:hover {
+    color: #8e44ad;
 }
 
 .social>ul>li>a>svg {
