@@ -20,7 +20,7 @@ const titles = [
     'Passive Traveler 🏕',
     'OpenSource Lover 🤝',
     'Matzah Fan ✡️',
-    '3x Magento Certified 🏅',
+    '4x Magento Certified 🏅',
     'Problem Solver 🧠',
 ]
 
