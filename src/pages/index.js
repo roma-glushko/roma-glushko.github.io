@@ -1,15 +1,15 @@
 import React from "react"
 
-import Layout from "../components/layout"
-import Logo from "../components/logo"
+import Layout from "../components/theme/layout"
+import Logo from "../components/homepage/photo"
 import SEO from "../components/seo"
-import ThemeSwitcher from "../components/theme-switcher"
+import ThemeSwitcher from "../components/theme/theme-switcher"
 import ReactRotatingText from 'react-rotating-text';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faGithubAlt, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
-import "../components/index.css"
+import "../components/homepage/index.css"
 
 const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
 

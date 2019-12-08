@@ -8,7 +8,7 @@
 import React, { PureComponent } from 'react';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
-import "../components/theme-switcher.css"
+import "./theme-switcher.css"
 
 export default class ThemeSwitcher extends PureComponent {
 

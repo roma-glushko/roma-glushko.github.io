@@ -1,12 +1,12 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
-import NotFoundImage from "../components/404-image"
-import ThemeSwitcher from "../components/theme-switcher"
+import NotFoundImage from "../components/404/404-image"
+import ThemeSwitcher from "../components/theme/theme-switcher"
 
-import "../components/index.css" // todo: need to refactor styles and html structure, index page has parts that should be in the layout
-import "../components/404.css"
+import "../components/homepage/index.css" // todo: need to refactor styles and html structure, index page has parts that should be in the layout
+import "../components/404/404.css"
 
 const NotFoundPage = () => (
   <Layout>
