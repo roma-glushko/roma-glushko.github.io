@@ -30,7 +30,7 @@ const titles = shuffleArray([
 
 const IndexPage = () => (
     <Layout>
-        <SEO title = "About Me" />
+        <SEO title = "About Me" className="home-page" />
         <div className="container">
             <div className="row">
                 <div className="content">
