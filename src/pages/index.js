@@ -1,7 +1,7 @@
 import React from "react"
 
 import Layout from "../components/theme/layout"
-import Logo from "../components/homepage/photo"
+import Avatar from "../components/homepage/avatar"
 import SEO from "../components/seo"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ReactRotatingText from 'react-rotating-text';
@@ -36,7 +36,7 @@ const IndexPage = () => (
                 <div className="content">
                     <div className="logo">
                         <div className="avatar">
-                            <Logo />
+                            <Avatar />
                         </div>
                     </div>
                     <div className="main">

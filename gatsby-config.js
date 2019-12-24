@@ -52,6 +52,28 @@ module.exports = {
                 pageTransitionDelay: 0,
             },
         },
-        'gatsby-plugin-dark-mode'
+        'gatsby-plugin-dark-mode',
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: `markdown-pages`,
+              path: `${__dirname}/src/content`,
+            },
+        },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+              // CommonMark mode (default: true)
+              commonmark: true,
+              // Footnotes mode (default: true)
+              footnotes: true,
+              // Pedantic mode (default: true)
+              pedantic: true,
+              // GitHub Flavored Markdown mode (default: true)
+              gfm: true,
+              // Plugins configs
+              plugins: [],
+            },
+          },
     ],
 }

@@ -1,0 +1,135 @@
+.thoughts-wrapper {
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thoughts-wrapper .thought-sidebar {
+    float: left;
+    position: sticky;
+    top: 0;
+    width: calc(33.3%);
+}
+
+@media (max-width: 575.98px) {
+    .thoughts-wrapper .thought-sidebar {
+        margin-bottom: 40px;
+        width: 100%;
+    }
+}
+
+.thought-sidebar .navigation {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.thought-sidebar .navigation a {
+    color: var(--bodyTextColor);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.thoughts-wrapper .thoughts-list {
+    float: left;
+    padding-left: 5rem;
+    margin-right: 0;
+    margin-top: 0;
+    width: calc(66.6% - 5rem);
+}
+
+@media (max-width: 1199.98px) {
+    .thoughts-wrapper .thoughts-list {
+        float: left;
+        padding-left: 4rem;
+        width: calc(66.6% - 4rem);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .thoughts-wrapper .thoughts-list {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+    }
+}
+
+.thought-sidebar .avatar {
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 122px;
+    height: 122px;
+    border: 1px solid var(--avatarBorderColor);
+}
+
+@media (max-width: 575.98px) {
+    .thought-sidebar .theme-switcher {
+        margin-top: 2rem;
+    }
+}
+
+.thought-author-wrapper .logo-img {
+    width: 7rem;
+    height: auto;
+    border-radius: 50%;
+    transform: translate(5px, 5px);
+}
+
+.thought-author-wrapper .name {
+    font-size: 2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.thought-author-wrapper {
+    text-align: center;
+}
+
+.thoughtbook-descr {
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.thoughts-wrapper h1 {
+    color: var(--secondNameColor);
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+}
+
+.thought-item {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.thought-item a {
+    color: var(--bodyTextColor);
+    text-decoration: none;
+}
+
+.thought-item h2 {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-top: 0;
+}
+
+.thought-item h2 a {
+    color: var(--secondNameColor);
+}
+
+.thought-item p.thought-digest {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.thought-item .thought-details {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.thought-item .thought-createdat {
+    font-weight: 600;
+    text-transform: uppercase;
+}
