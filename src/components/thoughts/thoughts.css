@@ -164,6 +164,16 @@
     width: calc(66.6% - 5rem);
 }
 
+@media (max-width: 575.98px) {
+    .thought-wrapper {
+        float: none;
+        display: block;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: auto;
+    }
+}
+
 .thought-wrapper h1 {
     color: var(--secondNameColor);
     font-size: 1.6rem;
