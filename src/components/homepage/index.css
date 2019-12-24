@@ -6,16 +6,6 @@ body>div>div>main {
     height: 100%;
 }
 
-body {
-    color: var(--bodyTextColor);
-    background-color: var(--bodyBackgroundColor);
-    box-sizing: border-box;
-    font-family: 'Ledger', serif;
-    text-rendering: optimizeLegibility;
-    transition: color 0.2s ease-out, background 0.2s ease-out;
-    -webkit-font-smoothing: antialiased;
-}
-
 .container {
     height: 100%;
     display: flex;
@@ -26,21 +16,6 @@ body {
 
 .row {
     width: auto;
-}
-
-.avatar {
-    margin: 0 auto;
-    border-radius: 50%;
-    width: 170px;
-    height: 170px;
-    border: 1px solid var(--avatarBorderColor);
-}
-
-.logo-img {
-    width: 10rem;
-    height: auto;
-    border-radius: 50%;
-    transform: translate(5px, 5px);
 }
 
 .name {
@@ -97,9 +72,4 @@ body {
 .social-item>a>svg {
     padding: 10px;
     vertical-align: middle;
-}
-
-.theme-switcher {
-    text-align: center;
-    margin-top: 20px;
 }

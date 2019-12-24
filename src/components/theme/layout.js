@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import "./theme.css"
+import "./general.css"
 
 const Layout = ({ children }) => {
   return (

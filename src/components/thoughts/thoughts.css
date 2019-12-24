@@ -13,8 +13,10 @@
 
 @media (max-width: 575.98px) {
     .thoughts-wrapper .thought-sidebar {
+        float: none;
+        position: initial;
         margin-bottom: 40px;
-        width: 100%;
+        width: auto;
     }
 }
 
@@ -39,7 +41,6 @@
 
 @media (max-width: 1199.98px) {
     .thoughts-wrapper .thoughts-list {
-        float: left;
         padding-left: 4rem;
         width: calc(66.6% - 4rem);
     }
@@ -47,9 +48,11 @@
 
 @media (max-width: 575.98px) {
     .thoughts-wrapper .thoughts-list {
+        float: none;
+        display: block;
         padding-left: 1rem;
         padding-right: 1rem;
-        width: 100%;
+        width: auto;
     }
 }
 
