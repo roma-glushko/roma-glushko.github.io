@@ -1,0 +1,22 @@
+.thought-navigation-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.thought-navigation .nav-links {
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.thought-navigation .nav-links a {
+    color: var(--secondNameColor);
+    display: block;
+    font-weight: bold;
+    margin-bottom: calc(1.75rem / 2);
+    text-decoration: none;
+}
+
+.thought-navigation a.all-thoughts {
+    color: var(--bodyTextColor);
+}

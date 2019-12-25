@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { graphql, Link } from "gatsby"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
-import Logo from "../components/thoughts/logo"
+import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 
-import "../components/thoughts/thoughts.css"
+import "../components/thoughts/thought-list.css"
 
 class ThoughtListPage extends Component {
   render() {
@@ -17,17 +17,9 @@ class ThoughtListPage extends Component {
         <div className="thoughts-wrapper">
           <h1 className="thoughts-title">Thoughts</h1>
           <aside className="thought-sidebar">
-            <div className="thought-author-wrapper">
-              <div className="logo">
-                <div className="avatar">
-                    <Logo />
-                </div>
-              </div>
-              <div className="name">Roman Glushko</div>
-              <p className="thoughtbook-descr">Unpopular and totally wrong thoughts. <br/> Yeah, I know it. And that's <span>fine</span>.</p>
-            </div>
+            <ThoughtAuthor />
             <div className="navigation">
-                <a href="/">← Take Me Home</a>
+                <Link to="/">← Take Me Home</Link>
             </div>
             <div className="theme-switcher">
                 <ThemeSwitcher />
@@ -46,6 +38,7 @@ class ThoughtListPage extends Component {
               </article>
             ))}
           </articles>
+          <div className="clearfix" />
         </div>
       </Layout>
     )

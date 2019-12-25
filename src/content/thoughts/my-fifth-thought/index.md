@@ -1,6 +1,6 @@
 ---
-path: "/thoughts/my-third-thought"
-date: "2019-12-24 14:00:00"
+path: "/thoughts/my-fifth-thought"
+date: "2019-12-25 13:00:00"
 title: "Lorem ipsum dolor sit amet, consectetur"
 ---
 

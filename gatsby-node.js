@@ -22,6 +22,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           node {
             frontmatter {
               path
+              title
             }
           }
         }
@@ -35,11 +36,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const thoughts = result.data.allMarkdownRemark.edges
+
+  thoughts.forEach(({ node }, index) => {
+    prevThought = index === 0 ? undefined : thoughts[index - 1].node;
+    nextThought = index === thoughts.length - 1 ? undefined : thoughts[index + 1].node;
+
     createPage({
       path: node.frontmatter.path,
       component: thoughtTemplate,
-      context: {}, // additional data can be passed via context
+      context: {
+        prevThought,
+        nextThought,
+      },
     })
   })
 }

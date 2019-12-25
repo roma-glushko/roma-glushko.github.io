@@ -1,0 +1,10 @@
+/** Remark Styling **/
+
+.thought-wrapper .thought-content,
+.thought-wrapper .thought-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    margin-top: 0.5rem;
+    text-align: justify;
+}
