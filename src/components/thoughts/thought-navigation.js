@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import "./thought-navigation.css"
 
 const ThoughtNavigation = props => {
-    console.log(props)
+
   const {
     next: {
       frontmatter: { title: nextTitle, path: nextUrl } = {}

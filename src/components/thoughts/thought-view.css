@@ -37,16 +37,6 @@
     text-decoration: none;
 }
 
-.thought-view-page .thought-createdat {
-    font-weight: normal;
-}
-
-.thought-view-page .theme-switcher {
-    float: right;
-    margin-left: 1rem;
-    margin-top: 0;
-}
-
 .thought-view-page .thought-divider {
     clear: both;
     margin-bottom: 2rem;

@@ -4,6 +4,7 @@ import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
+import ThoughtTeaser from '../components/thoughts/thought-teaser'
 
 import "../components/thoughts/thought-list.css"
 
@@ -27,15 +28,13 @@ class ThoughtListPage extends Component {
           </aside>
           <articles className="thoughts-list">
             {edges.map(thought => (
-              <article className="thought-item">
-                <h2><Link to={thought.node.frontmatter.path}>{thought.node.frontmatter.title}</Link></h2>
-                <div className="thought-details">
-                  <time className="thought-createdat">{thought.node.frontmatter.date}</time>
-                  <span> • </span>
-                  <span className="thought-time2read">{thought.node.timeToRead} min read</span>
-                </div>
-                <p className="thought-digest">{thought.node.excerpt}</p>
-              </article>
+              <ThoughtTeaser 
+                title={thought.node.frontmatter.title} 
+                url={thought.node.frontmatter.path} 
+                timeToRead={thought.node.timeToRead} 
+                publishedDate={thought.node.frontmatter.date} 
+                excerpt={thought.node.excerpt} 
+              />
             ))}
           </articles>
           <div className="clearfix" />
