@@ -44,7 +44,7 @@
         "cleanup": "rm -rf .cache && rm -rf public",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "start": "npm run develop",
-        "serve": "gatsby serve",
+        "serve": "gatsby serve"
     },
     "repository": {
         "type": "git",
