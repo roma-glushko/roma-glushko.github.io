@@ -1,3 +1,8 @@
+.theme-switcher {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .theme-switcher-toggler {
     touch-action: pan-x;
     display: inline-block;

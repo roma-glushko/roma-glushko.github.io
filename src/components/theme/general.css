@@ -24,11 +24,6 @@ body {
     transform: translate(5px, 5px);
 }
 
-.theme-switcher {
-    text-align: center;
-    margin-top: 20px;
-}
-
 .clearfix {
     clear: both;
 }

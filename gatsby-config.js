@@ -22,7 +22,7 @@ module.exports = {
                 short_name: `roma-glushko-page`,
                 start_url: `/`,
                 background_color: `#ffffff`,
-                theme_color: `#8e44ad`,
+                theme_color: `#ffffff`,
                 display: `minimal-ui`,
                 icon: `src/images/fav-icon.png`,
             },
