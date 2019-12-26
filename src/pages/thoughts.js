@@ -14,7 +14,11 @@ class ThoughtListPage extends Component {
 
     return (
       <Layout>
-        <SEO title = "Thoughts" className="thoughts-list-page" />
+        <SEO 
+          title = "Thoughts" 
+          className="thoughts-list-page" 
+          description="Unpopular and totally wrong thoughts. Yeah, I know it. And that's fine." 
+        />
         <div className="thoughts-wrapper">
           <h1 className="thoughts-title">Thoughts</h1>
           <aside className="thought-sidebar">

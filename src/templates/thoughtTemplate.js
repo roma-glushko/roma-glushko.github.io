@@ -9,12 +9,16 @@ import SEO from "../components/seo"
 import "../components/thoughts/thought-view.css"
 
 export default function Template({
-  data: {markdownRemark: {frontmatter: {title, date}, html, timeToRead}},
+  data: {markdownRemark: {frontmatter: {title, date}, html, timeToRead, excerpt}},
   pageContext: { prevThought, nextThought }
 }) {
   return (
     <Layout>
-      <SEO title = {title + " • Thoughts"} className="thought-view-page" />
+      <SEO 
+        title = {title + " • Thoughts"} 
+        className="thought-view-page"
+        description={excerpt}
+      />
         <div className="thoughts-title">
           <Link to="/thoughts">Thoughts</Link>
         </div>
@@ -32,6 +36,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       timeToRead
+      excerpt(pruneLength: 100)
       frontmatter {
         date(formatString: "MMM D, YYYY")
         path
