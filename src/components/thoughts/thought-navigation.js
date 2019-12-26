@@ -21,15 +21,15 @@ const ThoughtNavigation = props => {
     <div className="thought-navigation-wrapper">
         <nav className="thought-navigation">
           <div className="nav-links">
-          {prevUrl && (
-            <Link rel="prev" className="prev-thought" to={prevUrl}>
-                ← {prevTitle} 
-            </Link>
-          )}
           {nextUrl && (
               <Link rel="next" className="next-thought" to={nextUrl}>
                   {nextTitle} →
               </Link>
+          )}
+          {prevUrl && (
+            <Link rel="prev" className="prev-thought" to={prevUrl}>
+                ← {prevTitle} 
+            </Link>
           )}
             <Link className="all-thoughts" to="/thoughts">All Thoughts</Link>
           </div>

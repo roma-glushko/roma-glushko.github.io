@@ -11,7 +11,7 @@ const ThoughtAuthor = () => {
                 <Logo />
             </div>
         </div>
-        <div className="name">Roman Glushko</div>
+        <div className="name">• Roman Glushko •</div>
         <p className="thought-section-descr">Unpopular and totally wrong thoughts. <br/> Yeah, I know it. And that's <span>fine</span>.</p>
     </div>
   );
