@@ -1,0 +1,38 @@
+.social {
+    margin-top: 20px;
+}
+
+.social-list {
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-item {
+    border: 1px solid var(--socialItemBorderColor);
+    border-radius: 50%;
+    margin: .25rem;
+}
+
+.social-item>a {
+    color: var(--socialLinkColor);
+    text-transform: none;
+}
+
+.social-item:hover {
+    border: 1px solid var(--socialItemBorderHoverColor);
+}
+
+.social-item>a:hover {
+    color: var(--socialLinkHoverColor);
+}
+
+.social-item>a>svg {
+    padding: 10px;
+    vertical-align: middle;
+}

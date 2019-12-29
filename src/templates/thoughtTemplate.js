@@ -22,7 +22,9 @@ export default function Template({
         <div className="thoughts-title">
           <Link to="/thoughts">Thoughts</Link>
         </div>
-        <Thought title={title} timeToRead={timeToRead} publishedDate={date} contentHtml={html} />
+        <main>
+          <Thought title={title} timeToRead={timeToRead} publishedDate={date} contentHtml={html} />
+        </main>
         <aside className="thought-sidebar">
           <ThoughtAuthor />
           <ThoughtNavigation prev={prevThought} next={nextThought} />

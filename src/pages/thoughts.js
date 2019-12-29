@@ -30,7 +30,7 @@ class ThoughtListPage extends Component {
                 <ThemeSwitcher />
               </div>
           </aside>
-          <articles className="thoughts-list">
+          <main className="thoughts-list">
             {edges.map(thought => (
               <ThoughtTeaser 
                 title={thought.node.frontmatter.title} 
@@ -40,7 +40,7 @@ class ThoughtListPage extends Component {
                 excerpt={thought.node.excerpt} 
               />
             ))}
-          </articles>
+          </main>
           <div className="clearfix" />
         </div>
       </Layout>

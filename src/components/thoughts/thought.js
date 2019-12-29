@@ -17,15 +17,17 @@ const Thought = (props) => {
 
     return (
         <article className="thought-wrapper">
-            <h1>{title}</h1>
-            <div className="thought-details">
-            <time className="thought-createdat">{publishedDate}</time>
-            <span> • </span>
-            <span className="thought-time2read">{timeToRead} min read</span>
-            <div className="theme-switcher">
-                <ThemeSwitcher />
-            </div>
-            </div>
+            <header>
+                <h1>{title}</h1>
+                <div className="thought-details">
+                    <time className="thought-createdat">{publishedDate}</time>
+                    <span> • </span>
+                    <span className="thought-time2read">{timeToRead} min read</span>
+                    <div className="theme-switcher">
+                        <ThemeSwitcher />
+                    </div>
+                </div>
+            </header>
             <div className="thought-divider" />
             <div
                 className="thought-content"
@@ -37,7 +39,7 @@ const Thought = (props) => {
 
 Thought.propTypes = {
     title: PropTypes.string.isRequired,
-    timeToRead: PropTypes.string.isRequired,
+    timeToRead: PropTypes.number.isRequired,
     publishedDate: PropTypes.string.isRequired,
     contentHtml: PropTypes.string.isRequired,
   };

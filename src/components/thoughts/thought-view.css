@@ -18,15 +18,6 @@
     }
 }
 
-.thought-view-page h1 {
-    color: var(--secondNameColor);
-    font-size: 4rem;
-    line-height: 4rem;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    text-align: center;
-}
-
 .thought-view-page .thoughts-title {
     font-size: 3rem;
     margin-bottom: 1rem;

@@ -5,9 +5,7 @@ import Avatar from "../components/homepage/avatar"
 import SEO from "../components/seo"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ReactRotatingText from 'react-rotating-text';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faGithubAlt, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import SocialLinks from "../components/homepage/social-links"
 
 import "../components/homepage/index.css"
 
@@ -31,7 +29,7 @@ const titles = shuffleArray([
 const IndexPage = () => (
     <Layout>
         <SEO title = "About Me" className="home-page" />
-        <div className="container">
+        <main className="container">
             <div className="row">
                 <div className="content">
                     <div className="logo">
@@ -47,20 +45,18 @@ const IndexPage = () => (
                             <ReactRotatingText items={titles} />
                         </div>
                     </div>
-                    <div className="social">
-                        <ul className="social-list">
-                            <li className="social-item"><a href="https://twitter.com/roma_glushko" title="Twitter" target="blank"><FontAwesomeIcon icon={faTwitter} size="sm" /></a></li>
-                            <li className="social-item"><a href="https://github.com/roma-glushko" title="Github" target="blank"><FontAwesomeIcon icon={faGithubAlt} size="sm" /></a></li>
-                            <li className="social-item"><a href="https://www.linkedin.com/in/glushko-roman" title="LinkedIn" target="blank"><FontAwesomeIcon icon={faLinkedinIn} size="sm" /></a></li>
-                            <li className="social-item"><a href="mailto:roman.glushko.m@gmail.com" title="Email"><FontAwesomeIcon icon={faEnvelope} size="sm" /></a></li>
+                    <nav>
+                        <ul>
+                            <li>Thoughts</li>
                         </ul>
-                    </div>
+                    </nav>
+                    <SocialLinks />
                     <div className="theme-switcher">
                         <ThemeSwitcher />
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </Layout>
 )
 

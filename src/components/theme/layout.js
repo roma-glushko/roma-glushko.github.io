@@ -12,9 +12,8 @@ import "./theme.css"
 import "./general.css"
 
 const Layout = ({ children }) => {
-  // todo: replace main tag by div
   return (
-    <main>{children}</main>
+    <div>{children}</div>
   )
 }
 
