@@ -1,3 +1,18 @@
+/** Theme variables **/
+
+body {
+    --avatarBorderColor: var(--grey);
+    --secondNameColor: var(--red);
+}
+
+body.dark {
+    --avatarBorderColor: var(--grey);
+    --secondNameColor: var(--pink);
+}
+
+
+/** Homepage Styles **/
+
 html.home-page,
 .home-page body,
 .home-page body>div,

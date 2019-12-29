@@ -1,40 +1,16 @@
-/** Variables **/
+/** Main Theme Variables **/
 
 body {
-    /** Theme Colors **/
     --black: #000000;
     --red: #e74c3c;
     --white: #ffffff;
     --grey: #ebebeb;
-    /** Theme variables **/
-    --socialItemBorderColor: var(--grey);
-    --bodyBackgroundColor: var(--white);
-    --bodyTextColor: var(--black);
-    --avatarBorderColor: var(--grey);
-    --socialLinkColor: var(--black);
-    --socialLinkHoverColor: var(--red);
-    --socialItemBorderHoverColor: var(--red);
-    --secondNameColor: var(--red);
-    --themeSwitcherTrackBackgroundColor: var(--grey);
-    --themeSwitcherThumbBackgroundColor: var(--white);
 }
 
 body.dark {
-    /** Theme Colors **/
     --pink: #ffa7c4;
     --white: #ffffff;
     --midnight: #373c49;
     --midnightDarker: #0004;
     --grey: #ebebeb;
-    /** Theme variables **/
-    --socialItemBorderColor: var(--grey);
-    --bodyBackgroundColor: var(--midnight);
-    --bodyTextColor: var(--white);
-    --avatarBorderColor: var(--grey);
-    --socialLinkColor: var(--white);
-    --socialLinkHoverColor: var(--pink);
-    --socialItemBorderHoverColor: var(--pink);
-    --secondNameColor: var(--pink);
-    --themeSwitcherTrackBackgroundColor: var(--midnightDarker);
-    --themeSwitcherThumbBackgroundColor: var(--grey);
 }

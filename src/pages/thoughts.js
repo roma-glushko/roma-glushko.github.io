@@ -6,7 +6,7 @@ import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ThoughtTeaser from '../components/thoughts/thought-teaser'
 
-import "../components/thoughts/thought-list.css"
+import "./thoughts.css"
 
 class ThoughtListPage extends Component {
   render() {

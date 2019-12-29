@@ -23,11 +23,6 @@
     margin-bottom: 1rem;
 }
 
-.thought-view-page .thoughts-title a {
-    color: var(--secondNameColor);
-    text-decoration: none;
-}
-
 .thought-view-page .thought-divider {
     clear: both;
     margin-bottom: 2rem;

@@ -1,0 +1,9 @@
+.main-navigation ul {
+    padding-left: 0;
+    text-align: center;
+}
+
+.main-navigation ul li {
+    list-style: none;
+    text-transform: lowercase;
+}

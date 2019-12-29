@@ -1,3 +1,18 @@
+/** Theme variables **/
+
+body {
+    --socialLinkBorderColor: var(--grey);
+    --socialLinkBorderHoverColor: var(--red);
+}
+
+body.dark {
+    --socialLinkBorderColor: var(--grey);
+    --socialLinkBorderHoverColor: var(--pink);
+}
+
+
+/** Social Links Styles **/
+
 .social {
     margin-top: 20px;
 }
@@ -14,22 +29,13 @@
 }
 
 .social-item {
-    border: 1px solid var(--socialItemBorderColor);
+    border: 1px solid var(--socialLinkBorderColor);
     border-radius: 50%;
     margin: .25rem;
 }
 
-.social-item>a {
-    color: var(--socialLinkColor);
-    text-transform: none;
-}
-
 .social-item:hover {
-    border: 1px solid var(--socialItemBorderHoverColor);
-}
-
-.social-item>a:hover {
-    color: var(--socialLinkHoverColor);
+    border: 1px solid var(--socialLinkBorderHoverColor);
 }
 
 .social-item>a>svg {

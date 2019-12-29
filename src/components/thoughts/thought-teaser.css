@@ -1,11 +1,19 @@
+/** Theme variables **/
+
+body {
+    --thoughtTeaserHeaderLinkColor: var(--red);
+}
+
+body.dark {
+    --thoughtTeaserHeaderLinkColor: var(--pink);
+}
+
+
+/** Thought Item Styles **/
+
 .thought-item {
     list-style: none;
     margin-bottom: 2rem;
-}
-
-.thought-item a {
-    color: var(--bodyTextColor);
-    text-decoration: none;
 }
 
 .thought-item h2 {
@@ -15,7 +23,7 @@
 }
 
 .thought-item h2 a {
-    color: var(--secondNameColor);
+    color: var(--thoughtTeaserHeaderLinkColor);
 }
 
 .thought-item p.thought-digest {

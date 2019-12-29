@@ -5,9 +5,10 @@ import Avatar from "../components/homepage/avatar"
 import SEO from "../components/seo"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ReactRotatingText from 'react-rotating-text';
+import MainNavigation from "../components/homepage/main-navigation"
 import SocialLinks from "../components/homepage/social-links"
 
-import "../components/homepage/index.css"
+import "./index.css"
 
 const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
 
@@ -45,11 +46,7 @@ const IndexPage = () => (
                             <ReactRotatingText items={titles} />
                         </div>
                     </div>
-                    <nav>
-                        <ul>
-                            <li>Thoughts</li>
-                        </ul>
-                    </nav>
+                    <MainNavigation />
                     <SocialLinks />
                     <div className="theme-switcher">
                         <ThemeSwitcher />

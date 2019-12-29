@@ -1,3 +1,22 @@
+/** Theme variables **/
+
+body {
+    --bodyBackgroundColor: var(--white);
+    --bodyTextColor: var(--black);
+    --linkColor: var(--black);
+    --linkHoverColor: var(--red);
+}
+
+body.dark {
+    --bodyBackgroundColor: var(--midnight);
+    --bodyTextColor: var(--white);
+    --linkColor: var(--white);
+    --linkHoverColor: var(--pink);
+}
+
+
+/** General Styles **/
+
 body {
     color: var(--bodyTextColor);
     background-color: var(--bodyBackgroundColor);
@@ -7,6 +26,15 @@ body {
     text-rendering: optimizeLegibility;
     transition: color 0.2s ease-out, background 0.2s ease-out;
     -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--linkColor);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--socialLinkHoverColor);
 }
 
 .avatar {

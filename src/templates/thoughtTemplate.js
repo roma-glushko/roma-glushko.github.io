@@ -6,7 +6,7 @@ import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 
-import "../components/thoughts/thought-view.css"
+import "./thought-view.css"
 
 export default function Template({
   data: {markdownRemark: {frontmatter: {title, date}, html, timeToRead, excerpt}},

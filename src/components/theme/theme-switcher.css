@@ -1,3 +1,18 @@
+/** Theme variables **/
+
+body {
+    --themeSwitcherTrackBackgroundColor: var(--grey);
+    --themeSwitcherThumbBackgroundColor: var(--white);
+}
+
+body.dark {
+    --themeSwitcherTrackBackgroundColor: var(--midnightDarker);
+    --themeSwitcherThumbBackgroundColor: var(--grey);
+}
+
+
+/** Theme Switcher Styles **/
+
 .theme-switcher {
     text-align: center;
     margin-top: 20px;

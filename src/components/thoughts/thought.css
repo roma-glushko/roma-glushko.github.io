@@ -1,5 +1,18 @@
+/** Theme variables **/
+
+body {
+    --thoughtHeaderColor: var(--red);
+}
+
+body.dark {
+    --thoughtHeaderColor: var(--pink);
+}
+
+
+/** Thought Styling **/
+
 .thought-wrapper h1 {
-    color: var(--secondNameColor);
+    color: var(--thoughtHeaderColor);
     font-size: 3rem;
     line-height: 4rem;
     margin-bottom: 2rem;
