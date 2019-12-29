@@ -1,13 +1,14 @@
 module.exports = {
     siteMetadata: {
-        title: `Roman Glushko 🧔🛠👨‍💻📚`,
-        description: `Roman Glushko - A Certified Magento and Web Developer, Tech Lead`,
+        title: `Roman Glushko`,
+        description: `Roman Glushko - Certified Magento Software Developer, eCommerce Specialist, MageNews editor, Open Source Contributor and Life Explorer`,
+        keywords: ['roman glushko', 'magento', 'eCommerce', 'open source', 'web development', 'life explorer', 'thoughts'],
         author: `@roma_glushko`,
         personRichSnippet: {
             name: `Roman Glushko`,
             alternateName: `Roma Glushko`,
             gender: `Male`,
-            jobTitle: `Tech Lead && Magento Software Developer`,
+            jobTitle: `Tech Lead && Magento Software Developer. MageNews Editor`,
             worksFor: {
                 name: `Atwix s.r.o.`,
                 sameAs: [

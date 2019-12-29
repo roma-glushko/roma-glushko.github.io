@@ -16,7 +16,7 @@ export default function Template({
   return (
     <Layout>
       <SEO 
-        title = {title + " • Thoughts"} 
+        title = {title + " - Thoughts"} 
         className="thought-view-page"
         description={excerpt}
       />

@@ -15,8 +15,6 @@ const ThoughtNavigation = props => {
     } = {}
   } = props;
 
-  if (!nextUrl && !prevUrl) return null;
-
   return (
     <div className="thought-navigation-wrapper">
         <nav className="thought-navigation">
