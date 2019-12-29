@@ -19,6 +19,7 @@ export default function Template({
         title = {title + " - Thoughts"} 
         className="thought-view-page"
         description={excerpt}
+        keywords={keywords}
       />
         <div className="thoughts-title">
           <Link to="/thoughts">Thoughts</Link>

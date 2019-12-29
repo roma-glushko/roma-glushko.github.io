@@ -18,6 +18,18 @@ class ThoughtListPage extends Component {
           title = "Thoughts" 
           className="thoughts-list-page" 
           description="Unpopular and totally wrong thoughts. Yeah, I know it. And that's fine." 
+          keywords={[
+            'thougths',
+            'opinion',
+            'life explorining',
+            'psychology',
+            'roman glushko thoughts',
+            'roman hlushko thoughts',
+            'roman glushko blog',
+            'life',
+            'people',
+            'management',
+          ]}
         />
         <div className="thoughts-wrapper">
           <h1 className="thoughts-title">Thoughts</h1>

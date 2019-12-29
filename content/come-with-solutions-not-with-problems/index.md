@@ -6,6 +6,7 @@ keywords:
     - problem solving
     - dealing with challenges
     - psychology
+    - life explorining
 ---
 
 Sometimes we too focus on problems and regrets. You should know that it doesn't make any sense.

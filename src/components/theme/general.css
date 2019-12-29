@@ -34,7 +34,7 @@ a {
 }
 
 a:hover {
-    color: var(--socialLinkHoverColor);
+    color: var(--linkHoverColor);
 }
 
 .avatar {
