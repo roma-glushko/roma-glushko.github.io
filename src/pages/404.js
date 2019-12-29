@@ -5,17 +5,16 @@ import SEO from "../components/seo"
 import NotFoundImage from "../components/404/404-image"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 
-import "../components/homepage/index.css" // todo: need to refactor styles and html structure, index page has parts that should be in the layout
 import "../components/404/404.css"
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" meta={{
+    <SEO title="404: Not found" className="not-found-page" meta={{
           name: `robots`,
           content: `noindex,nofollow`,
         }} />
     <div className="container">
-            <div className="row not-found-container">
+            <main className="row not-found-container">
                 <div className="not-found-image-container">
                   <NotFoundImage />
                 </div>
@@ -26,7 +25,7 @@ const NotFoundPage = () => (
                         <ThemeSwitcher />
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
   </Layout>
 )

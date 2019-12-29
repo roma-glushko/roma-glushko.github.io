@@ -1,3 +1,11 @@
+html.not-found-page,
+.not-found-page body,
+.not-found-page body>div,
+.not-found-page body>div>div,
+.not-found-page body>div>div>div {
+    height: 100%;
+}
+
 .not-found-container h1 {
     margin-bottom: 10px;
     text-align: center;
