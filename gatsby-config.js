@@ -24,6 +24,7 @@ module.exports = {
         },
     },
     plugins: [
+        'gatsby-plugin-remove-generator',
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,

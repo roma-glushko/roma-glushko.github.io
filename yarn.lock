@@ -5371,6 +5371,11 @@ gatsby-plugin-react-helmet@^3.1.16:
   dependencies:
     "@babel/runtime" "^7.7.4"
 
+gatsby-plugin-remove-generator@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-generator/-/gatsby-plugin-remove-generator-1.0.4.tgz#2dfac08f6875721ae13840466b8c2fdbe99e3b04"
+  integrity sha512-tD8D7Ls1UEHFfUrAgA+4qgFKuagJXrbDPXmsbDnabe0GugdltEwxYnBl7JkFmLDrMENpKZvgD6oulgSA4zidyg==
+
 gatsby-plugin-sharp@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.3.4.tgz#1b9e21b56145413b4f1807c685574956a2efba7d"
