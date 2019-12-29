@@ -1,8 +1,26 @@
 module.exports = {
     siteMetadata: {
         title: `Roman Glushko 🧔🛠👨‍💻📚`,
-        description: `Roman Glushko - a certified Magento developer, web developer, golang entusiast, data science noobie, open source lover`,
+        description: `Roman Glushko - A Certified Magento and Web Developer, Tech Lead`,
         author: `@roma_glushko`,
+        personRichSnippet: {
+            name: `Roman Glushko`,
+            alternateName: `Roma Glushko`,
+            gender: `Male`,
+            jobTitle: `Tech Lead && Magento Software Developer`,
+            worksFor: {
+                name: `Atwix s.r.o.`,
+                sameAs: [
+                    `https://www.atwix.com`,
+                    `https://twitter.com/atwixcom`,
+                ]
+            },
+            sameAs: [
+                `https://twitter.com/roma_glushko`,
+                `https://github.com/roma-glushko`,
+                `https://www.linkedin.com/in/glushko-roman`,
+            ]
+        },
     },
     plugins: [
         `gatsby-plugin-react-helmet`,

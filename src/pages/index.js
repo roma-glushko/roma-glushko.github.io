@@ -1,8 +1,9 @@
 import React from "react"
 
 import Layout from "../components/theme/layout"
-import Avatar from "../components/homepage/avatar"
 import SEO from "../components/seo"
+import PersonRichSnippet from "../components/homepage/person-rich-snippet"
+import Avatar from "../components/homepage/avatar"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ReactRotatingText from 'react-rotating-text';
 import MainNavigation from "../components/homepage/main-navigation"
@@ -54,6 +55,7 @@ const IndexPage = () => (
                 </div>
             </div>
         </main>
+        <PersonRichSnippet />
     </Layout>
 )
 

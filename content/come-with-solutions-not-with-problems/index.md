@@ -2,6 +2,10 @@
 path: "/thoughts/focus-on-solutions-not-on-problems"
 date: "2019-12-26 21:30:00"
 title: "Focus on solutions, not on problems"
+keywords:
+    - problem solving
+    - dealing with challenges
+    - psychology
 ---
 
 Sometimes we too focus on problems and regrets. You should know that it doesn't make any sense.

@@ -7,9 +7,10 @@ import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 
 import "./thought-view.css"
+import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 
 export default function Template({
-  data: {markdownRemark: {frontmatter: {title, date}, html, timeToRead, excerpt}},
+  data: {markdownRemark: {frontmatter: {title, date, keywords}, html, rawMarkdownBody, timeToRead, excerpt, wordCount: {words}}},
   pageContext: { prevThought, nextThought }
 }) {
   return (
@@ -29,6 +30,13 @@ export default function Template({
           <ThoughtAuthor />
           <ThoughtNavigation prev={prevThought} next={nextThought} />
         </aside>
+        <ThoughtRichSnippet 
+          title={title}
+          datePublished={date}
+          content={rawMarkdownBody}
+          wordCount={words}
+          keywords={keywords}
+        />
     </Layout>
   )
 }
@@ -38,11 +46,15 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       timeToRead
-      excerpt(pruneLength: 100)
+      excerpt
+      rawMarkdownBody
+      wordCount {
+        words
+      }
       frontmatter {
         date(formatString: "MMM D, YYYY")
-        path
         title
+        keywords
       }
     }
   }
