@@ -22,7 +22,7 @@ const titles = shuffleArray([
     'Passive Traveler 🏕',
     'OpenSource Lover 🤝',
     'Matzah Fan ✡️',
-    '4x Magento Certified 🏅',
+    '5x Magento Certified 🏅',
     'Problem Solver 🧠',
     'Torah Follower 🕎',
     'eCommerce Explorer 💳',
