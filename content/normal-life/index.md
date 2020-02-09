@@ -13,6 +13,6 @@ It's like driving a comfortable car. You are going well. The weather outside is 
 You feel calm and everything seems to be under the control. You are driving toward your goals and plans.
 Nothing stops you!
 
-Have you ever consider roadblocks? Is that you can take part in a car incident? Or you simply get lost?
+Have you ever considered roadblocks, car incidents or getting lost as a part of a normal life?
 
 Well, you should, because this is how real life looks like. There are no reasons to dream about something else which never happens.
