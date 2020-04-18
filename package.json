@@ -40,7 +40,8 @@
     ],
     "license": "MIT",
     "scripts": {
-        "build": "gatsby build --prefix-paths && gh-pages -d public -b master",
+        "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
+        "build": "gatsby build --prefix-paths",
         "develop": "gatsby develop",
         "cleanup": "rm -rf .cache && rm -rf public",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
