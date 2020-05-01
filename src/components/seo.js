@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, keywords, lang, meta, title, className }) {
+function SEO({ description, keywords, lang, meta, title, isUniqueTitle, className }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,6 +28,7 @@ function SEO({ description, keywords, lang, meta, title, className }) {
 
   const metaDescription = description || site.siteMetadata.description
   const metaKeywords = keywords || site.siteMetadata.keywords
+  const titleTemplate = isUniqueTitle ? `${title}` : `${title} - ${site.siteMetadata.title}`
 
   return (
     <Helmet
@@ -36,7 +37,7 @@ function SEO({ description, keywords, lang, meta, title, className }) {
         class: className,
       }}
       title={title}
-      titleTemplate={`${site.siteMetadata.title} | ${title}`}
+      titleTemplate={titleTemplate}
       meta={[
         {
           name: `description`,
