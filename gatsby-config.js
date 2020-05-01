@@ -89,6 +89,13 @@ module.exports = {
               gfm: true,
               plugins: [],
             },
-          },
+        },
+        {
+            resolve: `gatsby-plugin-canonical-urls`,
+            options: {
+              siteUrl: `https://romaglushko.com`,
+              stripQueryString: true,
+            },
+        },
     ],
 }
