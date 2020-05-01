@@ -26,7 +26,7 @@ const Avatar = () => {
     }
   `)
 
-    return <Img className="logo-img" fluid = { data.placeholderImage.childImageSharp.fluid } />
+    return <Img className="logo-img" fluid = { data.placeholderImage.childImageSharp.fluid } alt="Roman Glushko - Magento Developer, eCommerce Specialist and Life Explorer" />
 }
 
 export default Avatar
