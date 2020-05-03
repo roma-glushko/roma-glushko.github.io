@@ -67,6 +67,12 @@ html.home-page,
     .column {
         width: 100%;
     }
+    .social-item>a>svg {
+        padding: 20px;
+    }
+    .theme-switcher {
+        margin-bottom: 20px;
+    }
 }
 
 .my-story-content {
