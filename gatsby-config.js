@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
         title: `Roman Glushko`,
-        description: `Hey, my name is Roman Glushko and I'm a Certified Magento Developer, eCommerce Specialist, Open Source Contributor and Life Explorer 🧔🛠👨‍💻📚`,
+        description: `Hey 👋 My name is Roman and I'm a Magento, eCommerce and Life Explorer 🧔🛠👨‍💻📚`,
         keywords: ['roman glushko', 'roma glushko', 'roman hlushko', 'roma hlushko', 'magento', 'eCommerce', 'open source', 'web development', 'life explorer', 'thoughts'],
         author: `@roma_glushko`,
         siteUrl: `https://www.romaglushko.com`,

@@ -31,7 +31,7 @@ const titles = shuffleArray([
 
 const IndexPage = () => (
     <Layout>
-        <SEO title = "Roman Glushko - Certified Magento Developer, eCommerce Specialist and Life Explorer 🧔🛠👨‍💻📚" isUniqueTitle={true} className="home-page" />
+        <SEO title = "Roman Glushko - Magento, eCommerce and Life Explorer 🧔🛠👨‍💻📚" isUniqueTitle={true} className="home-page" />
         <main className="container">
             <div className="row">
                 <div className="content">
