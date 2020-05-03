@@ -4,7 +4,7 @@ module.exports = {
         description: `Hey, my name is Roman Glushko and I'm a Certified Magento Developer, eCommerce Specialist, Open Source Contributor and Life Explorer 🧔🛠👨‍💻📚`,
         keywords: ['roman glushko', 'roma glushko', 'roman hlushko', 'roma hlushko', 'magento', 'eCommerce', 'open source', 'web development', 'life explorer', 'thoughts'],
         author: `@roma_glushko`,
-        siteUrl: `https://romaglushko.com`,
+        siteUrl: `https://www.romaglushko.com`,
         personRichSnippet: {
             name: `Roman Glushko`,
             alternateName: `Roman Glushko`,
@@ -94,7 +94,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-canonical-urls`,
             options: {
-              siteUrl: `https://romaglushko.com`,
+              siteUrl: `https://www.romaglushko.com`,
               stripQueryString: true,
             },
         },
