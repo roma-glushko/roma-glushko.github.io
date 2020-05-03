@@ -100,6 +100,6 @@ module.exports = {
               stripTrailingSlashes: true,
             },
         },
-        `gatsby-plugin-sitemap`
+        `sitemap`
     ],
 }
