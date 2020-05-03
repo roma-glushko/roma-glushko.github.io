@@ -1,5 +1,5 @@
 ---
-path: "/thoughts/measure-and-improve"
+path: "/thoughts/measure-and-improve/"
 date: "2020-03-15 22:30:00"
 title: "Measure and Improve"
 keywords:

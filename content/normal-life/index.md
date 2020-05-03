@@ -1,5 +1,5 @@
 ---
-path: "/thoughts/normal-life"
+path: "/thoughts/normal-life/"
 date: "2020-02-08 22:17:00"
 title: "Normal Life"
 keywords:

@@ -26,9 +26,9 @@ exports.onRouteUpdate = function (_ref, pluginOptions) {
 
     value += location.hash;
     
-    if (stripTrailingSlashes) {
-      value = value.replace(/\/$/, "");
-    }
+    // if (stripTrailingSlashes) {
+    //   value = value.replace(/\/$/, "");
+    // }
 
     domElem.setAttribute("href", "" + value);
   }

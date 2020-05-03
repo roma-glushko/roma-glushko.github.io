@@ -95,10 +95,10 @@ var defaultOptions = {
 
     return allPages === null || allPages === void 0 ? void 0 : allPages.map(function (page) {
       var _site$siteMetadata$si, _site$siteMetadata;
-      var priority = (page.path === '/' || page.path === '/thoughts') ? 1 : 0.7;
+      var priority = (page.path === '/' || page.path === '/thoughts/') ? 1 : 0.7;
 
       return {
-        url: withoutTrailingSlash("" + ((_site$siteMetadata$si = (_site$siteMetadata = site.siteMetadata) === null || _site$siteMetadata === void 0 ? void 0 : _site$siteMetadata.siteUrl) !== null && _site$siteMetadata$si !== void 0 ? _site$siteMetadata$si : "") + page.path),
+        url: "" + ((_site$siteMetadata$si = (_site$siteMetadata = site.siteMetadata) === null || _site$siteMetadata === void 0 ? void 0 : _site$siteMetadata.siteUrl) !== null && _site$siteMetadata$si !== void 0 ? _site$siteMetadata$si : "") + page.path,
         changefreq: "daily",
         priority: priority,
       };

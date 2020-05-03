@@ -1,5 +1,5 @@
 ---
-path: "/thoughts/just-ask"
+path: "/thoughts/just-ask/"
 date: "2020-02-02 23:17:00"
 title: "Just Ask"
 keywords:

@@ -1,5 +1,5 @@
 ---
-path: "/thoughts/disadvantages-are-everywhere"
+path: "/thoughts/disadvantages-are-everywhere/"
 date: "2020-01-05 19:30:00"
 title: "Disadvantages are everywhere"
 keywords:
