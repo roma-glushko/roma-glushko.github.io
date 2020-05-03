@@ -98,6 +98,7 @@ module.exports = {
               stripQueryString: true,
             },
         },
+        `gatsby-plugin-remove-trailing-slashes`,
         `gatsby-plugin-sitemap`
     ],
 }

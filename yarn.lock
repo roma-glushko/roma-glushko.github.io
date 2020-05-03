@@ -5390,6 +5390,13 @@ gatsby-plugin-remove-generator@^1.0.4:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-generator/-/gatsby-plugin-remove-generator-1.0.4.tgz#2dfac08f6875721ae13840466b8c2fdbe99e3b04"
   integrity sha512-tD8D7Ls1UEHFfUrAgA+4qgFKuagJXrbDPXmsbDnabe0GugdltEwxYnBl7JkFmLDrMENpKZvgD6oulgSA4zidyg==
 
+gatsby-plugin-remove-trailing-slashes@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-trailing-slashes/-/gatsby-plugin-remove-trailing-slashes-2.3.0.tgz#996ec13bd84a6a0d64c356c713867dafdf87c39d"
+  integrity sha512-P3+VCwWpyhBzHveX89iKgLlCNp8rXAKBG4uBbLz4Cr8P3eHzMbEPbKDxJf9CydRV3I8TcLcWgsnNoNDUAnKN3A==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 gatsby-plugin-sharp@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.3.4.tgz#1b9e21b56145413b4f1807c685574956a2efba7d"
