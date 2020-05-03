@@ -3,11 +3,13 @@
 body {
     --avatarBorderColor: var(--grey);
     --secondNameColor: var(--red);
+    --storyLinkColor: var(--red);
 }
 
 body.dark {
     --avatarBorderColor: var(--grey);
     --secondNameColor: var(--pink);
+    --storyLinkColor: var(--pink);
 }
 
 
@@ -30,14 +32,59 @@ html.home-page,
 }
 
 .row {
-    width: auto;
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+.sidebar.column {
+    flex: 20%;
+}
+
+@media (max-width: 575.98px) {
+    html.home-page,
+    .home-page body,
+    .home-page body>div,
+    .home-page body>div>div,
+    .home-page body>div>div>div {
+        height: auto;
+    }
+    .container {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .row {
+        display: block;
+    }
+    .my-story-content {
+        text-align: justify;
+    }
+    .sidebar.column,
+    .column {
+        width: 100%;
+    }
+}
+
+.my-story-content {
+    line-height: 1.5;
+    max-width: 800px;
+}
+
+.my-story-content a {
+    color: var(--storyLinkColor);
+    font-weight: 700;
 }
 
 .name {
+    font-family: 'Dancing Script', cursive;
     font-size: 3rem;
     margin-top: 10px;
     margin-bottom: 5px;
-    font-family: 'Dancing Script', cursive;
+    text-align: center;
 }
 
 .second-name {
