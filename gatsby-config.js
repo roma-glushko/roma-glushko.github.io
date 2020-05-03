@@ -92,13 +92,12 @@ module.exports = {
             },
         },
         {
-            resolve: `canonical-urls`,
+            resolve: `gatsby-plugin-canonical-urls`,
             options: {
               siteUrl: `https://romaglushko.com`,
               stripQueryString: true,
-              stripTrailingSlashes: true,
             },
         },
-        `sitemap`
+        `gatsby-plugin-sitemap`
     ],
 }

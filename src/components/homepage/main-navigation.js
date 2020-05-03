@@ -8,7 +8,7 @@ const MainNavigation = () => {
   return (
     <nav className="main-navigation">
       <ul>
-          <li><Link to="/thoughts">• Thoughts •</Link></li>
+          <li><Link to="/thoughts/">• Thoughts •</Link></li>
       </ul>
     </nav>
   );
