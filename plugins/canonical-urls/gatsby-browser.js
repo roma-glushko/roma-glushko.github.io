@@ -4,7 +4,8 @@ exports.onRouteUpdate = function (_ref, pluginOptions) {
 
   if (pluginOptions === void 0) {
     pluginOptions = {
-      stripQueryString: false
+      stripQueryString: false,
+      stripTrailingSlashes: false
     };
   }
 
@@ -16,13 +17,19 @@ exports.onRouteUpdate = function (_ref, pluginOptions) {
   if (existingValue && baseProtocol && baseHost) {
     var value = baseProtocol + "//" + baseHost + location.pathname;
     var _pluginOptions = pluginOptions,
-        stripQueryString = _pluginOptions.stripQueryString;
+        stripQueryString = _pluginOptions.stripQueryString,
+        stripTrailingSlashes = _pluginOptions.stripTrailingSlashes;
 
     if (!stripQueryString) {
       value += location.search;
     }
 
     value += location.hash;
+    
+    if (stripTrailingSlashes) {
+      value = value.replace(/\/$/, "");
+    }
+
     domElem.setAttribute("href", "" + value);
   }
 };

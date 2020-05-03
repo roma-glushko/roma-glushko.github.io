@@ -7,6 +7,7 @@ var _react = _interopRequireDefault(require("react"));
 var _url = _interopRequireDefault(require("url"));
 
 exports.onRenderBody = function (_ref, pluginOptions) {
+  var stripTrailingSlashes = typeof pluginOptions.stripTrailingSlashes !== "undefined" ? pluginOptions.stripTrailingSlashes : false;
   var setHeadComponents = _ref.setHeadComponents,
       _ref$pathname = _ref.pathname,
       pathname = _ref$pathname === void 0 ? "/" : _ref$pathname;
@@ -23,6 +24,10 @@ exports.onRenderBody = function (_ref, pluginOptions) {
       pageUrl = parsed.protocol + "//" + parsed.host + parsed.pathname;
     } else {
       pageUrl = parsed.href;
+    }
+
+    if (stripTrailingSlashes) {
+      pageUrl = pageUrl.replace(/\/$/, "");
     }
 
     setHeadComponents([/*#__PURE__*/_react.default.createElement("link", {
