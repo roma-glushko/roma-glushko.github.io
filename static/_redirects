@@ -1,3 +1,3 @@
-http://romaglushko.com/ https://www.romaglushko.com/ 301!
-http://romaglushko.com/* https://www.romaglushko.com/:splat 301!
+http://romaglushko.com/ https://www.romaglushko.com/ 302!
+http://romaglushko.com/* https://www.romaglushko.com/:splat 302!
 /thoughts /thoughts/
