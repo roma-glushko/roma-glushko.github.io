@@ -56,11 +56,11 @@ const IndexPage = () => (
                     </div>
                 </div>
                 <div className="column my-story-content">
-                    <p>I'm Roman 👋 <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">Magento Developer</a> and eCommerce Specialist.</p>
-                    <p>Over 4 years, I'm helping ambitious merchants from the US and EU to run their business efficiently on Magento ⛳️ During this time, I passed 5 Magento certifications and learned how to align business goals with the platform capabilities.</p>
-                    <p>I've been lucky to be part of the <a href="https://www.atwix.com/" target="blank">Atwix family</a> - open-minded people that support and aspire to grow 🤝 I've been leading a team there for more than 3 years. Technical management helps me to get - individuals are one and the only possible asset for every business and <Link to="/thoughts/">other thougths</Link>.</p>  
-                    <p>Magento shaped my carrier a lot. I wanted to say thanks back and decided to start <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> 🗞 - a monthly roundup of Magento news to keep up everyone updated in this beautiful community</p>
-                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a> where I solve my everyday challenges. Hopefully, you will find them useful as well.</p>
+                    <p>I'm Roman 👋 <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">Magento Developer and eCommerce Specialist</a>.</p>
+                    <p>Over four years, I'm helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a>. During this time, I learned how to meet business goals with the platform capabilities. I have passed 5 Magento certifications to expand and prove my knowledge.</p>
+                    <p>I've been lucky to be part of the <a href="https://www.atwix.com/" target="blank">Atwix family</a> - open-minded people that support and aspire to grow 🌱 I've been leading a team there for more than three years. Management helped me to get - individuals are one and the only possible asset for every business. And a way more <Link to="/thoughts/">other thoughts</Link>.</p>  
+                    <p>Magento shaped my carrier and me a lot. So I wanted to find my way to thanks back. I decided to start <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> 🗞 It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants 👨‍👩‍👧‍👦</p>
+                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a> where I solve my everyday challenges. You will find them useful as well.</p>
                 </div>
             </div>
         </main>
