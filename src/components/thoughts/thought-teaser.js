@@ -10,7 +10,8 @@ const ThoughtTeaser = (props) => {
         title,
         url,
         timeToRead,
-        publishedDate,
+        publishedHumanDate,
+        publishedFullDate,
         excerpt,
     } = props;
 
@@ -18,7 +19,7 @@ const ThoughtTeaser = (props) => {
         <article className="thought-item">
             <h2><Link to={url}>{title}</Link></h2>
             <div className="thought-details">
-                <time className="thought-createdat">{publishedDate}</time>
+                <time className="thought-createdat" datetime={publishedFullDate}>{publishedHumanDate}</time>
                 <span> • </span>
                 <span className="thought-time2read">{timeToRead} min read</span>
             </div>

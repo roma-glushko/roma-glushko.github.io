@@ -48,7 +48,8 @@ class ThoughtListPage extends Component {
                 title={thought.node.frontmatter.title} 
                 url={thought.node.frontmatter.path} 
                 timeToRead={thought.node.timeToRead} 
-                publishedDate={thought.node.frontmatter.date} 
+                publishedHumanDate={thought.node.frontmatter.humanDate}
+                publishedFullDate={thought.node.frontmatter.fullDate}
                 excerpt={thought.node.excerpt} 
               />
             ))}
@@ -71,7 +72,8 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 100)
           timeToRead
           frontmatter {
-            date(formatString: "MMM D, YYYY")
+            humanDate: date(formatString: "MMM D, YYYY")
+            fullDate: date (formatString: "YYYY-m-D") 
             path
             title
           }

@@ -11,7 +11,8 @@ const Thought = (props) => {
     const {
         title,
         timeToRead,
-        publishedDate,
+        publishedHumanDate,
+        publishedFullDate,
         contentHtml,
     } = props;
 
@@ -20,7 +21,7 @@ const Thought = (props) => {
             <header>
                 <h1>{title}</h1>
                 <div className="thought-details">
-                    <time className="thought-createdat">{publishedDate}</time>
+                    <time className="thought-createdat" datetime={publishedFullDate}>{publishedHumanDate}</time>
                     <span> • </span>
                     <span className="thought-time2read">{timeToRead} min read</span>
                     <div className="theme-switcher">
@@ -40,7 +41,8 @@ const Thought = (props) => {
 Thought.propTypes = {
     title: PropTypes.string.isRequired,
     timeToRead: PropTypes.number.isRequired,
-    publishedDate: PropTypes.string.isRequired,
+    publishedHumanDate: PropTypes.string.isRequired,
+    publishedFullDate: PropTypes.string.isRequired,
     contentHtml: PropTypes.string.isRequired,
   };
 
