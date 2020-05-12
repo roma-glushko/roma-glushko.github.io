@@ -32,7 +32,7 @@ const titles = shuffleArray([
 
 const IndexPage = () => (
     <Layout>
-        <SEO title = "Roman Glushko - Magento, eCommerce and Life Explorer 🧔🛠👨‍💻📚" isUniqueTitle={true} className="home-page" />
+        <SEO title = "Roman Glushko - Magento Engineer, eCommerce Specialist and Life Explorer 🧔🛠👨‍💻📚" isUniqueTitle={true} className="home-page" />
         <main className="container">
             <div className="row">
                 <div className="column sidebar">
@@ -56,7 +56,7 @@ const IndexPage = () => (
                     </div>
                 </div>
                 <div className="column my-story-content">
-                    <p>I'm Roman 👋 <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">Magento Developer and eCommerce Specialist</a>.</p>
+                    <p>I'm Roman 👋 <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">Magento Engineer and eCommerce Specialist</a>.</p>
                     <p>Over four years, I'm helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a>. During this time, I learned how to meet business goals with the platform capabilities. I have passed 5 Magento certifications to expand and prove my knowledge.</p>
                     <p>I've been lucky to be part of the <a href="https://www.atwix.com/" target="blank">Atwix family</a> 👨‍👩‍👧‍👦 - open-minded people that support and aspire to grow 🌱 I've been leading a team there for more than three years. Management helped me to get - individuals are one and the only possible asset for every business. Also, it brought me a way more <Link to="/thoughts/">other thoughts</Link>✏️</p>  
                     <p>Magento shaped my carrier and me a lot. So I wanted to find my way to thanks back. I decided to start <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> 🗞 It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants 🤝</p>

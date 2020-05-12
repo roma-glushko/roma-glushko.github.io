@@ -10,7 +10,7 @@ import "./thought-view.css"
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 
 export default function Template({
-  data: {markdownRemark: {frontmatter: {title, date, keywords, cover}, html, rawMarkdownBody, timeToRead, excerpt, wordCount: {words}}},
+  data: {markdownRemark: {frontmatter: {title, humanDate, fullDate, keywords, cover}, html, rawMarkdownBody, timeToRead, excerpt, wordCount: {words}}},
   pageContext: { prevThought, nextThought }
 }) {
   return (
@@ -22,10 +22,10 @@ export default function Template({
         keywords={keywords}
       />
         <div className="thoughts-title">
-          <Link to="/thoughts">Thoughts</Link>
+          <Link to="/thoughts/">Thoughts</Link>
         </div>
         <main>
-          <Thought title={title} timeToRead={timeToRead} publishedDate={date} contentHtml={html} cover={cover} />
+          <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
         </main>
         <aside className="thought-sidebar">
           <ThoughtAuthor />
@@ -33,7 +33,7 @@ export default function Template({
         </aside>
         <ThoughtRichSnippet 
           title={title}
-          datePublished={date}
+          datePublished={fullDate}
           content={rawMarkdownBody}
           wordCount={words}
           keywords={keywords}
@@ -53,7 +53,8 @@ export const pageQuery = graphql`
         words
       }
       frontmatter {
-        date(formatString: "MMM D, YYYY")
+        humanDate: date(formatString: "MMM D, YYYY")
+        fullDate: date (formatString: "YYYY-MM-DD") 
         title
         keywords
         cover {

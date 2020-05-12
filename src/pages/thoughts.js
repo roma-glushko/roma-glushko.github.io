@@ -17,7 +17,7 @@ class ThoughtListPage extends Component {
         <SEO 
           title = "Thoughts" 
           className="thoughts-list-page" 
-          description="Unpopular and totally wrong thoughts. Yeah, I know it. And that's fine." 
+          description="Thoughts and expirience that will help you to go through this life this life in the very best way" 
           keywords={[
             'thougths',
             'opinion',
@@ -48,7 +48,8 @@ class ThoughtListPage extends Component {
                 title={thought.node.frontmatter.title} 
                 url={thought.node.frontmatter.path} 
                 timeToRead={thought.node.timeToRead} 
-                publishedDate={thought.node.frontmatter.date} 
+                publishedHumanDate={thought.node.frontmatter.humanDate}
+                publishedFullDate={thought.node.frontmatter.fullDate}
                 excerpt={thought.node.excerpt} 
               />
             ))}
@@ -71,7 +72,8 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 100)
           timeToRead
           frontmatter {
-            date(formatString: "MMM D, YYYY")
+            humanDate: date(formatString: "MMM D, YYYY")
+            fullDate: date (formatString: "YYYY-MM-DD") 
             path
             title
           }
