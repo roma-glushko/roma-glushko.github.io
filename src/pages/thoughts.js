@@ -73,7 +73,7 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             humanDate: date(formatString: "MMM D, YYYY")
-            fullDate: date (formatString: "YYYY-m-D") 
+            fullDate: date (formatString: "YYYY-MM-D") 
             path
             title
           }

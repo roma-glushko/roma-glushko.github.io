@@ -54,7 +54,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         humanDate: date(formatString: "MMM D, YYYY")
-        fullDate: date (formatString: "YYYY-m-D") 
+        fullDate: date (formatString: "YYYY-MM-D") 
         title
         keywords
       }
