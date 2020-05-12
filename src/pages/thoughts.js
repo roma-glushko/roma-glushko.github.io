@@ -17,7 +17,7 @@ class ThoughtListPage extends Component {
         <SEO 
           title = "Thoughts" 
           className="thoughts-list-page" 
-          description="Unpopular and totally wrong thoughts. Yeah, I know it. And that's fine." 
+          description="Thoughts and expirience that will help you to go through this life this life in the very best way" 
           keywords={[
             'thougths',
             'opinion',
