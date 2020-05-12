@@ -22,7 +22,7 @@ export default function Template({
         keywords={keywords}
       />
         <div className="thoughts-title">
-          <Link to="/thoughts">Thoughts</Link>
+          <Link to="/thoughts/">Thoughts</Link>
         </div>
         <main>
           <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} contentHtml={html} />
