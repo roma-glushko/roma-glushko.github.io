@@ -2,14 +2,10 @@
 
 body {
     --thoughtHeaderColor: var(--red);
-    --thouthtCoverBlendMode: lighten;
-    --thouthtCoverBlendColor: #5a4e3e;
 }
 
 body.dark {
     --thoughtHeaderColor: var(--pink);
-    --thouthtCoverBlendMode: overlay;
-    --thouthtCoverBlendColor: var(--midnightDarker);
 }
 
 
@@ -39,7 +35,6 @@ body.dark {
 }
 
 .thought-wrapper .cover-filter {
-    background-color: var(--thouthtCoverBlendColor);
     left: 50%;
     margin-left: -50vw;
     overflow: hidden;
@@ -50,7 +45,6 @@ body.dark {
 .thought-wrapper .cover {
     left: 50%;
     margin-left: -50vw;
-    mix-blend-mode: var(--thouthtCoverBlendMode);
     overflow: hidden;
     position: relative;
     width: 100vw;

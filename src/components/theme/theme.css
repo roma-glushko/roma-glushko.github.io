@@ -5,6 +5,7 @@ body {
     --red: #e74c3c;
     --white: #ffffff;
     --grey: #ebebeb;
+    --brownDarker: #5a4e3e;
 }
 
 body.dark {

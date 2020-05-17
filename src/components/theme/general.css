@@ -5,6 +5,8 @@ body {
     --bodyTextColor: var(--black);
     --linkColor: var(--black);
     --linkHoverColor: var(--red);
+    --thouthtCoverBlendColor: var(--brownDarker);
+    --thouthtCoverBlendMode: lighten;
 }
 
 body.dark {
@@ -54,4 +56,16 @@ a:hover {
 
 .clearfix {
     clear: both;
+}
+
+.cover-filter {
+    background-color: var(--thouthtCoverBlendColor);
+}
+
+.cover-filter .cover {
+    mix-blend-mode: var(--thouthtCoverBlendMode);
+}
+
+body.dark .cover-filter {
+    filter: brightness(0.5);
 }
