@@ -19,6 +19,13 @@ body.dark {
 
 /** General Styles **/
 
+@font-face {
+    font-family: 'Ledger';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     color: var(--bodyTextColor);
     background-color: var(--bodyBackgroundColor);
@@ -28,6 +35,7 @@ body {
     text-rendering: optimizeLegibility;
     transition: color 0.2s ease-out, background 0.2s ease-out;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -67,5 +75,6 @@ a:hover {
 }
 
 body.dark .cover-filter {
+    -webkit-filter: brightness(0.5);
     filter: brightness(0.5);
 }

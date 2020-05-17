@@ -12,7 +12,7 @@ const ThoughtAuthor = () => {
             </div>
         </div>
         <div className="name">• Roman Glushko •</div>
-        <p className="thought-section-descr">My thoughts, pieces of advice and life experience <br/>that will help you to overcome your life struggles</p>
+        <p className="thought-section-descr">My thoughts, pieces of advice and life experience <br/>that will help you to <strong>overcome</strong> your life struggles</p>
     </div>
   );
 };
