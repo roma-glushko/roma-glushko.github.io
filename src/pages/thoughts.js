@@ -50,7 +50,8 @@ class ThoughtListPage extends Component {
                 timeToRead={thought.node.timeToRead} 
                 publishedHumanDate={thought.node.frontmatter.humanDate}
                 publishedFullDate={thought.node.frontmatter.fullDate}
-                excerpt={thought.node.excerpt} 
+                excerpt={thought.node.excerpt}
+                cover={thought.node.frontmatter.cover}
               />
             ))}
           </main>
@@ -76,6 +77,13 @@ export const pageQuery = graphql`
             fullDate: date (formatString: "YYYY-MM-DD") 
             path
             title
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

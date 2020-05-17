@@ -2,6 +2,7 @@
 path: "/thoughts/just-ask/"
 date: "2020-02-02 23:17:00"
 title: "Just Ask"
+cover: "./jan-tinneberg-tVIv23vcuz4-unsplash.jpg"
 keywords:
     - psychology
     - life explorining

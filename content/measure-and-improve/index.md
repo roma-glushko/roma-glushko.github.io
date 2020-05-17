@@ -2,6 +2,7 @@
 path: "/thoughts/measure-and-improve/"
 date: "2020-03-15 22:30:00"
 title: "Measure and Improve"
+cover: "./neonbrand-KYxXMTpTzek-unsplash.jpg"
 keywords:
     - psychology
     - life explorining

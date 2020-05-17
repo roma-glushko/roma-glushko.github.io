@@ -10,7 +10,7 @@ import "./thought-view.css"
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 
 export default function Template({
-  data: {markdownRemark: {frontmatter: {title, humanDate, fullDate, keywords}, html, rawMarkdownBody, timeToRead, excerpt, wordCount: {words}}},
+  data: {markdownRemark: {frontmatter: {title, humanDate, fullDate, keywords, cover}, html, rawMarkdownBody, timeToRead, excerpt, wordCount: {words}}},
   pageContext: { prevThought, nextThought }
 }) {
   return (
@@ -25,7 +25,7 @@ export default function Template({
           <Link to="/thoughts/">Thoughts</Link>
         </div>
         <main>
-          <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} contentHtml={html} />
+          <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
         </main>
         <aside className="thought-sidebar">
           <ThoughtAuthor />
@@ -37,6 +37,7 @@ export default function Template({
           content={rawMarkdownBody}
           wordCount={words}
           keywords={keywords}
+          cover={cover}
         />
     </Layout>
   )
@@ -57,6 +58,13 @@ export const pageQuery = graphql`
         fullDate: date (formatString: "YYYY-MM-DD") 
         title
         keywords
+        cover {
+          childImageSharp {
+            fluid(maxWidth: 3400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

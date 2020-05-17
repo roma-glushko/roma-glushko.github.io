@@ -25,11 +25,11 @@
 
 .thought-view-page .thought-divider {
     clear: both;
-    margin-bottom: 2rem;
 }
 
 .thought-view-page .thought-content {
     margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .thought-view-page .thought-author-wrapper {

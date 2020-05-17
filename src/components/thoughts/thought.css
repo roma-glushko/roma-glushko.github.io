@@ -15,9 +15,13 @@ body.dark {
     color: var(--thoughtHeaderColor);
     font-size: 3rem;
     line-height: 4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-top: 1rem;
     text-align: center;
+}
+
+.thought-wrapper .thought-details {
+    margin-bottom: 1rem;
 }
 
 .thought-wrapper .thought-createdat {
@@ -28,4 +32,20 @@ body.dark {
     float: right;
     margin-left: 1rem;
     margin-top: 0;
+}
+
+.thought-wrapper .cover-filter {
+    left: 50%;
+    margin-left: -50vw;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+}
+
+.thought-wrapper .cover {
+    left: 50%;
+    margin-left: -50vw;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
 }

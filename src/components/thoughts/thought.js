@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Img from "gatsby-image"
 
 import ThemeSwitcher from "../theme/theme-switcher"
 
@@ -14,6 +15,7 @@ const Thought = (props) => {
         publishedHumanDate,
         publishedFullDate,
         contentHtml,
+        cover,
     } = props;
 
     return (
@@ -27,6 +29,9 @@ const Thought = (props) => {
                     <div className="theme-switcher">
                         <ThemeSwitcher />
                     </div>
+                </div>
+                <div class="cover-filter">
+                    <Img className="cover" fluid = { cover.childImageSharp.fluid } />
                 </div>
             </header>
             <div className="thought-divider" />
