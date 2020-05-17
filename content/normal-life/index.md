@@ -1,4 +1,5 @@
 ---
+id: "1dc176bd-6cea-4e5a-bd4a-81483a2e0b25"
 path: "/thoughts/normal-life/"
 date: "2020-02-08 22:17:00"
 title: "Normal Life"

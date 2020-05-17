@@ -1,4 +1,5 @@
 ---
+id: "aa1f9729-ccff-47b8-8581-b52d529b6c9d"
 path: "/thoughts/just-ask/"
 date: "2020-02-02 23:17:00"
 title: "Just Ask"

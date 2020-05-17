@@ -1,4 +1,5 @@
 ---
+id: "87f1195b-cf11-4cd4-a7c7-c47df201574c"
 path: "/thoughts/disadvantages-are-everywhere/"
 date: "2020-01-05 19:30:00"
 title: "Disadvantages are everywhere"

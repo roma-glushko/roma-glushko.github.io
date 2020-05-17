@@ -109,6 +109,12 @@ module.exports = {
               stripQueryString: true,
             },
         },
-        `gatsby-plugin-sitemap`
+        `gatsby-plugin-sitemap`,
+        {
+            resolve: `gatsby-plugin-disqus`,
+            options: {
+              shortname: `roman-glushko`
+            }
+        },
     ],
 }

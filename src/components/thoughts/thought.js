@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image"
 
 import ThemeSwitcher from "../theme/theme-switcher"
+import Comments from "../thoughts/comments"
 
 import "./thought.css"
 import "./thought-content.css"
@@ -10,6 +11,8 @@ import "./thought-content.css"
 const Thought = (props) => {
 
     const {
+        id,
+        path,
         title,
         timeToRead,
         publishedHumanDate,
@@ -39,16 +42,19 @@ const Thought = (props) => {
                 className="thought-content"
                 dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
+            <Comments url={'https://www.romaglushko.com/' + path} title={title} identifier={id} />
         </article>
     );
 };
 
 Thought.propTypes = {
+    id: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     timeToRead: PropTypes.number.isRequired,
     publishedHumanDate: PropTypes.string.isRequired,
     publishedFullDate: PropTypes.string.isRequired,
     contentHtml: PropTypes.string.isRequired,
-  };
+};
 
 export default Thought;

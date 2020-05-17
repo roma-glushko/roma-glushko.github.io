@@ -1,4 +1,5 @@
 ---
+id: "0e432997-5d7c-40f3-8340-865af0d8d1f9"
 path: "/thoughts/focus-on-solutions-not-on-problems/"
 date: "2019-12-26 21:30:00"
 title: "Focus on solutions, not on problems"

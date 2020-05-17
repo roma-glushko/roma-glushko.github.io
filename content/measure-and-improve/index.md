@@ -1,4 +1,5 @@
 ---
+id: "528713ed-8eb9-42bd-ba45-be5fca47aabf"
 path: "/thoughts/measure-and-improve/"
 date: "2020-03-15 22:30:00"
 title: "Measure and Improve"
