@@ -49,11 +49,22 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-web-font-loader',
+            resolve: 'gatsby-plugin-webfonts',
             options: {
-                google: {
-                    families: ['Dancing Script', 'Ledger']
-                }
+                fonts: {
+                    google: [
+                        {
+                            family: "Dancing Script",
+                            fontDisplay: 'swap',
+                        },
+                        {
+                            family: "Ledger",
+                            fontDisplay: 'swap',
+                        },
+                    ],
+                },
+                useMinify: true,
+                usePreload: true,
             }
         },
         `gatsby-plugin-offline`,
