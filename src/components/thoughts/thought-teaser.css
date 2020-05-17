@@ -2,10 +2,14 @@
 
 body {
     --thoughtTeaserHeaderLinkColor: var(--red);
+    --thouthtCoverBlendMode: lighten;
+    --thouthtCoverBlendColor: #5a4e3e;
 }
 
 body.dark {
     --thoughtTeaserHeaderLinkColor: var(--pink);
+    --thouthtCoverBlendMode: lighten;
+    --thouthtCoverBlendColor: #5a4e3e;
 }
 
 
@@ -41,4 +45,12 @@ body.dark {
 .thought-createdat {
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.thought-item .cover-filter {
+    background-color: var(--thouthtCoverBlendColor);
+}
+
+.thought-item .cover {
+    mix-blend-mode: var(--thouthtCoverBlendMode);
 }

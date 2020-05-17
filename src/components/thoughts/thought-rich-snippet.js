@@ -1,26 +1,12 @@
 import React from "react"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-const ThoughtRichSnippet = ({title, datePublished, content, wordCount, keywords}) => {
-  const { personImage } = useStaticQuery(
-    graphql`
-      query {
-        personImage: file(relativePath: { eq: "homepage/photo.jpeg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              src
-            }
-          }
-        }
-      }
-    `
-  )
+const ThoughtRichSnippet = ({title, datePublished, cover, content, wordCount, keywords}) => {
 
   const schemaJSONLD = {
     '@context': 'http://schema.org',
     '@type': 'BlogPosting',
-    image: personImage.childImageSharp.fluid.src,
+    image: cover.childImageSharp.fluid.src,
     headline: title,
     dateCreated: datePublished,
     dateModified: datePublished,

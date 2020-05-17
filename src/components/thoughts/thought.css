@@ -2,10 +2,14 @@
 
 body {
     --thoughtHeaderColor: var(--red);
+    --thouthtCoverBlendMode: lighten;
+    --thouthtCoverBlendColor: #5a4e3e;
 }
 
 body.dark {
     --thoughtHeaderColor: var(--pink);
+    --thouthtCoverBlendMode: overlay;
+    --thouthtCoverBlendColor: var(--midnightDarker);
 }
 
 
@@ -15,9 +19,13 @@ body.dark {
     color: var(--thoughtHeaderColor);
     font-size: 3rem;
     line-height: 4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-top: 1rem;
     text-align: center;
+}
+
+.thought-wrapper .thought-details {
+    margin-bottom: 1rem;
 }
 
 .thought-wrapper .thought-createdat {
@@ -30,6 +38,20 @@ body.dark {
     margin-top: 0;
 }
 
+.thought-wrapper .cover-filter {
+    background-color: var(--thouthtCoverBlendColor);
+    left: 50%;
+    margin-left: -50vw;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+}
+
 .thought-wrapper .cover {
-    width: 100%;
+    left: 50%;
+    margin-left: -50vw;
+    mix-blend-mode: var(--thouthtCoverBlendMode);
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
 }

@@ -30,7 +30,9 @@ const Thought = (props) => {
                         <ThemeSwitcher />
                     </div>
                 </div>
-                <Img className="cover" fluid = { cover.childImageSharp.fluid } />
+                <div class="cover-filter">
+                    <Img className="cover" fluid = { cover.childImageSharp.fluid } />
+                </div>
             </header>
             <div className="thought-divider" />
             <div

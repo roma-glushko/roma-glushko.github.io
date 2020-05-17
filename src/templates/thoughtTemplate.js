@@ -37,6 +37,7 @@ export default function Template({
           content={rawMarkdownBody}
           wordCount={words}
           keywords={keywords}
+          cover={cover}
         />
     </Layout>
   )
@@ -59,7 +60,7 @@ export const pageQuery = graphql`
         keywords
         cover {
           childImageSharp {
-            fluid(maxWidth: 1400) {
+            fluid(maxWidth: 3400) {
               ...GatsbyImageSharpFluid
             }
           }

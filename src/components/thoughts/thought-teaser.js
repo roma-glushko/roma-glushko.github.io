@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 import "./thought-teaser.css"
 
@@ -13,6 +14,7 @@ const ThoughtTeaser = (props) => {
         publishedHumanDate,
         publishedFullDate,
         excerpt,
+        cover,
     } = props;
 
     return (
@@ -23,6 +25,11 @@ const ThoughtTeaser = (props) => {
                 <span> • </span>
                 <span className="thought-time2read">{timeToRead} min read</span>
             </div>
+            <Link to={url}>
+                <div class="cover-filter">
+                    <Img className="cover" fluid={cover.childImageSharp.fluid} />
+                </div>
+            </Link>
             <p className="thought-digest">{excerpt}</p>
         </article>
     );
