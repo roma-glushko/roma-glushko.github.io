@@ -7,6 +7,10 @@ module.exports = async ({ actions, graphql, reporter }) => {
     const result = await graphql(`
       {
         allMarkdownRemark(
+          filter: {frontmatter: {
+            space: {eq: "thoughts"},
+            status: {eq: "published"},
+          }}
           sort: { order: DESC, fields: [frontmatter___date] }
           limit: 1000
         ) {
