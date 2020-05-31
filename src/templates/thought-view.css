@@ -31,6 +31,12 @@ body.dark {
     margin-bottom: 1rem;
 }
 
+@media (max-width: 575px) {
+    .thought-view-page .thoughts-title {
+        font-size: 2rem;
+    }
+}
+
 .thought-view-page .thought-divider {
     clear: both;
 }
