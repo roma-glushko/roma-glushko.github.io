@@ -5,7 +5,7 @@ status: "draft"
 path: "/thoughts/factors-affecting-decision-making/"
 date: "2020-05-31 10:40:00"
 title: "Factors Affecting Decision Making"
-cover: "./steve-johnson-3Sf_G9m0gcQ-unsplash.jpg"
+cover: "./jens-lelie-u0vgcIOQG08-unsplash.jpg"
 keywords:
     - psychology
     - life explorining
