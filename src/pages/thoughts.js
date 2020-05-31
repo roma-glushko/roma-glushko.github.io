@@ -66,7 +66,13 @@ export default ThoughtListPage
 
 export const pageQuery = graphql`
   query ThoughtListQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+        filter: {frontmatter: {
+          space: {eq: "thoughts"},
+          status: {eq: "published"},
+        }},
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
       edges {
         node {
           id
