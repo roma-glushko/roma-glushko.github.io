@@ -34,6 +34,9 @@ export default function Template({data, pageContext: { prevThought, nextThought 
       <SEO 
         title = {title + " - Thoughts"} 
         className="thought-view-page"
+        pagePath={path}
+        imagePath={cover.childImageSharp.fluid.src}
+        ogType="article"
         description={excerpt}
         keywords={keywords}
       />

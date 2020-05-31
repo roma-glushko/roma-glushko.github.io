@@ -10,12 +10,13 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, keywords, lang, meta, title, isUniqueTitle, className }) {
-  const { site } = useStaticQuery(
+function SEO({ description, keywords, lang, meta, title, isUniqueTitle, className, imagePath, pagePath, ogType }) {
+  const { site: {siteMetadata} } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
+            siteUrl
             title
             description
             author
@@ -26,9 +27,25 @@ function SEO({ description, keywords, lang, meta, title, isUniqueTitle, classNam
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const metaKeywords = keywords || site.siteMetadata.keywords
-  const titleTemplate = isUniqueTitle ? `${title}` : `${title} - ${site.siteMetadata.title}`
+  meta = meta || []
+  const type = ogType || 'website'
+  const metaDescription = description || siteMetadata.description
+  const metaKeywords = keywords || siteMetadata.keywords
+  const titleTemplate = isUniqueTitle ? `${title}` : `${title} - ${siteMetadata.title}`
+
+  if (imagePath) {
+    meta.push({
+      property: `og:image`,
+      content: `${siteMetadata.siteUrl}${imagePath}`,
+    })
+  }
+
+  if (pagePath) {
+    meta.push({
+      property: `og:url`,
+      content: `${siteMetadata.siteUrl}${pagePath}`,
+    })
+  }
 
   return (
     <Helmet
@@ -57,7 +74,7 @@ function SEO({ description, keywords, lang, meta, title, isUniqueTitle, classNam
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: type,
         },
         {
           name: `twitter:card`,
@@ -65,7 +82,7 @@ function SEO({ description, keywords, lang, meta, title, isUniqueTitle, classNam
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
         },
         {
           name: `twitter:title`,

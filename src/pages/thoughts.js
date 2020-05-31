@@ -15,7 +15,8 @@ class ThoughtListPage extends Component {
     return (
       <Layout>
         <SEO 
-          title = "Thoughts" 
+          title = "Thoughts"
+          pagePath="/thoughts/"
           className="thoughts-list-page" 
           description="Thoughts and expirience that will help you to go through this life this life in the very best way" 
           keywords={[
