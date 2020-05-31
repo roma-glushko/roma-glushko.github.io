@@ -18,18 +18,16 @@ const ShareBlock = ({ title, path, keywords }) => {
 		site: {
 			siteMetadata: {
 				siteUrl,
-				author,
 			}
 		}
 	} = useStaticQuery(
 		graphql`
 			query {
-			site {
-				siteMetadata {
-					siteUrl
-					author
+				site {
+					siteMetadata {
+						siteUrl
+					}
 				}
-			}
 			}
 		`
 	)
@@ -41,7 +39,7 @@ const ShareBlock = ({ title, path, keywords }) => {
 			<FacebookShareButton url={url} className="social-share-item facebook" aria-label="Share Via Facebook" title="Share Via Facebook" >
 				<FontAwesomeIcon icon={faFacebook} />
 			</FacebookShareButton>
-			<TwitterShareButton url={url} className="social-share-item twitter" title={title} via={author.split('@').join('')} hashtags={keywords} aria-label="Share Via Twitter">
+			<TwitterShareButton url={url} className="social-share-item twitter" title={title} aria-label="Share Via Twitter">
 				<FontAwesomeIcon icon={faTwitter} />
 			</TwitterShareButton>
 			<span className="share-label">share</span>
