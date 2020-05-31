@@ -54,6 +54,10 @@ body.dark {
     opacity: 0.85;
 }
 
+.thought-content blockquote:hover {
+    opacity: 1;
+}
+
 @media (max-width: 575px) {
     .thought-content blockquote {
         margin: 0.5rem;
