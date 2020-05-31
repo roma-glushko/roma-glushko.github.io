@@ -2,6 +2,14 @@
 ** Thought View Page
 **/
 
+body {
+    --thoughtQuoteColor: var(--red);
+}
+
+body.dark {
+    --thoughtQuoteColor: var(--pink);
+}
+
 .thought-wrapper,
 .thought-view-page .thought-sidebar {
     margin-left: auto;
@@ -9,7 +17,7 @@
     max-width: 42rem;
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 767px) {
     .thought-wrapper {
         display: block;
         padding-left: 1rem;
@@ -28,7 +36,6 @@
 }
 
 .thought-view-page .thought-content {
-    margin-bottom: 2rem;
     margin-top: 2rem;
 }
 
@@ -38,4 +45,29 @@
 
 .thought-view-page .thought-navigation-wrapper {
     margin-bottom: 2rem;
+}
+
+.thought-content blockquote {
+    color: var(--thoughtQuoteColor);
+    font-size: 1.3rem;
+    line-height: 1.7;
+    opacity: 0.54;
+}
+
+@media (max-width: 575px) {
+    .thought-content blockquote {
+        margin: 0.5rem;
+    }
+}
+
+.thought-view-page hr {
+    border: none;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.thought-view-page hr::before {
+    letter-spacing: 0.6em;
+    text-indent: 0.6em;
+    content: "***";
 }

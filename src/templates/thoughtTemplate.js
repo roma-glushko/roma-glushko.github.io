@@ -26,6 +26,7 @@ export default function Template({
         </div>
         <main>
           <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
+          <hr/>
         </main>
         <aside className="thought-sidebar">
           <ThoughtAuthor />

@@ -26,6 +26,10 @@ body.dark {
     font-display: swap;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: var(--bodyTextColor);
     background-color: var(--bodyBackgroundColor);
