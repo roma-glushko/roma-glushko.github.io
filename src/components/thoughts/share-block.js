@@ -36,17 +36,17 @@ const ShareBlock = ({ title, path, keywords }) => {
 
 	return(
 		<div className="social-share-wrapper">
-			<FacebookShareButton url={url} className="social-share-item facebook" aria-label="Share Via Facebook" title="Share Via Facebook" >
+			<FacebookShareButton url={url} keywords={keywords} className="social-share-item facebook" aria-label="Share Via Facebook" title="Share Via Facebook" >
 				<FontAwesomeIcon icon={faFacebook} />
 			</FacebookShareButton>
-			<TwitterShareButton url={url} className="social-share-item twitter" title={title} aria-label="Share Via Twitter">
+			<TwitterShareButton url={url} className="social-share-item twitter" title={title} keywords={keywords} aria-label="Share Via Twitter">
 				<FontAwesomeIcon icon={faTwitter} />
 			</TwitterShareButton>
 			<span className="share-label">share</span>
-			<LinkedinShareButton url={url} className="social-share-item linkedin" aria-label="Share Via LinkedIn" title="Share Via LinkedIn">
+			<LinkedinShareButton url={url} className="social-share-item linkedin" aria-label="Share Via LinkedIn" keywords={keywords} title="Share Via LinkedIn">
 				<FontAwesomeIcon icon={faLinkedinIn} />
 			</LinkedinShareButton>
-			<RedditShareButton url={url} className="social-share-item reddit" title={title} aria-label="Share Via Reddit">
+			<RedditShareButton url={url} className="social-share-item reddit" title={title} keywords={keywords} aria-label="Share Via Reddit">
 				<FontAwesomeIcon icon={faReddit} />
 			</RedditShareButton>
 		</div>
