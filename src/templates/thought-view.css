@@ -51,7 +51,7 @@ body.dark {
     color: var(--thoughtQuoteColor);
     font-size: 1.3rem;
     line-height: 1.7;
-    opacity: 0.54;
+    opacity: 0.80;
 }
 
 @media (max-width: 575px) {
