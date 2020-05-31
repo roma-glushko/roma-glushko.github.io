@@ -48,6 +48,6 @@ In any case, adverse outcomes are something we may need to deal with after we ma
 
 Usually, we review decisions in the short-term perspectives. But what this decision brings us in a few months, a year or five years? It's useful to understand possible long-term results. It helps to know how it moves us closer to our ideal state of life or business.
 
-It may be reasonable to make decisions that look tough in short-terms but that moves us toward our goals. Similarly, pretty short-term decisions may turn into the complete wast of time if you look at them globally.
+It may be reasonable to make decisions that look tough in short terms but that moves us toward our goals. Similarly, pretty short-term decisions may turn into the complete wast of time if you look at them globally.
 
 <blockquote>Long-Term Outcomes is another way to look at your decisions. Make decisions that moves you closer to your dreams</blockquote>

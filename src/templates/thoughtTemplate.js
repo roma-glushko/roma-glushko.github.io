@@ -5,14 +5,30 @@ import Thought from "../components/thoughts/thought"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
+import ShareBlock from '../components/thoughts/share-block';
 
 import "./thought-view.css"
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 
-export default function Template({
-  data: {markdownRemark: {frontmatter: {title, humanDate, fullDate, keywords, cover}, html, rawMarkdownBody, timeToRead, excerpt, wordCount: {words}}},
-  pageContext: { prevThought, nextThought }
-}) {
+export default function Template({data, pageContext: { prevThought, nextThought }}) {
+  const {
+		markdownRemark: {
+      frontmatter: {
+        path,
+        title, 
+        humanDate, 
+        fullDate, 
+        keywords, 
+        cover
+      }, 
+      html, 
+      rawMarkdownBody, 
+      timeToRead, 
+      excerpt, 
+      wordCount: {words}
+    }
+	} = data
+
   return (
     <Layout>
       <SEO 
@@ -26,7 +42,7 @@ export default function Template({
         </div>
         <main>
           <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
-          <hr/>
+          <ShareBlock title={title} path={path} tags={keywords} />
         </main>
         <aside className="thought-sidebar">
           <ThoughtAuthor />
@@ -55,6 +71,7 @@ export const pageQuery = graphql`
         words
       }
       frontmatter {
+        path
         humanDate: date(formatString: "MMM D, YYYY")
         fullDate: date (formatString: "YYYY-MM-DD") 
         title
