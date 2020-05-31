@@ -1,0 +1,31 @@
+body {
+    --socialShareBorderHoverColor: var(--red);
+}
+
+body.dark {
+    --socialShareBorderHoverColor: var(--pink);
+}
+
+.social-share-wrapper {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem
+}
+
+.social-share-wrapper .social-share-item {
+    margin-right: 0.8rem;
+    vertical-align: middle;
+}
+
+.social-share-wrapper .social-share-item:hover {
+    color: var(--socialShareBorderHoverColor) !important;
+}
+
+.social-share-wrapper .share-label {
+    font-size: 1rem;
+    margin-right: 0.8rem;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    vertical-align: middle;
+}
