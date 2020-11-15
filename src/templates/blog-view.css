@@ -1,0 +1,83 @@
+/**
+** Thought View Page
+**/
+
+body {
+    --thoughtQuoteColor: var(--red);
+}
+
+body.dark {
+    --thoughtQuoteColor: var(--pink);
+}
+
+.thought-wrapper,
+.thought-view-page .thought-sidebar {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42rem;
+}
+
+@media (max-width: 767px) {
+    .thought-wrapper {
+        display: block;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: auto;
+    }
+}
+
+.thought-view-page .thoughts-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 575px) {
+    .thought-view-page .thoughts-title {
+        font-size: 2rem;
+    }
+}
+
+.thought-view-page .thought-divider {
+    clear: both;
+}
+
+.thought-view-page .thought-content {
+    margin-top: 2rem;
+}
+
+.thought-view-page .thought-author-wrapper {
+    margin-bottom: 2rem;
+}
+
+.thought-view-page .thought-navigation-wrapper {
+    margin-bottom: 2rem;
+}
+
+.thought-content blockquote {
+    color: var(--thoughtQuoteColor);
+    font-size: 1.3rem;
+    line-height: 1.7;
+    opacity: 0.85;
+}
+
+.thought-content blockquote:hover {
+    opacity: 1;
+}
+
+@media (max-width: 575px) {
+    .thought-content blockquote {
+        margin: 0.5rem;
+    }
+}
+
+.thought-view-page hr {
+    border: none;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.thought-view-page hr::before {
+    letter-spacing: 0.6em;
+    text-indent: 0.6em;
+    content: "***";
+}

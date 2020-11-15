@@ -1,50 +1,38 @@
 import React, { Component } from 'react';
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
-import ThoughtAuthor from "../components/thoughts/thought-author"
-import ThemeSwitcher from "../components/theme/theme-switcher"
-import ThoughtTeaser from '../components/thoughts/thought-teaser'
+import BlogHeader from "../components/blog/blog-header"
+import BlogTeaser from '../components/blog/blog-teaser'
 
-import "./thoughts.css"
+import "./blog.css"
 
-class ThoughtListPage extends Component {
+class BlogListPage extends Component {
   render() {
     const { data: { allMarkdownRemark: { edges } }} = this.props
 
     return (
       <Layout>
         <SEO 
-          title = "Thoughts"
-          pagePath="/thoughts/"
-          className="thoughts-list-page" 
-          description="Thoughts and expirience that will help you to go through this life this life in the very best way" 
+          title = "Blog"
+          pagePath="/blog/"
+          className="blog-list-page" 
+          description="TBU" 
           keywords={[
-            'thougths',
-            'opinion',
-            'life explorining',
-            'psychology',
-            'roman glushko thoughts',
-            'roman hlushko thoughts',
-            'life',
-            'people',
-            'management',
+            'technical blog',
+            'machine learning blog',
+            'math',
+            'engineering',
+            'roman glushko blog',
           ]}
         />
-        <div className="thoughts-wrapper">
-          <h1 className="thoughts-title">Thoughts</h1>
-          <aside className="thought-sidebar">
-            <ThoughtAuthor />
-            <div className="navigation">
-                <Link to="/">← Take Me Home</Link>
-            </div>
-            <div className="theme-switcher">
-                <ThemeSwitcher />
-              </div>
+        <div className="blog-wrapper">
+          <aside className="blog-sidebar">
+            <BlogHeader />
           </aside>
-          <main className="thoughts-list">
+          <main className="blog-list">
             {edges.map(thought => (
-              <ThoughtTeaser 
+              <BlogTeaser 
                 title={thought.node.frontmatter.title} 
                 url={thought.node.frontmatter.path} 
                 timeToRead={thought.node.timeToRead} 
@@ -62,13 +50,13 @@ class ThoughtListPage extends Component {
   }
 }
 
-export default ThoughtListPage
+export default BlogListPage
 
 export const pageQuery = graphql`
-  query ThoughtListQuery {
+  query TechListQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }, 
-      filter: {fileAbsolutePath: {regex: "/(thoughts)/"  }}
+      filter: {fileAbsolutePath: {regex: "/(blog)/"  }}
     ) {
       edges {
         node {
@@ -82,7 +70,7 @@ export const pageQuery = graphql`
             title
             cover {
               childImageSharp {
-                fluid(maxWidth: 400) {
+                fluid(maxWidth: 620) {
                   ...GatsbyImageSharpFluid
                 }
               }

@@ -2,12 +2,12 @@ const path = require(`path`)
 
 module.exports = async ({ actions, graphql, reporter }) => {
     const { createPage } = actions
-    const thoughtTemplate = path.resolve(`src/templates/thoughtTemplate.js`)
+    const blogTemplate = path.resolve(`src/templates/blogTemplate.js`)
     
     const result = await graphql(`
       {
         allMarkdownRemark(
-          filter: {fileAbsolutePath: {regex: "/(thoughts)/"  }},
+          filter: {fileAbsolutePath: {regex: "/(blog)/"  }},
           sort: { order: DESC, fields: [frontmatter___date] }
           limit: 1000
         ) {
@@ -29,15 +29,15 @@ module.exports = async ({ actions, graphql, reporter }) => {
       return
     }
   
-    const thoughts = result.data.allMarkdownRemark.edges
+    const blogposts = result.data.allMarkdownRemark.edges
   
-    thoughts.forEach(({ node }, index) => {
-      prevThought = index === 0 ? undefined : thoughts[index - 1].node;
-      nextThought = index === thoughts.length - 1 ? undefined : thoughts[index + 1].node;
+    blogposts.forEach(({ node }, index) => {
+      prevThought = index === 0 ? undefined : blogposts[index - 1].node;
+      nextThought = index === blogposts.length - 1 ? undefined : blogposts[index + 1].node;
   
       createPage({
         path: node.frontmatter.path,
-        component: thoughtTemplate,
+        component: blogTemplate,
         context: {
           prevThought,
           nextThought,

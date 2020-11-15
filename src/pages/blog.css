@@ -1,0 +1,31 @@
+/** Theme variables **/
+
+body {
+    --thoughtsPageTitleColor: var(--red);
+}
+
+body.dark {
+    --thoughtsPageTitleColor: var(--pink);
+}
+
+/** Thoughts List Page **/
+
+.blog-wrapper {
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-sidebar {
+    margin: 2rem 0;
+}
+
+@media (max-width: 575px) {
+    .blog-sidebar {
+        margin: 1rem 0;
+    }
+}
+
+.blog-list {
+    text-align: center;
+}

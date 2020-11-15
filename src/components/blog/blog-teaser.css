@@ -1,0 +1,45 @@
+/** Theme variables **/
+
+body {
+    --thoughtTeaserHeaderLinkColor: var(--red);
+}
+
+body.dark {
+    --thoughtTeaserHeaderLinkColor: var(--pink);
+}
+
+
+/** Thought Item Styles **/
+
+.blog-item {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.blog-item h2 {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.blog-item h2 a {
+    color: var(--thoughtTeaserHeaderLinkColor);
+}
+
+.blog-item p.blog-digest {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.blog-item .blog-details {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-created-at {
+    font-weight: 600;
+    text-transform: uppercase;
+}
