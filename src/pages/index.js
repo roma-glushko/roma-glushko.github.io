@@ -63,10 +63,12 @@ const IndexPage = () => (
                             <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">AI Researcher, Magento Software Engineer and eCommerce Specialist</a> 💼
                         </p>
                     </div>
-                    <p>Over four years, I'm helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a>. During this time, I learned how to meet business goals with the platform capabilities. I have passed 5 Magento certifications to expand and prove my knowledge.</p>
-                    <p>I've been lucky to be part of the <a href="https://www.atwix.com/" target="blank">Atwix family</a> 👨‍👩‍👧‍👦 - open-minded people that support and aspire to grow 🌱 I've been leading a team there for more than three years. Management helped me to get - individuals are one and the only possible asset for every business. Also, it brought me a way more <Link to="/thoughts/">other thoughts</Link>✏️</p>  
-                    <p>Magento shaped my carrier and me a lot. So I wanted to find my way to thanks back. I decided to start <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> 🗞 It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants 🤝</p>
-                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a> where I solve my everyday challenges. You will find them useful as well.</p>
+
+                    <p>I have been doing software engineering for more than five years now. Most of this time, I was working as a Magento Software Engineer 💻 at <a href="https://www.atwix.com/" target="blank">Atwix Inc.</a></p>
+                    <p>After some time, I took a technical lead position 👔 and was leading several teams at the company. We had been helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a>. During that time, I learned how to translate business problems into software solutions, automate processes and work with people. Also, I have passed 5 Magento certifications to expand my knowledge 🏅</p>
+                    <p>I have started <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> 🗞 It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants 🤝 </p>
+                    <p><strong>Most importantly</strong> I have decided to take a learning sabbatical recently. The goal is to obtain a Machine Learning Nanodegree 👨‍🔬 and help to transform this world and our lives with AI-based systems. I know this is a big rock. So it's time to <Link to="/tech/">LEARN</Link>📚</p>
+                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a>🛠 and journaling <Link to="/thoughts/">my thoughts</Link>✏️ You may find them useful as well.</p>
                 </div>
             </div>
         </main>
