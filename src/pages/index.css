@@ -80,6 +80,18 @@ html.home-page,
     max-width: 800px;
 }
 
+.my-story-content .intro {
+   text-align: center;
+}
+
+.my-story-content .intro .hey {
+    margin-bottom: 8px;
+}
+
+.my-story-content .intro .title-summary {
+    margin-top: 0;
+}
+
 .my-story-content a {
     color: var(--storyLinkColor);
     font-weight: 700;
