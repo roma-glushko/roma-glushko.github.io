@@ -32,7 +32,7 @@
 }
 
 .blog-header-wrapper .blog-title {
-    padding-left: 1.5rem;
+    padding-left: 3rem;
 }
 
 .blog-header-wrapper .blog-title {
@@ -49,6 +49,7 @@
     .blog-header-wrapper .blog-title {
         font-size: 3rem;
         line-height: 3rem;
+        padding-left: 1rem;
     }
 
     .blog-header-wrapper .name {
