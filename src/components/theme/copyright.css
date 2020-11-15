@@ -1,0 +1,12 @@
+body {
+    --copyrightColor: var(--midnightDarker);
+}
+
+body.dark {
+    --copyrightColor: var(--grey);
+}
+
+.copyright {
+    color: var(--copyrightColor);
+    text-align: center;
+}

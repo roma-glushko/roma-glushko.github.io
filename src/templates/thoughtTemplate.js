@@ -5,7 +5,7 @@ import Thought from "../components/thoughts/thought"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
-import ShareBlock from '../components/thoughts/share-block';
+import ShareBlock from '../components/thoughts/share-block'
 
 import "./thought-view.css"
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"

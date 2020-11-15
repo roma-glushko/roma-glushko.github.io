@@ -58,16 +58,16 @@ const IndexPage = () => (
                 </div>
                 <div className="column my-story-content">
                     <div class="intro">
-                        <p class="hey">Hey, I'm Roman 👋</p>
+                        <p class="hey">Hey, I'm Roman <span role="img">👋</span></p>
                         <p class="title-summary">
-                            <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">AI Researcher and Magento eCommerce Software Engineer</a> 💼
+                            <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">AI Researcher and Magento eCommerce Software Engineer</a> <span role="img">💼</span>
                         </p>
                     </div>
-                    <p>I have been doing software engineering for more than five years now. Most of this time, I was working as a Magento Software Engineer 💻 at <a href="https://www.atwix.com/" target="blank">Atwix Inc.</a></p>
-                    <p>After some time, I grew to a technical lead position and was leading several teams at the company 🌱 We had been helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a> 🛒 I learned how to translate business problems into software solutions, automate processes and work with people 🙌 Also, I have passed 5 Magento certifications to expand my knowledge 🏅</p>
-                    <p>I started <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> 🗞 It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants 🤝 </p>
-                    <p><strong>Most importantly</strong> I have decided to take a learning sabbatical recently. The goal is to obtain a Machine Learning Nanodegree 👨‍🔬 and help to transform this world and our lives with AI-based systems. I know this is a big rock. So it's time to <Link to="/tech/">LEARN</Link>📚</p>
-                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a>🛠 and journal <Link to="/thoughts/">my thoughts</Link>✏️ You may find them useful as well.</p>
+                    <p>I have been doing software engineering for more than five years now. Most of this time, I was working as a Magento Software Engineer <span role="img">💻</span> at <a href="https://www.atwix.com/" target="blank">Atwix Inc.</a></p>
+                    <p>After some time, I grew to a technical lead position and was leading several teams at the company <span role="img">🌱</span> We had been helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a> 🛒 I learned how to translate business problems into software solutions, automate processes and work with people <span role="img">🙌</span> Also, I have passed 5 Magento certifications to expand my knowledge <span role="img">🏅</span></p>
+                    <p>I started <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> <span role="img">🗞</span> It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants <span role="img">🤝</span> </p>
+                    <p><strong>Most importantly</strong> I have decided to take a learning sabbatical recently. The goal is to obtain a Machine Learning Nanodegree <span role="img">👨‍🔬</span> and help to transform this world and our lives with AI-based systems. I know this is a big rock. So it's time to <Link to="/tech/">LEARN</Link><span role="img">📚</span></p>
+                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a><span role="img">🛠</span> and journal <Link to="/thoughts/">my thoughts</Link><span role="img">✏️</span> You may find them useful as well.</p>
                 </div>
             </div>
         </main>
