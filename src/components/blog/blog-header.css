@@ -53,6 +53,15 @@
     .blog-header-wrapper .name {
         font-size: 1.5rem;
     }
+
+    .blog-header-wrapper .logo {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .blog-header-wrapper .logo-img {
+        width: 5rem;
+    }
 }
 
 .blog-header-wrapper .blog-title a {

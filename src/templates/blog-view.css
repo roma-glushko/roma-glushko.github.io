@@ -11,7 +11,7 @@ body.dark {
 }
 
 .blogpost-view-page .blogpost-header {
-    margin: 0.5rem 0;
+    margin: 1rem 0;
 }
 
 .blogpost-view-page .blog-header-wrapper .logo {
@@ -31,7 +31,6 @@ body.dark {
     font-size: 3rem;
     padding-left: 1rem;
 }
-
 
 .thought-wrapper,
 .blogpost-view-page .thought-sidebar {
