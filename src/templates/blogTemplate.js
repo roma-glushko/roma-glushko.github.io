@@ -1,14 +1,14 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import ThoughtAuthor from "../components/thoughts/thought-author"
-import Thought from "../components/thoughts/thought"
+import BlogHeader from "../components/blog/blog-header"
+import BlogPost from "../components/blog/blog-post"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
+import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 
 import "./blog-view.css"
-import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 
 export default function Template({data, pageContext: { prevThought, nextThought }}) {
   const {
@@ -33,22 +33,21 @@ export default function Template({data, pageContext: { prevThought, nextThought 
     <Layout>
       <SEO 
         title = {title + " - Blog"} 
-        className="thought-view-page"
+        className="blogpost-view-page"
         pagePath={path}
         imagePath={cover.childImageSharp.fluid.src}
         ogType="article"
         description={excerpt}
         keywords={keywords}
       />
-        <div className="thoughts-title">
-          <Link to="/blog/">Blog</Link>
+        <div className="blogpost-header">
+          <BlogHeader />
         </div>
         <main>
-          <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
+          <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
           <ShareBlock title={title} path={path} tags={keywords} />
         </main>
-        <aside className="thought-sidebar">
-          <ThoughtAuthor />
+        <aside className="blogpost-sidebar">
           <ThoughtNavigation prev={prevThought} next={nextThought} />
         </aside>
         <ThoughtRichSnippet 

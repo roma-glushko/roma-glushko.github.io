@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 import ThemeSwitcher from "../theme/theme-switcher"
 
-import "./thought.css"
+import "./blog-post.css"
 import "../theme/content.css"
 
 const Thought = (props) => {
