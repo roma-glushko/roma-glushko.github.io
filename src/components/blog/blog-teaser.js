@@ -20,13 +20,13 @@ const BlogTeaser = (props) => {
     return (
         <article className="blog-item">
             <Link to={url}>
-                <div class="cover-filter">
+                <div className="cover-filter">
                     <Img className="cover" fluid={cover.childImageSharp.fluid} />
                 </div>
             </Link>
             <h2><Link to={url}>{title}</Link></h2>
             <div className="blog-details">
-                <time className="blog-created-at" datetime={publishedFullDate}>{publishedHumanDate}</time>
+                <time className="blog-created-at" dateTime={publishedFullDate}>{publishedHumanDate}</time>
                 <span> • </span>
                 <span className="blog-time2read">{timeToRead} min read</span>
             </div>
@@ -38,7 +38,7 @@ const BlogTeaser = (props) => {
 BlogTeaser.propTypes = {
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    timeToRead: PropTypes.string.isRequired,
+    timeToRead: PropTypes.number.isRequired,
     publishedDate: PropTypes.string.isRequired,
     excerpt: PropTypes.string.isRequired,
   };

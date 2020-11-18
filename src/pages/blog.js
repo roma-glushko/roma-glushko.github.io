@@ -37,24 +37,22 @@ class BlogListPage extends Component {
               Technical blog about machine learning, data science, math and software engineering.
             </div>
             <div className="misc">
-              <div className="navigation">
-                <Link to="/">← Take Me Home</Link>
-              </div>
               <div className="theme-switcher">
                 <ThemeSwitcher />
               </div>
             </div>
           </aside>
           <main className="blog-list blog-grid">
-            {edges.map(thought => (
+            {edges.map(blogpost => (
               <BlogTeaser 
-                title={thought.node.frontmatter.title} 
-                url={thought.node.frontmatter.path} 
-                timeToRead={thought.node.timeToRead} 
-                publishedHumanDate={thought.node.frontmatter.humanDate}
-                publishedFullDate={thought.node.frontmatter.fullDate}
-                excerpt={thought.node.excerpt}
-                cover={thought.node.frontmatter.cover}
+                key={blogpost.node.id}
+                title={blogpost.node.frontmatter.title} 
+                url={blogpost.node.frontmatter.path} 
+                timeToRead={blogpost.node.timeToRead} 
+                publishedHumanDate={blogpost.node.frontmatter.humanDate}
+                publishedFullDate={blogpost.node.frontmatter.fullDate}
+                excerpt={blogpost.node.excerpt}
+                cover={blogpost.node.frontmatter.cover}
               />
             ))}
           </main>

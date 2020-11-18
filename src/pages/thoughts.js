@@ -37,17 +37,15 @@ class ThoughtListPage extends Component {
           <h1 className="thoughts-title">Thoughts</h1>
           <aside className="thought-sidebar">
             <ThoughtAuthor />
-            <MainNavigation />
-            <div className="navigation">
-                <Link to="/">← Take Me Home</Link>
-            </div>
+            <MainNavigation space={"thoughts"} />
             <div className="theme-switcher">
                 <ThemeSwitcher />
               </div>
           </aside>
           <main className="thoughts-list">
             {edges.map(thought => (
-              <ThoughtTeaser 
+              <ThoughtTeaser
+                key={thought.node.id}
                 title={thought.node.frontmatter.title} 
                 url={thought.node.frontmatter.path} 
                 timeToRead={thought.node.timeToRead} 

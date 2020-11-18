@@ -17,7 +17,7 @@ const BlogHeader = () => {
           </div>
           <h1 className="blog-title"><Link to="/blog/">Blog</Link></h1>
         </div>
-        <MainNavigation />
+        <MainNavigation space={"blog"} />
     </div>
   )
 }

@@ -50,7 +50,7 @@ const IndexPage = () => (
                             <ReactRotatingText items={titles} />
                         </div>
                     </div>
-                    <MainNavigation />
+                    <MainNavigation space={"homepage"} />
                     <SocialLinks />
                     <div className="theme-switcher">
                         <ThemeSwitcher />

@@ -25,10 +25,10 @@ const Thought = (props) => {
                 <div class="cover-filter">
                     <Img className="cover" fluid = { cover.childImageSharp.fluid } />
                 </div>
-                <MainNavigation />
+                <MainNavigation space={"thoughts"} />
                 <h1>{title}</h1>
                 <div className="thought-details">
-                    <time className="thought-createdat" datetime={publishedFullDate}>{publishedHumanDate}</time>
+                    <time className="thought-createdat" dateTime={publishedFullDate}>{publishedHumanDate}</time>
                     <span> • </span>
                     <span className="thought-time2read">{timeToRead} min read</span>
                     <div className="theme-switcher">
