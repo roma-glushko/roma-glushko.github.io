@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image"
 
+import MainNavigation from "../theme/main-navigation"
 import ThemeSwitcher from "../theme/theme-switcher"
 
 import "./thought.css"
@@ -21,6 +22,10 @@ const Thought = (props) => {
     return (
         <article className="thought-wrapper">
             <header>
+                <div class="cover-filter">
+                    <Img className="cover" fluid = { cover.childImageSharp.fluid } />
+                </div>
+                <MainNavigation />
                 <h1>{title}</h1>
                 <div className="thought-details">
                     <time className="thought-createdat" datetime={publishedFullDate}>{publishedHumanDate}</time>
@@ -29,9 +34,6 @@ const Thought = (props) => {
                     <div className="theme-switcher">
                         <ThemeSwitcher />
                     </div>
-                </div>
-                <div class="cover-filter">
-                    <Img className="cover" fluid = { cover.childImageSharp.fluid } />
                 </div>
             </header>
             <div className="thought-divider" />
