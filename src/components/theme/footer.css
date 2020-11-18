@@ -1,0 +1,38 @@
+body {
+    --footerBgColor: var(--grey);
+    --copyrightColor: var(--midnightDarker);
+}
+
+body.dark {
+    --footerBgColor: var(--midnightDarker);
+    --copyrightColor: var(--grey);
+}
+/**
+** Sticky footer - https://css-tricks.com/couple-takes-sticky-footer/#:~:text=The%20purpose%20of%20a%20sticky,bottom%20of%20the%20browser%20window.
+**/
+
+footer {
+   background-color: var(--footerBgColor); 
+}
+
+footer .footer-wrapper {
+    padding: 4rem 1rem;
+}
+
+.copyright {
+    color: var(--copyrightColor);
+    text-align: center;
+}
+
+.footer-separator {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-separator .separator {
+    background-color: white;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    margin-right: 20px;
+}

@@ -4,6 +4,7 @@ import ThoughtAuthor from "../components/thoughts/thought-author"
 import Thought from "../components/thoughts/thought"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
+import Footer from "../components/theme/footer"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
 
@@ -51,6 +52,7 @@ export default function Template({data, pageContext: { prevThought, nextThought 
           <ThoughtAuthor />
           <ThoughtNavigation prev={prevThought} next={nextThought} />
         </aside>
+        <Footer />
         <ThoughtRichSnippet 
           title={title}
           datePublished={fullDate}

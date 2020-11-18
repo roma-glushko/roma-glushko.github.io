@@ -7,6 +7,7 @@ import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
+import Footer from "../components/theme/footer"
 
 import "./blog-view.css"
 
@@ -50,6 +51,7 @@ export default function Template({data, pageContext: { prevThought, nextThought 
         <aside className="blogpost-sidebar">
           <ThoughtNavigation prev={prevThought} next={nextThought} />
         </aside>
+        <Footer />
         <ThoughtRichSnippet 
           title={title}
           datePublished={fullDate}

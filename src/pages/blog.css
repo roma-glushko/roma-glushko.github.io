@@ -54,7 +54,7 @@ body.dark {
 }
 
 .blog-grid .blog-item {
-    flex: 30%;
+    flex: 0 1 30%;
     padding: 10px;
 }
 
@@ -64,7 +64,7 @@ body.dark {
 
 @media screen and (max-width: 992px) {
     .blog-grid .blog-item {
-        flex: 45%;
+        flex: 0 45%;
     }
 }
 

@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import BlogHeader from "../components/blog/blog-header"
 import BlogTeaser from "../components/blog/blog-teaser"
 import ThemeSwitcher from "../components/theme/theme-switcher"
+import Footer from "../components/theme/footer"
 
 import "./blog.css"
 
@@ -59,6 +60,7 @@ class BlogListPage extends Component {
           </main>
           <div className="clearfix" />
         </div>
+        <Footer />
       </Layout>
     )
   }

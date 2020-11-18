@@ -4,7 +4,8 @@ import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
-import ThoughtTeaser from '../components/thoughts/thought-teaser'
+import ThoughtTeaser from "../components/thoughts/thought-teaser"
+import Footer from "../components/theme/footer"
 
 import "./thoughts.css"
 
@@ -57,6 +58,7 @@ class ThoughtListPage extends Component {
           </main>
           <div className="clearfix" />
         </div>
+        <Footer />
       </Layout>
     )
   }
