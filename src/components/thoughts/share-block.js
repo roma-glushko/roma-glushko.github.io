@@ -42,7 +42,6 @@ const ShareBlock = ({ title, path, keywords }) => {
 			<TwitterShareButton url={url} className="social-share-item twitter" title={title} keywords={keywords} aria-label="Share Via Twitter">
 				<FontAwesomeIcon icon={faTwitter} />
 			</TwitterShareButton>
-			<span className="share-label">share</span>
 			<LinkedinShareButton url={url} className="social-share-item linkedin" aria-label="Share Via LinkedIn" keywords={keywords} title="Share Via LinkedIn">
 				<FontAwesomeIcon icon={faLinkedinIn} />
 			</LinkedinShareButton>
