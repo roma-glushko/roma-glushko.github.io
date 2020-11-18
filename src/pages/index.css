@@ -4,12 +4,16 @@ body {
     --avatarBorderColor: var(--grey);
     --secondNameColor: var(--red);
     --storyLinkColor: var(--red);
+    --socialLinkBorderColor: var(--grey);
+    --socialLinkBorderHoverColor: var(--red);
 }
 
 body.dark {
     --avatarBorderColor: var(--grey);
     --secondNameColor: var(--pink);
     --storyLinkColor: var(--pink);
+    --socialLinkBorderColor: var(--grey);
+    --socialLinkBorderHoverColor: var(--pink);
 }
 
 
@@ -117,4 +121,37 @@ html.home-page,
 
 .home-page .theme-switcher {
     margin-top: 10px;
+}
+
+/** Social Links Styles **/
+
+.homepage-sidebar .social {
+    margin-top: 20px;
+}
+
+/** move to social-links.css **/
+.social .social-list {
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.homepage-sidebar .social .social-list .social-item {
+    border: 1px solid var(--socialLinkBorderColor);
+    border-radius: 50%;
+    margin: .25rem;
+}
+
+.homepage-sidebar .social .social-list .social-item:hover {
+    border: 1px solid var(--socialLinkBorderHoverColor);
+}
+
+.homepage-sidebar .social .social-list .social-item > a > svg {
+    padding: 10px;
+    vertical-align: middle;
 }

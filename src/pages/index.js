@@ -36,7 +36,7 @@ const IndexPage = () => (
         <SEO title = "Roman Glushko - Machine Learning Engineer, Magento eCommerce Software Developer and Life Explorer 🧔🛠👨‍💻📚" isUniqueTitle={true} className="home-page" pagePath="/" />
         <main className="container">
             <div className="row">
-                <div className="column sidebar">
+                <div className="column homepage-sidebar sidebar">
                     <div className="logo">
                         <div className="avatar">
                             <Avatar />
@@ -51,7 +51,7 @@ const IndexPage = () => (
                         </div>
                     </div>
                     <MainNavigation space={"homepage"} />
-                    <SocialLinks />
+                    <SocialLinks iconSize="sm" />
                     <div className="theme-switcher">
                         <ThemeSwitcher />
                     </div>

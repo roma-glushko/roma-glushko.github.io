@@ -45,6 +45,10 @@ body.dark {
     .blog-sidebar .blog-header-wrapper {
         margin-bottom: 1rem;
     }
+
+    .blog-sidebar .blog-intro {
+        padding: 0 1rem;
+    }
 }
 
 .blog-grid {

@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-wrapper">
-        <SocialLinks />
+        <SocialLinks iconSize="2x" />
         <div className="copyright">
           Roman Glushko © 1996 - {new Date().getFullYear()}
         </div>
