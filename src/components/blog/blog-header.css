@@ -9,10 +9,11 @@
 }
 
 .blog-header-wrapper .logo {
-    border-radius: 50%;
-    width: 122px;
-    height: 122px;
     border: 1px solid var(--avatarBorderColor);
+    border-radius: 50%;
+    height: 122px;
+    user-select: none;
+    width: 122px;
 }
 
 .blog-header-wrapper .logo-img {
@@ -32,14 +33,13 @@
 }
 
 .blog-header-wrapper .blog-title {
-    padding-left: 2rem;
-}
-
-.blog-header-wrapper .blog-title {
     color: var(--thoughtsPageTitleColor);
     font-family: 'Dancing Script', cursive;
     font-size: 4rem;
     font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 1.5rem;
     text-align: center;
 }
 
