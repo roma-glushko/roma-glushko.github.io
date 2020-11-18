@@ -54,5 +54,6 @@ body.dark {
     margin-left: -50vw;
     overflow: hidden;
     position: relative;
+    max-height: 600px;
     width: 100vw;
 }

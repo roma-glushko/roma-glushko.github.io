@@ -21,6 +21,9 @@ const Thought = (props) => {
     return (
         <article className="thought-wrapper">
             <header>
+                <div class="cover-filter">
+                    <Img className="cover" fluid = { cover.childImageSharp.fluid } />
+                </div>
                 <h1>{title}</h1>
                 <div className="thought-details">
                     <time className="thought-createdat" datetime={publishedFullDate}>{publishedHumanDate}</time>
@@ -29,9 +32,6 @@ const Thought = (props) => {
                     <div className="theme-switcher">
                         <ThemeSwitcher />
                     </div>
-                </div>
-                <div class="cover-filter">
-                    <Img className="cover" fluid = { cover.childImageSharp.fluid } />
                 </div>
             </header>
             <div className="thought-divider" />

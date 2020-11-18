@@ -11,7 +11,7 @@ const BlogHeader = () => {
             <div className="logo">
                 <Logo />
             </div>
-            <div className="name"><Link to="/">Roman <br /> Glushko</Link></div>
+            <div className="name"><Link to="/blog/">Roman <br /> Glushko</Link></div>
         </div>
         <h1 className="blog-title"><Link to="/blog/">Blog</Link></h1>
     </div>
