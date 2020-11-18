@@ -38,7 +38,6 @@ body.dark {
 }
 
 .thought-sidebar .navigation {
-    margin-top: 2rem;
     text-align: center;
 }
 
@@ -84,7 +83,7 @@ body.dark {
 
 @media (max-width: 575.98px) {
     .thought-sidebar .theme-switcher {
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
 }
 

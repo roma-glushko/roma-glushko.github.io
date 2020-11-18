@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql, Link } from "gatsby"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
+import MainNavigation from "../components/theme/main-navigation"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ThoughtTeaser from "../components/thoughts/thought-teaser"
@@ -36,6 +37,7 @@ class ThoughtListPage extends Component {
           <h1 className="thoughts-title">Thoughts</h1>
           <aside className="thought-sidebar">
             <ThoughtAuthor />
+            <MainNavigation />
             <div className="navigation">
                 <Link to="/">← Take Me Home</Link>
             </div>

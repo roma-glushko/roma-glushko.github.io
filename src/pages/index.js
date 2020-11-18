@@ -5,8 +5,8 @@ import SEO from "../components/seo"
 import PersonRichSnippet from "../components/homepage/person-rich-snippet"
 import Avatar from "../components/homepage/avatar"
 import ThemeSwitcher from "../components/theme/theme-switcher"
-import ReactRotatingText from 'react-rotating-text';
-import MainNavigation from "../components/homepage/main-navigation"
+import ReactRotatingText from "react-rotating-text"
+import MainNavigation from "../components/theme/main-navigation"
 import SocialLinks from "../components/homepage/social-links"
 import { Link } from "gatsby"
 
