@@ -11,18 +11,38 @@ body.dark {
 /** Thoughts List Page **/
 
 .blog-wrapper {
-    max-width: 70rem;
+    max-width: 45rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+.blog-sidebar .blog-intro {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding: 0 5rem;
+    text-align: center;
 }
 
 .blog-sidebar {
     margin: 2rem 0;
 }
 
+.blog-sidebar .blog-header-wrapper {
+    margin-bottom: 2rem;
+}
+
+.blog-sidebar .misc {
+    display: flex;
+    justify-content: space-around;
+}
+
 @media (max-width: 575px) {
     .blog-sidebar {
         margin: 1rem 0;
+    }
+
+    .blog-sidebar .blog-header-wrapper {
+        margin-bottom: 1rem;
     }
 }
 

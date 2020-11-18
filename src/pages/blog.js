@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import BlogHeader from "../components/blog/blog-header"
-import BlogTeaser from '../components/blog/blog-teaser'
+import BlogTeaser from "../components/blog/blog-teaser"
+import ThemeSwitcher from "../components/theme/theme-switcher"
 
 import "./blog.css"
 
@@ -23,12 +24,25 @@ class BlogListPage extends Component {
             'machine learning blog',
             'math',
             'engineering',
+            'data science',
             'roman glushko blog',
+            'roma glushko blog',
           ]}
         />
         <div className="blog-wrapper">
           <aside className="blog-sidebar">
             <BlogHeader />
+            <div className="blog-into">
+              Technical blog about machine learning, data science, math and software engineering.
+            </div>
+            <div className="misc">
+              <div className="navigation">
+                <Link to="/">← Take Me Home</Link>
+              </div>
+              <div className="theme-switcher">
+                <ThemeSwitcher />
+              </div>
+            </div>
           </aside>
           <main className="blog-list">
             {edges.map(thought => (

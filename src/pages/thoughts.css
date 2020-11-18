@@ -46,6 +46,10 @@ body.dark {
     text-transform: uppercase;
 }
 
+.thought-sidebar .theme-switcher {
+    margin-top: 10px;
+}
+
 .thoughts-wrapper .thoughts-list {
     float: left;
     padding-left: 5rem;
