@@ -36,7 +36,7 @@ const Thought = (props) => {
             </header>
             <div className="thought-divider" />
             <div
-                className="thought-content"
+                className="content thought-content"
                 dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
         </article>

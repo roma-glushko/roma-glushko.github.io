@@ -36,7 +36,7 @@ body.dark {
 .blogpost-view-page .thought-sidebar {
     margin-left: auto;
     margin-right: auto;
-    max-width: 42rem;
+    max-width: 43rem;
 }
 
 @media (max-width: 767px) {
@@ -73,23 +73,6 @@ body.dark {
 
 .blogpost-view-page .thought-navigation-wrapper {
     margin-bottom: 2rem;
-}
-
-.thought-content blockquote {
-    color: var(--thoughtQuoteColor);
-    font-size: 1.3rem;
-    line-height: 1.7;
-    opacity: 0.85;
-}
-
-.thought-content blockquote:hover {
-    opacity: 1;
-}
-
-@media (max-width: 575px) {
-    .thought-content blockquote {
-        margin: 0.5rem;
-    }
 }
 
 .blogpost-view-page hr {
