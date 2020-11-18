@@ -32,7 +32,7 @@ class BlogListPage extends Component {
         <div className="blog-wrapper">
           <aside className="blog-sidebar">
             <BlogHeader />
-            <div className="blog-into">
+            <div className="blog-intro">
               Technical blog about machine learning, data science, math and software engineering.
             </div>
             <div className="misc">
@@ -44,7 +44,7 @@ class BlogListPage extends Component {
               </div>
             </div>
           </aside>
-          <main className="blog-list">
+          <main className="blog-list blog-grid">
             {edges.map(thought => (
               <BlogTeaser 
                 title={thought.node.frontmatter.title} 

@@ -11,7 +11,7 @@ body.dark {
 /** Thoughts List Page **/
 
 .blog-wrapper {
-    max-width: 45rem;
+    max-width: 70rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -24,7 +24,8 @@ body.dark {
 }
 
 .blog-sidebar {
-    margin: 2rem 0;
+    margin: 2rem auto;
+    max-width: 45rem;
 }
 
 .blog-sidebar .blog-header-wrapper {
@@ -36,7 +37,7 @@ body.dark {
     justify-content: space-around;
 }
 
-@media (max-width: 575px) {
+@media screen and (max-width: 575px) {
     .blog-sidebar {
         margin: 1rem 0;
     }
@@ -46,6 +47,34 @@ body.dark {
     }
 }
 
-.blog-list {
-    text-align: center;
+.blog-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.blog-grid .blog-item {
+    flex: 30%;
+    padding: 10px;
+}
+
+.blog-grid .blog-item .cover {
+    height: 200px;
+}
+
+@media screen and (max-width: 992px) {
+    .blog-grid .blog-item {
+        flex: 45%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .blog-grid .blog-item {
+        flex: 100%;
+        flex-direction: column;
+    }
+
+    .blog-grid .blog-item .cover {
+        height: auto;
+    }
 }
