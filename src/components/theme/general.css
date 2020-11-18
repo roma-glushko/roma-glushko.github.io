@@ -74,15 +74,11 @@ a:hover {
     background-color: var(--thouthtCoverBlendColor);
 }
 
-body.dark .cover-filter {
-    background: linear-gradient(184deg, rgba(55,61,73,0.2) 0%, rgba(55,61,73,1) 100%);
-}
-
 .cover-filter .cover {
     mix-blend-mode: var(--thouthtCoverBlendMode);
 }
 
-body.dark .cover-filter .cover {
-    mix-blend-mode: initial;
-    opacity: 0.4;
+body.dark .cover-filter {
+    -webkit-filter: brightness(0.5);
+    filter: brightness(0.5);
 }
