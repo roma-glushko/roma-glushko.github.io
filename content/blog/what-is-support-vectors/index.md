@@ -1,8 +1,8 @@
 ---
-path: "/blog/machine-learning/how-to-frame-machine-learning-problems/"
+path: "/blog/machine-learning/what-is-support-vectors/"
 date: "2020-11-15 15:24:00"
-title: "How to frame machine learning problems?"
-cover: "./john-mark-arnold-ti4kGLkGgmU-unsplash.jpg"
+title: "What is support vectors?"
+cover: "./hans-m-C5ORgbT2kGk-unsplash.jpg"
 keywords:
     - machine learning
     - project management

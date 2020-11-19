@@ -1,9 +1,11 @@
 body {
+    --footerIconColor: var(--blackLigher);
     --footerBgColor: var(--grey);
     --copyrightColor: var(--midnightDarker);
 }
 
 body.dark {
+    --footerIconColor: var(--white);
     --footerBgColor: var(--midnightDarker);
     --copyrightColor: var(--grey);
 }
@@ -13,6 +15,11 @@ body.dark {
 
 footer {
    background-color: var(--footerBgColor); 
+   color: var(--footerIconColor);
+}
+
+footer a {
+    color: var(--footerIconColor); 
 }
 
 footer .footer-wrapper {

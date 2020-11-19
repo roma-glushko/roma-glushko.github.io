@@ -152,6 +152,8 @@ html.home-page,
 }
 
 .homepage-sidebar .social .social-list .social-item > a > svg {
+    height: 14px;
     padding: 10px;
     vertical-align: middle;
+    width: 14px;
 }
