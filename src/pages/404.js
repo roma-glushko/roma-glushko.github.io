@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import NotFoundImage from "../components/404/404-image"
+import MainNavigation from "../components/theme/main-navigation"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 
 import "../components/404/404.css"
@@ -14,16 +15,13 @@ const NotFoundPage = () => (
       content: `noindex,nofollow`,
     }} />
     <div className="container">
-      <main className="row not-found-container">
-        <div className="not-found-image-container">
-          <NotFoundImage />
-        </div>
-        <div className="content">
-          <h1>NOT FOUND</h1>
+      <main className="row not-found-wrapper">
+        <NotFoundImage />
+        <div className="not-found-content">
+          <h1>Not Found</h1>
+          <MainNavigation space="404" />
           <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-          <div className="theme-switcher">
-            <ThemeSwitcher />
-          </div>
+          <ThemeSwitcher />
         </div>
       </main>
     </div>

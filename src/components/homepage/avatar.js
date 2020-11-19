@@ -14,7 +14,7 @@ import Img from "gatsby-image"
  */
 
 const Avatar = () => {
-    const data = useStaticQuery(graphql `
+  const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "homepage/photo.jpeg" }) {
         childImageSharp {
@@ -26,7 +26,7 @@ const Avatar = () => {
     }
   `)
 
-    return <Img className="logo-img" fluid = { data.placeholderImage.childImageSharp.fluid } alt="Roman Glushko - Magento Developer, eCommerce Specialist and Life Explorer" />
+  return <Img className="logo-img" fluid={data.placeholderImage.childImageSharp.fluid} alt="Roman Glushko - Magento Developer, eCommerce Specialist and Life Explorer" />
 }
 
 export default Avatar

@@ -1,8 +1,8 @@
-import { resolve } from `path`
+const path = require(`path`)
 
-export default async ({ actions, graphql, reporter }) => {
+module.exports = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const thoughtTemplate = resolve(`src/templates/thoughtTemplate.js`)
+  const thoughtTemplate = path.resolve(`src/templates/thoughtTemplate.js`)
 
   const result = await graphql(`
       {

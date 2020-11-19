@@ -9,17 +9,19 @@ body.dark {
     --footerBgColor: var(--midnightDarker);
     --copyrightColor: var(--grey);
 }
+
+
 /**
 ** Sticky footer - https://css-tricks.com/couple-takes-sticky-footer/#:~:text=The%20purpose%20of%20a%20sticky,bottom%20of%20the%20browser%20window.
 **/
 
 footer {
-   background-color: var(--footerBgColor); 
-   color: var(--footerIconColor);
+    background-color: var(--footerBgColor);
+    color: var(--footerIconColor);
 }
 
 footer a {
-    color: var(--footerIconColor); 
+    color: var(--footerIconColor);
 }
 
 footer .footer-wrapper {

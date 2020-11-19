@@ -8,6 +8,7 @@ body.dark {
     --thoughtsPageTitleColor: var(--pink);
 }
 
+
 /** Thoughts List Page **/
 
 .blog-wrapper {
@@ -41,11 +42,9 @@ body.dark {
     .blog-sidebar {
         margin: 1rem 0;
     }
-
     .blog-sidebar .blog-header-wrapper {
         margin-bottom: 1rem;
     }
-
     .blog-sidebar .blog-intro {
         padding: 0 1rem;
     }
@@ -77,7 +76,6 @@ body.dark {
         flex: 100%;
         flex-direction: column;
     }
-
     .blog-grid .blog-item .cover {
         height: auto;
     }
