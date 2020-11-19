@@ -41,6 +41,6 @@ ThoughtTeaser.propTypes = {
     timeToRead: PropTypes.number.isRequired,
     publishedDate: PropTypes.string.isRequired,
     excerpt: PropTypes.string.isRequired,
-  };
+}
 
-export default ThoughtTeaser;
+export default ThoughtTeaser

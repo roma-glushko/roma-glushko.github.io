@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 import Img from "gatsby-image"
 
 import MainNavigation from "../theme/main-navigation"
@@ -23,7 +23,7 @@ const Thought = (props) => {
         <article className="thought-wrapper">
             <header>
                 <div class="cover-filter">
-                    <Img className="cover" fluid = { cover.childImageSharp.fluid } />
+                    <Img className="cover" fluid={cover.childImageSharp.fluid} />
                 </div>
                 <MainNavigation space={"thoughts"} />
                 <h1>{title}</h1>
@@ -51,6 +51,6 @@ Thought.propTypes = {
     publishedHumanDate: PropTypes.string.isRequired,
     publishedFullDate: PropTypes.string.isRequired,
     contentHtml: PropTypes.string.isRequired,
-  };
+};
 
-export default Thought;
+export default Thought

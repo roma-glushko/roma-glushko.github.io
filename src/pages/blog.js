@@ -11,15 +11,15 @@ import "./blog.css"
 
 class BlogListPage extends Component {
   render() {
-    const { data: { allMarkdownRemark: { edges } }} = this.props
+    const { data: { allMarkdownRemark: { edges } } } = this.props
 
     return (
       <Layout>
-        <SEO 
-          title = "Blog"
+        <SEO
+          title="Blog"
           pagePath="/blog/"
-          className="blog-list-page" 
-          description="TBU" 
+          className="blog-list-page"
+          description="TBU"
           keywords={[
             'technical blog',
             'machine learning blog',
@@ -44,11 +44,11 @@ class BlogListPage extends Component {
           </aside>
           <main className="blog-list blog-grid">
             {edges.map(blogpost => (
-              <BlogTeaser 
+              <BlogTeaser
                 key={blogpost.node.id}
-                title={blogpost.node.frontmatter.title} 
-                url={blogpost.node.frontmatter.path} 
-                timeToRead={blogpost.node.timeToRead} 
+                title={blogpost.node.frontmatter.title}
+                url={blogpost.node.frontmatter.path}
+                timeToRead={blogpost.node.timeToRead}
                 publishedHumanDate={blogpost.node.frontmatter.humanDate}
                 publishedFullDate={blogpost.node.frontmatter.fullDate}
                 excerpt={blogpost.node.excerpt}

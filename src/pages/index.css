@@ -85,7 +85,7 @@ html.home-page,
 }
 
 .my-story-content .intro {
-   text-align: center;
+    text-align: center;
 }
 
 .my-story-content .intro .hey {
@@ -123,13 +123,16 @@ html.home-page,
     margin-top: 10px;
 }
 
+
 /** Social Links Styles **/
 
 .homepage-sidebar .social {
     margin-top: 20px;
 }
 
+
 /** move to social-links.css **/
+
 .social .social-list {
     display: flex;
     flex-flow: row wrap;
@@ -151,7 +154,7 @@ html.home-page,
     border: 1px solid var(--socialLinkBorderHoverColor);
 }
 
-.homepage-sidebar .social .social-list .social-item > a > svg {
+.homepage-sidebar .social .social-list .social-item>a>svg {
     height: 14px;
     padding: 10px;
     vertical-align: middle;

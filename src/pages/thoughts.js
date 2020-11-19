@@ -12,19 +12,19 @@ import "./thoughts.css"
 
 class ThoughtListPage extends Component {
   render() {
-    const { data: { allMarkdownRemark: { edges } }} = this.props
+    const { data: { allMarkdownRemark: { edges } } } = this.props
 
     return (
       <Layout>
-        <SEO 
-          title = "Thoughts"
+        <SEO
+          title="Thoughts"
           pagePath="/thoughts/"
-          className="thoughts-list-page" 
-          description="Thoughts and expirience that will help you to go through this life this life in the very best way" 
+          className="thoughts-list-page"
+          description="Thoughts and experience that will help you to go through this life this life in the very best way"
           keywords={[
-            'thougths',
+            'thoughts',
             'opinion',
-            'life explorining',
+            'life exploring',
             'psychology',
             'roman glushko thoughts',
             'roman hlushko thoughts',
@@ -39,16 +39,16 @@ class ThoughtListPage extends Component {
             <ThoughtAuthor />
             <MainNavigation space={"thoughts"} />
             <div className="theme-switcher">
-                <ThemeSwitcher />
-              </div>
+              <ThemeSwitcher />
+            </div>
           </aside>
           <main className="thoughts-list">
             {edges.map(thought => (
               <ThoughtTeaser
                 key={thought.node.id}
-                title={thought.node.frontmatter.title} 
-                url={thought.node.frontmatter.path} 
-                timeToRead={thought.node.timeToRead} 
+                title={thought.node.frontmatter.title}
+                url={thought.node.frontmatter.path}
+                timeToRead={thought.node.timeToRead}
                 publishedHumanDate={thought.node.frontmatter.humanDate}
                 publishedFullDate={thought.node.frontmatter.fullDate}
                 excerpt={thought.node.excerpt}

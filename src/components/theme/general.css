@@ -5,8 +5,8 @@ body {
     --bodyTextColor: var(--black);
     --linkColor: var(--black);
     --linkHoverColor: var(--red);
-    --thouthtCoverBlendColor: var(--brownDarker);
-    --thouthtCoverBlendMode: lighten;
+    --thoughtCoverBlendColor: var(--brownDarker);
+    --thoughtCoverBlendMode: lighten;
 }
 
 body.dark {
@@ -72,11 +72,11 @@ a:hover {
 }
 
 .cover-filter {
-    background-color: var(--thouthtCoverBlendColor);
+    background-color: var(--thoughtCoverBlendColor);
 }
 
 .cover-filter .cover {
-    mix-blend-mode: var(--thouthtCoverBlendMode);
+    mix-blend-mode: var(--thoughtCoverBlendMode);
     user-select: none;
 }
 

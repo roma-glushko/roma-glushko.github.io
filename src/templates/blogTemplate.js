@@ -11,29 +11,29 @@ import Footer from "../components/theme/footer"
 
 import "./blog-view.css"
 
-export default function Template({data, pageContext: { prevThought, nextThought }}) {
+export default function Template({ data, pageContext: { prevThought, nextThought } }) {
   const {
-		markdownRemark: {
+    markdownRemark: {
       frontmatter: {
         path,
-        title, 
-        humanDate, 
-        fullDate, 
-        keywords, 
+        title,
+        humanDate,
+        fullDate,
+        keywords,
         cover
-      }, 
-      html, 
-      rawMarkdownBody, 
-      timeToRead, 
-      excerpt, 
-      wordCount: {words}
+      },
+      html,
+      rawMarkdownBody,
+      timeToRead,
+      excerpt,
+      wordCount: { words }
     }
-	} = data
+  } = data
 
   return (
     <Layout>
-      <SEO 
-        title = {title + " - Blog"} 
+      <SEO
+        title={title + " - Blog"}
         className="blogpost-view-page"
         pagePath={path}
         imagePath={cover.childImageSharp.fluid.src}
@@ -41,25 +41,25 @@ export default function Template({data, pageContext: { prevThought, nextThought 
         description={excerpt}
         keywords={keywords}
       />
-        <div className="blogpost-header">
-          <BlogHeader />
-        </div>
-        <main>
-          <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
-          <ShareBlock title={title} path={path} tags={keywords} />
-        </main>
-        <aside className="blogpost-sidebar">
-          <ThoughtNavigation prev={prevThought} next={nextThought} />
-        </aside>
-        <Footer />
-        <ThoughtRichSnippet 
-          title={title}
-          datePublished={fullDate}
-          content={rawMarkdownBody}
-          wordCount={words}
-          keywords={keywords}
-          cover={cover}
-        />
+      <div className="blogpost-header">
+        <BlogHeader />
+      </div>
+      <main>
+        <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
+        <ShareBlock title={title} path={path} tags={keywords} />
+      </main>
+      <aside className="blogpost-sidebar">
+        <ThoughtNavigation prev={prevThought} next={nextThought} />
+      </aside>
+      <Footer />
+      <ThoughtRichSnippet
+        title={title}
+        datePublished={fullDate}
+        content={rawMarkdownBody}
+        wordCount={words}
+        keywords={keywords}
+        cover={cover}
+      />
     </Layout>
   )
 }

@@ -11,29 +11,29 @@ import ShareBlock from '../components/thoughts/share-block'
 import "./thought-view.css"
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 
-export default function Template({data, pageContext: { prevThought, nextThought }}) {
+export default function Template({ data, pageContext: { prevThought, nextThought } }) {
   const {
-		markdownRemark: {
+    markdownRemark: {
       frontmatter: {
         path,
-        title, 
-        humanDate, 
-        fullDate, 
-        keywords, 
+        title,
+        humanDate,
+        fullDate,
+        keywords,
         cover
-      }, 
-      html, 
-      rawMarkdownBody, 
-      timeToRead, 
-      excerpt, 
-      wordCount: {words}
+      },
+      html,
+      rawMarkdownBody,
+      timeToRead,
+      excerpt,
+      wordCount: { words }
     }
-	} = data
+  } = data
 
   return (
     <Layout>
-      <SEO 
-        title = {title + " - Thoughts"} 
+      <SEO
+        title={title + " - Thoughts"}
         className="thought-view-page"
         pagePath={path}
         imagePath={cover.childImageSharp.fluid.src}
@@ -41,26 +41,26 @@ export default function Template({data, pageContext: { prevThought, nextThought 
         description={excerpt}
         keywords={keywords}
       />
-        <div className="thoughts-title">
-          <Link to="/thoughts/">Thoughts</Link>
-        </div>
-        <main>
-          <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
-          <ShareBlock title={title} path={path} tags={keywords} />
-        </main>
-        <aside className="thought-sidebar">
-          <ThoughtAuthor />
-          <ThoughtNavigation prev={prevThought} next={nextThought} />
-        </aside>
-        <Footer />
-        <ThoughtRichSnippet 
-          title={title}
-          datePublished={fullDate}
-          content={rawMarkdownBody}
-          wordCount={words}
-          keywords={keywords}
-          cover={cover}
-        />
+      <div className="thoughts-title">
+        <Link to="/thoughts/">Thoughts</Link>
+      </div>
+      <main>
+        <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
+        <ShareBlock title={title} path={path} tags={keywords} />
+      </main>
+      <aside className="thought-sidebar">
+        <ThoughtAuthor />
+        <ThoughtNavigation prev={prevThought} next={nextThought} />
+      </aside>
+      <Footer />
+      <ThoughtRichSnippet
+        title={title}
+        datePublished={fullDate}
+        content={rawMarkdownBody}
+        wordCount={words}
+        keywords={keywords}
+        cover={cover}
+      />
     </Layout>
   )
 }
