@@ -42,7 +42,12 @@ class BlogListPage extends Component {
               </div>
             </div>
           </aside>
-          <main className="blog-list blog-grid">
+          <main className={`blog-list blog-grid ${!edges.length ? "no-posts" : ""}`}>
+            {!edges.length && (
+            <div className="no-posts-placeholder">
+              Great posts will be here as soon as my muse comes back to me 💫 <br />
+              Come back soon 👋
+            </div> )}
             {edges.map(blogpost => (
               <BlogTeaser
                 key={blogpost.node.id}

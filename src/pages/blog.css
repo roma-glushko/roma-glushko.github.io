@@ -56,6 +56,16 @@ body.dark {
     flex-wrap: wrap;
 }
 
+.blog-grid.no-posts {
+    justify-content: center;
+}
+
+.blog-grid .no-posts-placeholder {
+    padding: 2rem;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
 .blog-grid .blog-item {
     flex: 0 1 30%;
     padding: 10px;
