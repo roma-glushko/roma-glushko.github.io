@@ -88,25 +88,25 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-              name: `markdown-pages`,
-              path: `${__dirname}/content`,
+                name: `markdown-pages`,
+                path: `${__dirname}/content`,
             },
         },
         {
             resolve: `gatsby-transformer-remark`,
             options: {
-              commonmark: true,
-              footnotes: true,
-              pedantic: true,
-              gfm: true,
-              plugins: [],
+                commonmark: true,
+                footnotes: true,
+                pedantic: true,
+                gfm: true,
+                plugins: [],
             },
         },
         {
             resolve: `gatsby-plugin-canonical-urls`,
             options: {
-              siteUrl: `https://www.romaglushko.com`,
-              stripQueryString: true,
+                siteUrl: `https://www.romaglushko.com`,
+                stripQueryString: true,
             },
         },
         `gatsby-plugin-sitemap`
