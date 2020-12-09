@@ -5,8 +5,8 @@ body {
     --bodyTextColor: var(--black);
     --linkColor: var(--black);
     --linkHoverColor: var(--red);
-    --thouthtCoverBlendColor: var(--brownDarker);
-    --thouthtCoverBlendMode: lighten;
+    --thoughtCoverBlendColor: var(--brownDarker);
+    --thoughtCoverBlendMode: lighten;
 }
 
 body.dark {
@@ -52,17 +52,18 @@ a:hover {
 }
 
 .avatar {
-    margin: 0 auto;
-    border-radius: 50%;
-    width: 170px;
-    height: 170px;
     border: 1px solid var(--avatarBorderColor);
+    border-radius: 50%;
+    height: 170px;
+    margin: 0 auto;
+    user-select: none;
+    width: 170px;
 }
 
 .logo-img {
+    border-radius: 50%;
     width: 10rem;
     height: auto;
-    border-radius: 50%;
     transform: translate(5px, 5px);
 }
 
@@ -71,11 +72,12 @@ a:hover {
 }
 
 .cover-filter {
-    background-color: var(--thouthtCoverBlendColor);
+    background-color: var(--thoughtCoverBlendColor);
 }
 
 .cover-filter .cover {
-    mix-blend-mode: var(--thouthtCoverBlendMode);
+    mix-blend-mode: var(--thoughtCoverBlendMode);
+    user-select: none;
 }
 
 body.dark .cover-filter {

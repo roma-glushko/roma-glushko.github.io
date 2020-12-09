@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
+import MainNavigation from "../components/theme/main-navigation"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
-import ThoughtTeaser from '../components/thoughts/thought-teaser'
+import ThoughtTeaser from "../components/thoughts/thought-teaser"
+import Footer from "../components/theme/footer"
 
 import "./thoughts.css"
 
 class ThoughtListPage extends Component {
   render() {
-    const { data: { allMarkdownRemark: { edges } }} = this.props
+    const { data: { allMarkdownRemark: { edges } } } = this.props
 
     return (
       <Layout>
-        <SEO 
-          title = "Thoughts"
+        <SEO
+          title="Thoughts"
           pagePath="/thoughts/"
-          className="thoughts-list-page" 
-          description="Thoughts and expirience that will help you to go through this life this life in the very best way" 
+          className="thoughts-list-page"
+          description="Thoughts and experience that will help you to go through this life this life in the very best way"
           keywords={[
-            'thougths',
+            'thoughts',
             'opinion',
-            'life explorining',
+            'life exploring',
             'psychology',
             'roman glushko thoughts',
             'roman hlushko thoughts',
-            'roman glushko blog',
             'life',
             'people',
             'management',
@@ -36,19 +37,18 @@ class ThoughtListPage extends Component {
           <h1 className="thoughts-title">Thoughts</h1>
           <aside className="thought-sidebar">
             <ThoughtAuthor />
-            <div className="navigation">
-                <Link to="/">← Take Me Home</Link>
-            </div>
+            <MainNavigation space={"thoughts"} />
             <div className="theme-switcher">
-                <ThemeSwitcher />
-              </div>
+              <ThemeSwitcher />
+            </div>
           </aside>
           <main className="thoughts-list">
             {edges.map(thought => (
-              <ThoughtTeaser 
-                title={thought.node.frontmatter.title} 
-                url={thought.node.frontmatter.path} 
-                timeToRead={thought.node.timeToRead} 
+              <ThoughtTeaser
+                key={thought.node.id}
+                title={thought.node.frontmatter.title}
+                url={thought.node.frontmatter.path}
+                timeToRead={thought.node.timeToRead}
                 publishedHumanDate={thought.node.frontmatter.humanDate}
                 publishedFullDate={thought.node.frontmatter.fullDate}
                 excerpt={thought.node.excerpt}
@@ -58,6 +58,7 @@ class ThoughtListPage extends Component {
           </main>
           <div className="clearfix" />
         </div>
+        <Footer />
       </Layout>
     )
   }
@@ -67,7 +68,10 @@ export default ThoughtListPage
 
 export const pageQuery = graphql`
   query ThoughtListQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }, 
+      filter: {fileAbsolutePath: {regex: "/(thoughts)/"  }}
+    ) {
       edges {
         node {
           id

@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +9,7 @@ import {
 	LinkedinShareButton,
 	TwitterShareButton,
 	RedditShareButton,
-} from 'react-share';
+} from 'react-share'
 
 import './share-block.css';
 
@@ -34,7 +34,7 @@ const ShareBlock = ({ title, path, keywords }) => {
 
 	const url = `${siteUrl}${path}`
 
-	return(
+	return (
 		<div className="social-share-wrapper">
 			<FacebookShareButton url={url} keywords={keywords} className="social-share-item facebook" aria-label="Share Via Facebook" title="Share Via Facebook" >
 				<FontAwesomeIcon icon={faFacebook} />
@@ -42,7 +42,6 @@ const ShareBlock = ({ title, path, keywords }) => {
 			<TwitterShareButton url={url} className="social-share-item twitter" title={title} keywords={keywords} aria-label="Share Via Twitter">
 				<FontAwesomeIcon icon={faTwitter} />
 			</TwitterShareButton>
-			<span className="share-label">share</span>
 			<LinkedinShareButton url={url} className="social-share-item linkedin" aria-label="Share Via LinkedIn" keywords={keywords} title="Share Via LinkedIn">
 				<FontAwesomeIcon icon={faLinkedinIn} />
 			</LinkedinShareButton>
@@ -68,4 +67,4 @@ ShareBlock.defaultProps = {
 	tags: [],
 }
 
-export default ShareBlock;
+export default ShareBlock

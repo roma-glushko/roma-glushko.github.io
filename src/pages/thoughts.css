@@ -38,12 +38,15 @@ body.dark {
 }
 
 .thought-sidebar .navigation {
-    margin-top: 2rem;
     text-align: center;
 }
 
 .thought-sidebar .navigation a {
     text-transform: uppercase;
+}
+
+.thought-sidebar .theme-switcher {
+    margin-top: 10px;
 }
 
 .thoughts-wrapper .thoughts-list {
@@ -80,7 +83,7 @@ body.dark {
 
 @media (max-width: 575.98px) {
     .thought-sidebar .theme-switcher {
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
 }
 

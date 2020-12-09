@@ -1,7 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 
-const ThoughtRichSnippet = ({title, datePublished, cover, content, wordCount, keywords}) => {
+const ThoughtRichSnippet = ({ title, datePublished, cover, content, wordCount, keywords }) => {
 
   const schemaJSONLD = {
     '@context': 'http://schema.org',
@@ -14,17 +14,17 @@ const ThoughtRichSnippet = ({title, datePublished, cover, content, wordCount, ke
     inLanguage: "en-US",
     isFamilyFriendly: "true",
     author: {
-			"@type": "Person",
-			"name": "Roman Glushko",
+      "@type": "Person",
+      "name": "Roman Glushko",
     },
     publisher: {
-			"@type": "Person",
-			"name": "Roman Glushko",
+      "@type": "Person",
+      "name": "Roman Glushko",
     },
     mainEntityOfPage: "true",
-		keywords: keywords,
-		genre:["opinion","thoughts", "life expirience"],
-		articleSection: "Thoughts",
+    keywords: keywords,
+    genre: ["opinion", "thoughts", "life experience"],
+    articleSection: "Thoughts",
     articleBody: content,
     wordcount: wordCount
   }

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import "./thought-teaser.css"
+import "./blog-teaser.css"
 
-const ThoughtTeaser = (props) => {
+const BlogTeaser = (props) => {
 
     const {
         title,
@@ -18,29 +18,29 @@ const ThoughtTeaser = (props) => {
     } = props;
 
     return (
-        <article className="thought-item">
-            <h2><Link to={url}>{title}</Link></h2>
-            <div className="thought-details">
-                <time className="thought-createdat" dateTime={publishedFullDate}>{publishedHumanDate}</time>
-                <span> • </span>
-                <span className="thought-time2read">{timeToRead} min read</span>
-            </div>
+        <article className="blog-item">
             <Link to={url}>
-                <div class="cover-filter">
+                <div className="cover-filter">
                     <Img className="cover" fluid={cover.childImageSharp.fluid} />
                 </div>
             </Link>
-            <p className="thought-digest">{excerpt}</p>
+            <h2><Link to={url}>{title}</Link></h2>
+            <div className="blog-details">
+                <time className="blog-created-at" dateTime={publishedFullDate}>{publishedHumanDate}</time>
+                <span> • </span>
+                <span className="blog-time2read">{timeToRead} min read</span>
+            </div>
+            <p className="blog-digest">{excerpt}</p>
         </article>
     );
 };
 
-ThoughtTeaser.propTypes = {
+BlogTeaser.propTypes = {
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     timeToRead: PropTypes.number.isRequired,
     publishedDate: PropTypes.string.isRequired,
     excerpt: PropTypes.string.isRequired,
-}
+  };
 
-export default ThoughtTeaser
+export default BlogTeaser;

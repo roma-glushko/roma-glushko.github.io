@@ -14,7 +14,7 @@ import Img from "gatsby-image"
  */
 
 const NotFoundImage = () => {
-    const data = useStaticQuery(graphql `
+  const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "404/not-found-image.png" }) {
         childImageSharp {
@@ -26,7 +26,7 @@ const NotFoundImage = () => {
     }
   `)
 
-    return <Img className="not-found-img" fluid = { data.placeholderImage.childImageSharp.fluid } />
+  return <Img className="not-found-img" fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
 export default NotFoundImage

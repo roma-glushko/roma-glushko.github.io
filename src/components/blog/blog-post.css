@@ -28,7 +28,6 @@ body.dark {
 }
 
 .thought-wrapper .thought-details {
-    font-size: 0.9rem;
     margin-bottom: 1rem;
 }
 
@@ -55,6 +54,9 @@ body.dark {
     margin-left: -50vw;
     overflow: hidden;
     position: relative;
-    max-height: 600px;
     width: 100vw;
+}
+
+.thought-wrapper .cover {
+    max-height: 600px;
 }

@@ -3,9 +3,9 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 const PersonRichSnippet = () => {
-  const { personImage, site: {siteMetadata: {personRichSnippet: {
+  const { personImage, site: { siteMetadata: { personRichSnippet: {
     name, alternateName, gender, sameAs, jobTitle, worksFor
-  }}} } = useStaticQuery(
+  } } } } = useStaticQuery(
     graphql`
       query {
         site {

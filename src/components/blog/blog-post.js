@@ -1,11 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 import Img from "gatsby-image"
 
-import MainNavigation from "../theme/main-navigation"
 import ThemeSwitcher from "../theme/theme-switcher"
 
-import "./thought.css"
+import "./blog-post.css"
 import "../theme/content.css"
 
 const Thought = (props) => {
@@ -22,10 +21,9 @@ const Thought = (props) => {
     return (
         <article className="thought-wrapper">
             <header>
-                <div class="cover-filter">
-                    <Img className="cover" fluid={cover.childImageSharp.fluid} />
+                <div className="cover-filter">
+                    <Img className="cover" fluid={ cover.childImageSharp.fluid } />
                 </div>
-                <MainNavigation space={"thoughts"} />
                 <h1>{title}</h1>
                 <div className="thought-details">
                     <time className="thought-createdat" dateTime={publishedFullDate}>{publishedHumanDate}</time>
@@ -51,6 +49,6 @@ Thought.propTypes = {
     publishedHumanDate: PropTypes.string.isRequired,
     publishedFullDate: PropTypes.string.isRequired,
     contentHtml: PropTypes.string.isRequired,
-};
+  };
 
-export default Thought
+export default Thought;

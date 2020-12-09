@@ -4,12 +4,16 @@ body {
     --avatarBorderColor: var(--grey);
     --secondNameColor: var(--red);
     --storyLinkColor: var(--red);
+    --socialLinkBorderColor: var(--grey);
+    --socialLinkBorderHoverColor: var(--red);
 }
 
 body.dark {
     --avatarBorderColor: var(--grey);
     --secondNameColor: var(--pink);
     --storyLinkColor: var(--pink);
+    --socialLinkBorderColor: var(--grey);
+    --socialLinkBorderHoverColor: var(--pink);
 }
 
 
@@ -32,6 +36,7 @@ html.home-page,
 }
 
 .row {
+    align-items: center;
     display: flex;
 }
 
@@ -70,14 +75,25 @@ html.home-page,
     .social-item>a>svg {
         padding: 20px;
     }
-    .theme-switcher {
-        margin-bottom: 20px;
-    }
 }
 
 .my-story-content {
-    line-height: 1.5;
+    font-size: 1.1rem;
+    line-height: 1.6;
     max-width: 800px;
+    text-align: justify;
+}
+
+.my-story-content .intro {
+    text-align: center;
+}
+
+.my-story-content .intro .hey {
+    margin-bottom: 8px;
+}
+
+.my-story-content .intro .title-summary {
+    margin-top: 0;
 }
 
 .my-story-content a {
@@ -101,4 +117,46 @@ html.home-page,
     text-align: center;
     font-size: 1.2rem;
     line-height: 1.2rem;
+}
+
+.home-page .theme-switcher {
+    margin-top: 10px;
+}
+
+
+/** Social Links Styles **/
+
+.homepage-sidebar .social {
+    margin-top: 20px;
+}
+
+
+/** move to social-links.css **/
+
+.social .social-list {
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.homepage-sidebar .social .social-list .social-item {
+    border: 1px solid var(--socialLinkBorderColor);
+    border-radius: 50%;
+    margin: .25rem;
+}
+
+.homepage-sidebar .social .social-list .social-item:hover {
+    border: 1px solid var(--socialLinkBorderHoverColor);
+}
+
+.homepage-sidebar .social .social-list .social-item>a>svg {
+    height: 14px;
+    padding: 10px;
+    vertical-align: middle;
+    width: 14px;
 }

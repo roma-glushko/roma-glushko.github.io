@@ -5,8 +5,8 @@ import SEO from "../components/seo"
 import PersonRichSnippet from "../components/homepage/person-rich-snippet"
 import Avatar from "../components/homepage/avatar"
 import ThemeSwitcher from "../components/theme/theme-switcher"
-import ReactRotatingText from 'react-rotating-text';
-import MainNavigation from "../components/homepage/main-navigation"
+import ReactRotatingText from "react-rotating-text"
+import MainNavigation from "../components/theme/main-navigation"
 import SocialLinks from "../components/homepage/social-links"
 import { Link } from "gatsby"
 
@@ -15,11 +15,11 @@ import "./index.css"
 const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
 
 const titles = shuffleArray([
-    'Web Developer 🛠', 
-    'Magento Specialist 🛒', 
-    'Golang Enthusiast 🐹', 
-    'Human 🧔', 
-    'DataScience Noobie 🔬', 
+    'Web Developer 🛠',
+    'Magento Specialist 🛒',
+    'Golang Enthusiast 🐹',
+    'Human 🧔',
+    'AI Researcher 🔬',
     'Passive Traveler 🏕',
     'OpenSource Lover 🤝',
     'Matzah Fan ✡️',
@@ -28,14 +28,15 @@ const titles = shuffleArray([
     'Torah Follower 🕎',
     'eCommerce Explorer 💳',
     'SEO Strategist 🔎',
+    'Tea Drinker 🍵',
 ])
 
 const IndexPage = () => (
     <Layout>
-        <SEO title = "Roman Glushko - Magento Engineer, E-commerce Specialist and Life Explorer 🧔🛠👨‍💻📚" isUniqueTitle={true} className="home-page" pagePath="/" />
+        <SEO title="Roman Glushko - Machine Learning Engineer, Magento eCommerce Software Developer and Life Explorer 🧔🛠👨‍💻📚" isUniqueTitle={true} className="home-page" pagePath="/" />
         <main className="container">
             <div className="row">
-                <div className="column sidebar">
+                <div className="column homepage-sidebar sidebar">
                     <div className="logo">
                         <div className="avatar">
                             <Avatar />
@@ -49,18 +50,24 @@ const IndexPage = () => (
                             <ReactRotatingText items={titles} />
                         </div>
                     </div>
-                    <MainNavigation />
-                    <SocialLinks />
+                    <MainNavigation space={"homepage"} />
+                    <SocialLinks iconSize="sm" />
                     <div className="theme-switcher">
                         <ThemeSwitcher />
                     </div>
                 </div>
                 <div className="column my-story-content">
-                    <p>I'm Roman 👋 <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">Magento Engineer and E-commerce Specialist</a>.</p>
-                    <p>Over four years, I'm helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a>. During this time, I learned how to meet business goals with the platform capabilities. I have passed 5 Magento certifications to expand and prove my knowledge.</p>
-                    <p>I've been lucky to be part of the <a href="https://www.atwix.com/" target="blank">Atwix family</a> 👨‍👩‍👧‍👦 - open-minded people that support and aspire to grow 🌱 I've been leading a team there for more than three years. Management helped me to get - individuals are one and the only possible asset for every business. Also, it brought me a way more <Link to="/thoughts/">other thoughts</Link>✏️</p>  
-                    <p>Magento shaped my carrier and me a lot. So I wanted to find my way to thanks back. I decided to start <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> 🗞 It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants 🤝</p>
-                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a> where I solve my everyday challenges. You will find them useful as well.</p>
+                    <div class="intro">
+                        <p class="hey">Hey, I'm Roman <span role="img">👋</span></p>
+                        <p class="title-summary">
+                            <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">AI Researcher and Magento eCommerce Software Engineer</a> <span role="img">💼</span>
+                        </p>
+                    </div>
+                    <p>I have been doing software engineering for more than five years now. Most of this time, I was working as a Magento Software Engineer <span role="img">💻</span> at <a href="https://www.atwix.com/" target="blank">Atwix Inc.</a></p>
+                    <p>After some time, I grew to a technical lead position and was leading several teams at the company <span role="img">🌱</span> We had been helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a> 🛒 I learned how to translate business problems into software solutions, automate processes and work with people <span role="img">🙌</span> Also, I have passed 5 Magento certifications to expand my knowledge <span role="img">🏅</span></p>
+                    <p>I started <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> <span role="img">🗞</span> It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants <span role="img">🤝</span> </p>
+                    <p><strong>Most importantly</strong> I have decided to take a learning sabbatical recently. The goal is to obtain a Machine Learning Nanodegree <span role="img">👨‍🔬</span> and help to transform this world and our lives with AI-based systems. I know this is a big rock. So it's time to <Link to="/blog/">LEARN</Link><span role="img">📚</span></p>
+                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a><span role="img">🛠</span> and journal <Link to="/thoughts/">my thoughts</Link><span role="img">✏️</span> You may find them useful as well.</p>
                 </div>
             </div>
         </main>
