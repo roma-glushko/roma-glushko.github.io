@@ -19,7 +19,7 @@ class BlogListPage extends Component {
           title="Blog"
           pagePath="/blog/"
           className="blog-list-page"
-          description="TBU"
+          description="Technical blog about machine learning, data science, math and software engineering"
           keywords={[
             'technical blog',
             'machine learning blog',
