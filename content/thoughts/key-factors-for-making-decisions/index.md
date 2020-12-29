@@ -8,7 +8,7 @@ title: "Factors Affecting Decision Making"
 cover: "./jens-lelie-u0vgcIOQG08-unsplash.jpg"
 keywords:
     - psychology
-    - life explorining
+    - life exploring
     - decision making
     - decisions
 ---

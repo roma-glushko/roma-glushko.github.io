@@ -5,7 +5,7 @@ title: "Just Ask"
 cover: "./jan-tinneberg-tVIv23vcuz4-unsplash.jpg"
 keywords:
     - psychology
-    - life explorining
+    - life exploring
     - life style
 ---
 

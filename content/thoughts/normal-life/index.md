@@ -5,7 +5,7 @@ title: "Normal Life"
 cover: "./matthew-henry-uSdtHAt7E1Q-unsplash.jpg"
 keywords:
     - psychology
-    - life explorining
+    - life exploring
 ---
 
 How do you imagine a normal life?

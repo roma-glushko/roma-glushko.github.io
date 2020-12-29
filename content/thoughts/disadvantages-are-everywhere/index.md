@@ -5,7 +5,7 @@ title: "Disadvantages are everywhere"
 cover: "./elias-schupmann-4IubHMQ_0nA-unsplash.jpg"
 keywords:
     - psychology
-    - life explorining
+    - life exploring
     - life style
 ---
 
