@@ -70,6 +70,7 @@ class NNBackground extends React.Component {
           // create points
           points = []
 
+          // todo: points get constrained when page was loaded with a smaller screen and then it was resized back to full size
           for (let x = 0; x < width; x = x + width / pointDensity) {
               for (let y = 0; y < height; y = y + height / pointDensity) {
                   let px = x + Math.random() * width / pointDensity,
@@ -129,35 +130,20 @@ class NNBackground extends React.Component {
       // Event handling
       function addListeners() {
           if (!('ontouchstart' in window)) {
-            canvas.addEventListener('mousemove', mouseMove);
-            canvas.addEventListener('mouseout', mouseOut);
+            largeHeader.addEventListener('mousemove', mouseMove);
           }
 
           //window.addEventListener('scroll', scrollCheck);
           window.addEventListener('resize', resize);
       }
-    
-      function mouseOut(e) {
-        mouseControl = false
-      }
 
       function mouseMove(e) {
           let posx = 0, posy = 0
 
-          mouseControl = true
-
-          // if (e.pageX || e.pageY) {
-          //   posx = e.pageX
-          //   posy = e.pageY
-          // } else if (e.clientX || e.clientY) {
-          //posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
-          //posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop
-          //}
-
           let rect = e.target.getBoundingClientRect()
 
-          posx = e.clientX - rect.left; //x position within the element.
-          posy = e.clientY - rect.top;  //y position within the element.
+          posx = e.pageX - rect.left; //x position within the element.
+          posy = e.pageY - rect.top;  //y position within the element.
           
           target.x = posx
           target.y = posy
