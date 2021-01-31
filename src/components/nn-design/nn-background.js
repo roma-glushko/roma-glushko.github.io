@@ -5,6 +5,9 @@ import 'gsap/CSSPlugin'
 
 import "./hero-header.css"
 
+// Bright Theme - rgba(31, 43, 49) || 95, 99, 106
+// Dark Theme - rgba(228, 232, 240)
+
 class Circle {
   // constructor
   constructor(ctx, pos, rad, color) {
@@ -72,17 +75,17 @@ class NNBackground extends React.Component {
 
           // todo: points get constrained when page was loaded with a smaller screen and then it was resized back to full size
           for (let x = 0; x < width; x = x + width / pointDensity) {
-              for (let y = 0; y < height; y = y + height / pointDensity) {
-                  let px = x + Math.random() * width / pointDensity,
-                      py = y + Math.random() * height / pointDensity
-                  
-                  points.push({
-                    x: px, 
-                    originX: px, 
-                    y: py, 
-                    originY: py
-                  })
-              }
+            for (let y = 0; y < height; y = y + height / pointDensity) {
+              let px = x + Math.random() * width / pointDensity,
+                  py = y + Math.random() * height / pointDensity
+              
+              points.push({
+                x: px, 
+                originX: px, 
+                y: py, 
+                originY: py
+              })
+            }
           }
     
           // for each point find the 5 closest points

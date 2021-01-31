@@ -86,13 +86,6 @@ module.exports = {
         },
         'gatsby-plugin-dark-mode',
         {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `markdown-pages`,
-                path: `${__dirname}/content`,
-            },
-        },
-        {
             resolve: `gatsby-transformer-remark`,
             options: {
                 commonmark: true,
@@ -100,6 +93,22 @@ module.exports = {
                 pedantic: true,
                 gfm: true,
                 plugins: [],
+            },
+        },
+        `gatsby-transformer-json`,
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `markdown-pages`,
+                path: `${__dirname}/content`,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: `data`,
+              path: `${__dirname}/data/`,
+              ignore: [`**/\.*`],
             },
         },
         {
