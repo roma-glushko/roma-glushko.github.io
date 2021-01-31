@@ -1,7 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 import Layout from "../../../components/theme/layout"
 import SEO from "../../../components/seo"
@@ -10,7 +8,7 @@ import MainNavigation from "../../../components/theme/main-navigation"
 import NNBackground from "../../../components/nn-design/nn-background.js"
 import Footer from "../../../components/theme/footer"
 
-import Video from './video.js'
+import RockPaperScissorGame from './rock-paper-scissor-game.js'
 
 import "./index.css"
 
@@ -41,29 +39,7 @@ const RockPaperScissorPage = () => (
           <div className="into">
              
           </div>
-          <div className="game">
-            <div className="game-item">
-              <div className="title">🧠 You</div>
-              <div className="player human">
-                <Video />
-                <div className="choice">✊</div>
-              </div>
-            </div>
-            <div className="game-item controls">
-              <div className="score">
-                0 : 0
-              </div>
-              <button className="play">
-                <FontAwesomeIcon icon={faPlay} /> Play
-              </button>
-            </div>
-            <div className="game-item">
-              <div className="title">🤖 AI</div>
-              <div className="player computer">
-                <div className="choice">✊</div>
-              </div>
-            </div>
-          </div>
+          <RockPaperScissorGame />
         </main>
         <Footer />
     </Layout>
