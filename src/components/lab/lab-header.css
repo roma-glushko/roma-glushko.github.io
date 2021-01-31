@@ -4,7 +4,7 @@ body {
 }
 
 body.dark {
-    --liveCircleColor: rgba(255, 167, 196, 0.2);
+    --liveCircleColor: rgba(255, 167, 196, 0.5);
     --liveCircleColorOff: rgba(255, 167, 196, 0);
 }
 

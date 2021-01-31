@@ -8,12 +8,10 @@ body.dark {
     --thoughtTeaserHeaderLinkColor: var(--pink);
 }
 
-
-/** Thought Item Styles **/
-
 .experiment-item {
     list-style: none;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .experiment-item h2 {
@@ -21,10 +19,12 @@ body.dark {
     line-height: 2.4rem;
     margin-top: 0;
     margin-bottom: 0.5rem;
+    width: 100%;
 }
 
 .experiment-item h2 a {
     color: var(--thoughtTeaserHeaderLinkColor);
+    width: 100%;
 }
 
 .experiment-item p.blog-digest {
@@ -42,4 +42,13 @@ body.dark {
 .experiment-created-at {
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.experiment-item .experiment-preview {
+    text-align: center;
+}
+
+.experiment-item .experiment-preview svg {
+    color: var(--blackLigher);;
+    padding: 1rem;
 }

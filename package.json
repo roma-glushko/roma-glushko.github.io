@@ -9,6 +9,7 @@
         "@fortawesome/free-brands-svg-icons": "^5.10.2",
         "@fortawesome/free-solid-svg-icons": "^5.10.2",
         "@fortawesome/react-fontawesome": "^0.1.4",
+        "@tensorflow/tfjs": "^3.0.0",
         "gatsby": "^2.18.4",
         "gatsby-image": "^2.2.34",
         "gatsby-plugin-canonical-urls": "^2.3.0",

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BlogHeader from "../components/blog/blog-header"
+import ViewPageHeader from "../components/theme/view-page-header"
+import MainNavigation from "../components/theme/main-navigation"
 import BlogPost from "../components/blog/blog-post"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
@@ -42,7 +43,8 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         keywords={keywords}
       />
       <div className="blogpost-header">
-        <BlogHeader />
+        <ViewPageHeader />
+        <MainNavigation space={"blog"} />
       </div>
       <main>
         <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />

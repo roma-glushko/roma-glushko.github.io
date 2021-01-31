@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFlask } from '@fortawesome/free-solid-svg-icons'
 
 import "./experiment-teaser.css"
 
@@ -18,7 +20,9 @@ const ExperimentTeaser = (props) => {
     return (
         <article className="experiment-item">
             <Link to={url}>
-                
+                <div className="experiment-preview">
+                    <FontAwesomeIcon icon={faFlask} size="7x" />
+                </div>
             </Link>
             <h2><Link to={url}>{title}</Link></h2>
             <div className="blog-details">
