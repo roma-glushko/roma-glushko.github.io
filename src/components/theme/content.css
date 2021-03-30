@@ -37,6 +37,10 @@ body.dark {
     margin: 0;
 }
 
+.content a {
+    text-decoration: underline;
+}
+
 .content ul li,
 .content ol li {
     margin-left: 30px;
@@ -56,4 +60,9 @@ body.dark {
     .content blockquote {
         margin: 0.5rem;
     }
+}
+
+.image-title {
+    font-size: 1.1rem;
+    text-align: center;
 }

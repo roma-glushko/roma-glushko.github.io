@@ -47,7 +47,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <MainNavigation space={"blog"} />
       </div>
       <main>
-        <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
+        <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} keywords={keywords} cover={cover} contentHtml={html} />
         <ShareBlock title={title} path={path} tags={keywords} />
       </main>
       <aside className="blogpost-sidebar">
