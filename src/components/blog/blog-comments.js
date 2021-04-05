@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 
+// https://www.vincentntang.com/installing-gatsbyjs-blog-comments/
 export default class BlogComments extends Component {
 
   constructor(props){ 
