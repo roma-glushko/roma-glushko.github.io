@@ -11,6 +11,7 @@ import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 import Footer from "../components/theme/footer"
 
 import "./blog-view.css"
+import MathJax from "../components/blog/mathjax"
 
 export default function Template({ data, pageContext: { prevThought, nextThought } }) {
   const {
@@ -62,6 +63,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         keywords={keywords}
         cover={cover}
       />
+      <MathJax />
     </Layout>
   )
 }
