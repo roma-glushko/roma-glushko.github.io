@@ -12,6 +12,10 @@ body.dark {
     margin-bottom: 1.2rem
 }
 
+.social-share-wrapper h3 {
+    font-size: 1.5rem;
+}
+
 .social-share-wrapper .social-share-item {
     margin-right: 0.8rem;
     vertical-align: middle;

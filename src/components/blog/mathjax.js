@@ -1,31 +1,26 @@
 import React from 'react'
 import Helmet from "react-helmet"
 
-function waitForGlobal(name, timeout = 300) {
-  return new Promise((resolve, reject) => {
-    let waited = 0
-
-    function wait(interval) {
-      setTimeout(() => {
-        waited += interval
-        // some logic to check if script is loaded
-        // usually it something global in window object
-        if (window[name] !== undefined) {
-          return resolve()
-        }
-        if (waited >= timeout * 1000) {
-          return reject({ message: 'Timeout' })
-        }
-        wait(interval * 2)
-      }, interval)
-    }
-
-    wait(30)
-  })
-}
-
 
 class MathJax extends React.Component {
+  constructor(props) {
+    super(props);
+
+    window.MathJax ={
+      tex2jax: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['[', ']']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: {
+          equationNumbers: { autoNumber: 'AMS' },
+          extensions: ['AMSmath.js', 'AMSsymbols.js'],
+        },
+      },
+    }
+  }
+
   render () {
     return <div className="mathjax">
       <Helmet>
