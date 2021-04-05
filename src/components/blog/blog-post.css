@@ -1,18 +1,20 @@
 /** Theme variables **/
 
 body {
-    --thoughtHeaderColor: var(--red);
+    --blogHeaderColor: var(--red);
+    --blogTagColor: gray;
 }
 
 body.dark {
-    --thoughtHeaderColor: var(--pink);
+    --blogHeaderColor: var(--pink);
+    --blogTagColor: var(--grey);
 }
 
 
 /** Thought Styling **/
 
 .thought-wrapper h1 {
-    color: var(--thoughtHeaderColor);
+    color: var(--blogHeaderColor);
     font-size: 3rem;
     line-height: 4rem;
     margin-bottom: 1rem;
@@ -73,9 +75,9 @@ ul.blog-tags {
 }
 
 ul.blog-tags li {
-    border: 1px solid #e9e9eb;
+    border: 1px solid var(--blogTagColor);
     border-radius: 4px;
-    color: #909399;
+    color: var(--blogTagColor);
     padding: 5px 10px;
     margin-right: 5px;
     margin-bottom: 5px;

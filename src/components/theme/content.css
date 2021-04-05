@@ -26,6 +26,7 @@ body.dark {
     line-height: 1.6;
     margin-bottom: 1.2rem;
     margin-top: 0.5rem;
+    text-align: justify;
 }
 
 .content p {

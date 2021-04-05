@@ -1,15 +1,15 @@
 ---
 path: "/blog/k-nearest-neighbors"
-date: "2020-03-28 18:00:00"
+date: "2021-04-05 16:48:00"
 title: "K-Nearest Neighbors"
 cover: "./pexels-ollie-craig-6398503-min.jpg"
 keywords:
     - machine learning
 ---
 
-K-Nearest Neighbors (aka KNN) is one of the famous machine learning approaches. It's simple, intuitive and good tool to have on your machine learning toolbelt.
+K-Nearest Neighbors (a.k.a KNN) is one of the famous machine learning approaches. It's simple, intuitive and useful tool to have in your machine learning toolbox.
 
-KNN is instance-based learning algorithm
+KNN is instance-based learning algorithm. It doesn't make any assumption about dataset relations and uses provided samples in order to estimate new items.
 
 ## Intuition
 

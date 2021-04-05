@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import ViewPageHeader from "../components/theme/view-page-header"
 import MainNavigation from "../components/theme/main-navigation"
 import BlogPost from "../components/blog/blog-post"
-import ThoughtNavigation from "../components/thoughts/thought-navigation"
+import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
@@ -52,7 +52,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <ShareBlock title={title} path={path} tags={keywords} />
       </main>
       <aside className="blogpost-sidebar">
-        <ThoughtNavigation prev={prevThought} next={nextThought} />
+        <BlogNavigation prev={prevThought} next={nextThought} />
       </aside>
       <Footer />
       <ThoughtRichSnippet
