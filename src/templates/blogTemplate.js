@@ -1,8 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
+ 
 import ViewPageHeader from "../components/theme/view-page-header"
 import MainNavigation from "../components/theme/main-navigation"
 import BlogPost from "../components/blog/blog-post"
+import BlogComments from "../components/blog/blog-comments"
 import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
@@ -50,6 +52,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       <main>
         <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} keywords={keywords} cover={cover} contentHtml={html} />
         <ShareBlock title={title} path={path} tags={keywords} />
+        <BlogComments />
       </main>
       <aside className="blogpost-sidebar">
         <BlogNavigation prev={prevThought} next={nextThought} />
