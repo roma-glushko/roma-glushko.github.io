@@ -12,11 +12,13 @@ class RockPaperScissorGame extends React.Component {
     super(props);
     
     this.choices = [
-      0, // ✊
-      1, // ✋
-      2, // ✌️
+      '✊',
+      '✋',
+      '✌️',
     ]
+
     this.camera = React.createRef();
+    this.humanChoiceImage = React.createRef();
 
     this.state = {
       cameraStreamMounted: false,
@@ -24,6 +26,8 @@ class RockPaperScissorGame extends React.Component {
       computerScore: 0,
       isRoundStarted: false,
       roundCountdown: 3,
+      computerChoice: -1,
+      humanChoice: -1,
     }
   }
  
@@ -41,12 +45,15 @@ class RockPaperScissorGame extends React.Component {
     }
 
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-      .then(function (stream) {
+      .then((stream) => {
         cameraElement.srcObject = stream;
-        this.state.cameraStreamMounted = true
+
+        this.setState({
+          cameraStreamMounted: true,
+        })
       })
-      .catch(function (error) {
-        console.log("Something went wrong!" + error);
+      .catch((error) => {
+        console.log("Something went wrong: " + error);
       })
   }
 
@@ -54,6 +61,8 @@ class RockPaperScissorGame extends React.Component {
     this.setState({
       isRoundStarted: true,
       roundCountdown: 3,
+      computerChoice: -1,
+      humanChoice: -1,
     })
     
     const countDown = () => {
@@ -73,9 +82,29 @@ class RockPaperScissorGame extends React.Component {
   }
 
   onRoundFinished = () => {
+    this.getHumanChoiceFrame()
+
+    requestAnimationFrame(() => {
+      this.getHumanChoiceFrame(this.camera.current).then(() => {});
+    });
+
     this.setState({
+      computerChoice: this.makeComputerChoice(),
       isRoundStarted: false,
     })
+  }
+
+  getHumanChoiceFrame = (cameraElement) => {
+    const canvasElement = this.humanChoiceImage.current
+
+    const context = canvasElement.getContext('2d');
+
+    context.translate(300, 0);
+    context.scale(-1, 1);
+
+    context.drawImage(cameraElement, 0, 0, 300, 300);
+
+    return cameraElement
   }
 
   predictHumanChoice = (videoFrame) => {
@@ -92,18 +121,39 @@ class RockPaperScissorGame extends React.Component {
     return Math.floor(Math.random() * this.choices.length)
   }
 
+  renderChoice = (choiceIdx) => {
+    if (choiceIdx === -1) {
+      return ""
+    }
+
+    return this.choices[choiceIdx]
+  }
+
   render() {
-    const {humanScore, computerScore, isRoundStarted, roundCountdown} = this.state
+    const {
+      humanScore, 
+      computerScore,
+      cameraStreamMounted, 
+      isRoundStarted, 
+      roundCountdown,
+      computerChoice,
+      humanChoice,
+    } = this.state
 
     return (
     <div className="game">
+      <div className="game-item">
+        <div className="player">
+          <canvas className="human-choice-image" ref={this.humanChoiceImage}></canvas>
+        </div>
+      </div>
       <div className="game-item">
         <div className="title">🧠 You</div>
         <div className="player human">
           <video ref={this.camera} className="video-background" playsInline={true} autoPlay={true}>
             No Video
           </video>
-          <div className="choice">✊</div>
+          {humanChoice !== -1 ? <div className="choice">{this.renderChoice(humanChoice)}</div> : ""}
         </div>
       </div>
       <div className="game-item controls">
@@ -111,7 +161,7 @@ class RockPaperScissorGame extends React.Component {
           {humanScore} : {computerScore}
         </div>
         { !isRoundStarted ?
-          <button className="play" onClick={this.onRoundStarted}>
+          <button className="play" onClick={this.onRoundStarted} disabled={!cameraStreamMounted}>
             <FontAwesomeIcon icon={faPlay} /> Play
           </button>
           :
@@ -121,7 +171,7 @@ class RockPaperScissorGame extends React.Component {
       <div className="game-item">
         <div className="title">🤖 AI</div>
         <div className="player computer">
-          <div className="choice">✊</div>
+          {computerChoice !== -1 ? <div className="choice">{this.renderChoice(computerChoice)}</div> : ""}
         </div>
       </div>
     </div>)
