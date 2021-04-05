@@ -1,0 +1,15 @@
+[
+    {
+        "id": "cv-rockpaperscissor",
+        "title": "Rock, Paper, Scissor",
+        "publishDate": "2021-01-31 13:00:00",
+        "url": "/lab/rockpaperscissor/",
+        "description": "Legendary Rock, Paper, Scissor game powered by Computer Vision",
+        "category": "Computer Vision",
+        "tags": [
+            "computer vision",
+            "MobileNetV2",
+            "TensorFlow"
+        ]
+    }
+]

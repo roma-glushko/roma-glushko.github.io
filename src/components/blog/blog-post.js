@@ -14,6 +14,7 @@ const Thought = (props) => {
         timeToRead,
         publishedHumanDate,
         publishedFullDate,
+        keywords,
         contentHtml,
         cover,
     } = props;
@@ -33,6 +34,11 @@ const Thought = (props) => {
                         <ThemeSwitcher />
                     </div>
                 </div>
+                <ul className="blog-tags">
+                {keywords.map(keyword => (
+                    <li>{keyword}</li>
+                ))}
+                </ul>
             </header>
             <div className="thought-divider" />
             <div
@@ -47,7 +53,8 @@ Thought.propTypes = {
     title: PropTypes.string.isRequired,
     timeToRead: PropTypes.number.isRequired,
     publishedHumanDate: PropTypes.string.isRequired,
-    publishedFullDate: PropTypes.string.isRequired,
+    publishedFulDate: PropTypes.string.isRequired,
+    keywords: PropTypes.string.isRequired,
     contentHtml: PropTypes.string.isRequired,
   };
 

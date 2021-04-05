@@ -1,8 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BlogHeader from "../components/blog/blog-header"
+ 
+import ViewPageHeader from "../components/theme/view-page-header"
+import MainNavigation from "../components/theme/main-navigation"
 import BlogPost from "../components/blog/blog-post"
-import ThoughtNavigation from "../components/thoughts/thought-navigation"
+import BlogComments from "../components/blog/blog-comments"
+import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
@@ -10,6 +13,7 @@ import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 import Footer from "../components/theme/footer"
 
 import "./blog-view.css"
+import MathJax from "../components/blog/mathjax"
 
 export default function Template({ data, pageContext: { prevThought, nextThought } }) {
   const {
@@ -42,14 +46,16 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         keywords={keywords}
       />
       <div className="blogpost-header">
-        <BlogHeader />
+        <ViewPageHeader />
+        <MainNavigation space={"blog"} />
       </div>
       <main>
-        <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
+        <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} keywords={keywords} cover={cover} contentHtml={html} />
         <ShareBlock title={title} path={path} tags={keywords} />
+        <BlogComments />
       </main>
       <aside className="blogpost-sidebar">
-        <ThoughtNavigation prev={prevThought} next={nextThought} />
+        <BlogNavigation prev={prevThought} next={nextThought} />
       </aside>
       <Footer />
       <ThoughtRichSnippet
@@ -60,6 +66,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         keywords={keywords}
         cover={cover}
       />
+      <MathJax />
     </Layout>
   )
 }

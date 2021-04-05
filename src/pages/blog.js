@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
-import BlogHeader from "../components/blog/blog-header"
+import ViewPageHeader from "../components/theme/view-page-header"
+import MainNavigation from "../components/theme/main-navigation"
 import BlogTeaser from "../components/blog/blog-teaser"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import Footer from "../components/theme/footer"
@@ -32,7 +33,10 @@ class BlogListPage extends Component {
         />
         <div className="blog-wrapper">
           <aside className="blog-sidebar">
-            <BlogHeader />
+            <div className="blog-header">
+              <ViewPageHeader spaceTitle="Blog" spaceLink="/blog/" />
+              <MainNavigation space={"blog"} />
+            </div>
             <div className="blog-intro">
               Technical blog about machine learning, data science, math and software engineering.
             </div>

@@ -36,6 +36,7 @@ const ShareBlock = ({ title, path, keywords }) => {
 
 	return (
 		<div className="social-share-wrapper">
+			<h3>Share Your Love</h3>
 			<FacebookShareButton url={url} keywords={keywords} className="social-share-item facebook" aria-label="Share Via Facebook" title="Share Via Facebook" >
 				<FontAwesomeIcon icon={faFacebook} />
 			</FacebookShareButton>

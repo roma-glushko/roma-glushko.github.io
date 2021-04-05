@@ -11,13 +11,13 @@
 .blog-header-wrapper .logo {
     border: 1px solid var(--avatarBorderColor);
     border-radius: 50%;
-    height: 122px;
+    height: 90px;
     user-select: none;
-    width: 122px;
+    width: 90px;
 }
 
 .blog-header-wrapper .logo-img {
-    width: 7rem;
+    width: 5rem;
     height: auto;
     border-radius: 50%;
     transform: translate(5px, 5px);
