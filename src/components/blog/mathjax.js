@@ -6,6 +6,10 @@ class MathJax extends React.Component {
   constructor(props) {
     super(props);
 
+    if (window == undefined) {
+      return
+    }
+
     window.MathJax ={
       tex2jax: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
