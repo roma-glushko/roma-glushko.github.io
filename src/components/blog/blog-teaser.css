@@ -43,3 +43,8 @@ body.dark {
     font-weight: 600;
     text-transform: uppercase;
 }
+
+.blog-item ul.blog-tags {
+    font-size: 0.8rem;
+    justify-content: start;
+}
