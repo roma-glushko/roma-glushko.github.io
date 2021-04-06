@@ -1,26 +1,25 @@
 module.exports = {
     siteMetadata: {
         title: `Roman Glushko`,
-        description: `Hey 👋 My name is Roman and I'm a Magento, eCommerce and Life Explorer 🧔🛠👨‍💻📚`,
-        keywords: ['roman glushko', 'roma glushko', 'roman hlushko', 'roma hlushko', 'magento', 'eCommerce', 'open source', 'web development', 'life explorer', 'thoughts'],
+        description: `Hey 👋 My name is Roman and I'm a Machine Learning Engineer, Software Developer and Life Explorer 🧔🛠👨‍💻📚`,
+        keywords: ['Roman Glushko', 'Roma Glushko', 'Roman Hlushko', 'Roma Hlushko', 'machine learning', 'deep learning', 'magento', 'eCommerce', 'open source', 'web development'],
         author: `@roma_glushko`,
         siteUrl: `https://www.romaglushko.com`,
         personRichSnippet: {
             name: `Roman Glushko`,
-            alternateName: `Roman Glushko`,
+            alternateName: `Roman Hlushko`,
             gender: `Male`,
-            jobTitle: `Tech Lead && Magento Software Developer. Atwix MageNews Editor`,
+            jobTitle: `Machine Learning Engineer, Magento eCommerce Software Developer`,
             worksFor: {
-                name: `Atwix s.r.o.`,
-                sameAs: [
-                    `https://www.atwix.com`,
-                    `https://twitter.com/atwixcom`,
-                ]
+                name: '',
+                sameAs: '',
             },
             sameAs: [
                 `https://twitter.com/roma_glushko`,
                 `https://github.com/roma-glushko`,
                 `https://www.linkedin.com/in/glushko-roman`,
+                `https://www.kaggle.com/glushko`,
+                `https://leetcode.com/roma-glushko/`,
             ]
         },
     },
@@ -33,6 +32,14 @@ module.exports = {
                 name: `images`,
                 path: `${__dirname}/src/images`,
             },
+        },
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                host: 'https://www.romaglushko.com',
+                sitemap: 'https://www.romaglushko.com/sitemap.xml',
+                policy: [{ userAgent: '*', allow: '/' }]
+            }
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
@@ -95,6 +102,19 @@ module.exports = {
                 plugins: [
                     `gatsby-remark-mathjax`,
                     {
+                        resolve: 'gatsby-remark-video',
+                        options: {
+                            width: '100%',
+                            height: 'auto',
+                            preload: 'auto',
+                            muted: true,
+                            autoplay: true,
+                            playsinline: true,
+                            controls: true,
+                            loop: true
+                        }
+                    },
+                    {
                         resolve: `gatsby-remark-images`,
                         options: {
                             // It's important to specify the maxWidth (in pixels) of
@@ -103,6 +123,7 @@ module.exports = {
                             maxWidth: 590,
                         },
                     },
+                    `gatsby-remark-copy-linked-files`,
                     {
                         resolve: `gatsby-remark-prismjs`,
                         options: {

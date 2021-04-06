@@ -1,5 +1,5 @@
 ---
-path: "/blog/k-nearest-neighbors"
+path: "/blog/k-nearest-neighbors/"
 date: "2021-04-05 16:48:00"
 title: "K-Nearest Neighbors"
 cover: "./pexels-ollie-craig-6398503-min.jpg"
@@ -22,12 +22,12 @@ To came from this idea to implementation, we need to define how to find closest 
 
 ## Closest Points
 
-We need to somehow measure distance between samples in order to find closest (hence similar) neighbors. There are turned out to be quite a few metrics we can use:
+We need to somehow measure distance between samples in order to find closest (hence similar) neighbors. Turned out there are quite a few metrics we can use:
 
-- <a target="_blank" rel="noopener nofollow" href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean Distance</a> - straight-line distance between two points
-- <a target="_blank" rel="noopener nofollow" href="https://en.wikipedia.org/wiki/Taxicab_geometry">Manhattan (City Block) Distance</a> - distance between two points traversed along one axis at the time at right angle
-- <a target="_blank" rel="noopener nofollow" href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski Distance</a> - Generalization of Euclidean and Manhattan distances
-- scikit-learn supports <a target="_blank" rel="noopener nofollow" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric">other metrics</a> as well
+- <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean Distance</a> - straight-line distance between two points
+- <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Taxicab_geometry">Manhattan (City Block) Distance</a> - distance between two points traversed along one axis at the time at right angle
+- <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski Distance</a> - Generalization of Euclidean and Manhattan distances
+- scikit-learn supports <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric">other metrics</a> as well
 
 ![Different distance metrics and their boundaries](./img/distance-metrics.png?22 "Different distance metrics and their boundaries")
 <div class="image-title">Distance metrics and their boundaries in 2D</div>
@@ -52,7 +52,7 @@ $$
 
 These distance metrics are intuitive and fast to compute.
 
-However, all features or dimensions are treated the same way. This may be a issue if features have values in different scales. For example,
+However, all features or dimensions are treated the same way. This may be an issue if features have values in different scales. For example,
 
 - customer age value is normally between 18 and 100
 - annual income values lies between 20,000 and 200,000 (and sometimes goes far beyond)
@@ -70,7 +70,7 @@ Z = \frac{x - \overline{x}}{S}
 $$
 where $x$ is sample feature value, $\overline{x}$ is a feature mean and $S$ is a feature standard deviation.
 
-Z is a <a target="_blank" rel="noopener nofollow" href="https://en.wikipedia.org/wiki/Standard_score">standard score (or z-score)</a> of the sample feature value. It's a dimensionless quantity and it shows how "unusual" or far sample feature value from the feature mean (which is usual or expected value).
+Z is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Standard_score">standard score (or z-score)</a> of the sample feature value. It's a dimensionless quantity and it shows how "unusual" or far sample feature value from the feature mean (which is usual or expected value).
 
 Though normalization changes values of features, it doesn't change feature distribution shape.
 
@@ -100,10 +100,10 @@ You may find KNN-based classificators and regressors which is a trivial applicat
 
 ### Feature Engineering
 
-KNN is able to identify local structures in the dataset. This information is useful clue itself and may be used in classification/regression pipeline as an additional feature.
+KNN is able to identify local structures in the dataset. This information is useful clue itself and local structure labels may be used in classification/regression pipeline as an additional feature.
 ### Neighbors in Embeddings
 
-KNN algorithm becomes useful when you have embeddings - samples projected into lower dimensional latent space. In embedding space distance means similarity and KNN can suggest similar items. This is especially useful for recommendation systems. In that case, nearest neighbor search can be optimized further by leveraging <a target="_blank" rel="noopener nofollow" href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">locality-sensitive hashing</a>, for instance.
+KNN algorithm becomes useful when you have embeddings - samples projected into lower dimensional latent space. In embedding space distance means similarity and KNN can suggest similar items. This is especially useful for recommendation systems. In that case, nearest neighbor search can be optimized further by leveraging <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">locality-sensitive hashing</a>, for instance.
 
 ### Anomaly Detection
 
@@ -115,5 +115,5 @@ I hope we shed a bit of light on theoretical aspects of K-Nearest Neighbor algor
 
 ## References
 
-- <a target="_blank" rel="noopener nofollow" href="https://www.oreilly.com/library/view/practical-statistics-for/9781491952955/">Practical Statistics for Data Scientists by Peter Bruce and Andrew Bruce</a>
-- <a target="_blank" rel="noopener nofollow" href="https://towardsdatascience.com/k-nearest-neighbors-and-the-curse-of-dimensionality-e39d10a6105d">k-Nearest Neighbors and the Curse of Dimensionality</a>
+- <a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/practical-statistics-for/9781491952955/">Practical Statistics for Data Scientists by Peter Bruce and Andrew Bruce</a>
+- <a target="_blank" rel="noopener" href="https://towardsdatascience.com/k-nearest-neighbors-and-the-curse-of-dimensionality-e39d10a6105d">k-Nearest Neighbors and the Curse of Dimensionality</a>
