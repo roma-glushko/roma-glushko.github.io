@@ -67,3 +67,7 @@ body.dark {
     font-size: 1.1rem;
     text-align: center;
 }
+
+.content .gatsby-highlight {
+    font-size: 1rem;
+}
