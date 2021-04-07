@@ -99,7 +99,7 @@ ul.blog-tags li {
 
 @media (max-width: 1200px) {
     .blog-wrapper .content-wrapper {
-        grid-template-columns: 1fr;
+        display: block;
     }
 }
     

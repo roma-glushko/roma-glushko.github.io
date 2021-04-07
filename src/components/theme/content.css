@@ -19,6 +19,10 @@ body.dark {
     margin-bottom: -0.3em;
 }
 
+.content h2:first-of-type {
+    margin-top: 0;
+}
+
 .content,
 .content p {
     font-size: 1.4rem;

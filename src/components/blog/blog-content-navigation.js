@@ -48,14 +48,12 @@ class BlogContentNavigation extends React.Component {
 
     updateNavigation (entries) {
         entries.forEach(entry => {
-            const id = entry.target.getAttribute('id');
-            
             if (!entry.isIntersecting || entry.intersectionRatio <= 0) {
                 return 
             }
 
             this.setState({
-                'activeSection': id,
+                'activeSection': entry.target.getAttribute('id'),
             })
         });
     }
