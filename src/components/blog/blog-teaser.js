@@ -34,7 +34,7 @@ const BlogTeaser = (props) => {
             <p className="blog-digest">{excerpt}</p>
             <ul className="blog-tags">
                 {keywords.map(keyword => (
-                    <li>{keyword}</li>
+                    <li key={url + keyword}>{keyword}</li>
                 ))}
             </ul>
         </article>

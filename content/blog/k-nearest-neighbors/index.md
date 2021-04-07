@@ -1,7 +1,7 @@
 ---
 path: "/blog/k-nearest-neighbors/"
 date: "2021-04-05 16:48:00"
-title: "K-Nearest Neighbors"
+title: "K-Nearest Neighbors 👨‍👩‍👧‍👦"
 cover: "./pexels-ollie-craig-6398503-min.jpg"
 keywords:
     - machine learning

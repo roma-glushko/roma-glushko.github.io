@@ -31,7 +31,7 @@ class BlogListPage extends Component {
             'roma glushko blog',
           ]}
         />
-        <div className="blog-wrapper">
+        <div className="blog-listing-wrapper">
           <aside className="blog-sidebar">
             <div className="blog-header">
               <ViewPageHeader spaceTitle="Blog" spaceLink="/blog/" />
