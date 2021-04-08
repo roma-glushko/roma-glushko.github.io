@@ -39,19 +39,19 @@ const ShareBlock = ({ title, path, keywords }) => {
 	return (
 		<div className="social-share-wrapper">
 			<h3>Share Your Love</h3>
-			<FacebookShareButton onShareWindowClose={() => trackCustomEvent({'category': 'social', 'action': 'share', 'label': 'facebook', 'value': url})} url={url} keywords={keywords} className="social-share-item facebook" aria-label="Share Via Facebook" title="Share Via Facebook" >
+			<FacebookShareButton beforeOnClick={() => trackCustomEvent({category: 'social', action: 'share', label: 'facebook', value: url})} url={url} keywords={keywords} className="social-share-item facebook" aria-label="Share Via Facebook" title="Share Via Facebook" >
 				<FontAwesomeIcon icon={faFacebook} />
 			</FacebookShareButton>
-			<TwitterShareButton onShareWindowClose={() => trackCustomEvent({'category': 'social', 'action': 'share', 'label': 'twitter', 'value': url})} url={url} className="social-share-item twitter" title={title} keywords={keywords} aria-label="Share Via Twitter">
+			<TwitterShareButton beforeOnClick={() => trackCustomEvent({category: 'social', action: 'share', label: 'twitter', value: url})} url={url} className="social-share-item twitter" title={title} keywords={keywords} aria-label="Share Via Twitter">
 				<FontAwesomeIcon icon={faTwitter} />
 			</TwitterShareButton>
-			<LinkedinShareButton onShareWindowClose={() => trackCustomEvent({'category': 'social', 'action': 'share', 'label': 'linkedin', 'value': url})} url={url} className="social-share-item linkedin" aria-label="Share Via LinkedIn" keywords={keywords} title="Share Via LinkedIn">
+			<LinkedinShareButton beforeOnClick={() => trackCustomEvent({category: 'social', action: 'share', label: 'linkedin', value: url})} url={url} className="social-share-item linkedin" aria-label="Share Via LinkedIn" keywords={keywords} title="Share Via LinkedIn">
 				<FontAwesomeIcon icon={faLinkedinIn} />
 			</LinkedinShareButton>
-			<RedditShareButton onShareWindowClose={() => trackCustomEvent({'category': 'social', 'action': 'share', 'label': 'reddit', 'value': url})} url={url} className="social-share-item reddit" title={title} keywords={keywords} aria-label="Share Via Reddit">
+			<RedditShareButton beforeOnClick={() => trackCustomEvent({category: 'social', action: 'share', label: 'reddit', value: url})} url={url} className="social-share-item reddit" title={title} keywords={keywords} aria-label="Share Via Reddit">
 				<FontAwesomeIcon icon={faReddit} />
 			</RedditShareButton>
-			<PocketShareButton onShareWindowClose={() => trackCustomEvent({'category': 'social', 'action': 'share', 'label': 'pocket', 'value': url})} url={url} className="social-share-item pocket" title={title} keywords={keywords} aria-label="Add to Pocket">
+			<PocketShareButton beforeOnClick={() => trackCustomEvent({category: 'social', action: 'share', label: 'pocket', value: url})} url={url} className="social-share-item pocket" title={title} keywords={keywords} aria-label="Add to Pocket">
 				<FontAwesomeIcon icon={faGetPocket} />
 			</PocketShareButton>
 		</div>

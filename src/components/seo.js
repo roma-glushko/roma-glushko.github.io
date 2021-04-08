@@ -65,6 +65,10 @@ function SEO({ description, keywords, lang, meta, title, isUniqueTitle, classNam
           content: metaKeywords,
         },
         {
+          name: `author`,
+          content: siteMetadata.author,
+        },
+        {
           property: `og:title`,
           content: title,
         },
