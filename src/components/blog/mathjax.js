@@ -27,14 +27,15 @@ class MathJax extends React.Component {
     return <div className="mathjax">
       <Helmet>
         {/** performance and UX improvement */}
-        <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/jax/output/HTML-CSS/fonts/STIX/fontdata.js?V=2.7.5" />
-        <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/jax/output/HTML-CSS/fonts/STIX/General/Italic/MathItalic.js?V=2.7.5" />
+        {/* <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/jax/output/HTML-CSS/fonts/STIX/fontdata.js?V=2.7.5" /> */}
+        {/* <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/jax/output/HTML-CSS/fonts/STIX/General/Italic/MathItalic.js?V=2.7.5" /> */}
 
         {/** hack from https://github.com/hanai/gatsby-remark-mathjax/issues/1 */}
         <script
           type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-          async
+          // src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+          async 
         />
       </Helmet>
     </div>
