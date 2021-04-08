@@ -2,12 +2,12 @@
 
 body {
     --contentTextColor: var(--black);
-    --blogTagColor: gray;
+    --contentNavColor: gray;
 }
 
 body.dark {
     --contentTextColor: var(--white);
-    --blogTagColor: var(--grey);
+    --contentNavColor: #8b949e;
 }
 
 .blog-content-nav-wrapper {
@@ -20,10 +20,11 @@ body.dark {
 }
 
 .blog-content-nav-wrapper ul.blog-content-nav {
-    color: var(--blogTagColor);
+    color: var(--contentNavColor);
     list-style: decimal;
     margin: 0;
     padding-left: 1.5rem;
+    padding-right: 1rem;
     position: sticky;
     top: 1rem;
 }
@@ -33,7 +34,7 @@ body.dark {
 }
 
 .blog-content-nav-wrapper ul.blog-content-nav li a {
-    color: var(--blogTagColor);
+    color: var(--contentNavColor);
 }
 
 .blog-content-nav-wrapper ul.blog-content-nav li.active a {
