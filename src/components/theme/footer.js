@@ -5,13 +5,6 @@ import SocialLinks from "../homepage/social-links"
 import "./footer.css"
 
 const Footer = () => {
-  /**
-   * <div className="footer-separator">
-          <span className="separator"></span>
-          <span className="separator"></span>
-          <span className="separator"></span>
-        </div>
-   */
   return (
     <footer>
       <div className="footer-wrapper">
