@@ -65,6 +65,12 @@ body.dark {
     padding-left: 20px;
 }
 
+@media (max-width: 1200px) {
+    .content h2 .anchor {
+        display: none
+    }
+}
+
 @media (max-width: 575px) {
     .content blockquote {
         margin: 0.5rem;
