@@ -7,8 +7,6 @@ keywords:
     - machine learning
 ---
 
-## Intro
-
 K-Nearest Neighbors (a.k.a KNN) is one of the famous machine learning approaches. It's simple, intuitive and useful tool to have in your machine learning toolbox.
 
 KNN is instance-based learning algorithm. It doesn't make any assumption about dataset relations and uses provided samples in order to estimate new items.

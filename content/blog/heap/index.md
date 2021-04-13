@@ -8,8 +8,6 @@ keywords:
     - data structures
 ---
 
-## Intro
-
 When you have sequence of candidates to process you build a queue to organize them. In the classical queues, time of adding item to queue defines when it's going to be processed.
 
 What if we need to change this principle and use some **relative importance score** to determine item processing sequence?

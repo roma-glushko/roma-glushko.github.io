@@ -2,10 +2,12 @@
 
 body {
     --backquoteBorderColor: var(--red);
+    --imageTitleColor: gray;
 }
 
 body.dark {
     --backquoteBorderColor: var(--pink);
+    --imageTitleColor: #8b949e;
 }
 
 .content h2,
@@ -78,6 +80,7 @@ body.dark {
 }
 
 .image-title {
+    color: var(--imageTitleColor);
     font-size: 1.1rem;
     text-align: center;
 }
