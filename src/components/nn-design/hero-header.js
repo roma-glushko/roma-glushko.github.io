@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from "gatsby"
 import NNBackground from "./nn-background.js"
 
 import "./hero-header.css"

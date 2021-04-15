@@ -9,7 +9,6 @@ class BlogContentNavigation extends React.Component {
 
         this.state = {
             'activeSection': '',
-            'introSection': [],
             'contentSections': [],
         }
     }
@@ -31,13 +30,12 @@ class BlogContentNavigation extends React.Component {
         });
 
         this.setState({
-            'introSection': introSection,
             'contentSections': contentSections,
         })
     }
 
     render () {
-        const {introSection, contentSections, activeSection} = this.state
+        const {contentSections, activeSection} = this.state
 
         return <div className="blog-content-nav-wrapper">
             <ul className="blog-content-nav">
