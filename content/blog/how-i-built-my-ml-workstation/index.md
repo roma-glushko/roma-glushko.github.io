@@ -44,7 +44,7 @@ All in all, the experience was frustrating. I clearly realized if I wanted to do
 
 ## Investigation
 
-I have never been interested in custom PC building, hardware or gaming. It took me a while to understand what did it cost me to build a deep learning machine.
+I have never been interested in custom PC building, hardware or gaming. So it took me a while to understand what did it cost me to build a custom machine.
 
 <div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/kxkmUjgUwzhk7uIxOA" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/hyperrpg-twitch-kollok-kollok1991-kxkmUjgUwzhk7uIxOA"></a></p>
 
@@ -76,17 +76,48 @@ Here is an overview:
 
 ### GPU
 
-GPU is **the key component** of any ML workstation. It's designed to perform computations on much **larger chunks of data** (then CPU) **in parallel** which makes it perfect for model training or inference (<a target="_blank" rel="noopener" href="https://www.quora.com/Why-are-GPUs-well-suited-to-deep-learning/answer/Tim-Dettmers-1" title="Why GPU is faster then CPU?">here is details</a>). 
+GPU is **the key component** of any ML workstation. It's designed to perform computations on **big chunks of data** (throughput-optimized) **in parallel** which makes it perfect for model training or inference where it's really needed (<a target="_blank" rel="noopener" href="https://www.quora.com/Why-are-GPUs-well-suited-to-deep-learning/answer/Tim-Dettmers-1" title="Why GPU is faster then CPU?">here is details</a>).
 
-With that being said, there are roughly the main GPU characteristics:
+The very fist consideration is that we need **NVIDIA graphic cards only** for deep learning. Unfortunately, there is a monopoly in ML framework world. Most of the popular and production-ready frameworks (TensorFlow, PyTorch, Keras) are designed and optimized for CUDA-enabled devices. CUDA is a proprietary platform and set of APIs for parallel computations owned by NVIDIA. This is the reason why we mean "CUDA cards" when talk about the GPU in ML context.
 
-- Memory Bandwith
-- Tensor Cores
-- Shared Memory and L1 Cache Size
+It makes sense to dig just slightly deeper in a simplified CUDA architecture. Modern GPUs are based on **tensor cores** that are capable of multiplying **4x4 matrices in one operation** which is blazing fast. Despite that, tensor cores need data to perform computations on. Data passes the following way in order to be loaded efficiently:
+
+- **From CPU to Global GPU Memory**. CPU threads load preprocessed batches into entirely separate GPU device memory (don't be confused with PC RAM). The device memory is the slowest kind of memory in the GPU.
+- **From Global GPU Memory to Shared Memory**. Shared memory is **~10-50x faster** then the global GPU memory, but it's also much smaller (normally hundreds of Kbs). This memory is purely available for a Streaming Multiprocessor (SM) that is an analogue of CPU core in GPU architecture. Data is stored there in so called tiles.
+- **From Shared Memory to Tensor Core Registries**. Streaming Multiprocessors operates their tensor cores in parallel and upload part of the tiles into tensor core registries.
+
+So any bottlenecks in data loading flow would lead to suboptimal utilization of tensor cores, no matter how many of them you have in your GPU.
+
+![CUDA Hardware Architecture](./img/cuda-hardware-architecture.png "CUDA Hardware Architecture")
+<div class="image-title">CUDA Hardware Architecture (<a target="_blank" rel="noopener" href="https://dadaiscrazy.github.io/usuba/2020/03/28/CUDA-basics.html" title="source of the image">source</a>)</div>
+
+With that being said, these are roughly the main GPU features important for ML tasks:
+
+- **Global GPU Memory** - defines how big batch sizes you can use during training or how quality samples you can use if it comes to computer vision
+- **Memory Bandwidth** - a rate at which data is being transferred inside of the device
+- **Architecture** - the more recent architecture is the better. Newer architectures may be better in terms of shared memory size, feature set (like mixed precision computations) and could be more efficient in terms of wattage per effective computations metric.
+
+Additionally, you should think about these factors:
+
+- **Performance per Cost**
+- **GPU Cooling**
+- **GPU Wattage**
+
+Thankfully, you can find much more on that in the <a target="_blank" rel="noopener" href="https://timdettmers.com/2020/09/07/which-gpu-for-deep-learning/">Tim's post</a>.
 
 ### Motherboard
 
-TBU
+Motherboard integrates most of the components and also provides:
+
+- most of the I/O ports (like USB, Ethernet, etc)
+- chipset with BIOS
+- WiFi, Bluetooth adapters
+
+Motherboard provides other interfaces to power your stuff. Among them, the one of most important is CPU. The motherboards are divided into AMD- and Intel-compatible sockets which are not interchangable. Hence, you need to make sure **CPU of you choice** is **compatible with your motherboard**.
+
+**Number of PCI ports** is another thing to consider. Since PCI ports are used to connect GPUs, you need to plan ahead your build and rooms for upgrades (to be able to add more cards in the future, for example). Also, pay attention that, effectively, graphic cards takes more then slot of space. We want to have **as much space as possible** between cards for **better air cooling**.
+
+Also, I'm pretty sure you would be happy to have build-in WiFi adapter. Otherwise, the only way to connect a PC would be via ethernet cable which is not alway convenient (or just buy an external adapter).
 
 ### CPU
 
@@ -106,7 +137,7 @@ TBU
 
 ### Cooling
 
-TBU
+With a great power comes a great ~~responsibility~~ need for cooling.
 
 ### PC Case
 
@@ -134,11 +165,62 @@ The same list on PCPartsPicker can be found <a target="_blank" rel="noopener" hr
 ## Hardware Installation
 
 ![PC Parts](./img/pc-parts.jpg "PC Parts")
-<div class="image-title">PC parts arrived. I think I could build a new house with these boxes. Stay tuned for more</div>
+<div class="image-title">PC parts arrived. I think I could build a new house with these boxes. Stay tuned for more updates on this</div>
+
+
+### Motherboard
+
+![MSI X470 Gaming Max Unboxing](./img/msi-x470-gaming-max-unboxing.jpg "MSI X470 Gaming Max Unboxing")
+<div class="image-title">Motherboard Unboxing</div>
+
+![MotherBoard](./img/msi-x470-gamin-plus-detailed-view.jpg "MotherBoard")
+<div class="image-title">Motherboard. Detailed View</div>
+
+### CPU
+
+![AMD Ryzen 5 3600 Unboxing](./img/amd-ryzen-5-3600-unboxing.jpg "AMD Ryzen 5 3600 Unboxing")
+<div class="image-title">CPU Unboxing</div>
+
+![AM4 CPU Socket](./img/am4-cpu-socket.jpg "AM4 CPU Socket")
+<div class="image-title">CPU Socket</div>
+
+TBU
+
+### SSD
+
+![Samsung 970 EVO M.2 SSD Unboxing](./img/samsung-970-evo-m.2-unboxing.jpg "Samsung 970 EVO M.2 SSD Unboxing")
+<div class="image-title">M.2 SSD Unboxing</div>
+
+`video: title: "M.2 Installation": ./img/ssd-m.2-installation.mp4`
+<div class="image-title">M.2 Installation</div>
+
+![SSD Installation. M.2 Screw](./img/ssd-m.2-installation.jpg "SSD Installation. M.2 Screw")
+<div class="image-title">SSD Installation. M.2 Screw</div>
+
+### RAM
+
+![G.Skill Ripjaws V Series 32Gb Unboxing](./img/g.skill-ripjaws-v-series-32gb-unboxing.jpg "G.Skill Ripjaws V Series 32Gb Unboxing")
+<div class="image-title">RAM Unboxing</div>
+
+![RAM Installation](./img/ram-installation.jpg "RAM Installation")
+<div class="image-title">RAM Installation</div>
+
+### Cooler
+
+![Cooler Unboxing](./img/cooler-master-hyper-212-black-unboxing.jpg "Cooler Unboxing")
+<div class="image-title">Cooler Unboxing</div>
 
 ## Software Installation
 
 ## CUDA Setup
+
+## Workflow
+
+## Summary
+
+![My Deep Learning Workstation 1.0](./img/deep-learning-workstation-final-look.jpg "My Deep Learning Workstation 1.0")
+<div class="image-title">My Deep Learning Workstation 1.0</div>
+
 
 ## References
 

@@ -41,7 +41,7 @@ const BlogPost = (props) => {
                 ))}
                 </ul>
             </header>
-            <div className="blog-divider" />
+            <div id="intro" className="blog-divider" />
             <div className="content-wrapper">
                 <BlogContentNavigation />
                 <div
