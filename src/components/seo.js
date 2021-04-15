@@ -32,7 +32,7 @@ const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, cla
   const type = ogType || 'website'
   const metaDescription = description || siteMetadata.description
   const metaKeywords = keywords || siteMetadata.keywords
-  const titleTemplate = isUniqueTitle ? `${title}` : `${title} - ${siteMetadata.title}`
+  const titleTemplate = isUniqueTitle ? `${title}` : `${title} by ${siteMetadata.title}`
 
   if (imagePath) {
     meta.push({

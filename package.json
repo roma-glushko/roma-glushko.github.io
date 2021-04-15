@@ -56,12 +56,12 @@
     ],
     "license": "MIT",
     "scripts": {
-        "deploy": "rm -rf .cache && rm -rf public && gatsby build --prefix-paths && gh-pages -d public -b master",
-        "build": "gatsby build --prefix-paths",
-        "develop": "gatsby develop",
+        "deploy": "GATSBY_ENV=production rm -rf .cache && rm -rf public && gatsby build --prefix-paths && gh-pages -d public -b master",
+        "build": "GATSBY_ENV=production gatsby build --prefix-paths",
+        "develop": "GATSBY_ENV=development gatsby develop",
         "cleanup": "rm -rf .cache && rm -rf public",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-        "start": "npm run develop",
+        "start": "GATSBY_ENV=development npm run develop",
         "serve": "gatsby serve"
     },
     "repository": {

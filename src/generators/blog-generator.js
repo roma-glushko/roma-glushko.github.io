@@ -1,32 +1,36 @@
 const path = require(`path`)
 
+const ENV = process.env.GATSBY_ENV || 'development'
+
 module.exports = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve(`src/templates/blogTemplate.js`)
 
+  const postStatuses = ENV === 'development' ? [true, false] : [true]
+
   const result = await graphql(`
-      {
-        allMarkdownRemark(
-          filter: {
-            fileAbsolutePath: {regex: "/(blog)/"  }
-            frontmatter: { 
-              published: { eq: true }
-            }
-          },
-          sort: {order: DESC, fields: [frontmatter___date]}
-          limit: 1000
-        ) {
-          edges {
-            node {
-              frontmatter {
-                path
-                title
-              }
+    {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: {regex: "/(blog)/"  }
+          frontmatter: { 
+            published: { in: [${postStatuses}] }
+          }
+        }
+        sort: {order: DESC, fields: [frontmatter___date]}
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+              title
             }
           }
         }
       }
-    `)
+    }
+  `)
 
   // Handle errors
   if (result.errors) {

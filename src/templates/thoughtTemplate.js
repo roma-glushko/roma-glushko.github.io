@@ -33,7 +33,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
   return (
     <Layout>
       <SEO
-        title={title + " - Thoughts by Roman Glushko"}
+        title={title + " - Thoughts"}
         className="thought-view-page"
         pagePath={path}
         imagePath={cover.childImageSharp.fluid.src}
