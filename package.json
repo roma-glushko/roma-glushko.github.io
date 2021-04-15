@@ -1,7 +1,7 @@
 {
     "name": "roma-glushko.github.io",
     "private": true,
-    "description": "Roman Glushko - Personal Landing Page",
+    "description": "Roman Glushko - Personal Website",
     "version": "1.0.0",
     "author": "Roman Glushko <roman.glushko.m@gmail.com>",
     "dependencies": {
@@ -56,7 +56,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
+        "deploy": "rm -rf .cache && rm -rf public && gatsby build --prefix-paths && gh-pages -d public -b master",
         "build": "gatsby build --prefix-paths",
         "develop": "gatsby develop",
         "cleanup": "rm -rf .cache && rm -rf public",

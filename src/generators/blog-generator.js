@@ -8,7 +8,7 @@ module.exports = async ({ actions, graphql, reporter }) => {
       {
         allMarkdownRemark(
           filter: {fileAbsolutePath: {regex: "/(blog)/"  }},
-          sort: { order: DESC, fields: [frontmatter___date] }
+          sort: {order: DESC, fields: [frontmatter___date]}
           limit: 1000
         ) {
           edges {
