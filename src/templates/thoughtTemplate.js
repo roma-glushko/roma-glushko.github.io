@@ -33,13 +33,14 @@ export default function Template({ data, pageContext: { prevThought, nextThought
   return (
     <Layout>
       <SEO
-        title={title + " - Thoughts"}
+        title={title + " - Thoughts by Roman Glushko"}
         className="thought-view-page"
         pagePath={path}
         imagePath={cover.childImageSharp.fluid.src}
         ogType="article"
         description={excerpt}
         keywords={keywords}
+        meta={[]}
       />
       <div className="thoughts-title">
         <Link to="/thoughts/">Thoughts</Link>

@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, keywords, lang, meta, title, isUniqueTitle, className, imagePath, pagePath, ogType }) {
+const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, className, imagePath, pagePath, ogType }) => {
   const { site: { siteMetadata } } = useStaticQuery(
     graphql`
       query {
@@ -28,6 +28,7 @@ function SEO({ description, keywords, lang, meta, title, isUniqueTitle, classNam
   )
 
   meta = meta || []
+
   const type = ogType || 'website'
   const metaDescription = description || siteMetadata.description
   const metaKeywords = keywords || siteMetadata.keywords
@@ -40,12 +41,57 @@ function SEO({ description, keywords, lang, meta, title, isUniqueTitle, classNam
     })
   }
 
+  meta.concat([
+    {
+      name: `description`,
+      content: metaDescription,
+    },
+    {
+      name: `keywords`,
+      content: metaKeywords,
+    },
+    {
+      name: `author`,
+      content: siteMetadata.author,
+    },
+    {
+      property: `og:title`,
+      content: title,
+    },
+    {
+      property: `og:description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:type`,
+      content: type,
+    },
+    {
+      name: `twitter:card`,
+      content: `summary`,
+    },
+    {
+      name: `twitter:creator`,
+      content: siteMetadata.author,
+    },
+    {
+      name: `twitter:title`,
+      content: title,
+    },
+    {
+      name: `twitter:description`,
+      content: metaDescription,
+    },
+  ])
+
   if (pagePath) {
     meta.push({
       property: `og:url`,
       content: `${siteMetadata.siteUrl}${pagePath}`,
     })
   }
+
+  console.log(`${pagePath} Meta: `, meta)
 
   return (
     <Helmet
@@ -55,48 +101,7 @@ function SEO({ description, keywords, lang, meta, title, isUniqueTitle, classNam
       }}
       title={title}
       titleTemplate={titleTemplate}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          name: `keywords`,
-          content: metaKeywords,
-        },
-        {
-          name: `author`,
-          content: siteMetadata.author,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: type,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
+      meta={meta}
     />
   )
 }

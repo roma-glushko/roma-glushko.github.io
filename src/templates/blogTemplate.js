@@ -37,13 +37,14 @@ export default function Template({ data, pageContext: { prevThought, nextThought
   return (
     <Layout>
       <SEO
-        title={title + " - Blog"}
+        title={title + " - Blog by Roman Glushko"}
         className="blogpost-view-page"
         pagePath={path}
         imagePath={cover.childImageSharp.fluid.src}
         ogType="article"
         description={excerpt}
         keywords={keywords}
+        meta={[]}
       />
       <div className="blogpost-header">
         <ViewPageHeader />
