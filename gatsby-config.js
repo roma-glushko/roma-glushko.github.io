@@ -210,6 +210,11 @@ module.exports = {
                 stripQueryString: true,
             },
         },
-        `gatsby-plugin-sitemap`
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                exclude: [`/nn-design`, `/lab`, `/lab/*`],
+            }
+        }
     ],
 }
