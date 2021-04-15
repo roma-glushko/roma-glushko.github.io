@@ -30,6 +30,7 @@ class BlogListPage extends Component {
             'roman glushko blog',
             'roma glushko blog',
           ]}
+          meta={[]}
         />
         <div className="blog-listing-wrapper">
           <aside className="blog-sidebar">
@@ -77,10 +78,15 @@ class BlogListPage extends Component {
 export default BlogListPage
 
 export const pageQuery = graphql`
-  query TechListQuery {
+  query BlogListQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }, 
-      filter: {fileAbsolutePath: {regex: "/(blog)/"  }}
+      filter: {
+        fileAbsolutePath: {regex: "/(blog)/"}
+        frontmatter: { 
+          published: {eq: true}
+        }
+      }
     ) {
       edges {
         node {

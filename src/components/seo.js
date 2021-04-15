@@ -91,8 +91,6 @@ const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, cla
     })
   }
 
-  console.log(`${pagePath} Meta: `, meta)
-
   return (
     <Helmet
       htmlAttributes={{

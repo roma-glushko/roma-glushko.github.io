@@ -7,7 +7,12 @@ module.exports = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
       {
         allMarkdownRemark(
-          filter: {fileAbsolutePath: {regex: "/(thoughts)/"  }},
+          filter: {
+            fileAbsolutePath: {regex: "/(thoughts)/"  }
+            frontmatter: { 
+              published: { eq: true }
+            }
+          },
           sort: { order: DESC, fields: [frontmatter___date] }
           limit: 1000
         ) {

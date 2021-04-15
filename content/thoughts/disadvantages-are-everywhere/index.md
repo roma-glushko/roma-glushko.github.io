@@ -1,6 +1,7 @@
 ---
 path: "/thoughts/disadvantages-are-everywhere/"
 date: "2020-01-05 19:30:00"
+published: true
 title: "Disadvantages are everywhere"
 cover: "./elias-schupmann-4IubHMQ_0nA-unsplash.jpg"
 keywords:

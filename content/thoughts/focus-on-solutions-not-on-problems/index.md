@@ -1,6 +1,7 @@
 ---
 path: "/thoughts/focus-on-solutions-not-on-problems/"
 date: "2019-12-26 21:30:00"
+published: true
 title: "Focus on solutions, not on problems"
 cover: "./jake-givens-ocwmWiNAWGs-unsplash.jpg"
 keywords:

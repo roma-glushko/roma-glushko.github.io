@@ -1,6 +1,7 @@
 ---
 path: "/blog/heapify/"
 date: "2021-04-06 15:17:00"
+published: false
 title: "Heapify ✌️"
 cover: "./markus-spiske-IiEFmIXZWSw-unsplash-min.jpg"
 keywords:
