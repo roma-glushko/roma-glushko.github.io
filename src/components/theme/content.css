@@ -89,10 +89,11 @@ body.dark {
     text-align: center;
 }
 
-.content .gatsby-highlight {
-    font-size: 1rem;
+.content .image-title a{
+    color: var(--imageTitleColor);
+    font-size: 1.1rem;
 }
 
-.content .gatsby-resp-image-wrapper {
-    max-width: 100%;
+.content .gatsby-highlight {
+    font-size: 1rem;
 }
