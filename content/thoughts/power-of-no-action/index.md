@@ -1,6 +1,7 @@
 ---
 path: "/thoughts/power-of-no-action/"
 date: "2020-12-29 21:14:00"
+published: true
 title: "Power of No Action"
 cover: "./ian-hutchinson-aYg3tYxT3MQ-unsplash-min.jpg"
 keywords:

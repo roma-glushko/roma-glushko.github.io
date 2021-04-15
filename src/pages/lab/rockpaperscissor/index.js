@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../../../components/theme/layout"
 import SEO from "../../../components/seo"
@@ -8,7 +7,7 @@ import MainNavigation from "../../../components/theme/main-navigation"
 import NNBackground from "../../../components/nn-design/nn-background.js"
 import Footer from "../../../components/theme/footer"
 
-import RockPaperScissorGame from './rock-paper-scissor-game.js'
+import RockPaperScissorGame from '../../../components/lab/rock-paper-scissor-game.js'
 
 import "./index.css"
 

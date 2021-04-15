@@ -40,6 +40,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         ogType="article"
         description={excerpt}
         keywords={keywords}
+        meta={[]}
       />
       <div className="thoughts-title">
         <Link to="/thoughts/">Thoughts</Link>

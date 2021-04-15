@@ -7,18 +7,16 @@ class MathJax extends React.Component {
     super(props);
 
     if (typeof window !== 'undefined') {
-      window.MathJax ={
-        tex2jax: {
+      window.MathJax = {
+        tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['[', ']']],
           processEscapes: true,
-          processEnvironments: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-          TeX: {
-            equationNumbers: { autoNumber: 'AMS' },
-            extensions: ['AMSmath.js', 'AMSsymbols.js'],
-          },
+          processEnvironments: true
         },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
       }
     }
   }
@@ -29,8 +27,9 @@ class MathJax extends React.Component {
         {/** hack from https://github.com/hanai/gatsby-remark-mathjax/issues/1 */}
         <script
           type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-          async
+          // src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+          async 
         />
       </Helmet>
     </div>

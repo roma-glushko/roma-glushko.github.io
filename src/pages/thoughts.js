@@ -20,7 +20,7 @@ class ThoughtListPage extends Component {
           title="Thoughts"
           pagePath="/thoughts/"
           className="thoughts-list-page"
-          description="Thoughts and experience that will help you to go through this life this life in the very best way"
+          description="Thoughts and experience that will help you to go through your life in the very best way"
           keywords={[
             'thoughts',
             'opinion',
@@ -32,6 +32,7 @@ class ThoughtListPage extends Component {
             'people',
             'management',
           ]}
+          meta={[]}
         />
         <div className="thoughts-wrapper">
           <h1 className="thoughts-title">Thoughts</h1>
@@ -70,7 +71,12 @@ export const pageQuery = graphql`
   query ThoughtListQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }, 
-      filter: {fileAbsolutePath: {regex: "/(thoughts)/"  }}
+      filter: {
+        fileAbsolutePath: {regex: "/(thoughts)/"}
+        frontmatter: { 
+          published: {eq: true}
+        }
+      }
     ) {
       edges {
         node {

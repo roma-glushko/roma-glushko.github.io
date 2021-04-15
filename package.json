@@ -1,7 +1,7 @@
 {
     "name": "roma-glushko.github.io",
     "private": true,
-    "description": "Roman Glushko - Personal Landing Page",
+    "description": "Roman Glushko - Personal Website",
     "version": "1.0.0",
     "author": "Roman Glushko <roman.glushko.m@gmail.com>",
     "dependencies": {
@@ -20,12 +20,16 @@
         "gatsby-plugin-react-helmet": "^3.1.16",
         "gatsby-plugin-remove-generator": "^1.0.4",
         "gatsby-plugin-remove-trailing-slashes": "^2.3.0",
+        "gatsby-plugin-robots-txt": "^1.5.5",
         "gatsby-plugin-sharp": "^2.3.4",
         "gatsby-plugin-sitemap": "^2.4.1",
         "gatsby-plugin-webfonts": "^1.1.2",
+        "gatsby-remark-autolink-headers": "^3.2.0",
+        "gatsby-remark-copy-linked-files": "^3.2.0",
         "gatsby-remark-images": "^4.1.1",
         "gatsby-remark-mathjax": "^1.0.0",
         "gatsby-remark-prismjs": "^4.1.0",
+        "gatsby-remark-video": "^1.2.5",
         "gatsby-source-filesystem": "^2.1.40",
         "gatsby-transformer-json": "^2.10.0",
         "gatsby-transformer-remark": "^2.6.39",
@@ -52,12 +56,12 @@
     ],
     "license": "MIT",
     "scripts": {
-        "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
-        "build": "gatsby build --prefix-paths",
-        "develop": "gatsby develop",
+        "deploy": "GATSBY_ENV=production rm -rf .cache && rm -rf public && gatsby build --prefix-paths && gh-pages -d public -b master",
+        "build": "GATSBY_ENV=production gatsby build --prefix-paths",
+        "develop": "GATSBY_ENV=development gatsby develop",
         "cleanup": "rm -rf .cache && rm -rf public",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-        "start": "npm run develop",
+        "start": "GATSBY_ENV=development npm run develop",
         "serve": "gatsby serve"
     },
     "repository": {

@@ -15,6 +15,7 @@ const BlogTeaser = (props) => {
         publishedFullDate,
         excerpt,
         cover,
+        keywords,
     } = props;
 
     return (
@@ -31,6 +32,11 @@ const BlogTeaser = (props) => {
                 <span className="blog-time2read">{timeToRead} min read</span>
             </div>
             <p className="blog-digest">{excerpt}</p>
+            <ul className="blog-tags">
+                {keywords.map(keyword => (
+                    <li key={url + keyword}>{keyword}</li>
+                ))}
+            </ul>
         </article>
     );
 };

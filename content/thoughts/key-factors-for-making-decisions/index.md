@@ -1,7 +1,7 @@
 ---
 id: "aafb4d98-c8ed-4f60-87ed-e2d5619d9bad"
 space: "thoughts"
-status: "draft"
+published: true
 path: "/thoughts/factors-affecting-decision-making/"
 date: "2020-05-31 10:40:00"
 title: "Factors Affecting Decision Making"

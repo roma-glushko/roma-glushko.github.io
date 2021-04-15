@@ -2,10 +2,12 @@
 
 body {
     --backquoteBorderColor: var(--red);
+    --imageTitleColor: gray;
 }
 
 body.dark {
     --backquoteBorderColor: var(--pink);
+    --imageTitleColor: #8b949e;
 }
 
 .content h2,
@@ -17,6 +19,10 @@ body.dark {
     letter-spacing: 0;
     margin-top: 1.95em;
     margin-bottom: -0.3em;
+}
+
+.content h2:first-of-type {
+    margin-top: 0;
 }
 
 .content,
@@ -31,6 +37,14 @@ body.dark {
 
 .content p {
     margin-top: 2rem;
+}
+
+.content p::first-letter {
+    padding-left: 1.5rem;
+}
+
+.content ul {
+    padding: 0;
 }
 
 .content ul ol {
@@ -57,13 +71,29 @@ body.dark {
     padding-left: 20px;
 }
 
+@media (max-width: 1200px) {
+    .content h2 .anchor {
+        display: none
+    }
+}
+
 @media (max-width: 575px) {
     .content blockquote {
         margin: 0.5rem;
     }
 }
 
-.image-title {
+.content .image-title {
+    color: var(--imageTitleColor);
     font-size: 1.1rem;
     text-align: center;
+}
+
+.content .image-title a{
+    color: var(--imageTitleColor);
+    font-size: 1.1rem;
+}
+
+.content .gatsby-highlight {
+    font-size: 1rem;
 }

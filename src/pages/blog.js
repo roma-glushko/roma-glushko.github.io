@@ -30,8 +30,9 @@ class BlogListPage extends Component {
             'roman glushko blog',
             'roma glushko blog',
           ]}
+          meta={[]}
         />
-        <div className="blog-wrapper">
+        <div className="blog-listing-wrapper">
           <aside className="blog-sidebar">
             <div className="blog-header">
               <ViewPageHeader spaceTitle="Blog" spaceLink="/blog/" />
@@ -52,16 +53,17 @@ class BlogListPage extends Component {
               Great posts will be here as soon as my muse comes back to me 💫 <br />
               Come back soon 👋
             </div> )}
-            {edges.map(blogpost => (
+            {edges.map(({node}) => (
               <BlogTeaser
-                key={blogpost.node.id}
-                title={blogpost.node.frontmatter.title}
-                url={blogpost.node.frontmatter.path}
-                timeToRead={blogpost.node.timeToRead}
-                publishedHumanDate={blogpost.node.frontmatter.humanDate}
-                publishedFullDate={blogpost.node.frontmatter.fullDate}
-                excerpt={blogpost.node.excerpt}
-                cover={blogpost.node.frontmatter.cover}
+                key={node.id}
+                title={node.frontmatter.title}
+                url={node.frontmatter.path}
+                timeToRead={node.timeToRead}
+                publishedHumanDate={node.frontmatter.humanDate}
+                publishedFullDate={node.frontmatter.fullDate}
+                excerpt={node.excerpt}
+                cover={node.frontmatter.cover}
+                keywords={node.frontmatter.keywords}
               />
             ))}
           </main>
@@ -76,10 +78,15 @@ class BlogListPage extends Component {
 export default BlogListPage
 
 export const pageQuery = graphql`
-  query TechListQuery {
+  query BlogListQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }, 
-      filter: {fileAbsolutePath: {regex: "/(blog)/"  }}
+      filter: {
+        fileAbsolutePath: {regex: "/(blog)/"}
+        frontmatter: { 
+          published: {eq: true}
+        }
+      }
     ) {
       edges {
         node {
@@ -91,6 +98,7 @@ export const pageQuery = graphql`
             fullDate: date (formatString: "YYYY-MM-DD") 
             path
             title
+            keywords
             cover {
               childImageSharp {
                 fluid(maxWidth: 620) {

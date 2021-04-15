@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from "gatsby"
 import { TweenLite, Circ } from 'gsap'
 import 'gsap/CSSPlugin'
 
@@ -96,7 +95,7 @@ class NNBackground extends React.Component {
               for (let j = 0; j < points.length; j++) {
                 let p2 = points[j]
                 
-                if (p1 == p2) {
+                if (p1 === p2) {
                     continue
                 }
 
@@ -105,7 +104,7 @@ class NNBackground extends React.Component {
                 for (var k = 0; k < kNeighbors; k++) {
                   if (placed) continue
 
-                  if (closest[k] == undefined) {
+                  if (closest[k] === undefined) {
                     closest[k] = p2
                     placed = true
                   }

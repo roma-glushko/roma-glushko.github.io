@@ -1,26 +1,26 @@
+
 module.exports = {
     siteMetadata: {
         title: `Roman Glushko`,
-        description: `Hey 👋 My name is Roman and I'm a Magento, eCommerce and Life Explorer 🧔🛠👨‍💻📚`,
-        keywords: ['roman glushko', 'roma glushko', 'roman hlushko', 'roma hlushko', 'magento', 'eCommerce', 'open source', 'web development', 'life explorer', 'thoughts'],
+        description: `Hey 👋 My name is Roman and I'm a Machine Learning Engineer, Software Developer and Life Explorer 🧔🛠👨‍💻📚`,
+        keywords: ['Roman Glushko', 'Roma Glushko', 'Roman Hlushko', 'Roma Hlushko', 'machine learning', 'deep learning', 'magento', 'eCommerce', 'open source', 'web development'],
         author: `@roma_glushko`,
         siteUrl: `https://www.romaglushko.com`,
         personRichSnippet: {
             name: `Roman Glushko`,
-            alternateName: `Roman Glushko`,
+            alternateName: `Roman Hlushko`,
             gender: `Male`,
-            jobTitle: `Tech Lead && Magento Software Developer. Atwix MageNews Editor`,
+            jobTitle: `Machine Learning Engineer, Magento eCommerce Software Developer`,
             worksFor: {
-                name: `Atwix s.r.o.`,
-                sameAs: [
-                    `https://www.atwix.com`,
-                    `https://twitter.com/atwixcom`,
-                ]
+                name: '',
+                sameAs: '',
             },
             sameAs: [
                 `https://twitter.com/roma_glushko`,
                 `https://github.com/roma-glushko`,
                 `https://www.linkedin.com/in/glushko-roman`,
+                `https://www.kaggle.com/glushko`,
+                `https://leetcode.com/roma-glushko/`,
             ]
         },
     },
@@ -33,6 +33,14 @@ module.exports = {
                 name: `images`,
                 path: `${__dirname}/src/images`,
             },
+        },
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                host: 'https://www.romaglushko.com',
+                sitemap: 'https://www.romaglushko.com/sitemap.xml',
+                policy: [{ userAgent: '*', allow: '/' }]
+            }
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
@@ -95,14 +103,28 @@ module.exports = {
                 plugins: [
                     `gatsby-remark-mathjax`,
                     {
+                        resolve: 'gatsby-remark-video',
+                        options: {
+                            width: '100%',
+                            height: 'auto',
+                            preload: 'auto',
+                            muted: true,
+                            autoplay: true,
+                            playsinline: true,
+                            controls: true,
+                            loop: true
+                        }
+                    },
+                    {
                         resolve: `gatsby-remark-images`,
                         options: {
                             // It's important to specify the maxWidth (in pixels) of
                             // the content container as this plugin uses this as the
                             // base for generating different widths of each image.
-                            maxWidth: 590,
+                            maxWidth: 680,
                         },
                     },
+                    `gatsby-remark-copy-linked-files`,
                     {
                         resolve: `gatsby-remark-prismjs`,
                         options: {
@@ -155,6 +177,13 @@ module.exports = {
                           escapeEntities: {},
                         },
                     },
+                    {
+                        resolve: `gatsby-remark-autolink-headers`,
+                        options: {
+                            icon: `<svg class="anchor-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg>`,
+                            className: `anchor`,
+                        },
+                    }
                 ],
             },
         },
@@ -181,6 +210,11 @@ module.exports = {
                 stripQueryString: true,
             },
         },
-        `gatsby-plugin-sitemap`
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                exclude: [`/nn-design`, `/lab`, `/lab/*`],
+            }
+        }
     ],
 }

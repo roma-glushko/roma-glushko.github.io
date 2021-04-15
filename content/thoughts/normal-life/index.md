@@ -1,6 +1,7 @@
 ---
 path: "/thoughts/normal-life/"
 date: "2020-02-08 22:17:00"
+published: true
 title: "Normal Life"
 cover: "./matthew-henry-uSdtHAt7E1Q-unsplash.jpg"
 keywords:
