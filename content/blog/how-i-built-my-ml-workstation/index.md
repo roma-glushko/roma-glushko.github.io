@@ -122,27 +122,55 @@ Also, I'm pretty sure you would be happy to have build-in WiFi adapter. Otherwis
 
 ### CPU
 
-TBU
+CPU is the "right hand" of GPU. In ML builds, CPU is used for:
+
+- **Preprocessing Dataset**
+- **Loading batches into RAM**
+- **Transmitting batches from RAM to the GPU global memory**
+- **Running functions in GPU device**
+
+So it's not really helpful to have high CPU frequency. Nonetheless, it's important to be able effectively execute small tasks in parallel. Other words, number of **threads and cores** are important property for ML machines.  
 
 ### RAM
 
-TBU
+When it comes to RAM, the **memory capacity** is all that matters. It's perfect to have enough RAM to run model training without falling back to **swapping**. Larger capacity would allow to run bigger batches of data and execute more data loaders to make GPU wait less.
+
+ RAM is also helpful during **data processing and feature engineering**. Hence, the larger RAM you would have, the better would be for you. 
 
 ### Storage
 
-TBU
+In deep learning, storage is used for **persisting datasets**. Since nowadays datasets are measured in gigabytes, it's good to have at least **a few terabytes** of free disk space. Generally, people install the SSD for OS needs and datasets which is currently in use. The HDD is still helpful, because it's cheaper then the SSD and it's easier to afford terabytes of space for storing other datasets.
+
+Amoung SSDs, you could find <a target="_blank" rel="noopener" href="https://www.microcontrollertips.com/why-nvme-ssds-are-faster-than-sata-ssds/">NVMe SSDs</a> on the market which use faster connection protocol. Prefer these kind of SSD if you can afford them.
 
 ### Power System Unit
 
-TBU
+The PSU is what makes your PC alive. To choose your PSU, you need to calculate **wattage consumption** of your build. Typically there are two the most power consuming components: **CPU and GPUs**. If you sum up their consumptions and adds another 10-15% on top of that (for other components, overclocking, etc), you would roughly estimates your power needs. I also use <a target="_blank" rel="noopener" href="https://pcpartpicker.com">PCPartpicker Builder</a> to estimate PC wattage.
+
+Other then that, you should consider number of **slots and connectors** that the PSU provides. 
+
+This is the point where you can plan ahead. Just include potential GPUs you would like to buy in the future to the wattage consumption and connectors consideration.
 
 ### Cooling
 
 With a great power comes a great ~~responsibility~~ need for cooling.
 
+Normally, you would need **an air cooling**. Making sure there is **enough space between GPUs** is a great no-overhead way to cool your system. It's particularly good in 1-2 GPUs setup. **A water cooling** is a good option for 3+ GPUs setups.
+
+CPU could get hot very quickly. So they usually is sold with basic coolers. This should be enough if you manage to avoid lots of air bubbles during the thermal gel installation. If you want to replace a stock cooler with better one, make sure that a new cooler supports your CPU socket.
+
 ### PC Case
 
-TBU
+The computer case protects all components from the outside environment. Also, it may provide:
+
+- **Additional system coolers**
+- **Additional I/O ports** (USB, Type-C, etc)
+- **Cable management**
+- **Vertical slots for GPUs**
+- **Slots for SATA disks**
+- **Cool design and look** (well, that may matter)
+
+One of the most important considerations is an **ability to hold** all your cooling systems and GPUs. If your case is too small, it may be problematic.
 
 ## My Parts List
 
@@ -160,58 +188,162 @@ Creating a multi-GPU cluster was not on my list. Yet still I wanted to have a ro
 
 The same list on PCPartsPicker can be found <a target="_blank" rel="noopener" href="https://pcpartpicker.com/user/roman-glushko/saved/8gZHGX">here</a>.
 
+A few notes about differences of my list comparing to the original barebone. I have replaced a PSU and a cooler from the barebone following advice from Reddit users that said that changed parts are more up-to-date and modern.
+
+Also, I was able to buy only 750W version of EVGA G2. My estimated wattage is 420W, so 650W version should have been enough. Nevertheless, more capable PSU gives more flexibility in terms of further part updates.
+
+Situation with GPU was much more complicated. It was the beginning of GPU shortage (end of 2020 - beginning of 2021) when GPU prices skyrocketed twice or sometimes three times. In that time, Bitcoin jumped to almost $60k as well as other factors that impacted supply chain and increased GPU demand (mostly, global COVID-19 lockdown).
+
 ![GPU Price Dynamics: end of 2020 - beginning of 2021](./img/gpu-price-dynamics.png "GPU Price Dynamics: end of 2020 - beginning of 2021")
 <div class="image-title">GPU Price Dynamics: end of 2020 - beginning of 2021. Wild time</div>
 
+I had been closely watching for price updates for like 3 months. The situation did really changed. Well, it got even worse while I was waiting.
+
+Considering Tim's advice and crazy GPU prices, I was shooting for RTX 3070. RTX 2080 Ti would be also a great fit, but the market ran out of them pretty quickly.
+
+There turned out to be a lot of vendors that produce RTX 3070 cards.
+
+[embed: Difference between graphic card vendors](https://www.youtube.com/embed/N3lfXsa08CY)
+<div class="image-title">Difference between graphic card vendors</div>
+
+Basically, the main differences are in:
+
+- **Max Power Limit** - affects GPU performance
+- **Quality of the card cooling system** - ability to cold card and sustain performance for a long time
+- **Fan Noise** - it's just annoying to run noisy cards (particularly if you working in t a place where other people work or live)
+
 ## Hardware Installation
+
+It took me a couple of weeks to collect all parts.
 
 ![PC Parts](./img/pc-parts.jpg "PC Parts")
 <div class="image-title">PC parts arrived. I think I could build a new house with these boxes. Stay tuned for more updates on this</div>
 
+Before unboxing all of those packages, keep in mind the following:
+
+- You need to **discharge static electricity** that may be on your hands. Static electricity can damage your components particularly your matherboard. Fortunately, it's easy to do. You need to periodically touch any metal object like your PC case, heater or filing cabinet. If you feel paranoid, there is a <a target="_blank" rel="noopener" href="https://www.newegg.com/rosewill-rtk-001/p/N82E16899261001">special wrist straps</a> for you.
+- Be careful when you install or connect your components. Parts and cables are designed to be connected easily. If you find yourself **pressing too much**, chances are it's a signal to revisit what you are trying to connect and how. Exceptions happen since you probably would buy new things which have never been connected.
+
+Now it's time to get our hands dirty!
 
 ### Motherboard
+
+Motherboard is a central component. So I started unboxing from it.
 
 ![MSI X470 Gaming Max Unboxing](./img/msi-x470-gaming-max-unboxing.jpg "MSI X470 Gaming Max Unboxing")
 <div class="image-title">Motherboard Unboxing</div>
 
+It has a lots of ports which we are going to be used further in this section.
+
 ![MotherBoard](./img/msi-x470-gamin-plus-detailed-view.jpg "MotherBoard")
 <div class="image-title">Motherboard. Detailed View</div>
 
+The MoBo instruction is useful when you install components. Definitely take a look at it!
+
 ### CPU
+
+Now let's unbox a CPU. The CPU box contained a CPU chip itself and a basic CPU cooler which actually holds most of the space in the box.
 
 ![AMD Ryzen 5 3600 Unboxing](./img/amd-ryzen-5-3600-unboxing.jpg "AMD Ryzen 5 3600 Unboxing")
 <div class="image-title">CPU Unboxing</div>
 
+We are going to install the CPU into the special CPU socket on the MoBo. It has AM4 format in my setup.
+
 ![AM4 CPU Socket](./img/am4-cpu-socket.jpg "AM4 CPU Socket")
 <div class="image-title">CPU Socket</div>
 
-TBU
+Be super careful with CPU pins. They are very tangible. Notice that there is also a little golden arrow on one of the edges.
+
+![AM4 CPU Socket](./img/cpu-pins.jpg "CPU Pins")
+<div class="image-title">CPU Pins</div>
+
+It's there to guide on how to connect your CPU. There is **only one way** pins can be installed into the socket. It's when the golder arrow banded egde is in the bottom left corner of the CPU retention plate.
+
+Push a retention lever down and outward to release the CPU retention plate and put your CPU in the mentioned way.
+
+![Installed CPU AM4](./img/installed-cpu-am4.jpg "Installed CPU AM4")
+<div class="image-title">Installed CPU</div>
+
+Push the retention lever back to firmly install your CPU chip.
 
 ### SSD
 
-![Samsung 970 EVO M.2 SSD Unboxing](./img/samsung-970-evo-m.2-unboxing.jpg "Samsung 970 EVO M.2 SSD Unboxing")
+NVMe SSDs are much smaller than their SATA friends. It's just a one little plane that sits in the box.
+
+![Samsung 970 EVO NVMe M.2 SSD Unboxing](./img/samsung-970-evo-m.2-unboxing.jpg "Samsung 970 EVO M.2 SSD Unboxing")
 <div class="image-title">M.2 SSD Unboxing</div>
 
-`video: title: "M.2 Installation": ./img/ssd-m.2-installation.mp4`
-<div class="image-title">M.2 Installation</div>
+To connect this kind of SSDs, you need to use the M.2 socket. My MoBo has two of them. Each of them is supplied with a pair of a screw and a mounting screw. The MoBo has a few mounting posts for SSDs of different lengths.
 
-![SSD Installation. M.2 Screw](./img/ssd-m.2-installation.jpg "SSD Installation. M.2 Screw")
-<div class="image-title">SSD Installation. M.2 Screw</div>
+![NVMe SSD Installation. M.2 Screw](./img/ssd-m.2-installation.jpg "NVMe SSD Installation. M.2 Screw")
+<div class="image-title">NVMe SSD Installation. M.2 Screw</div>
+
+Just pick a mounting post that corresponds to your SSD size, install there a mounting screw and fix the SSD with the remaining screw.
 
 ### RAM
+
+RAM planks are easy to install as well.
 
 ![G.Skill Ripjaws V Series 32Gb Unboxing](./img/g.skill-ripjaws-v-series-32gb-unboxing.jpg "G.Skill Ripjaws V Series 32Gb Unboxing")
 <div class="image-title">RAM Unboxing</div>
 
+Unlock your RAM slots and align your RAM plank with the slot. There is **also only one way** the plank can be firmly installed.
+
 ![RAM Installation](./img/ram-installation.jpg "RAM Installation")
 <div class="image-title">RAM Installation</div>
 
+Notice that your MoBo instruction may specify recommended positions for different number of RAMs. Follow that recommendations!
+
 ### Cooler
+
+People suggest to **avoid applying power** to CPU before installing its cooling system. CPU may overheat or become weaker.
+
+My cooler is designed to work with both Intel and AMD CPUs. So the cooler box actually contains much more screws and other details then I needed in this particular build. This is the reason why its backpanel has such a bizarre form.
 
 ![Cooler Unboxing](./img/cooler-master-hyper-212-black-unboxing.jpg "Cooler Unboxing")
 <div class="image-title">Cooler Unboxing</div>
 
+The first step to install the cooler is to uninstall the stock backpanel.
+
+![Uninstalling Stock CPU Backpanel](./img/uninstalling-cpu-backpanel.jpg "Uninstalling Stock CPU Backpanel")
+<div class="image-title">Uninstalling Stock CPU Backpanel</div>
+
+This backpanel is going to be replaced by one that is provided with your cooler. In my case, I had to assemble a backpanel in AMD-compatible way.
+
+![Cooler Master Backplate](./img/cpu-cooler-backplate.jpg "Cooler Master Backplate")
+<div class="image-title">Cooler Backplate</div>
+
+Flip your board around and match match your new backpanel screws with the motherboard.
+
+![Cooler Master Backplate Installed](./img/cpu-cooler-backplate-installed.jpg "Cooler Master Backplate Installed")
+<div class="image-title">Cooler Backplate Installed</div>
+
+To finalize the backpanel installation, you need to install mounting screws on which the actual cooling system would be joined.
+
+Next, you could assemble the cooler system. It's typically needed to attach cooler legs on which it should be screwed down to the backpanel. After assembling, try to match your mounting screws to make sure your cooler legs are installed correctly.
+
+One of the final steps before you can attach your cooler is thermal paste installing. I have used the pee method explained in the video below.
+
+[embed: How to use thermal paste?](https://www.youtube.com/embed/-hNgFNH7zhQ)
+<div class="image-title">How to use thermal paste?</div>
+
+When using thermal gel, you need to cover CPU chip area as much as possible to allow better removal of CPU heat. Bubbles of airs that could pop up during this procedure would hurt.
+
+Finally, you can attach your cooler on the top of the CPU. Press CPU a bit to distribute your thermal gel well on the surface.
+
+In addition, make sure that gel stays on the CPU only as it may damaged your MoBo.
+
+### PSU and Computer Case
+
+![EVGA G2 750W Power Supply Unboxing](./img/evga-g2-750w-power-supply.jpg "EVGA G2 750W Power Supply Unboxing")
+<div class="image-title">Power Supply Unboxing</div>
+
+![NZXT H500 Computer Case](./img/nzxt-h500-pc-case.jpg "NZXT H500 Computer Case")
+<div class="image-title">Computer Case</div>
+
 ## Software Installation
+
+I considered Ubuntu 20.10 and Windows10 + WSL2 setups. Linux setup is more stable and straightforward. However, now WSL2 is pretty viable way to go as well. Tell you more about that next time.
 
 ## CUDA Setup
 
