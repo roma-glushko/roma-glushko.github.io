@@ -29,7 +29,9 @@
         "gatsby-remark-images": "^4.1.1",
         "gatsby-remark-mathjax": "^1.0.0",
         "gatsby-remark-prismjs": "^4.1.0",
+        "gatsby-remark-responsive-iframe": "^4.0.0",
         "gatsby-remark-video": "^1.2.5",
+        "gatsby-remark-youtube": "^1.0.0",
         "gatsby-source-filesystem": "^2.1.40",
         "gatsby-transformer-json": "^2.10.0",
         "gatsby-transformer-remark": "^2.6.39",
@@ -56,7 +58,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "deploy": "GATSBY_ENV=production rm -rf .cache && rm -rf public && gatsby build --prefix-paths && gh-pages -d public -b master",
+        "deploy": "rm -rf .cache && rm -rf public && yarn run build && gh-pages -d public -b master",
         "build": "GATSBY_ENV=production gatsby build --prefix-paths",
         "develop": "GATSBY_ENV=development gatsby develop",
         "cleanup": "rm -rf .cache && rm -rf public",
