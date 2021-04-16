@@ -12,15 +12,16 @@ import "./thoughts.css"
 
 class ThoughtListPage extends Component {
   render() {
-    const { data: { allMarkdownRemark: { edges } } } = this.props
+    const { data: { socialImage, allMarkdownRemark: { edges } } } = this.props
 
     return (
       <Layout>
         <SEO
-          title="Thoughts"
+          title="Thoughts by Roman Glushko"
           pagePath="/thoughts/"
           className="thoughts-list-page"
           description="Thoughts and experience that will help you to go through your life in the very best way"
+          imagePath={socialImage.relativePath}
           keywords={[
             'thoughts',
             'opinion',
@@ -98,6 +99,9 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+    socialImage: file(relativePath: { eq: "blog/roman-glushko-in-the-process-of-work-min.jpg" }) {
+      relativePath
     }
   }
 `

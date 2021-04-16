@@ -12,15 +12,16 @@ import "./blog.css"
 
 class BlogListPage extends Component {
   render() {
-    const { data: { allMarkdownRemark: { edges } } } = this.props
+    const { data: { socialImage, allMarkdownRemark: { edges } } } = this.props
 
     return (
       <Layout>
         <SEO
-          title="Blog"
+          title="Blog by Roman Glushko"
           pagePath="/blog/"
           className="blog-list-page"
           description="Technical blog about machine learning, data science, math and software engineering"
+          imagePath={socialImage.relativePath}
           keywords={[
             'technical blog',
             'machine learning blog',
@@ -109,6 +110,9 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+    socialImage: file(relativePath: { eq: "blog/roman-glushko-in-the-process-of-work-min.jpg" }) {
+      relativePath
     }
   }
 `
