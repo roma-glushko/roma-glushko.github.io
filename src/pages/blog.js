@@ -17,7 +17,7 @@ class BlogListPage extends Component {
     return (
       <Layout>
         <SEO
-          title="Blog by Roman Glushko"
+          title="Blog"
           pagePath="/blog/"
           className="blog-list-page"
           description="Technical blog about machine learning, data science, math and software engineering"
