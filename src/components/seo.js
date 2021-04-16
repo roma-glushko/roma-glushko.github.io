@@ -36,6 +36,7 @@ const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, cla
 
   if (imagePath) {
     meta.push({
+      name: `image`,
       property: `og:image`,
       content: `${siteMetadata.siteUrl}${imagePath}`,
     })
@@ -44,6 +45,7 @@ const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, cla
   meta.concat([
     {
       name: `description`,
+      property: `og:description`,
       content: metaDescription,
     },
     {
@@ -58,10 +60,7 @@ const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, cla
       property: `og:title`,
       content: title,
     },
-    {
-      property: `og:description`,
-      content: metaDescription,
-    },
+
     {
       property: `og:type`,
       content: type,
