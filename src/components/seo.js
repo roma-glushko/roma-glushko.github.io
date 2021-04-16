@@ -42,7 +42,7 @@ const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, cla
     })
   }
 
-  meta.concat([
+  meta = meta.concat([
     {
       name: `description`,
       property: `og:description`,
