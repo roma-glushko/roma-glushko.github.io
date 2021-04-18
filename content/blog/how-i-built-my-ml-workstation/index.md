@@ -470,10 +470,10 @@ Leveraging my new GPU resource required CUDA to be configured.
 
 CUDA is a parallel computing platform from NVIDIA that allows to fully leverage advantages of CUDA-enabled graphic cards. In general, the process of installing can be divided into 3 parts:
 
-- **Installing graphic card drivers**. The recommended way to install NVIDIA drivers is through Software & Update application.
+- **Installing graphic card drivers**. The recommended way to install NVIDIA drivers in Ubuntu is through Software & Update application.
 
 ![NVIDIA Drivers Installation on Ubuntu](./img/linux-nvidia-driver-installation-via-software-updates-app.jpg "NVIDIA Drivers Installation on Ubuntu")
-<div class="image-title">NVIDIA Drivers Installation on Ubuntu</div>
+<div class="image-title">NVIDIA Drivers Installation in Ubuntu</div>
 
 - **Install CUDA Toolkit**. NVIDIA has <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&=Ubuntu&target_version=20.04&target_type=deb_network">a sweet wizard</a> that can generate installation commands for your system. Execute all commands that it suggest you.
 - **Install cuDNN**. cuDNN is an GPU-accelerated library with primitives for deep learning. You need to be registered <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">here</a> in order to access the library. In the end, you will be landed to a page where you can download **cuDNN Runtime and Developer libraries** as well as **Code Samples and User Guide**. I downloaded all three of them as deb packages and installed.
@@ -483,21 +483,21 @@ CUDA is a parallel computing platform from NVIDIA that allows to fully leverage 
 
 Here is <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-linux">the official installation guide</a> from NVIDIA.
 
-So far I have tested my setup in PyTorch project. There may be another thing that would bother you. I had to reinstall my PyTorch libraries in order to leverage GPU resource. This time PyTorch has <a href="https://pytorch.org/get-started/locally/">a smooth installation wizard</a> which can help you.
+So far I have tested my setup in PyTorch project. There may be another thing that would bother you. I had to reinstall my PyTorch libraries in order to leverage my GPU device. This time PyTorch has <a href="https://pytorch.org/get-started/locally/">a smooth installation wizard</a> which can help you with that.
 
-Finally, if you use <a target="_blank" rel="noopener" href="https://www.pytorchlightning.ai/">PyTorch Lightning</a>, it's a matter of changing <a target="_blank" rel="noopener" href="https://pytorch-lightning.readthedocs.io/en/stable/advanced/multi_gpu.html#select-gpu-devices">gpus config</a> for your trainer instance and it will use all your GPU resource now during training or inference.
+Finally, if you use <a target="_blank" rel="noopener" href="https://www.pytorchlightning.ai/">PyTorch Lightning</a>, it's a matter of changing <a target="_blank" rel="noopener" href="https://pytorch-lightning.readthedocs.io/en/stable/advanced/multi_gpu.html#select-gpu-devices">gpus config</a> for your trainer instance and it will use all your GPU resources during training or inference.
 
 ## Workflow
 
 Currently I'm using the simplest possible workflow based on the sFTP connection to my machine and <a target="_blank" rel="noopener" href="https://www.jetbrains.com/help/pycharm/deployment-in-PyCharm.html#automatic-upload">changes auto-uploading feature from PyCharm Professional</a>.
 
-In order to connect my deep learning workstation, I installed <a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/how-to-install-ssh-on-ubuntu-linux-using-apt-get/">OpenSSH server</a> there. I like to disable password authentication in favor of SSH key usage. Also, it's good idea to change the default 22 port to something else.
+In order to connect my deep learning workstation, I installed <a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/how-to-install-ssh-on-ubuntu-linux-using-apt-get/">OpenSSH server</a> there. I like to disable the password authentication in favor of SSH key usage. Also, it's good idea to change the default 22 port to something else.
 
 Once SSH connection is ready, you can setup deployment host in your PyCharm instance and install your project on the ML workstation. This is needed for the first time and it's handy to do by running `git clone` plus `poetry install` commands. `Rsync` is quick way to upload datasets on your machine.
 
-Most changes you do in PyCharm will be automatically synced on the deep learning machine. When you are ready to test your changes, you can execute your project running a command via SSH on the ML workstation.
+Most changes you do in PyCharm will be automatically synced on the deep learning machine. When you are ready to test your changes, you can execute your project by running a command via SSH in the ML workstation.
 
-With this workflow, you can still work on your MacBook, while running the code on the GPU-accelerated workstation.
+With this workflow, you can still work from your MacBook, while running the code in the GPU-accelerated computer.
 
 ## Summary
 
@@ -508,7 +508,7 @@ It's awesome to see how a small idea of having some GPU resource at my hand grow
 
 I hope this article will be helpful when you build your own deep learning workstation. Be sure to let me know if this is true in the comments below!
 
-Most likely I will be experimenting with other workflows to see how they work for me, so stay tuned and good luck on building your own ML beasts.
+Most likely I will be experimenting with other workflows and the current setup in the following weeks to see how they work for me, so stay tuned and good luck on building your own ML beasts.
 
 ## References
 
