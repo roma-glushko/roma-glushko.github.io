@@ -16,7 +16,7 @@ Kaggle Kernels and Google Colab are great.
 
 I would drop my mic at this point if this article was not be about building a custom ML workstation.
 
-There is always some "buts" that makes our lives harder. When you start to approach nearly real life problems and see hundreds of gigabytes large datasets, your gut feeling starts to tell you that your CPU or AMD GPU devices are not going to be enough to do meaningful things. This is how I came here.
+There are always some "buts" that makes our lives harder. When you start to approach nearly real life problems and see hundreds of gigabytes large datasets, your gut feeling starts to tell you that your CPU or AMD GPU devices are not going to be enough to do meaningful things. This is how I came here.
 
 I was taking part in <a href="https://www.kaggle.com/c/hpa-single-cell-image-classification">Human Protein Atlas (HPA) - Single Cell Classification</a> competition on Kaggle. HPA dataset contains nearly 150Gb of 8bits 4-channels protein images. 16bits variant of the dataset holds 350Gb.
 
@@ -221,7 +221,7 @@ It took me a couple of weeks to collect all parts.
 
 Before unboxing all of those packages, keep in mind the following:
 
-- You need to **discharge static electricity** that may be on your hands. Static electricity can damage your components particularly your matherboard. Fortunately, it's easy to do. You need to periodically touch any metal object like your PC case, heater or filing cabinet. If you feel paranoid, there is a <a target="_blank" rel="noopener" href="https://www.newegg.com/rosewill-rtk-001/p/N82E16899261001">special wrist straps</a> for you.
+- You need to **discharge static electricity** that may be on your hands. Static electricity can damage your components particularly your matherboard. Fortunately, it's easy to do. You need to periodically touch any metal object like your PC case, heater or filing cabinet. If you feel paranoid, there are a <a target="_blank" rel="noopener" href="https://www.newegg.com/rosewill-rtk-001/p/N82E16899261001">special wrist straps</a> for you.
 - Be careful when you install or connect your components. Parts and cables are designed to be connected easily. If you find yourself **pressing too much**, chances are it's a signal to revisit what you are trying to connect and how. Exceptions happen since you probably would buy new things which have never been connected.
 
 Now it's time to get our hands dirty!
@@ -333,17 +333,120 @@ Finally, you can attach your cooler on the top of the CPU. Press CPU a bit to di
 
 In addition, make sure that gel stays on the CPU only as it may damaged your MoBo.
 
+Finally, you can connect cooler power cable into the nearest port on the MoBo marked as CPU_FAN.
+
 ### PSU and Computer Case
+
+A PSU box includes a power unit module and various cables.
 
 ![EVGA G2 750W Power Supply Unboxing](./img/evga-g2-750w-power-supply.jpg "EVGA G2 750W Power Supply Unboxing")
 <div class="image-title">Power Supply Unboxing</div>
 
+A computer case is just a metal box with two removable panels on the opposite sides of the box.
+
 ![NZXT H500 Computer Case](./img/nzxt-h500-pc-case.jpg "NZXT H500 Computer Case")
-<div class="image-title">Computer Case</div>
+<div class="image-title">Computer case without glass panel</div>
+
+On the top side of the box you can see the front panel of the case. You can have a few more ports there as well as power buttons.
+
+![NZXT H500 Front Panel](./img/nzxt-h500-front-panel.jpg "NZXT H500 Front Panel")
+<div class="image-title">Computer case front panel</div>
+
+First of all, install main I/O ports cover that comes with your motherboard into your computer case. Surprisingly, it's important to make sure that all little latches on the sides of the cover are fully installed and visible on the flip side. Otherwise, they may prevent you from screwing your motherboard down.
+
+![I/O Port Cover Latches](./img/io-cover-latches.jpg "I/O Port Cover Latches")
+<div class="image-title">Three little metal latches on the top side of I/O port cover </div>
+
+![Main I/O ports](./img/pc-io-ports.jpg "Main I/O ports")
+<div class="image-title">Main I/O ports</div>
+
+Then, you can try to screw down your motherboard to the case mounting positions.
+
+Next, there are three cables you need to connect in order to power your system:
+
+- Motherboard power cable
+- CPU power cable
+- Front panel power cable
+
+<span id="how-to-install-front-panel-power-cables"></span>
+
+It's straightforward how to connect CPU and motherboard power cables. However, it may be challenging to connect front panel cables for the first time. The following video was helpful in my case:
+
+[embed: How to connect the front panel power into JFP port?](https://www.youtube.com/embed/9--Nbg2qKUA)
+<div class="image-title">How to connect the front panel power into JFP port?</div>
+
+There may be still a few remaining cables to connect to the MoBo. In my case, I had USB, audio and Type-C power cables. The first two I was able to connect while the last one required an adapter since my MoBo doesn't have Type-C ports. So I kept it disconnected. By the way, PCPartsPicker can warn you about such a issues in advanced.
+
+![Motherboard installed into the computer case](./img/pc-motherboard-installed.jpg "Motherboard installed into the computer case")
+<div class="image-title">Motherboard installed into the computer case</div>
+
+Additionally, you may need to connect coolers that come with your computer case.
+
+At this point, you may try to apply power to your PC but you will get **no video signal** until you install your graphic card.
+
+### GPU
+
+The GPU box includes a card itself and an instruction.
+
+![Gigabyte Aorus RTX 3070 Master Unboxing](./img/gigabyte-aorus-master-rtx-3070-unboxing.jpg "Gigabyte Aorus RTX 3070 Master Unboxing")
+<div class="image-title">RTX 3070 Graphic Card</div>
+
+My GPU holds two slots so I needed to match output covers to replace them with actual GPU I/O ports. 
+
+![Graphic Card Covers on the Computer Case](./img/graphic-card-covers.jpg "Graphic Card Covers on the Computer Case")
+<div class="image-title">Graphic Card Covers on the Computer Case</div>
+
+GPU ports are HDMI and DP with mocks to protected them from the dust. On the left side of the I/O steel plate you can see two teeth that helps to mount the graphic card.
+
+![Gigabyte Aorus RTX 3070 Master Ports](./img/gigabyte-aorus-master-rtx-3070-ports.jpg "Gigabyte Aorus RTX 3070 Master Ports")
+<div class="image-title">Ports on Graphic Card</div>
+
+The computer case has special slots for these teeth. If you find that **your GPU teeth cannot be installed**, you mostly likely have some issues with motherboard mounting. Try to remount your motherboard to match the slots.
+
+![PC Boot](./img/graphic-card-teeth-mounted.jpg "PC Boot")
+<div class="image-title">Graphic Card Teeth Mounted</div>
+
+Gigabyte Aorus Master RTX 3070 requires two VGA cables to power it. Make sure your cables ends are firmly installed into the GPU and PSU. Otherwise, the GPU may be not found by motherboard.
+
+![PC Boot](./img/gigabyte-aorus-master-rtx-3070-power-applied.jpg "PC Boot")
+<div class="image-title">Power applied to the graphic card</div>
+
+## Hardware Troubleshooting
+
+If you put your first custom PC together, it's plausible that it's not going to work from the first try. In my case, the workstation simply did not turn on. There are a few things you want to double check before returning your parts back to your suppliers:
+
+ - **The front panel power is connected correctly**. Get back to <a href="#how-to-install-front-panel-power-cables">the front panel power cable installation</a> and double check if you get them installed the right way. For instance, this was the reason why my PC did not work.
+ - **RAM sticks are seated securely**. Try to reinstall your RAM sticks. RAM port mechanism should lock them down.
+ - **Power supply cables are connected firmly**. Make sure your power cables are fully connected on the both sides. I had some issues with this as well. Each connector has a lock mechanism that should hold cables inside of ports. Check if all locks are installed.
+ - **Motherboard is installed on the standoffs**. Some cases provides a special standoff screws on which motherboard should be installed. Standoffs elevates the motherboard and protects it from touching metal trays which may lead to the short out.
+
+Another symptoms I want to review is **your PC turns on but shuts down after short time during booting**. In this case, there may be a faulty component that prevents your PC build from running. I found a good strategy to diagnose this:
+
+- Try to unconnect all "unnecessary" components like second HDD or case coolers and double check whenever the issue is still in place.
+- Keeps unconnecting things untill your issue is not there anymore.
+- Last unconnected component is likely the reason of the issue. Try to connect it again to prove the assumption.
+
+The following video shows the process of troubleshooting in action:
+
+[embed: How to diagnose faulty PC components?](https://www.youtube.com/embed/QP6pAPctqbk)
+<div class="image-title">How to diagnose faulty PC components?</div>
+
+Also, your motherboard may have debug LED which indicates what component of the system is not found. In this case, you need to double check that signaled component is getting power and installed correctly.
+
+Finally, after some time you will be able to see a video signal on your screen and system that is looking for bootable device.
+
+![PC Boot](./img/pc-boot.jpg "PC Boot")
+<div class="image-title">PC Boot and back side of the case with cable management sections</div>
+
+It's a good time to mount your PSU and take advantage of cable management system that your computer case provides. 
+
+![EVGA G2 750W Installed](./img/evga-g2-750w-installed.jpg "EVGA G2 750W Installed")
+<div class="image-title">Mounted PSU</div>
+
 
 ## Software Installation
 
-I considered Ubuntu 20.10 and Windows10 + WSL2 setups. Linux setup is more stable and straightforward. However, now WSL2 is pretty viable way to go as well. Tell you more about that next time.
+I considered Ubuntu 20.10 and Windows10 + WSL2 setups. Linux setup is more stable and straightforward now. However, WSL2 sounds to be a pretty viable way to go as well. Tell you more about that next time.
 
 ## CUDA Setup
 

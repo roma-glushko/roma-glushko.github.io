@@ -97,3 +97,11 @@ body.dark {
 .content .gatsby-highlight {
     font-size: 1rem;
 }
+
+.content a.anchor{
+    transform: translateX(-100%) translateY(-5%);
+}
+
+.content a.anchor .anchor-icon {
+    fill: currentColor;
+}
