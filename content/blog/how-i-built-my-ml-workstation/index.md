@@ -308,12 +308,12 @@ The first step to install the cooler is to uninstall the stock backpanel.
 ![Uninstalling Stock CPU Backpanel](./img/uninstalling-cpu-backpanel.jpg "Uninstalling Stock CPU Backpanel")
 <div class="image-title">Uninstalling Stock CPU Backpanel</div>
 
-This backpanel is going to be replaced by one that is provided with your cooler. In my case, I had to assemble a backpanel in AMD-compatible way.
+This backpanel is going to be replaced by another one provided with your custom cooler. In my case, I had to assemble a backpanel in AMD-compatible way.
 
 ![Cooler Master Backplate](./img/cpu-cooler-backplate.jpg "Cooler Master Backplate")
 <div class="image-title">Cooler Backplate</div>
 
-Flip your board around and match match your new backpanel screws with the motherboard.
+Flip your board around and match screws from your new backpanel with the motherboard.
 
 ![Cooler Master Backplate Installed](./img/cpu-cooler-backplate-installed.jpg "Cooler Master Backplate Installed")
 <div class="image-title">Cooler Backplate Installed</div>
@@ -322,7 +322,7 @@ To finalize the backpanel installation, you need to install mounting screws on w
 
 Next, you could assemble the cooler system. It's typically needed to attach cooler legs on which it should be screwed down to the backpanel. After assembling, try to match your mounting screws to make sure your cooler legs are installed correctly.
 
-One of the final steps before you can attach your cooler is thermal paste installing. I have used the pee method explained in the video below.
+One of the final steps before you can attach your cooler is thermal paste installation. I used the pee method explained in the video below.
 
 [embed: How to use thermal paste?](https://www.youtube.com/embed/-hNgFNH7zhQ)
 <div class="image-title">How to use thermal paste?</div>
@@ -355,7 +355,7 @@ On the top side of the box you can see the front panel of the case. You can have
 First of all, install main I/O ports cover that comes with your motherboard into your computer case. Surprisingly, it's important to make sure that all little latches on the sides of the cover are fully installed and visible on the flip side. Otherwise, they may prevent you from screwing your motherboard down.
 
 ![I/O Port Cover Latches](./img/io-cover-latches.jpg "I/O Port Cover Latches")
-<div class="image-title">Three little metal latches on the top side of I/O port cover </div>
+<div class="image-title">Three little metal latches on the top side of I/O port cover. You should see them on the all of the sides</div>
 
 ![Main I/O ports](./img/pc-io-ports.jpg "Main I/O ports")
 <div class="image-title">Main I/O ports</div>
@@ -375,12 +375,12 @@ It's straightforward how to connect CPU and motherboard power cables. However, i
 [embed: How to connect the front panel power into JFP port?](https://www.youtube.com/embed/9--Nbg2qKUA)
 <div class="image-title">How to connect the front panel power into JFP port?</div>
 
-There may be still a few remaining cables to connect to the MoBo. In my case, I had USB, audio and Type-C power cables. The first two I was able to connect while the last one required an adapter since my MoBo doesn't have Type-C ports. So I kept it disconnected. By the way, PCPartsPicker can warn you about such a issues in advanced.
+There may be still a few remaining cables to connect to the MoBo. In my case, I had USB, audio and Type-C power cables. The first two I was able to connect while the last one required an adapter since my MoBo doesn't have Type-C ports. So I kept it disconnected. By the way, PCPartsPicker can warn you about such issues in advanced.
 
 ![Motherboard installed into the computer case](./img/pc-motherboard-installed.jpg "Motherboard installed into the computer case")
 <div class="image-title">Motherboard installed into the computer case</div>
 
-Additionally, you may need to connect coolers that come with your computer case.
+Additionally, you may need to connect coolers which come with your computer case.
 
 At this point, you may try to apply power to your PC but you will get **no video signal** until you install your graphic card.
 
@@ -391,12 +391,12 @@ The GPU box includes a card itself and an instruction.
 ![Gigabyte Aorus RTX 3070 Master Unboxing](./img/gigabyte-aorus-master-rtx-3070-unboxing.jpg "Gigabyte Aorus RTX 3070 Master Unboxing")
 <div class="image-title">RTX 3070 Graphic Card</div>
 
-My GPU holds two slots so I needed to match output covers to replace them with actual GPU I/O ports. 
+My GPU holds two slots, so I needed to match output covers to replace them with actual GPU I/O ports. 
 
 ![Graphic Card Covers on the Computer Case](./img/graphic-card-covers.jpg "Graphic Card Covers on the Computer Case")
 <div class="image-title">Graphic Card Covers on the Computer Case</div>
 
-GPU ports are HDMI and DP with mocks to protected them from the dust. On the left side of the I/O steel plate you can see two teeth that helps to mount the graphic card. 
+GPU ports are HDMIs and DPs with mocks to protected them from the dust. On the left side of the I/O steel plate you can see two teeth that helps to mount the graphic card. 
 
 Make sure **use one of these ports to connect your monitor**. HDMI port on the motherboard may not work properly.
 
@@ -419,8 +419,8 @@ If you put your first custom PC together, it's plausible that it's not going to 
 
  - **The front panel power is connected correctly**. Get back to <a href="#how-to-install-front-panel-power-cables">the front panel power cable installation</a> and double check if you get them installed the right way. For instance, this was the reason why my PC did not work.
  - **RAM sticks are seated securely**. Try to reinstall your RAM sticks. RAM port mechanism should lock them down.
- - **Power supply cables are connected firmly**. Make sure your power cables are fully connected on the both sides. I had some issues with this as well. Each connector has a lock mechanism that should hold cables inside of ports. Check if all locks are installed.
- - **Motherboard is installed on the standoffs**. Some cases provides a special standoff screws on which motherboard should be installed. Standoffs elevates the motherboard and protects it from touching metal trays which may lead to the short out.
+ - **Power supply cables are connected firmly**. Make sure your power cables are fully connected on the both sides. I had some issues with this as well. Each connector has a plastic lock mechanism that should hold cables inside of ports. Check if all locks are activated.
+ - **Motherboard is installed on the standoffs**. Some cases provides a special standoff screws on which motherboard should be installed. Standoffs elevate the motherboard and protect it from touching metal trays which may lead to the short out.
 
 Another symptoms I want to review is **your PC turns on but shuts down after short time during booting**. In this case, there may be a faulty component that prevents your PC build from running. I found a good strategy to diagnose this:
 
