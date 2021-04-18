@@ -14,7 +14,7 @@ Kaggle Kernels and Google Colab are great.
 
 <div style="width:100%;height:0;padding-bottom:73%;position:relative;"><iframe src="https://giphy.com/embed/UmBdALbYTmCJ2" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/UmBdALbYTmCJ2"></a></p>
 
-I would drop my mic at this point if this article was not be about building a custom ML workstation.
+I would drop my mic at this point if this article was not about building a custom ML workstation.
 
 There are always some "buts" that make our lives harder. When you start to approach nearly real life problems and you see hundreds of gigabytes large datasets, your gut feeling starts to tell you that your CPU or AMD GPU devices are not going to be enough to do meaningful things. This is how I came here.
 
