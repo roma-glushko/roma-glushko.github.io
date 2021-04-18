@@ -210,7 +210,7 @@ Basically, the main differences are in:
 
 - **Max Power Limit** - affects GPU performance
 - **Quality of the card cooling system** - ability to cold card and sustain performance for a long time
-- **Fan Noise** - it's just annoying to run noisy cards (particularly if you working in t a place where other people work or live)
+- **Fan Noise** - it's just annoying to run noisy cards (particularly if you working in a place where other people work or live)
 
 ## Hardware Installation
 
