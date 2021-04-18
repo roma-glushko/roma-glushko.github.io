@@ -493,7 +493,7 @@ Currently I'm using the simplest possible workflow based on the sFTP connection 
 
 In order to connect my deep learning workstation, I installed <a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/how-to-install-ssh-on-ubuntu-linux-using-apt-get/">OpenSSH server</a> there. I like to disable the password authentication in favor of SSH key usage. Also, it's good idea to change the default 22 port to something else.
 
-Once SSH connection is ready, you can setup deployment host in your PyCharm instance and install your project on the ML workstation. This is needed for the first time and it's handy to do by running `git clone` plus `poetry install` commands. `Rsync` is quick way to upload datasets on your machine.
+Once SSH connection is ready, you can setup deployment host in your PyCharm instance and install your project on the ML workstation. This is needed for the first time setup of a project and it's handy to do it by running `git clone` plus `poetry install` commands. `Rsync` is a quick way to upload datasets into your machine.
 
 Most changes you do in PyCharm will be automatically synced on the deep learning machine. When you are ready to test your changes, you can execute your project by running a command via SSH in the ML workstation.
 
