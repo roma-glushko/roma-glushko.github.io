@@ -145,7 +145,7 @@ Amoung SSDs, you could find <a target="_blank" rel="noopener" href="https://www.
 
 ### Power System Unit
 
-The PSU is what makes your PC alive. To choose your PSU, you need to calculate **wattage consumption** of your build. Typically there are two the most power consuming components: **CPU and GPUs**. If you sum up their consumptions and adds another 10-15% on top of that (for other components, overclocking, etc), you would roughly estimates your power needs. I also use <a target="_blank" rel="noopener" href="https://pcpartpicker.com">PCPartpicker Builder</a> to estimate PC wattage.
+The PSU is what makes your PC alive. To choose your PSU, you need to calculate **wattage consumption** of your build. Typically there are two the most power consuming components: **CPU and GPUs**. If you sum up their consumptions and adds another 10-15% on top of that (for other components, overclocking, etc), you would roughly estimates your power needs. I also used <a target="_blank" rel="noopener" href="https://pcpartpicker.com">PCPartpicker Builder</a> to estimate my PC wattage.
 
 Other then that, you should consider number of **slots and connectors** that the PSU provides. 
 
