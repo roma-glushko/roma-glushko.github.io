@@ -396,7 +396,9 @@ My GPU holds two slots so I needed to match output covers to replace them with a
 ![Graphic Card Covers on the Computer Case](./img/graphic-card-covers.jpg "Graphic Card Covers on the Computer Case")
 <div class="image-title">Graphic Card Covers on the Computer Case</div>
 
-GPU ports are HDMI and DP with mocks to protected them from the dust. On the left side of the I/O steel plate you can see two teeth that helps to mount the graphic card.
+GPU ports are HDMI and DP with mocks to protected them from the dust. On the left side of the I/O steel plate you can see two teeth that helps to mount the graphic card. 
+
+Make sure **use one of these ports to connect your monitor**. HDMI port on the motherboard may not work properly.
 
 ![Gigabyte Aorus RTX 3070 Master Ports](./img/gigabyte-aorus-master-rtx-3070-ports.jpg "Gigabyte Aorus RTX 3070 Master Ports")
 <div class="image-title">Ports on Graphic Card</div>
@@ -448,8 +450,33 @@ It's a good time to mount your PSU and take advantage of cable management system
 
 I considered Ubuntu 20.10 and Windows10 + WSL2 setups. Linux setup is more stable and straightforward now. However, WSL2 sounds to be a pretty viable way to go as well. Tell you more about that next time.
 
+I have only macOS at my hand, so I used <a target="_blank" rel="noopener" href="https://unetbootin.github.io/">UNetBootIn application</a> to burn a Linux bootable USB. I preferred to use <a target="_blank" rel="noopener" href="https://ubuntu.com/download/alternative-downloads">a BitTorrent</a> to download the Ubuntu 20.10 image.
+
+Pay attention, that some Linux distributions (like Kali) complain that UNetBootIn **is not the most reliable way** to write a bootable USB. Fortunately, I seemed to have no issues with that. However, I had to buy a new USB stick as my old one seems to become faulty. Installation from the old USB stick failed because of the broken files every other time I had tried to install an OS.
+
+After I got a new USB stick, I could able to install Ubuntu without issues.
+
+### WiFi Adapter Drivers
+
+Unfortunately, MSI X470 MAX Gaming Plus motherboard doesn't support WiFi out-of-the-box. I did not want to mess around with Ethernet cables, so I bought a TP-Link Archer T2U WiFi adapter. The issue is that Ubuntu doesn't support it and there is a need for additional driver installation.
+
+The good news is that TP-Link devices have a good support in Linux community, so I was managed to find needed drivers quickly. Namely, I installed <a target="_blank" rel="noopener" href="https://github.com/aircrack-ng/rtl8812au">the rtl8812au driver</a>. To install the driver, you need to have the Internet connection, because it depends on DKMS package which is surprisingly doesn't installed in vanilla Ubuntu. Follow the instruction provided in the driver repository to install it. Make sure that `sudo make dkms_install` command went without errors.
+
+In addition, you may want to reboot your machine in order to double check that driver works in that case. If not, following <a target="_blank" rel="noopener" href="https://askubuntu.com/questions/1184993/driver-for-rtl8812au-unplugs-after-reboot">this answer on StackOveflow</a>. Also, I had to run `sudo make dkms_install` command to finally get it worked after rebooting.
+
 ## CUDA Setup
 
+Leveraging my new GPU resource required CUDA to be configured.
+
+CUDA is a parallel computing platform from NVIDIA that allows to fully leverage advantages of CUDA-enabled graphic cards. In general, the process of installing can be divided into 3 parts:
+
+- **Installing graphic card drivers**. The recommended way to install NVIDIA drivers is through Software & Update application.
+
+![NVIDIA Drivers Installation on Ubuntu](./img/linux-nvidia-driver-installation-via-software-updates-app.jpg "NVIDIA Drivers Installation on Ubuntu")
+<div class="image-title">NVIDIA Drivers Installation on Ubuntu</div>
+
+- **Install CUDA Toolkit**
+- **Install cuDNN**
 ## Workflow
 
 ## Summary
