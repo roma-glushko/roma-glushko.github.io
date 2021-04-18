@@ -408,7 +408,7 @@ The computer case has special slots for these teeth. If you find that **your GPU
 ![PC Boot](./img/graphic-card-teeth-mounted.jpg "PC Boot")
 <div class="image-title">Graphic Card Teeth Mounted</div>
 
-Gigabyte Aorus Master RTX 3070 requires two VGA cables to power it. Make sure your cables ends are firmly installed into the GPU and PSU. Otherwise, the GPU may be not found by motherboard.
+Gigabyte Aorus Master RTX 3070 requires two VGA cables to power it. Make sure the ends of your cables are firmly installed into the GPU and PSU. Otherwise, the GPU may be not found by the motherboard.
 
 ![PC Boot](./img/gigabyte-aorus-master-rtx-3070-power-applied.jpg "PC Boot")
 <div class="image-title">Power applied to the graphic card</div>
@@ -419,28 +419,28 @@ If you put your first custom PC together, it's plausible that it's not going to 
 
  - **The front panel power is connected correctly**. Get back to <a href="#how-to-install-front-panel-power-cables">the front panel power cable installation</a> and double check if you get them installed the right way. For instance, this was the reason why my PC did not work.
  - **RAM sticks are seated securely**. Try to reinstall your RAM sticks. RAM port mechanism should lock them down.
- - **Power supply cables are connected firmly**. Make sure your power cables are fully connected on the both sides. I had some issues with this as well. Each connector has a plastic lock mechanism that should hold cables inside of ports. Check if all locks are activated.
- - **Motherboard is installed on the standoffs**. Some cases provides a special standoff screws on which motherboard should be installed. Standoffs elevate the motherboard and protect it from touching metal trays which may lead to the short out.
+ - **Power supply cables are connected firmly**. Make sure your power cables are fully connected on both sides. I had some issues with this as well. Each connector has a plastic lock mechanism that should hold cables inside of the ports. Check if all locks are activated.
+ - **The motherboard is installed on the standoffs**. Some cases provide a special standoff screws on which motherboard should be installed. Standoffs elevate the motherboard and protect it from touching metal trays which may lead to the short out.
 
-Another symptoms I want to review is **your PC turns on but shuts down after short time during booting**. In this case, there may be faulty components that prevent your PC build from running. I found a good strategy to diagnose this kind of issues:
+Onother symptoms I want to review is **your PC turns on but shuts down after short time during booting**. In this case, there may be faulty components that prevent your PC build from running. I found a good strategy to diagnose this kind of issues:
 
-- Try to unconnect all "unnecessary" components like second HDD or case coolers and double check whenever the issue is still in place.
-- Keeps unconnecting things untill your issue is not there anymore.
-- Last unconnected component is likely the reason of the issue. Try to connect it again to prove the assumption.
+- Try to unplug all "unnecessary" components like second HDD or case coolers and double check whenever the issue is still in place.
+- Keeps unconnecting things until your issue is not there anymore.
+- The last unconnected component is likely the reason for the issue. Try to connect it again to prove the assumption.
 
 The following video shows the process of troubleshooting in action:
 
 [embed: How to diagnose faulty PC components?](https://www.youtube.com/embed/QP6pAPctqbk)
 <div class="image-title">How to diagnose faulty PC components?</div>
 
-Also, your motherboard may have debug LEDs which indicate what components in the system are not found. In this case, you need to double check that signaled components are getting power and installed correctly.
+Also, your motherboard may have debug LEDs which indicate what components in the system are not found. In this case, you need to double check that signalled components are getting power and installed correctly.
 
-Finally, after some time you will be able to see a video signal on your screen and system that is looking for bootable device.
+Finally, after some time you will be able to see a video signal on your screen and system that is looking for a bootable device.
 
 ![PC Boot](./img/pc-boot.jpg "PC Boot")
 <div class="image-title">PC Boot and back side of the case with cable management sections</div>
 
-It's a good time to mount your PSU and take advantage of cable management system that your computer case provides. 
+It's a good time to mount your PSU and take advantage of the cable management system that your computer case provides. 
 
 ![EVGA G2 750W Installed](./img/evga-g2-750w-installed.jpg "EVGA G2 750W Installed")
 <div class="image-title">Mounted PSU</div>
@@ -450,7 +450,7 @@ It's a good time to mount your PSU and take advantage of cable management system
 
 I considered Ubuntu 20.10 and Windows10 + WSL2 setups. Linux setup is more stable and straightforward now. However, WSL2 sounds to be a pretty viable way to go as well. Tell you more about that next time.
 
-I have only macOS at my hand, so I used <a target="_blank" rel="noopener" href="https://unetbootin.github.io/">UNetBootIn application</a> to burn a Linux bootable USB. I preferred to use <a target="_blank" rel="noopener" href="https://ubuntu.com/download/alternative-downloads">a BitTorrent</a> to download the Ubuntu 20.10 image.
+I have only macOS at my hand, so I used <a target="_blank" rel="noopener" href="https://unetbootin.github.io/">the UNetBootIn application</a> to burn a Linux bootable USB. I preferred to use <a target="_blank" rel="noopener" href="https://ubuntu.com/download/alternative-downloads">a BitTorrent</a> to download the Ubuntu 20.10 image.
 
 Pay attention, that some Linux distributions (like Kali) complain that UNetBootIn **is not the most reliable way** to write a bootable USB. Fortunately, I seemed to have no issues with that. However, I had to buy a new USB stick as my old one seems to become faulty. Installation from the old USB stick failed because of the broken files every other time I had tried to install an OS.
 
@@ -460,7 +460,7 @@ After I got a new USB stick, I could able to install Ubuntu without issues.
 
 Unfortunately, MSI X470 MAX Gaming Plus motherboard doesn't support WiFi out-of-the-box. I did not want to mess around with Ethernet cables, so I bought a TP-Link Archer T2U WiFi adapter. The issue is that Ubuntu doesn't support it and there is a need for additional drivers.
 
-The good news is that TP-Link devices have a good support in Linux community, so I was managed to find needed drivers quickly. Namely, I installed <a target="_blank" rel="noopener" href="https://github.com/aircrack-ng/rtl8812au">the rtl8812au drivers</a>. To install these drivers, you need to have the Internet connection, because they depend on DKMS package which is surprisingly doesn't installed in vanilla Ubuntu. Follow the instruction provided in the driver repository to install it. Make sure that `sudo make dkms_install` command went without errors.
+The good news is that TP-Link devices have good support in the Linux community, so I was managed to find needed drivers quickly. Namely, I installed <a target="_blank" rel="noopener" href="https://github.com/aircrack-ng/rtl8812au">the rtl8812au drivers</a>. To install these drivers, you need to have the Internet connection, because they depend on DKMS package which is surprisingly doesn't installed in vanilla Ubuntu. Follow the instruction provided in the driver repository to install it. Make sure that `sudo make dkms_install` command went without errors.
 
 In addition, you may want to reboot your machine in order to double check that drivers work in that case. If not, follow <a target="_blank" rel="noopener" href="https://askubuntu.com/questions/1184993/driver-for-rtl8812au-unplugs-after-reboot">this answer on StackOveflow</a>. Also, I had to run `sudo make dkms_install` command the second time to finally get drivers work after rebooting.
 
@@ -475,8 +475,8 @@ CUDA is a parallel computing platform from NVIDIA that allows to fully leverage 
 ![NVIDIA Drivers Installation on Ubuntu](./img/linux-nvidia-driver-installation-via-software-updates-app.jpg "NVIDIA Drivers Installation on Ubuntu")
 <div class="image-title">NVIDIA Drivers Installation in Ubuntu</div>
 
-- **Install CUDA Toolkit**. NVIDIA has <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&=Ubuntu&target_version=20.04&target_type=deb_network">a sweet wizard</a> that can generate installation commands for your system. Execute all commands that it suggest you.
-- **Install cuDNN**. cuDNN is an GPU-accelerated library with primitives for deep learning. You need to be registered <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">here</a> in order to access the library. In the end, you will be landed to a page where you can download **cuDNN Runtime and Developer libraries** as well as **Code Samples and User Guide**. I downloaded all three of them as deb packages and installed.
+- **Install CUDA Toolkit**. NVIDIA has <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&=Ubuntu&target_version=20.04&target_type=deb_network">a sweet wizard</a> that can generate installation commands for your system. Execute all commands that it suggests you.
+- **Install cuDNN**. cuDNN is a GPU-accelerated library with primitives for deep learning. You need to be registered <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">here</a> in order to access the library. In the end, you will be landed on a page where you can download **cuDNN Runtime and Developer libraries** as well as **Code Samples and User Guide**. I downloaded all three of them as deb packages and installed.
 
 ![Download cuDNN page](./img/download-cudnn-page.png "Download cuDNN page")
 <div class="image-title">Download cuDNN page (<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">access is here</a>)</div>
@@ -489,11 +489,11 @@ Finally, if you use <a target="_blank" rel="noopener" href="https://www.pytorchl
 
 ## Workflow
 
-Currently I'm using the simplest possible workflow based on the sFTP connection to my machine and <a target="_blank" rel="noopener" href="https://www.jetbrains.com/help/pycharm/deployment-in-PyCharm.html#automatic-upload">changes auto-uploading feature from PyCharm Professional</a>.
+Currently, I'm using the simplest possible workflow based on the sFTP connection to my machine and <a target="_blank" rel="noopener" href="https://www.jetbrains.com/help/pycharm/deployment-in-PyCharm.html#automatic-upload">changes auto-uploading feature from PyCharm Professional</a>.
 
-In order to connect my deep learning workstation, I installed <a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/how-to-install-ssh-on-ubuntu-linux-using-apt-get/">OpenSSH server</a> there. I like to disable the password authentication in favor of SSH key usage. Also, it's good idea to change the default 22 port to something else.
+In order to connect my deep learning workstation, I installed <a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/how-to-install-ssh-on-ubuntu-linux-using-apt-get/">OpenSSH server</a> there. I like to disable the password authentication in favor of SSH key usage. Also, it's a good idea to change the default 22 port to something else.
 
-Once SSH connection is ready, you can setup deployment host in your PyCharm instance and install your project on the ML workstation. This is needed for the first time setup of a project and it's handy to do it by running `git clone` plus `poetry install` commands. `Rsync` is a quick way to upload datasets into your machine.
+Once the SSH connection is ready, you can setup deployment host in your PyCharm instance and install your project on the ML workstation. This is needed for the first time setup of a project and it's handy to do it by running `git clone` plus `poetry install` commands. `Rsync` is a quick way to upload datasets into your machine.
 
 Most changes you do in PyCharm will be automatically synced on the deep learning machine. When you are ready to test your changes, you can execute your project by running a command via SSH in the ML workstation.
 
