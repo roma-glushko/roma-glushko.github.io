@@ -114,7 +114,7 @@ Motherboard integrates most of the components and also provides:
 - chipset with BIOS
 - WiFi, Bluetooth adapters
 
-Motherboard provides other interfaces to power your stuff. Among them, the one of most important is CPU. The motherboards are divided into AMD- and Intel-compatible sockets which are not interchangable. Hence, you need to make sure **CPU of you choice** is **compatible with your motherboard**.
+Motherboard provides other interfaces to power your stuff. Among them, the one of most important is CPU socket. The motherboards are divided into AMD- and Intel-compatible sockets which are not interchangable. Hence, you need to make sure **CPU of you choice** is **compatible with your motherboard**.
 
 **Number of PCI ports** is another thing to consider. Since PCI ports are used to connect GPUs, you need to plan ahead your build and rooms for upgrades (to be able to add more cards in the future, for example). Also, pay attention that, effectively, graphic cards takes more then slot of space. We want to have **as much space as possible** between cards for **better air cooling**.
 
