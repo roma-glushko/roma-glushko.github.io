@@ -1,7 +1,7 @@
 ---
 path: "/blog/how-i-built-my-ml-workstation/"
-date: "2021-04-07 15:17:00"
-published: false
+date: "2021-04-18 15:42:00"
+published: true
 title: "How I built my ML workstation 🔬"
 cover: "./machine-learning-workstation.jpg"
 keywords:
