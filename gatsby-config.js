@@ -64,10 +64,12 @@ module.exports = {
                         {
                             family: "Dancing Script",
                             fontDisplay: 'swap',
+                            variants: ["300", "400", "700"],
                         },
                         {
                             family: "Ledger",
                             fontDisplay: 'swap',
+                            variants: ["300", "400", "700"],
                         },
                     ],
                 },
