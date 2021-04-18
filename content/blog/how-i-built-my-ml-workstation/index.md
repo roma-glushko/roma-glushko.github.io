@@ -422,7 +422,7 @@ If you put your first custom PC together, it's plausible that it's not going to 
  - **Power supply cables are connected firmly**. Make sure your power cables are fully connected on the both sides. I had some issues with this as well. Each connector has a plastic lock mechanism that should hold cables inside of ports. Check if all locks are activated.
  - **Motherboard is installed on the standoffs**. Some cases provides a special standoff screws on which motherboard should be installed. Standoffs elevate the motherboard and protect it from touching metal trays which may lead to the short out.
 
-Another symptoms I want to review is **your PC turns on but shuts down after short time during booting**. In this case, there may be a faulty component that prevents your PC build from running. I found a good strategy to diagnose this:
+Another symptoms I want to review is **your PC turns on but shuts down after short time during booting**. In this case, there may be faulty components that prevent your PC build from running. I found a good strategy to diagnose this kind of issues:
 
 - Try to unconnect all "unnecessary" components like second HDD or case coolers and double check whenever the issue is still in place.
 - Keeps unconnecting things untill your issue is not there anymore.
@@ -433,7 +433,7 @@ The following video shows the process of troubleshooting in action:
 [embed: How to diagnose faulty PC components?](https://www.youtube.com/embed/QP6pAPctqbk)
 <div class="image-title">How to diagnose faulty PC components?</div>
 
-Also, your motherboard may have debug LED which indicates what component of the system is not found. In this case, you need to double check that signaled component is getting power and installed correctly.
+Also, your motherboard may have debug LEDs which indicate what components in the system are not found. In this case, you need to double check that signaled components are getting power and installed correctly.
 
 Finally, after some time you will be able to see a video signal on your screen and system that is looking for bootable device.
 
@@ -458,11 +458,11 @@ After I got a new USB stick, I could able to install Ubuntu without issues.
 
 ### WiFi Adapter Drivers
 
-Unfortunately, MSI X470 MAX Gaming Plus motherboard doesn't support WiFi out-of-the-box. I did not want to mess around with Ethernet cables, so I bought a TP-Link Archer T2U WiFi adapter. The issue is that Ubuntu doesn't support it and there is a need for additional driver installation.
+Unfortunately, MSI X470 MAX Gaming Plus motherboard doesn't support WiFi out-of-the-box. I did not want to mess around with Ethernet cables, so I bought a TP-Link Archer T2U WiFi adapter. The issue is that Ubuntu doesn't support it and there is a need for additional drivers.
 
-The good news is that TP-Link devices have a good support in Linux community, so I was managed to find needed drivers quickly. Namely, I installed <a target="_blank" rel="noopener" href="https://github.com/aircrack-ng/rtl8812au">the rtl8812au driver</a>. To install the driver, you need to have the Internet connection, because it depends on DKMS package which is surprisingly doesn't installed in vanilla Ubuntu. Follow the instruction provided in the driver repository to install it. Make sure that `sudo make dkms_install` command went without errors.
+The good news is that TP-Link devices have a good support in Linux community, so I was managed to find needed drivers quickly. Namely, I installed <a target="_blank" rel="noopener" href="https://github.com/aircrack-ng/rtl8812au">the rtl8812au drivers</a>. To install these drivers, you need to have the Internet connection, because they depend on DKMS package which is surprisingly doesn't installed in vanilla Ubuntu. Follow the instruction provided in the driver repository to install it. Make sure that `sudo make dkms_install` command went without errors.
 
-In addition, you may want to reboot your machine in order to double check that driver works in that case. If not, following <a target="_blank" rel="noopener" href="https://askubuntu.com/questions/1184993/driver-for-rtl8812au-unplugs-after-reboot">this answer on StackOveflow</a>. Also, I had to run `sudo make dkms_install` command to finally get it worked after rebooting.
+In addition, you may want to reboot your machine in order to double check that drivers work in that case. If not, follow <a target="_blank" rel="noopener" href="https://askubuntu.com/questions/1184993/driver-for-rtl8812au-unplugs-after-reboot">this answer on StackOveflow</a>. Also, I had to run `sudo make dkms_install` command the second time to finally get drivers work after rebooting.
 
 ## CUDA Setup
 
