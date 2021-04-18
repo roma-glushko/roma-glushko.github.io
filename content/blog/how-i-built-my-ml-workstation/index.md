@@ -58,7 +58,7 @@ I have found a few useful blog posts which helped me to quickly grasp the topic.
 
 In his blog, Tim explained at length importance of each PC part for ML workstation and provides general pieces of advice on choosing them. Here I'm going to mention information that was helpful for me along with details Tim did not focus on.
 
-Also, <a target="_blank" rel="noopener" href="https://pcpartpicker.com">PCPartsPicker's Builder</a> was super helpful during planning PC. It suggested possible components compatibilities and things to check before ordering the list. It helped to overcome my constant fear that I could buy something that would not work together.
+Also, <a target="_blank" rel="noopener" href="https://pcpartpicker.com">PCPartsPicker's Builder</a> was super helpful during planning PC. It suggests possible components compatibilities and things to check before ordering the list. It helped to overcome my constant fear that I could buy something that would not work together.
 
 ## Parts for ML build
 
@@ -83,7 +83,7 @@ The very fist consideration is that we need **NVIDIA graphic cards only** for de
 
 It makes sense to dig just slightly deeper in a simplified CUDA architecture. Modern GPUs are based on **tensor cores** that are capable of multiplying **4x4 matrices in one operation** which is blazing fast. Despite that, tensor cores need data to perform computations on. Data passes the following way in order to be loaded efficiently:
 
-- **From CPU to Global GPU Memory**. CPU threads load preprocessed batches into entirely separate GPU device memory (don't be confused with PC RAM). The device memory is the slowest kind of memory in the GPU.
+- **From RAM to Global GPU Memory**. CPU threads load preprocessed batches into entirely separate GPU device memory (don't be confused with PC RAM). The device memory is the slowest kind of memory in the GPU.
 - **From Global GPU Memory to Shared Memory**. Shared memory is **~10-50x faster** then the global GPU memory, but it's also much smaller (normally hundreds of Kbs). This memory is purely available for a Streaming Multiprocessor (SM) that is an analogue of CPU core in GPU architecture. Data is stored there in so called tiles.
 - **From Shared Memory to Tensor Core Registries**. Streaming Multiprocessors operates their tensor cores in parallel and upload part of the tiles into tensor core registries.
 
