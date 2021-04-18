@@ -208,9 +208,9 @@ There turned out to be a lot of vendors that produce RTX 3070 cards.
 
 Basically, the main differences are in:
 
-- **Max Power Limit** - affects GPU performance
-- **Quality of the card cooling system** - ability to cold card and sustain performance for a long time
-- **Fan Noise** - it's just annoying to run noisy cards (particularly if you working in a place where other people work or live)
+- **Max Power Limit** - affects GPU performance.
+- **Quality of the card cooling system** - ability to cold card and sustain performance for a long time.
+- **Fan Noise** - it's just annoying to run noisy cards (particularly if you working in a place where other people work or live).
 
 ## Hardware Installation
 
@@ -221,7 +221,7 @@ It took me a couple of weeks to collect all parts.
 
 Before unboxing all of those packages, keep in mind the following:
 
-- You need to **discharge static electricity** that may be on your hands. Static electricity can damage your components particularly your matherboard. Fortunately, it's easy to do. You need to periodically touch any metal object like your PC case, heater or filing cabinet. If you feel paranoid, there are a <a target="_blank" rel="noopener" href="https://www.newegg.com/rosewill-rtk-001/p/N82E16899261001">special wrist straps</a> for you.
+- You need to **discharge static electricity** that may be on your hands. Static electricity can damage your components particularly your matherboard. Fortunately, it's easy to do. You need to periodically touch any metal object like your PC case, heater or filing cabinet. If you feel paranoid, there are <a target="_blank" rel="noopener" href="https://www.newegg.com/rosewill-rtk-001/p/N82E16899261001">special wrist straps</a> for you.
 - Be careful when you install or connect your components. Parts and cables are designed to be connected easily. If you find yourself **pressing too much**, chances are it's a signal to revisit what you are trying to connect and how. Exceptions happen since you probably would buy new things which have never been connected.
 
 Now it's time to get our hands dirty!
@@ -257,7 +257,7 @@ Be super careful with CPU pins. They are very tangible. Notice that there is als
 ![AM4 CPU Socket](./img/cpu-pins.jpg "CPU Pins")
 <div class="image-title">CPU Pins</div>
 
-It's there to guide on how to connect your CPU. There is **only one way** pins can be installed into the socket. It's when the golder arrow banded egde is in the bottom left corner of the CPU retention plate.
+It's there to guide you on how to connect your CPU. There is **only one way** pins can be installed into the socket. It's when the golder arrow banded egde is in the bottom left corner of the CPU retention plate.
 
 Push a retention lever down and outward to release the CPU retention plate and put your CPU in the mentioned way.
 
@@ -292,13 +292,13 @@ Unlock your RAM slots and align your RAM plank with the slot. There is **also on
 ![RAM Installation](./img/ram-installation.jpg "RAM Installation")
 <div class="image-title">RAM Installation</div>
 
-Notice that your MoBo instruction may specify recommended positions for different number of RAMs. Follow that recommendations!
+Notice that your MoBo instruction may specify recommended positions for different number of RAMs. Follow those recommendations!
 
 ### Cooler
 
 People suggest to **avoid applying power** to CPU before installing its cooling system. CPU may overheat or become weaker.
 
-My cooler is designed to work with both Intel and AMD CPUs. So the cooler box actually contains much more screws and other details then I needed in this particular build. This is the reason why its backpanel has such a bizarre form.
+My cooler is designed to work with both Intel and AMD CPUs. So the cooler box actually contains much more screws and other details than I needed in this particular build. This is the reason why its backpanel has such a bizarre form.
 
 ![Cooler Unboxing](./img/cooler-master-hyper-212-black-unboxing.jpg "Cooler Unboxing")
 <div class="image-title">Cooler Unboxing</div>
