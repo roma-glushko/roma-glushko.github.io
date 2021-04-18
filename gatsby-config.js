@@ -217,7 +217,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-sitemap`,
             options: {
-                exclude: [`/nn-design`, `/lab`, `/lab/*`, `/blog/how-i-built-my-ml-workstation`, `blog/heapify`], // todo: handle all unpublished articles
+                exclude: [`/nn-design`, `/lab`, `/lab/*`, `blog/heapify`], // todo: handle all unpublished articles
             }
         }
     ],
