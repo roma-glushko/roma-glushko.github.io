@@ -25,7 +25,7 @@ Here is what I had at my disposal:
 - MacBook Pro 2019 (Intel Core i9 && Intel UHD Graphics 630 1536MB && 16GB DDR4)
 - ~30h GPU and/or ~30h TPU hours per week on Kaggle Kernels
 
-Sounds good. I though I would be able to prototype locally and then execute notebooks on the cloud GPU. What could go wrong?
+Sounded good. I though I would be able to prototype locally and then execute notebooks on the cloud GPU. What could go wrong?
 
 ## Life Without GPU
 
@@ -39,7 +39,7 @@ This approach to bring a full-size project turns out to have underwater stones. 
 
 While working on the competition, I switched from Keras to PyTorch. PyTorch is much slower on CPU then TensorFlow or Keras. It was time consuming to even perform a dev run of my recent changes. However, PyTorch has outstanding support in academic and other ML-associated communities which means a bunch of (**almost**) read-to-use examples of state-of-art technics.
 
-Also, when you run your code in the cloud, you can not easily experiment. You have to plan what you are going to experiment with and make that part somehow configurable.
+Also, when you run your code in the cloud, you can not easily experiment. You have to plan what you are going to experiment with and make those places somehow configurable beforehand.
 
 All in all, the experience was frustrating. I clearly realized if I wanted to do more complex deep learning experiments and projects, then I just need to have 24/7 access to any kind of GPUs.
 
