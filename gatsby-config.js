@@ -92,6 +92,7 @@ module.exports = {
                 exclude: [],
                 // Delays sending pageview hits on route update (in milliseconds)
                 pageTransitionDelay: 0,
+                alwaysSendReferrer: true,
             },
         },
         'gatsby-plugin-dark-mode',

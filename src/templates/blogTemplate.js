@@ -10,6 +10,7 @@ import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
+import ReadingAnalytics from "../components/blog/reading-analytics"
 import Footer from "../components/theme/footer"
 
 import "./blog-view.css"
@@ -68,6 +69,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         cover={cover}
       />
       <MathJax />
+      <ReadingAnalytics />
     </Layout>
   )
 }
