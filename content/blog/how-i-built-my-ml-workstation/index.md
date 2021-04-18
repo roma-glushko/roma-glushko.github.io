@@ -192,12 +192,12 @@ A few notes about differences of my list comparing to the original barebone. I h
 
 Also, I was able to buy only 750W version of EVGA G2. My estimated wattage is 420W, so 650W version should have been enough. Nevertheless, more capable PSU gives more flexibility in terms of further part updates.
 
-Situation with GPU was much more complicated. It was the beginning of GPU shortage (end of 2020 - beginning of 2021) when GPU prices skyrocketed twice or sometimes three times. In that time, Bitcoin jumped to almost $60k as well as other factors that impacted supply chain and increased GPU demand (mostly, global COVID-19 lockdown).
+Situation with GPU was much more complicated. It was the beginning of a GPU shortage (end of 2020 - beginning of 2021) when GPU prices skyrocketed twice or sometimes three times. In that time, Bitcoin jumped to almost $60k as well as other factors that impacted supply chain and increased GPU demand (mostly, global COVID-19 lockdown).
 
 ![GPU Price Dynamics: end of 2020 - beginning of 2021](./img/gpu-price-dynamics.png "GPU Price Dynamics: end of 2020 - beginning of 2021")
 <div class="image-title">GPU Price Dynamics: end of 2020 - beginning of 2021. Wild time</div>
 
-I had been closely watching for price updates for like 3 months. The situation did really changed. Well, it got even worse while I was waiting.
+I had been closely watching for price updates for like 3 months. The situation was not really changing. Well, it got even worse while I was waiting.
 
 Considering Tim's advice and crazy GPU prices, I was shooting for RTX 3070. RTX 2080 Ti would be also a great fit, but the market ran out of them pretty quickly.
 
