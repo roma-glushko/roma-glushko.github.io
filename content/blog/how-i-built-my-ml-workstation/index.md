@@ -116,7 +116,7 @@ Motherboard integrates most of the components and also provides:
 
 Motherboard provides other interfaces to power your stuff. Among them, the one of most important is CPU socket. The motherboards are divided into AMD- and Intel-compatible sockets which are not interchangable. Hence, you need to make sure **CPU of you choice** is **compatible with your motherboard**.
 
-**Number of PCI ports** is another thing to consider. Since PCI ports are used to connect GPUs, you need to plan ahead your build and rooms for upgrades (to be able to add more cards in the future, for example). Also, pay attention that, effectively, graphic cards take more then slot of space. We want to have **as much space as possible** between cards for **better air cooling**.
+**Number of PCI ports** is another thing to consider. Since PCI ports are used to connect GPUs, you need to plan ahead your build and rooms for upgrades (to be able to add more cards in the future, for example). Also, pay attention that, effectively, graphic cards take more then one slot of space. We want to have **as much space as possible** between cards for **better air cooling**.
 
 Also, I'm pretty sure you would be happy to have build-in WiFi adapter. Otherwise, the only way to connect a PC would be via ethernet cable which is not alway convenient (or just buy an external adapter).
 
