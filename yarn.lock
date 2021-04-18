@@ -6619,12 +6619,30 @@ gatsby-remark-prismjs@^4.1.0:
     parse-numeric-range "^0.0.2"
     unist-util-visit "^1.4.1"
 
+gatsby-remark-responsive-iframe@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-responsive-iframe/-/gatsby-remark-responsive-iframe-4.0.0.tgz#a67134344176bb1ad9425c68550e702ca0eaf59a"
+  integrity sha512-dbsFNUlPqcf9vSmQQyzNCC0BY4FuIIzYnTf2dnZdw3fg9PlsiZRHQ/v/spvqBGb0GBRZJMjUKn1SuIUqh10sbA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    cheerio "^1.0.0-rc.3"
+    common-tags "^1.8.0"
+    lodash "^4.17.21"
+    unist-util-visit "^2.0.3"
+
 gatsby-remark-video@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/gatsby-remark-video/-/gatsby-remark-video-1.2.5.tgz#c2dd04673d37f70b539688d415ed6fd40e249ff2"
   integrity sha512-pEEEVhyfJ2w8fIWJRmGHUz1T0yu9XhhnF8UpSebghpPMKS5Y/dPRWWrd7ukEJk9TQOZ4NhPy4UMeLVYFdE/kuA==
   dependencies:
     unist-util-visit "^1.4.0"
+
+gatsby-remark-youtube@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-youtube/-/gatsby-remark-youtube-1.0.0.tgz#ba3af7bc85e9e4f1c4786f5dc626e38f8f8bfeef"
+  integrity sha512-9dFTFqabHq3MSx5LCmdnDJK7AUGYghGRk7ctOtTC1ouaAL642gOgMaPjSYbEvbsTQYM/Rc1oHv4ugzV04mkWtg==
+  dependencies:
+    unist-util-visit "^2.0.3"
 
 gatsby-source-filesystem@^2.1.40:
   version "2.3.3"
@@ -14361,6 +14379,15 @@ unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.1.1, unist
   integrity sha512-AvGNk7Bb//EmJZyhtRUnNMEpId/AZ5Ph/KUpTI09WHQuDZHKovQ1oEv3mfmKpWKtoMzyMC4GLBm1Zy5k12fjIw==
   dependencies:
     unist-util-visit-parents "^2.0.0"
+
+unist-util-visit@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-2.0.3.tgz#c3703893146df47203bb8a9795af47d7b971208c"
+  integrity sha512-iJ4/RczbJMkD0712mGktuGpm/U4By4FfDonL7N/9tATGIF4imikjOuagyMY53tnZq3NP6BcmlrHhEKAfGWjh7Q==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    unist-util-is "^4.0.0"
+    unist-util-visit-parents "^3.0.0"
 
 universalify@^0.1.0:
   version "0.1.2"

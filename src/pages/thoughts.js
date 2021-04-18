@@ -17,11 +17,11 @@ class ThoughtListPage extends Component {
     return (
       <Layout>
         <SEO
-          title="Thoughts by Roman Glushko"
+          title="Thoughts"
           pagePath="/thoughts/"
           className="thoughts-list-page"
           description="Thoughts and experience that will help you to go through your life in the very best way"
-          imagePath={socialImage.relativePath}
+          imagePath={socialImage.publicURL}
           keywords={[
             'thoughts',
             'opinion',
@@ -100,8 +100,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    socialImage: file(relativePath: { eq: "blog/roman-glushko-in-the-process-of-work-min.jpg" }) {
-      relativePath
+    socialImage: file(relativePath: { eq: "blog/roman-glushko-thoughts.jpg" }) {
+      publicURL
     }
   }
 `
