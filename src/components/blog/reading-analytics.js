@@ -11,7 +11,6 @@ class ReadingAnalytics extends React.Component {
         'readingStartedAt': undefined,
         'isReadingEnded': false,
         'readingEndedAt': undefined,
-        'isScrollTracking': false,
     }
   }
 
@@ -23,13 +22,20 @@ class ReadingAnalytics extends React.Component {
         const articleStart = document.getElementById('intro')
         const articleEnd = document.getElementById('content-end')
 
+        const mainSections = Array.from(document.querySelectorAll('.content h2[id]'))
+        const subSections = Array.from(document.querySelectorAll('.content h3[id]'))
+        const allSections = mainSections.concat(subSections)
+
         this.readingStartObserver = new IntersectionObserver(this.trackReadingStart.bind(this));
         this.readingEndObserver = new IntersectionObserver(this.trackReadingEnd.bind(this));
+        this.readingObserver = new IntersectionObserver(this.trackReading.bind(this));
+
+        allSections.forEach(section => {
+            this.readingObserver.observe(section);
+        });
 
         this.readingStartObserver.observe(articleStart)
         this.readingEndObserver.observe(articleEnd)
-
-        document.addEventListener('scroll', this.trackReading.bind(this))
     }
 
     trackReadingStart = (startSection) => {
@@ -77,21 +83,26 @@ class ReadingAnalytics extends React.Component {
         }
 
         const readingEndedAt = (new Date()).getTime()
-        const secondsUntilEndedReading = Math.round((readingEndedAt - readingStartedAt) / 1000)
-
-        const readerType = this.getReaderTypeByReadingTime(secondsUntilEndedReading)
-
-        trackCustomEvent({
-            category: 'content',
-            action: 'endReading',
-            label: 'blog',
-            value: secondsUntilEndedReading,
-        })
 
         this.setState({
             'isReadingEnded': true,
             'readingEndedAt': readingEndedAt,
         })
+
+        const secondsUntilEndedReading = Math.round((readingEndedAt - readingStartedAt) / 1000)
+
+        const readerType = this.getReaderTypeByReadingTime(secondsUntilEndedReading)
+
+        console.log('endReading: ', secondsUntilEndedReading)
+
+        window.requestAnimationFrame(() => {
+            trackCustomEvent({
+                category: 'content',
+                action: 'endReading',
+                label: 'blog',
+                value: secondsUntilEndedReading,
+            })
+        });
     }
 
     getReaderTypeByReadingTime = (timeSpentReading) => {
@@ -102,8 +113,8 @@ class ReadingAnalytics extends React.Component {
         return 'scanner'
     }
 
-    trackReading = () => {
-        const { isScrollTracking, isReadingStarted, isReadingEnded, readingStartedAt } = this.state
+    trackReading = (sections) => {
+        const { isReadingStarted, isReadingEnded, readingStartedAt } = this.state
 
         if (!isReadingStarted) {
             return
@@ -112,8 +123,18 @@ class ReadingAnalytics extends React.Component {
         if (isReadingEnded) {
             return
         }
+        
+        let currentReadingSections = []
 
-        if (isScrollTracking) {
+        sections.forEach(section => {
+            if (!section.isIntersecting || section.intersectionRatio <= 0) {
+                return 
+            }
+
+            currentReadingSections.push(section.target.getAttribute('id'))
+        })
+
+        if (currentReadingSections.length === 0) {
             return
         }
         
@@ -127,15 +148,7 @@ class ReadingAnalytics extends React.Component {
                 label: 'blog',
                 value: secondsReading,
             })
-
-            this.setState({
-                'isScrollTracking': false,
-            })
         });
-
-        this.setState({
-            'isScrollTracking': true,
-        })
     }
 
     render = () => (<span></span>)

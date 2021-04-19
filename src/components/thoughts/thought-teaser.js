@@ -26,7 +26,7 @@ const ThoughtTeaser = (props) => {
                 <span className="thought-time2read">{timeToRead} min read</span>
             </div>
             <Link to={url}>
-                <div class="cover-filter">
+                <div className="cover-filter">
                     <Img className="cover" fluid={cover.childImageSharp.fluid} />
                 </div>
             </Link>

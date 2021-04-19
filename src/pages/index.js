@@ -57,9 +57,9 @@ const IndexPage = () => (
                     </div>
                 </div>
                 <div className="column my-story-content">
-                    <div class="intro">
-                        <p class="hey">Hey, I'm Roman <span role="img">👋</span></p>
-                        <p class="title-summary">
+                    <div className="intro">
+                        <p className="hey">Hey, I'm Roman <span role="img">👋</span></p>
+                        <p className="title-summary">
                             <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">AI Researcher and Magento eCommerce Software Engineer</a> <span role="img">💼</span>
                         </p>
                     </div>
