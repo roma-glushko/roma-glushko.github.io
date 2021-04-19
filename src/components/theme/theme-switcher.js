@@ -57,6 +57,7 @@ export default class ThemeSwitcher extends PureComponent {
                 className="theme-switcher-input"
                 type="checkbox"
                 checked={theme === 'dark'}
+                readOnly={true}
                 aria-label="Switch between Dark and Light mode"
               />
             </div>

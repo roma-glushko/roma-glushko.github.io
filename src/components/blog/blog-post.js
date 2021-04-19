@@ -49,6 +49,7 @@ const BlogPost = (props) => {
                     dangerouslySetInnerHTML={{ __html: contentHtml }}
                 />
             </div>
+            <div id="content-end" />
         </article>
     );
 };

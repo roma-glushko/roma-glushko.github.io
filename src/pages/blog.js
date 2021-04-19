@@ -36,7 +36,7 @@ class BlogListPage extends Component {
         <div className="blog-listing-wrapper">
           <aside className="blog-sidebar">
             <div className="blog-header">
-              <ViewPageHeader spaceTitle="Blog" spaceLink="/blog/" />
+              <ViewPageHeader spaceTitle="Blog" spaceLink="/blog/" isListing={true} />
               <MainNavigation space={"blog"} />
             </div>
             <div className="blog-intro">

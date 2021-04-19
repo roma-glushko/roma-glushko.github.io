@@ -22,7 +22,7 @@ const Thought = (props) => {
     return (
         <article className="thought-wrapper">
             <header>
-                <div class="cover-filter">
+                <div className="cover-filter">
                     <Img className="cover" fluid={cover.childImageSharp.fluid} />
                 </div>
                 <MainNavigation space={"thoughts"} />
