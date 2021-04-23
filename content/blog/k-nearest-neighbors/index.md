@@ -4,6 +4,7 @@ date: "2021-04-05 16:48:00"
 published: true
 title: "K-Nearest Neighbors 👨‍👩‍👧‍👦"
 cover: "./pexels-ollie-craig-6398503-min.jpg"
+excerpt: "Theoretical aspects of the KNN algorithm. Where it can be applied and when it fails."
 keywords:
     - machine learning
 ---

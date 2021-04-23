@@ -14,10 +14,10 @@ const ViewPageHeader = ({ spaceTitle, spaceLink, isListing = false }) => {
               <div className="logo">
                   <Logo />
               </div>
-              <div className="name"><Link to="/blog/">Roman <br /> Glushko</Link></div>
+              <div className="name"><Link to="/blog/" title="back to blog">Roman <br /> Glushko</Link></div>
           </div>
-          {isListing && <h1 className="blog-title"><Link to={spaceLink}>{spaceTitle}</Link></h1>}
-          {!isListing && <h2 className="blog-title"><Link to={spaceLink}>{spaceTitle}</Link></h2>}
+          {isListing && <h1 className="blog-title"><Link to={spaceLink} title="back to the homepage">{spaceTitle}</Link></h1>}
+          {!isListing && <h2 className="blog-title"><Link to={spaceLink} title="back to the homepage">{spaceTitle}</Link></h2>}
         </div>
     </div>
   )

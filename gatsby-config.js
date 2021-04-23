@@ -218,7 +218,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-sitemap`,
             options: {
-                exclude: [`/nn-design`, `/lab`, `/lab/*`, `blog/heapify`], // todo: handle all unpublished articles
+                exclude: [`/nn-design`, `/lab`, `/lab/*`, `blog/communicate-through-code`, `blog/assumptions-of-the-linear-regression`], // todo: handle all unpublished articles
             }
         }
     ],
