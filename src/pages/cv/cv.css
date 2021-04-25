@@ -1,0 +1,105 @@
+body {
+    --nameColor: var(--red);
+    --pdfBadgeColor: var(--brownDarker);
+    --pdfBadgeHoverColor: var(--red);
+}
+
+body.dark {
+    --nameColor: var(--pink);
+    --pdfBadgeColor: var(--midnightDarker);
+    --pdfBadgeHoverColor: var(--pink);
+}
+
+.cv {
+    margin-top: 1rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cv .pdf-badge {
+    border-width: 50px;
+    border-style: solid;
+    border-color: var(--pdfBadgeColor) var(--pdfBadgeColor) transparent transparent;
+    position: fixed;
+    top:0;
+    right:0;
+    width:0;
+    height:0;
+    cursor: pointer;
+}
+
+.cv .cv-name {
+    color: var(--nameColor);
+}
+
+.cv .pdf-badge:hover {
+    border-color: var(--pdfBadgeHoverColor) var(--pdfBadgeHoverColor) transparent transparent;
+}
+
+
+.cv .pdf-badge a {
+    transform: rotate(45deg);
+    position: absolute;
+    left: 0.4rem;
+    top: -2rem;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.cv a {
+    text-decoration: underline;
+}
+
+.cv .social-list .social-item {
+    margin-left: 1rem;
+}
+
+.cv .social-list .social-item svg {
+    font-size: 1.5rem;
+}
+
+.cv-content {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    margin-top: 1rem;
+}
+
+.cv-content .cv-content-column {
+    padding: 1rem;
+}
+
+.cv-content .el-collapse .el-collapse-item .el-collapse-item__header {
+    padding-left: 40px;
+}
+
+.cv-content section h2 {
+    position: relative;
+    font-size: 30px;
+    overflow: hidden;
+    text-align: center;
+    z-index: 1;
+}
+
+.cv-content section h2 span {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.cv-content section h2:before, 
+.cv-content section h2:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 2px;
+    content: '\a0';
+    background-color: var(--bodyTextColor);
+}
+
+.cv-content section h2:before {
+    margin-left: -50%;
+    text-align: right;
+}
