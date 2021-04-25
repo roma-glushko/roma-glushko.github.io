@@ -35,7 +35,7 @@ const MachineLearningEngineerCV = () => {
           </div>
           <MainNavigation space={"cv"} />
           <CvHeader position={`Machine Learning Engineer`} />
-          <SocialLinks includeCV={false} />
+          <SocialLinks />
         </header>
         <div className="cv-content">
           <div className="cv-content-column additional-column">

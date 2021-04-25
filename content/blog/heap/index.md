@@ -19,7 +19,7 @@ Well, then we would reinvent ~~bicycle~~ the priority queue.
 
 <div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="https://giphy.com/embed/3orif1K6QR54NlWzLO" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/thesimpsons-the-simpsons-6x25-3orif1K6QR54NlWzLO"></a></p>
 
-**The priority Queue or Heap** is a data structure that efficiently allows to retrieve the next queued item with min or max importance score.
+**The priority queue or heap** is a data structure that efficiently allows to retrieve the next queued item with min or max importance score.
 
 ## Nearly Complete Binary Tree
 
@@ -202,7 +202,7 @@ def heap_sort(heap: PriorityQueue) -> List[int]:
     return result
 ```
 
-TODO: add info about complexity and memory requirements
+The complexity of heap sorting is $\Theta(nlog(n))$. Besides that, heap sorting doesn't require any additional memory for storing elements during sorting.
 
 ## Applications
 
@@ -218,16 +218,34 @@ Broadly speaking, the heap may be used everywhere where we need to keep track of
 
 Thankfully, it's not required to implement the heap yourself everytime you need it. Python provides a library called <a target="_blank" rel="noopener nofollow" href="https://docs.python.org/3/library/heapq.html">heapq</a> which is a set of functions that operates on the "heapified" array preserving the min heap property.
 
-TODO: add usage
+The min heap sort can be implemented this way:
+
+```python
+import heapq
+
+heap = [2, 7, 26, 25, 19, 17, 1, 90, 3, 36]
+heapq.heapify(heap)
+
+result = []
+n = len(heap)
+
+for i in range(n):
+    result.append(heapq.heappop(heap))
+```
 
 ## Practice
 
 - <a target="_blank" rel="noopener" href="https://leetcode.com/problems/last-stone-weight/">[Leetcode] 1046. Last Stone Weight</a>
-TODO: add 2 more tasks
+- <a target="_blank" rel="noopener" href="https://leetcode.com/problems/single-threaded-cpu/">[Leetcode] 1834. Single-Threaded CPU</a>
+- <a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-k-th-smallest-pair-distance/">[Leetcode] 719. Find K-th Smallest Pair Distance</a>
 
-## Conclusions
+## Summary
 
-TBU
+In this article, we have reviewed how to implement a priority queue, what properties it has and how it can be helpful.
+
+If the heap concept was new for you, try to do a few problems from the practice section.
+
+Finally, let me in the comments what unusual applications of heaps have you seen in your practice.
 
 ## References
 

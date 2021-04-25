@@ -7,6 +7,7 @@ import ThemeSwitcher from "../theme/theme-switcher"
 
 import "./thought.css"
 import "../theme/content.css"
+import ReadingAnalytics from "../blog/reading-analytics"
 
 const Thought = (props) => {
 
@@ -36,11 +37,13 @@ const Thought = (props) => {
                     </div>
                 </div>
             </header>
-            <div className="thought-divider" />
+            <div id="intro" className="thought-divider" />
             <div
                 className="content thought-content"
                 dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
+            <div id="content-end" />
+            <ReadingAnalytics />
         </article>
     );
 };
