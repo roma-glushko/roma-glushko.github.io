@@ -39,10 +39,13 @@ body.dark {
     color: var(--nameColor);
 }
 
+.cv ul {
+    padding-left: 1.5rem;
+}
+
 .cv .pdf-badge:hover {
     border-color: var(--pdfBadgeHoverColor) var(--pdfBadgeHoverColor) transparent transparent;
 }
-
 
 .cv .pdf-badge a {
     color: white;
@@ -59,6 +62,7 @@ body.dark {
 }
 
 .cv a {
+    font-weight: bold;
     text-decoration: underline;
 }
 
@@ -70,13 +74,17 @@ body.dark {
     font-size: 1.5rem;
 }
 
+.cv .social-list social-twitter {
+
+}
+
 .cv-content {
     display: grid;
     grid-template-columns: 30% 1fr;
     margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .cv-content {
         grid-template-columns: none;
     }
@@ -92,7 +100,7 @@ body.dark {
 
 .cv-content section h2 {
     position: relative;
-    font-size: 30px;
+    font-size: 2rem;
     overflow: hidden;
     text-align: center;
     z-index: 1;
@@ -119,7 +127,59 @@ body.dark {
     text-align: right;
 }
 
+.notop-margin {
+    margin-top: 0;
+}
+
+.cv .other-projects input {
+    opacity: 0;
+}
+
+.cv .other-projects-link {
+    text-align: right;
+    display: none;
+}
+
+.cv .other-projects .other-projects-list {
+    display: none;
+}
+
+.cv .other-projects label {
+    cursor: pointer;
+}
+
+.cv .other-projects input[type="checkbox"]:checked ~ .other-projects-list {
+    display: block;
+}
+
 @media print {
+    body.dark {
+        --nameColor: var(--red);
+        --pdfBadgeColor: var(--brownDarker);
+        --pdfBadgeHoverColor: var(--red);
+        --bodyBackgroundColor: var(--white);
+        --bodyTextColor: var(--black);
+        --linkColor: var(--black);
+        --linkHoverColor: var(--red);
+    }
+
+    .cv {
+        font-size: 0.7rem;
+    }
+
+    .cv ul {
+        padding-left: 1rem;
+    }
+
+    .cv .social-list .social-item svg {
+        font-size: 1.3rem;
+    }
+
+    .cv-content section h2 {
+        font-size: 1rem;
+        border-bottom: 2px solid var(--bodyTextColor);
+    }
+
     .cv .pdf-badge {
         display: none;
     }
@@ -130,5 +190,21 @@ body.dark {
 
     .cv .main-navigation {
         display: none;
+    }
+
+    .cv-content .cv-content-column {
+        padding: 0.5rem;
+    }
+
+    .cv .social-list .social-item {
+        margin-left: 1rem;
+    }
+
+    .cv .other-projects {
+        display: none;
+    }
+
+    .cv .other-projects-link {
+        display: block;
     }
 }  

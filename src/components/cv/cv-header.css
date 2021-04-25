@@ -29,3 +29,23 @@
     margin-top: 0;
     margin-bottom: 1rem;
 }
+
+@media print {
+    .cv-header-wrapper .avatar {
+        width: 4.2rem;
+        height: 4.2rem;
+    }
+
+    .cv-header-wrapper .logo-img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .cv-header-wrapper .cv-name {
+        font-size: 1.5rem;
+    }
+
+    .cv-header-wrapper .cv-position {
+        font-size: 0.7rem;
+    }
+}

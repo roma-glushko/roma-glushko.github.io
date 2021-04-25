@@ -29,6 +29,12 @@ body.dark {
     top: 1rem;
 }
 
+@media (prefers-contrast: high) {
+    .blog-content-nav-wrapper ul.blog-content-nav {
+        color: var(--gray);
+    }
+}
+
 .blog-content-nav-wrapper ul.blog-content-nav:hover {
     color: var(--gray);
 }

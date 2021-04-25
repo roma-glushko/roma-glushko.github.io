@@ -1,7 +1,5 @@
 import React from "react"
 
-import { Collapse } from "element-react"
-
 import Layout from "../../components/theme/layout"
 import SEO from "../../components/seo"
 import MainNavigation from "../../components/theme/main-navigation"
@@ -28,7 +26,7 @@ const MachineLearningEngineerCV = () => {
         ]}
       />
       <main className="cv cv-machine-learning-engineer">
-        <div className="pdf-badge"><a onClick={() => window.print()}>pdf</a></div>
+        <div className="pdf-badge" onClick={() => window.print()} title="Save CV as a PDF file"><a>pdf</a></div>
         <header>
           <div className="theme-switcher">
             <ThemeSwitcher />
@@ -40,11 +38,11 @@ const MachineLearningEngineerCV = () => {
         <div className="cv-content">
           <div className="cv-content-column additional-column">
             <section>
-              <h2><span>Profile</span></h2>
+              <h2 className={`notop-margin`}><span>Profile</span></h2>
               <ul>
-                <li>Aspiring problem solver & ML engineer</li>
-                <li>5+ years of experience in software engineering and eCommerce development</li>
-                <li>3+ years of experience in technical management</li>
+                <li>Aspiring <strong>problem solver</strong> & ML engineer</li>
+                <li><strong>5+ years</strong> of experience in <strong>software engineering</strong> and eCommerce development</li>
+                <li><strong>3+ years</strong> of experience in <strong>technical management</strong></li>
                 <li>Expertise in a broad variety of technical and business topics</li>
                 <li>Constant, quick & curious learner</li>
                 <li>Positive attitudes</li>
@@ -69,7 +67,7 @@ const MachineLearningEngineerCV = () => {
           </div>
           <div className="cv-content-column main-column">
             <section>
-              <h2><span>Projects</span></h2>
+              <h2 className={`notop-margin`}><span>Projects</span></h2>
               <ul>
                 <li>
                   <h3>Import hand-drawn wireframes from the photo</h3>
@@ -84,28 +82,29 @@ const MachineLearningEngineerCV = () => {
                   TBU
                 </li>
               </ul>
-              <Collapse>
-                <Collapse.Item title="Other projects" name="1">
-                  <ul>
-                    <li>
-                      <h3>Mall Customer Segmentation</h3>
-                      TBU
-                    </li>
-                    <li>
-                      <h3>Digit Recognizer</h3>
-                      TBU
-                    </li>
-                    <li>
-                      <h3>Wine Quality</h3>
-                      TBU
-                    </li>
-                    <li>
-                      <h3>Ames House Pricing</h3>
-                      TBU
-                    </li>
-                  </ul>
-                </Collapse.Item>
-              </Collapse>
+              <div className="other-projects">
+                <input type="checkbox" id="other-projects-collapse" />
+                <label for="other-projects-collapse"><a>Click to show/hide other projects</a></label>
+                <ul className="other-projects-list">
+                  <li>
+                    <h3>Mall Customer Segmentation</h3>
+                    TBU
+                  </li>
+                  <li>
+                    <h3>Digit Recognizer</h3>
+                    TBU
+                  </li>
+                  <li>
+                    <h3>Wine Quality</h3>
+                    TBU
+                  </li>
+                  <li>
+                    <h3>Ames House Pricing</h3>
+                    TBU
+                  </li>
+                </ul>
+              </div>
+              <span className="other-projects-link">Other projects can be found on <a href="https://github.com/roma-glushko?tab=repositories&q=machine-learning">GitHub</a> and <a href="https://www.kaggle.com/glushko/code">Kaggle</a></span>
             </section>
             <section>
               <h2><span>Work Experience</span></h2>
