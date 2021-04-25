@@ -66,6 +66,11 @@ body.dark {
     text-decoration: underline;
 }
 
+.cv .main-navigation a {
+    font-weight: normal;
+    text-decoration: none;
+}
+
 .cv .social-list .social-item {
     margin-left: 1rem;
 }
@@ -92,10 +97,6 @@ body.dark {
 
 .cv-content .cv-content-column {
     padding: 1rem;
-}
-
-.cv-content .el-collapse .el-collapse-item .el-collapse-item__header {
-    padding-left: 40px;
 }
 
 .cv-content section h2 {

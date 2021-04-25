@@ -14,6 +14,7 @@ const MainNavigation = ({ space }) => {
         }
         <li><Link to="/blog/" title="Go to Technical blog">Blog</Link></li>
         <li><Link to="/thoughts/" title="Go to Thoughts">Thoughts</Link></li>
+        <li><Link to="/cv/machine-learning-engineer" title="Review my CVs">CV</Link></li>
       </ul>
     </nav>
   )

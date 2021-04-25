@@ -13,7 +13,8 @@ const MachineLearningEngineerCV = () => {
   return (
     <Layout>
       <SEO
-        titleTemplate={"Roman Glushko's Machine Learning Engineer CV"}
+        isUniqueTitle={true}
+        title={"Roman Glushko's Machine Learning Engineer CV"}
         className="experiment-view-page"
         pagePath='/cv/machine-learning-engineer'
         ogType="website"
@@ -22,7 +23,8 @@ const MachineLearningEngineerCV = () => {
           "machine learning engineer",
           "magento machine learning",
           "cv",
-          "machine learning cv"
+          "machine learning cv",
+          "machine learning resume"
         ]}
       />
       <main className="cv cv-machine-learning-engineer">
@@ -33,7 +35,7 @@ const MachineLearningEngineerCV = () => {
           </div>
           <MainNavigation space={"cv"} />
           <CvHeader position={`Machine Learning Engineer`} />
-          <SocialLinks />
+          <SocialLinks includeCV={false} />
         </header>
         <div className="cv-content">
           <div className="cv-content-column additional-column">
@@ -84,7 +86,7 @@ const MachineLearningEngineerCV = () => {
               </ul>
               <div className="other-projects">
                 <input type="checkbox" id="other-projects-collapse" />
-                <label for="other-projects-collapse"><a>Click to show/hide other projects</a></label>
+                <label for="other-projects-collapse"><a>..click to show/hide other projects</a></label>
                 <ul className="other-projects-list">
                   <li>
                     <h3>Mall Customer Segmentation</h3>
@@ -104,7 +106,7 @@ const MachineLearningEngineerCV = () => {
                   </li>
                 </ul>
               </div>
-              <span className="other-projects-link">Other projects can be found on <a href="https://github.com/roma-glushko?tab=repositories&q=machine-learning">GitHub</a> and <a href="https://www.kaggle.com/glushko/code">Kaggle</a></span>
+              <span className="other-projects-link">Other projects can be found on <a target="_blank" rel="noopener" href="https://github.com/roma-glushko?tab=repositories&q=machine-learning">GitHub</a> and <a target="_blank" rel="noopener" href="https://www.kaggle.com/glushko/code">Kaggle</a></span>
             </section>
             <section>
               <h2><span>Work Experience</span></h2>
@@ -127,10 +129,10 @@ const MachineLearningEngineerCV = () => {
                   Led cross-functional teams of different sizes (5-15 people incl. SEs, QA, PM, DevOps). Organized and optimized team processes. <br/> Took part in presentations and frequent calls with clients, project groomings, and delivered internal technical workshops. Advocated software engineer's needs behind C-level management.
                 </li>
                 <li>
-                  Organized technical and business <a href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
+                  Organized technical and business <a target="_blank" rel="noopener" href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
                 </li>
                 <li>
-                  Write <a href="https://www.romaglushko.com/blog/">technical blog posts</a> and <a href="https://www.romaglushko.com/thoughts/">thoughts about management</a> 
+                  Write <a target="_blank" rel="noopener" href="https://www.romaglushko.com/blog/">technical blog posts</a> and <a target="_blank" rel="noopener" href="https://www.romaglushko.com/thoughts/">thoughts about management</a> 
                 </li>
               </ul>
             </section>
