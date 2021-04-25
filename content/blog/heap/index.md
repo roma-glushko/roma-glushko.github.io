@@ -111,7 +111,7 @@ class PriorityQueue:
         return len(self.items)
 ```
 
-Complexity of this algorithm is $\theta(nlog(n))$.
+Complexity of this algorithm is $\Theta(n log(n))$.
 
 ## Adding a New Element
 
@@ -148,6 +148,8 @@ def push(self, item: int):
             parent_idx -= 1
 ```
 
+Complexity of heap inserting algorithm is $\Theta(log(n))$ since at each interactions we traversal another tree level.
+
 ## Extracting The Max Element
 
 The key method of the heap is extracting the max element. Because of the heap property, the max element should always stay that the top of the heap. So it's as simple as call `self.items[0]` to get it.
@@ -174,6 +176,8 @@ def pop(self):
     return item
 ```
 
+Complexity of heap items extracting algorithm is $\Theta(log(n))$. Nevertheless, we can get an access to the current max element in $\Theta(1)$.
+
 ## Heap Sort
 
 Now we have all components to implement one of the most frequent applications of the priority queue - the heap sorting.
@@ -198,6 +202,8 @@ def heap_sort(heap: PriorityQueue) -> List[int]:
     return result
 ```
 
+TODO: add info about complexity and memory requirements
+
 ## Applications
 
 Heap sorting is not the only application of the priority queue. Here are a few more cases where heaps are being applied:
@@ -206,13 +212,22 @@ Heap sorting is not the only application of the priority queue. Here are a few m
 - device interruption handling like pressing a key on the keyboard triggers a specific interruption handler that rads a key value and send it to the OS. There is an interruption latency associated with this process and interruptions from some devices we wish to be processed as soon as possible
 - the heap can be used during searching for <a target="_blank" rel="noopener nofollow" href="/blog/k-nearest-neighbors/">K-Nearest Neighbors</a>
 
+Broadly speaking, the heap may be used everywhere where we need to keep track of the list of min or max elements which may be changed during the runtime.
+
 ## heapq
 
 Thankfully, it's not required to implement the heap yourself everytime you need it. Python provides a library called <a target="_blank" rel="noopener nofollow" href="https://docs.python.org/3/library/heapq.html">heapq</a> which is a set of functions that operates on the "heapified" array preserving the min heap property.
 
+TODO: add usage
+
 ## Practice
 
 - <a target="_blank" rel="noopener" href="https://leetcode.com/problems/last-stone-weight/">[Leetcode] 1046. Last Stone Weight</a>
+TODO: add 2 more tasks
+
+## Conclusions
+
+TBU
 
 ## References
 
