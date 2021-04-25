@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Collapse } from 'element-react';
+import { Collapse } from "element-react"
 
 import Layout from "../../components/theme/layout"
 import SEO from "../../components/seo"
@@ -11,7 +11,8 @@ import SocialLinks from "../../components/homepage/social-links"
 
 import './cv.css'
 
-const MachineLearningEngineerCV = () => (
+const MachineLearningEngineerCV = () => {
+  return (
     <Layout>
       <SEO
         titleTemplate={"Roman Glushko's Machine Learning Engineer CV"}
@@ -27,7 +28,7 @@ const MachineLearningEngineerCV = () => (
         ]}
       />
       <main className="cv cv-machine-learning-engineer">
-        <div className="pdf-badge"><a >pdf</a></div>
+        <div className="pdf-badge"><a onClick={() => window.print()}>pdf</a></div>
         <header>
           <div className="theme-switcher">
             <ThemeSwitcher />
@@ -63,16 +64,6 @@ const MachineLearningEngineerCV = () => (
               <ul>
                 <li><strong>Machine Learning Nanodegree</strong>, 2020-Present (6 months)</li>
                 <li><strong>M.S. Computer Engineering</strong><br/> Khmelnytskyi National University, Ukraine, 2018</li>
-              </ul>
-            </section>
-            <section>
-              <h2><span>Hobby & Interests</span></h2>
-              <ul>
-                <li>Scooter driving</li>
-                <li>Self-improvement</li>
-                <li>Reading</li>
-                <li>Blogging</li>
-                <li>Open Source</li>
               </ul>
             </section>
           </div>
@@ -144,10 +135,21 @@ const MachineLearningEngineerCV = () => (
                 </li>
               </ul>
             </section>
+            <section>
+              <h2><span>Hobby & Interests</span></h2>
+              <ul>
+                <li>Scooter driving</li>
+                <li>Self-improvement</li>
+                <li>Reading</li>
+                <li>Blogging</li>
+                <li>Open Source</li>
+              </ul>
+            </section>
           </div>
         </div>
       </main>
     </Layout>
-)
+  )
+}
 
 export default MachineLearningEngineerCV
