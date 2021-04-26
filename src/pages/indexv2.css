@@ -1,0 +1,38 @@
+/** Theme variables **/
+
+body {
+    --socialBackgroundColor: var(--white);
+}
+
+body.dark {
+    --socialBackgroundColor: var(--midnight);
+}
+
+.homepagev2 .hero-intro {
+    margin: 0 auto;
+    pointer-events: none;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+
+.homepagev2 .hero-intro .name {
+    font-size: 5rem;
+}
+
+.homepagev2 .hero-header {
+    height: 60rem;
+}
+
+.homepagev2 .main-navigation ul li {
+    pointer-events: all;
+}
+
+.homepagev2 .social-list .social-item {
+    background-color: var(--socialBackgroundColor);
+    pointer-events: all;
+}
+
+.homepagev2 .theme-switcher {
+    pointer-events: all;
+}

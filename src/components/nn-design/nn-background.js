@@ -21,7 +21,7 @@ class Circle {
 
       this.drawCtx.beginPath()
       this.drawCtx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false)
-      this.drawCtx.fillStyle = 'rgba(31, 43, 49, ' + this.active + ')'
+      this.drawCtx.fillStyle = `rgba(95, 99, 106, ${this.active})`
       this.drawCtx.fill()
   }
 }
@@ -32,7 +32,7 @@ const getDistance = (p1, p2) => {
 }
 
 class NNBackground extends React.Component {
-  
+
   componentDidMount() {
     (function() {
       const pointSize = 3
@@ -216,7 +216,7 @@ class NNBackground extends React.Component {
           ctx.beginPath()
           ctx.moveTo(p.x, p.y)
           ctx.lineTo(p.closest[i].x, p.closest[i].y)
-          ctx.strokeStyle = 'rgba(31, 43, 49, ' + p.active + ')'
+          ctx.strokeStyle = `rgba(95, 99, 106, ${p.active})`
           ctx.stroke()
         }
       }
