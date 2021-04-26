@@ -24,6 +24,10 @@ body.dark {
     height: 60rem;
 }
 
+.homepagev2 .avatar {
+    background-color: var(--socialBackgroundColor);
+}
+
 .homepagev2 .main-navigation ul li {
     pointer-events: all;
 }
