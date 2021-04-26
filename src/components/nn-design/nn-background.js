@@ -47,7 +47,7 @@ class NNBackground extends React.Component {
 
       let target = {
         x: width * 0.5, 
-        y: height * 0.5
+        y: height * 0.4
       }
 
       const canvas = document.getElementById('neural-network-background')

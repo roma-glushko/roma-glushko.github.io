@@ -11,7 +11,7 @@ keywords:
     - python
 ---
 
-When you have a sequence of candidates to process, then you build a queue to organize them. In the classical queue, time of adding an item to the queue defines when it's going to be processed.
+When you have a sequence of candidates to process, then you build a queue to organize them. In the classical queue, the time of adding an item to the queue defines when it's going to be processed.
 
 What if we need to change this principle and use some **relative importance score** to determine the item processing sequence?
 
@@ -19,7 +19,7 @@ Well, then we would reinvent ~~bicycle~~ the priority queue.
 
 <div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="https://giphy.com/embed/3orif1K6QR54NlWzLO" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/thesimpsons-the-simpsons-6x25-3orif1K6QR54NlWzLO"></a></p>
 
-**The priority queue or heap** is a data structure that efficiently allows to retrieve the next queued item with min or max importance score.
+**The priority queue or heap** is a data structure that efficiently allows retrieving the next queued item with min or max importance score.
 
 ## Nearly Complete Binary Tree
 
@@ -33,8 +33,8 @@ Since it's a binary tree, **all parent nodes** have **at max 2 children**. The b
 With such a node positioning, we can come up with formulas for finding parent/children nodes:
 
 - $element\_idx / 2$ is the node parent index
-- $2 * element\_idx$ is an index of left child
-- $2 * element\_idx + 1$ is an index of right child
+- $2 * element\_idx$ is an index of the left child
+- $2 * element\_idx + 1$ is an index of the right child
 
 where $element\_idx$ is some node index.
 
@@ -46,8 +46,8 @@ The "nearly complete" means that **not all tree levels** may be **filled out** b
 
 The heap has a distinct property that actually makes it helpful:
 
-- all children node values should be **less or equal** to the parent node value (**the max heap property**)
-- or all children node values should be **greater or equal** to the parent node value (**the min heap property**)
+- all children node values should be **less or equal** to the parent node value (**the max-heap property**)
+- or all children node values should be **greater or equal** to the parent node value (**the min-heap property**)
 
 To explain how all of this can be useful, we are going to implement the main heap functions from scratch.
 ## Heap Building
@@ -56,7 +56,7 @@ There is going to be a custom `PriorityQueue` class which takes an arbitrary arr
 
 The first thing we need to do is to build a max heap from an unsorted array. We can already visualize the array as a heap, but it would **luck the max heap property**.
 
-Notice that **leaf nodes can't violate the heap property** since they don't have any child nodes. Hence, we can start looking at possible violations from the second-to-last level. The index of last parent element on that level we can get via `n // 2` where `n` is a size of the array.
+Notice that **leaf nodes can't violate the heap property** since they don't have any child nodes. Hence, we can start looking at possible violations from the second-to-last level. The index of the last parent element on that level we can get via `n // 2` where `n` is the size of the array.
 
 We start moving from right to left, from the bottom to the top of the heap. For each parent node, we need to make sure that the property of the heap holds true. If there is any violations, we just switch the current parent node with a child node that is greater than it (which violates the heap property).
 
@@ -115,7 +115,7 @@ Complexity of this algorithm is $\Theta(n log(n))$.
 
 ## Adding a New Element
 
-Another useful method to have is adding a new item to the heap. In this case, it's convenient to add a new item as a leaf node in the end of the heap array. This makes sure there is no violations below it. However, there may be some going upward. That's why we need to go all the way up and check whenever parent nodes are greater than the new item. If they are not, we will switch their positions.
+Another useful method to have is adding a new item to the heap. In this case, it's convenient to add a new item as a leaf node in the end of the heap array. This makes sure there are no violations below it. However, there may be some going upward. That's why we need to go all the way up and check whenever parent nodes are greater than the new item. If they are not, we will switch their positions.
 
 Since the max heap property had stayed true before we add the new item, it's sufficient for us to check only parent nodes as we know that all child nodes should be less or equal to the parent value. 
 
@@ -148,7 +148,7 @@ def push(self, item: int):
             parent_idx -= 1
 ```
 
-Complexity of heap inserting algorithm is $\Theta(log(n))$ since at each interactions we traversal another tree level.
+The complexity of heap inserting algorithm is $\Theta(log(n))$ since at each interaction we traversal another tree level.
 
 ## Extracting The Max Element
 
@@ -176,14 +176,13 @@ def pop(self):
     return item
 ```
 
-Complexity of heap items extracting algorithm is $\Theta(log(n))$. Nevertheless, we can get an access to the current max element in $\Theta(1)$.
+The complexity of heap items extracting algorithm is $\Theta(log(n))$. Nevertheless, we can get access to the current max element in $\Theta(1)$.
 
 ## Heap Sort
 
 Now we have all components to implement one of the most frequent applications of the priority queue - the heap sorting.
 
-Heap sort is just extraction of `n` elements from the heap.
-
+Heap sort is just the extraction of `n` elements from the heap.
 
 `video: title: "Heap Sort In Action": ./img/heap-sort.mp4`
 <div class="image-title">Heap Sort In Action</div>
@@ -212,13 +211,13 @@ Heap sorting is not the only application of the priority queue. Here are a few m
 - device interruption handling like pressing a key on the keyboard triggers a specific interruption handler that rads a key value and send it to the OS. There is an interruption latency associated with this process and interruptions from some devices we wish to be processed as soon as possible
 - the heap can be used during searching for <a target="_blank" rel="noopener nofollow" href="/blog/k-nearest-neighbors/">K-Nearest Neighbors</a>
 
-Broadly speaking, the heap may be used everywhere where we need to keep track of the list of min or max elements which may be changed during the runtime.
+Broadly speaking, the heap may be used everywhere where we need to keep track of the list of min or max elements that may be changed during the runtime.
 
 ## heapq
 
-Thankfully, it's not required to implement the heap yourself everytime you need it. Python provides a library called <a target="_blank" rel="noopener nofollow" href="https://docs.python.org/3/library/heapq.html">heapq</a> which is a set of functions that operates on the "heapified" array preserving the min heap property.
+Thankfully, it's not required to implement the heap yourself everytime you need it. Python provides a library called <a target="_blank" rel="noopener nofollow" href="https://docs.python.org/3/library/heapq.html">heapq</a> which is a set of functions that operates on the "heapified" array preserving the min-heap property.
 
-The min heap sort can be implemented this way:
+The min-heap sort can be implemented this way:
 
 ```python
 import heapq
