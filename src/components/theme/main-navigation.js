@@ -6,6 +6,7 @@ import "./main-navigation.css"
 
 const MainNavigation = ({ space }) => {
   // <li><Link to="/lab/" title="Go to Machine Learning Lab">Lab</Link></li>
+  // <li><Link to="/cv/machine-learning-engineer" title="Review my CVs">CV</Link></li>
   return (
     <nav className="main-navigation">
       <ul>

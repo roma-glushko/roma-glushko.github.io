@@ -21,54 +21,44 @@ class Circle {
 
       this.drawCtx.beginPath()
       this.drawCtx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false)
-      this.drawCtx.fillStyle = 'rgba(31, 43, 49, ' + this.active + ')'
+      this.drawCtx.fillStyle = `rgba(95, 99, 106, ${this.active})`
       this.drawCtx.fill()
   }
 }
 
+// Util
+const getDistance = (p1, p2) => {
+  return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+}
+
 class NNBackground extends React.Component {
-  
+
   componentDidMount() {
     (function() {
-      
       const pointSize = 3
       const pointDensity = 20
       const kNeighbors = 6
 
       // https://codepen.io/MarcoGuglielmelli/pen/lLCxy
-      let width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
-      let mouseControl = false
-    
-      // Main
-      initHeader();
-      initAnimation();
-      addListeners();
-    
-      function initHeader() {
-          //width = window.innerWidth
-          //height = window.innerHeight
+      const largeHeader = document.getElementById('hero-header')
 
-          // target = {
-          //   x: width/2, 
-          //   y: height/2
-          // }
-    
-          largeHeader = document.getElementById('hero-header')
-          //largeHeader.style.height = height+'px'
+      let width = largeHeader.offsetWidth
+      let height = largeHeader.offsetHeight
 
-          width = largeHeader.offsetWidth
-          height = largeHeader.offsetHeight
+      let target = {
+        x: width * 0.5, 
+        y: height * 0.4
+      }
 
-          target = {
-            x: width * 0.5, 
-            y: height * 0.5
-          }
-    
-          canvas = document.getElementById('neural-network-background')
-          canvas.width = width
-          canvas.height = height
-          ctx = canvas.getContext('2d')
-    
+      const canvas = document.getElementById('neural-network-background')
+      canvas.width = width
+      canvas.height = height
+      
+      const ctx = canvas.getContext('2d')
+
+      let points = []
+
+      const initHeader = () =>  {
           // create points
           points = []
 
@@ -76,7 +66,7 @@ class NNBackground extends React.Component {
           for (let x = 0; x < width; x = x + width / pointDensity) {
             for (let y = 0; y < height; y = y + height / pointDensity) {
               let px = x + Math.random() * width / pointDensity,
-                  py = y + Math.random() * height / pointDensity
+                py = y + Math.random() * height / pointDensity
               
               points.push({
                 x: px, 
@@ -125,88 +115,85 @@ class NNBackground extends React.Component {
     
           // assign a circle to each point
           for (var i in points) {
-              points[i].circle = new Circle(ctx, points[i], pointSize + Math.random() * pointSize, 'rgba(255, 255, 255, 0.3)')
+            points[i].circle = new Circle(ctx, points[i], pointSize + Math.random() * pointSize, 'rgba(255, 255, 255, 0.3)')
           }
       }
     
       // Event handling
-      function addListeners() {
-          if (!('ontouchstart' in window)) {
-            largeHeader.addEventListener('mousemove', mouseMove);
-          }
+      const addListeners = () => {
+        if (!('ontouchstart' in window)) {
+          largeHeader.addEventListener('mousemove', mouseMove);
+        }
 
-          //window.addEventListener('scroll', scrollCheck);
-          window.addEventListener('resize', resize);
+        window.addEventListener('resize', resize);
       }
 
-      function mouseMove(e) {
-          let posx = 0, posy = 0
+      const mouseMove = (e) =>  {
+        if (canvas !== e.path[0]) {
+          // track only mouse movements on the canvas element. 
+          // Otherwise, coordinates would be related to small children elements
+          return
+        }
 
-          let rect = e.target.getBoundingClientRect()
+        let posx = 0, posy = 0
 
-          posx = e.pageX - rect.left; //x position within the element.
-          posy = e.pageY - rect.top;  //y position within the element.
-          
-          target.x = posx
-          target.y = posy
+        let rect = e.target.getBoundingClientRect()
+        
+        console.dir(e)
+
+        posx = e.pageX - rect.left; // x position within the element.
+        posy = e.pageY - rect.top;  // y position within the element.
+        
+        console.log(posx, posy)
+        
+        target.x = posx
+        target.y = posy
       }
     
-      function scrollCheck() {
-          if (document.body.scrollTop > height) animateHeader = false
-          else animateHeader = true
-      }
-    
-      function resize() {
-          //width = window.innerWidth
-          //height = window.innerHeight
-          //largeHeader.style.height = height+'px'
-          width = largeHeader.offsetWidth
-          height = largeHeader.offsetHeight
+      const resize = () => {
+        width = largeHeader.offsetWidth
+        height = largeHeader.offsetHeight
 
-          canvas.width = width
-          canvas.height = height
+        canvas.width = width
+        canvas.height = height
       }
     
       // animation
-      function initAnimation() {
-          animate()
+      const initAnimation = () => {
+        animate()
 
-          for (var i in points) {
-              shiftPoint(points[i]);
-          }
+        for (var i in points) {
+          shiftPoint(points[i]);
+        }
       }
     
-      function animate() {
-          if (!animateHeader) {
-            return  
+      const animate = () => {
+        ctx.clearRect(0, 0, width, height)
+
+        for (var i in points) {
+          // detect points in range
+          if (Math.abs(getDistance(target, points[i])) < 4000) {
+            points[i].active = 0.3;
+            points[i].circle.active = 0.5;
+          } else if (Math.abs(getDistance(target, points[i])) < 20000) {
+            points[i].active = 0.1;
+            points[i].circle.active = 0.3;
+          } else if (Math.abs(getDistance(target, points[i])) < 40000) {
+            points[i].active = 0.02;
+            points[i].circle.active = 0.1;
+          } else {
+            points[i].active = 0;
+            points[i].circle.active = 0;
           }
 
-          ctx.clearRect(0, 0, width, height)
+          drawLines(points[i])
+          points[i].circle.draw()
+        }
 
-          for (var i in points) {
-              // detect points in range
-              if (Math.abs(getDistance(target, points[i])) < 4000) {
-                  points[i].active = 0.3;
-                  points[i].circle.active = 0.5;
-              } else if (Math.abs(getDistance(target, points[i])) < 20000) {
-                  points[i].active = 0.1;
-                  points[i].circle.active = 0.3;
-              } else if (Math.abs(getDistance(target, points[i])) < 40000) {
-                  points[i].active = 0.02;
-                  points[i].circle.active = 0.1;
-              } else {
-                  points[i].active = 0;
-                  points[i].circle.active = 0;
-              }
-
-              drawLines(points[i])
-              points[i].circle.draw()
-          }
-
-          requestAnimationFrame(animate)
+        requestAnimationFrame(animate)
       }
     
-      function shiftPoint(p) {
+      const shiftPoint = (p) => {
         TweenLite.to(
           p,
           1 + 1 * Math.random(), 
@@ -215,29 +202,29 @@ class NNBackground extends React.Component {
             y: p.originY - 50 + Math.random() * 100, 
             ease: Circ.easeInOut,
             onComplete: function() {
-                shiftPoint(p);
+              shiftPoint(p);
             }
           }
         )
       }
     
       // Canvas manipulation
-      function drawLines(p) {
-          if (!p.active) return
+      const drawLines = (p) => {
+        if (!p.active) return
 
-          for (var i in p.closest) {
-              ctx.beginPath()
-              ctx.moveTo(p.x, p.y)
-              ctx.lineTo(p.closest[i].x, p.closest[i].y)
-              ctx.strokeStyle = 'rgba(31, 43, 49, ' + p.active + ')'
-              ctx.stroke()
-          }
+        for (var i in p.closest) {
+          ctx.beginPath()
+          ctx.moveTo(p.x, p.y)
+          ctx.lineTo(p.closest[i].x, p.closest[i].y)
+          ctx.strokeStyle = `rgba(95, 99, 106, ${p.active})`
+          ctx.stroke()
+        }
       }
     
-      // Util
-      function getDistance(p1, p2) {
-        return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
-      }
+      // Main
+      initHeader();
+      initAnimation();
+      addListeners();
       
     })();
   }

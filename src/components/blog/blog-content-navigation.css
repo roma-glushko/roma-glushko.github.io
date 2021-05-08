@@ -24,9 +24,15 @@ body.dark {
     list-style: decimal;
     margin: 0;
     padding-left: 1.5rem;
-    padding-right: 1rem;
+    padding-right: 1.2rem;
     position: sticky;
     top: 1rem;
+}
+
+@media (prefers-contrast: high) {
+    .blog-content-nav-wrapper ul.blog-content-nav {
+        color: var(--gray);
+    }
 }
 
 .blog-content-nav-wrapper ul.blog-content-nav:hover {

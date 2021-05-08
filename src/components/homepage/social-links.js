@@ -1,6 +1,6 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import { faGithubAlt, faTwitter, faLinkedinIn, faKaggle } from '@fortawesome/free-brands-svg-icons'
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 

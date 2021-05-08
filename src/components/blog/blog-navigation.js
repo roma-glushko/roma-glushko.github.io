@@ -30,7 +30,7 @@ const BlogNavigation = props => {
               ← {prevTitle}
             </Link>
           )}
-          <Link className="all-posts" to="/blog">All Posts</Link>
+          <Link className="all-posts" to="/blog/">All Posts</Link>
         </div>
       </nav>
     </div>

@@ -4,6 +4,7 @@ date: "2021-04-18 15:42:00"
 published: true
 title: "How I built my ML workstation 🔬"
 cover: "./machine-learning-workstation.jpg"
+excerpt: "A full story about building a custom ML workstation. From parts picking to software installation and using."
 keywords:
     - machine learning
     - computer engineering

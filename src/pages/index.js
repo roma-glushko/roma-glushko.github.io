@@ -19,7 +19,7 @@ const titles = shuffleArray([
     'Magento Specialist 🛒',
     'Golang Enthusiast 🐹',
     'Human 🧔',
-    'AI Researcher 🔬',
+    'ML Engineer 🔬',
     'Passive Traveler 🏕',
     'OpenSource Lover 🤝',
     'Matzah Fan ✡️',
@@ -29,6 +29,8 @@ const titles = shuffleArray([
     'eCommerce Explorer 💳',
     'SEO Strategist 🔎',
     'Tea Drinker 🍵',
+    'Pythonista 🐍',
+    'Idea Generator 💡',
 ])
 
 const IndexPage = () => (

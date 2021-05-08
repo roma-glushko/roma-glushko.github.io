@@ -4,6 +4,7 @@ date: "2021-04-05 16:48:00"
 published: true
 title: "K-Nearest Neighbors 👨‍👩‍👧‍👦"
 cover: "./pexels-ollie-craig-6398503-min.jpg"
+excerpt: "Theoretical aspects of the KNN algorithm. Where it can be applied and when it fails."
 keywords:
     - machine learning
 ---
@@ -93,7 +94,7 @@ Smaller value of K adds more sensitivity and variance. For noisy datasets this m
 
 Increasing K hyperparam adds more bias to KNN results and smoother decision boundaries. If K param value is too big, KNN will loose its ability to find local structures in the dataset.
 
-In general, neighborhood size is subject of hyperparam tunning. Final decision should be validated on separated validation dataset.
+In general, neighborhood size is subject of hyperparam tuning. Final decision should be validated on separated validation dataset.
 
 ## Applications
 
@@ -110,7 +111,7 @@ KNN algorithm becomes useful when you have embeddings - samples projected into l
 
 Distances to K nearest neighbors can be viewed as an estimation of local density. If distance is relatively large, this implies that density is low and sample is likely to be an outlier.
 
-## Conclusions
+## Summary
 
 I hope we shed a bit of light on theoretical aspects of K-Nearest Neighbor algorithm and proved that this pure idea is still useful after decades of being formulated.
 

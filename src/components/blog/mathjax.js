@@ -15,7 +15,7 @@ class MathJax extends React.Component {
           processEnvironments: true
         },
         options: {
-          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a']
         }
       }
     }

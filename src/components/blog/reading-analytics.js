@@ -6,6 +6,7 @@ class ReadingAnalytics extends React.Component {
     super(props);
 
     this.state = {
+        'contentType': props.contentType,
         'intializedAt': (new Date()).getTime(),
         'isReadingStarted': false,
         'readingStartedAt': undefined,
@@ -45,7 +46,7 @@ class ReadingAnalytics extends React.Component {
             return 
         }
 
-        const { isReadingStarted, intializedAt } = this.state
+        const { isReadingStarted, intializedAt, contentType } = this.state
 
         if (isReadingStarted) {
             // already tracked start of reading
@@ -58,7 +59,7 @@ class ReadingAnalytics extends React.Component {
         trackCustomEvent({
             category: 'content',
             action: 'startReading',
-            label: 'blog',
+            label: contentType,
             value: secondsUntilStartedReading,
         })
 
@@ -75,7 +76,7 @@ class ReadingAnalytics extends React.Component {
             return
         }
 
-        const { isReadingEnded, readingStartedAt } = this.state
+        const { isReadingEnded, readingStartedAt, contentType } = this.state
 
         if (isReadingEnded) {
             // already tracked end of reading
@@ -91,30 +92,18 @@ class ReadingAnalytics extends React.Component {
 
         const secondsUntilEndedReading = Math.round((readingEndedAt - readingStartedAt) / 1000)
 
-        const readerType = this.getReaderTypeByReadingTime(secondsUntilEndedReading)
-
-        console.log('endReading: ', secondsUntilEndedReading)
-
         window.requestAnimationFrame(() => {
             trackCustomEvent({
                 category: 'content',
                 action: 'endReading',
-                label: 'blog',
+                label: contentType,
                 value: secondsUntilEndedReading,
             })
         });
     }
 
-    getReaderTypeByReadingTime = (timeSpentReading) => {
-        if (timeSpentReading >= 60) {
-            return 'reader'
-        }
-
-        return 'scanner'
-    }
-
     trackReading = (sections) => {
-        const { isReadingStarted, isReadingEnded, readingStartedAt } = this.state
+        const { isReadingStarted, isReadingEnded, readingStartedAt, contentType } = this.state
 
         if (!isReadingStarted) {
             return
@@ -145,7 +134,7 @@ class ReadingAnalytics extends React.Component {
             trackCustomEvent({
                 category: 'content',
                 action: 'reading',
-                label: 'blog',
+                label: contentType,
                 value: secondsReading,
             })
         });

@@ -62,7 +62,7 @@ class BlogListPage extends Component {
                 timeToRead={node.timeToRead}
                 publishedHumanDate={node.frontmatter.humanDate}
                 publishedFullDate={node.frontmatter.fullDate}
-                excerpt={node.excerpt}
+                excerpt={node.frontmatter.excerpt}
                 cover={node.frontmatter.cover}
                 keywords={node.frontmatter.keywords}
               />
@@ -92,7 +92,6 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 100)
           timeToRead
           frontmatter {
             humanDate: date(formatString: "MMM D, YYYY")
@@ -100,6 +99,7 @@ export const pageQuery = graphql`
             path
             title
             keywords
+            excerpt
             cover {
               childImageSharp {
                 fluid(maxWidth: 620) {

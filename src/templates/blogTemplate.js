@@ -25,12 +25,12 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         humanDate,
         fullDate,
         keywords,
-        cover
+        cover,
+        excerpt
       },
       html,
       rawMarkdownBody,
       timeToRead,
-      excerpt,
       wordCount: { words }
     }
   } = data
@@ -69,7 +69,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         cover={cover}
       />
       <MathJax />
-      <ReadingAnalytics />
+      <ReadingAnalytics contentType={`blog`} />
     </Layout>
   )
 }
@@ -79,7 +79,6 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       timeToRead
-      excerpt
       rawMarkdownBody
       wordCount {
         words
@@ -90,6 +89,7 @@ export const pageQuery = graphql`
         fullDate: date (formatString: "YYYY-MM-DD") 
         title
         keywords
+        excerpt
         cover {
           childImageSharp {
             fluid(maxWidth: 3400) {
