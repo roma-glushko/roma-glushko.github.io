@@ -7,6 +7,7 @@ import Layout from "../components/theme/layout"
 import Footer from "../components/theme/footer"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
+import ReadingAnalytics from "../components/blog/reading-analytics"
 
 import "./thought-view.css"
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
@@ -62,6 +63,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         keywords={keywords}
         cover={cover}
       />
+      <ReadingAnalytics contentType={`thought`} />
     </Layout>
   )
 }

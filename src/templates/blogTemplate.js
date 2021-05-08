@@ -69,7 +69,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         cover={cover}
       />
       <MathJax />
-      <ReadingAnalytics />
+      <ReadingAnalytics contentType={`blog`} />
     </Layout>
   )
 }
