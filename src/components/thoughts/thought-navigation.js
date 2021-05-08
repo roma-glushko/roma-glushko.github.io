@@ -29,7 +29,7 @@ const ThoughtNavigation = props => {
               ← {prevTitle}
             </Link>
           )}
-          <Link className="all-thoughts" to="/thoughts">All Thoughts</Link>
+          <Link className="all-thoughts" to="/thoughts/">All Thoughts</Link>
         </div>
       </nav>
     </div>
