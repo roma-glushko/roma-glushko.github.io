@@ -76,11 +76,11 @@ const MachineLearningEngineerCV = () => {
                   TBU
                 </li>
                 <li>
-                  <h3>[Kaggle] HPA - Single Cell Classification</h3>
+                  <h3>[Kaggle] Shopee - Price Match Guarantee</h3>
                   TBU
                 </li>
                 <li>
-                  <h3>[Kaggle] Shopee - Price Match Guarantee</h3>
+                  <h3>[Kaggle] HPA - Single Cell Classification</h3>
                   TBU
                 </li>
               </ul>
