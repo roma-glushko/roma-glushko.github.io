@@ -1,0 +1,11 @@
+/** Theme variables **/
+
+.newsletter-form {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsletter-form iframe {
+    background: var(--bodyBackgroundColor);
+}
