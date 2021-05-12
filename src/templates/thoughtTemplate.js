@@ -6,6 +6,7 @@ import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
 import Footer from "../components/theme/footer"
 import SEO from "../components/seo"
+import NewsletterForm from '../components/blog/newsletter-form'
 import ShareBlock from '../components/thoughts/share-block'
 import ReadingAnalytics from "../components/blog/reading-analytics"
 
@@ -49,6 +50,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       <main>
         <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
         <ShareBlock title={title} path={path} tags={keywords} />
+        <NewsletterForm />
       </main>
       <aside className="thought-sidebar">
         <ThoughtAuthor />

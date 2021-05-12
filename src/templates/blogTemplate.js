@@ -9,6 +9,7 @@ import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
+import NewsletterForm from '../components/blog/newsletter-form'
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
 import Footer from "../components/theme/footer"
@@ -54,6 +55,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       <main>
         <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} keywords={keywords} cover={cover} contentHtml={html} />
         <ShareBlock title={title} path={path} tags={keywords} />
+        <NewsletterForm />
         <BlogComments />
       </main>
       <aside className="blogpost-sidebar">
