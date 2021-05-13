@@ -132,6 +132,18 @@ body.dark {
     margin-top: 0;
 }
 
+.cv .projects .project-description {
+    margin-bottom: 0.8rem;
+}
+
+.cv .projects .project ul.project-details {
+    list-style-type: "★";
+}
+
+.cv .projects .project ul.project-details li {
+    padding-left: 0.4rem;
+}
+
 .cv .other-projects input {
     opacity: 0;
 }

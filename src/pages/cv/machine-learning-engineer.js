@@ -54,9 +54,9 @@ const MachineLearningEngineerCV = () => {
               <h2><span>Skills</span></h2>
               <ul>
                 <li>Experience: tabular data processing, image processing, classification, regression, time series forecasting, image object detection, data analysis</li>
-                <li>Languages: <strong>Python</strong>, Golang, PHP, WebDev Stack (JS & HTML & CSS)</li>
+                <li>Languages: <strong>Python</strong>, Golang, PHP, WebDev Stack (JS & HTML5 & CSS3)</li>
                 <li>ML/DL Frameworks: PyTorch, Keras, Scikit-Learn</li>
-                <li>Visualization: seaborn, plotly</li>
+                <li>Visualization: Seaborn, Plotly</li>
               </ul>
             </section>
             <section>
@@ -68,60 +68,113 @@ const MachineLearningEngineerCV = () => {
             </section>
           </div>
           <div className="cv-content-column main-column">
-            <section>
+            <section className="projects">
               <h2 className={`notop-margin`}><span>Projects</span></h2>
               <ul>
-                <li>
-                  <h3>Import hand-drawn wireframes from the photo</h3>
-                  TBU
+                <li className="project">
+                  <h3>Wireframe Scanner</h3>
+                  <div className="project-description">
+                    <a href="https://www.commerceframe.com/" target="blank">CommerceFrame</a>, my side project about swift eCommerce wireframing, needs a functionality to import wireframes that were drawn on a piece of paper or a whiteboard.
+                    The project includes problem framing, collecting and labeling dataset.
+                  </div>
+                  <ul className="project-details">
+                    <li><strong>Skills</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
+                  </ul>
                 </li>
-                <li>
-                  <h3>[Kaggle] HPA - Single Cell Classification</h3>
-                  TBU
-                </li>
-                <li>
+                <li className="project">
                   <h3>[Kaggle] Shopee - Price Match Guarantee</h3>
-                  TBU
+                  <div className="project-description">
+                    The Shopee marketplace has a price match guarantee program. 
+                    They needed a model that could automate process of finding marketplace lots with similar product offerings and prices, despite marketing strategy, product titles and images which merchants might use. 
+                    <br/><br/>
+                    Got to Top 45% of submitters on Kaggle. Got <a href="https://www.kaggle.com/c/shopee-product-matching/discussion/236496" target="blank">gold and silver medals</a> for providing deep insights on the domain and problem goal.
+                  </div>
+                  <ul className="project-details">
+                    <li><strong>Skills</strong>: eCommerce, Tabular & Image Data, Python, Keras, Data Processing, embeddings</li>
+                    <li>Links: <a href="https://www.kaggle.com/c/shopee-product-matching" target="blank">Competition</a></li>
+                  </ul>
+                </li>
+                <li className="project">
+                  <h3>[Kaggle] HPA - Single Cell Classification</h3>
+                  <div className="project-description">
+                    Human Protein Atlas organization was interested in finding patterns of protein distribution inside of the single cell. This should helped to understand role of different proteins in disease development, medical treatment impact, etc.<br/>
+                    Based on 150Gb of 4-layers human cells images, it was needed to segments each cell and predict in which organelle of the cell the protein of interest were located. 
+                    Provided dataset contained only inaccurate image-level labels (not directly connected to particular cells).
+                    <br/><br/>
+                    Got to Top 15% of submitters on Kaggle.
+                  </div>
+                  <ul className="project-details">
+                    <li><strong>Skills</strong>: Biology, Image Medical Data, Weakly-Supervised Learning, Data Analysis, Data Processing, Instance Segmentation, Multi-Label Classification</li>
+                    <li>Links: <a href="https://www.kaggle.com/c/hpa-single-cell-image-classification" target="blank">Competition</a></li>
+                  </ul>
                 </li>
               </ul>
               <div className="other-projects">
                 <input type="checkbox" id="other-projects-collapse" />
                 <label for="other-projects-collapse"><a>..click to show/hide other projects</a></label>
                 <ul className="other-projects-list">
-                  <li>
+                  <li className="project">
                     <h3>Mall Customer Segmentation</h3>
-                    TBU
+                    <div className="project-description">
+                    Analyzed dataset of mall customers and segment them according to their spending patterns.
+                    <br/><br/>
+                    Got <a href="https://www.kaggle.com/glushko/mall-customer-segmentation" target="blank">a silver medal on Kaggle</a> for the analysis.
+                    </div>
+                    <ul className="project-details">
+                      <li><strong>Skills</strong>: Clustering, Tabular Data, Data Analysis, Python, Scikit-Learn, Plotly, Seaborn</li>
+                      <li>Links: <a href="https://www.kaggle.com/glushko/mall-customer-segmentation" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-mall-customer-segmentation" target="blank">Github</a></li>
+                    </ul>
                   </li>
-                  <li>
+                  <li className="project">
                     <h3>Digit Recognizer</h3>
-                    TBU
+                    <div className="project-description">
+                      Built a classifier to predict handwritten digits.
+                      <br/><br/>
+                      Got to Top 5% of submitters on Kaggle.
+                    </div>
+                    <ul className="project-details">
+                      <li><strong>Skills</strong>: Classification, Image Data, Python, Keras, Scikit-Learn, CNN</li>
+                      <li>Links: <a href="https://www.kaggle.com/glushko/digit-recognizer-0-99657-3-approaches-tpu" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-digit-recognizer" target="blank">Github</a></li>                    
+                    </ul>
                   </li>
-                  <li>
+                  <li className="project">
                     <h3>Wine Quality</h3>
-                    TBU
+                    <div className="project-description">Automated wine quality analysis based on results of physicochemical tests.</div>
+                    <ul className="project-details">
+                      <li><strong>Skills</strong>: Classification, Tabular Data, Data Analysis, Python, Scikit-Learn</li>
+                      <li>Links: <a href="https://www.kaggle.com/glushko/wine-quality-domain-driven-eda-part-i" target="blank">Data Analysis</a> • <a href="https://www.kaggle.com/glushko/wine-quality-modelling-part-ii" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-wine-quality" target="blank">Github</a></li>
+                    </ul>
                   </li>
-                  <li>
+                  <li className="project">
                     <h3>Ames House Pricing</h3>
-                    TBU
+                    <div className="project-description">
+                      Modeled house prices based on Ames Housing Dataset.
+                      <br/> <br/>
+                      Got to Top 4% of submitters on Kaggle.
+                    </div>
+                    <ul className="project-details">
+                      <li><strong>Skills</strong>: Regression, Tabular Data, Real Estate, Data Analysis, Python, Scikit-Learn, XGBoost</li>
+                      <li>Links: <a href="https://www.kaggle.com/glushko/house-prices-domain-driven-eda-part-i" target="blank">Data Analysis</a> • <a href="https://www.kaggle.com/glushko/house-prices-regression-modelling-part-ii" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-house-prices" target="blank">Github</a></li>
+                    </ul>
                   </li>
                 </ul>
               </div>
               <span className="other-projects-link">Other projects can be found on <a target="_blank" rel="noopener" href="https://github.com/roma-glushko?tab=repositories&q=machine-learning">GitHub</a> and <a target="_blank" rel="noopener" href="https://www.kaggle.com/glushko/code">Kaggle</a></span>
             </section>
-            <section>
+            <section className="jobs">
               <h2><span>Work Experience</span></h2>
               <ul>
-                <li>
+                <li className="job">
                   <strong>Tech Lead / Software Developer</strong>, Atwix; Ukraine — 2017-2020 (3.5 years)<br/>
-                  Skills: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing
+                  <strong>Skills</strong>: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing
                 </li>
-                <li>
+                <li className="job">
                   <strong>eCommerce Magento Software Developer</strong>, Atwix; Ukraine — 2015-2017 (2 years)<br/>
-                  Skills: Linux, Git, PHP, MySQL, Elasticsearch, Redis
+                  <strong>Skills</strong>: Linux, Git, PHP, MySQL, Elasticsearch, Redis
                 </li>
               </ul>
             </section>
-            <section>
+            <section className="leadership">
               <h2><span>Communication & Leadership</span></h2>
               <ul>
                 <li>
