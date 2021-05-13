@@ -10,7 +10,7 @@ const MainNavigation = ({ space }) => {
     <nav className="main-navigation">
       <ul>
         {space !== 'homepage' &&
-          <li><Link to="/" title="Go Home">Home</Link></li>
+          <li><Link rel="home" to="/" title="Go Home">Home</Link></li>
         }
         <li><Link to="/blog/" title="Go to Technical blog">Blog</Link></li>
         <li><Link to="/thoughts/" title="Go to Thoughts">Thoughts</Link></li>
