@@ -6,6 +6,7 @@ import MainNavigation from "../../components/theme/main-navigation"
 import CvHeader from "../../components/cv/cv-header"
 import ThemeSwitcher from "../../components/theme/theme-switcher"
 import SocialLinks from "../../components/homepage/social-links"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 import './cv.css'
 
@@ -28,7 +29,14 @@ const MachineLearningEngineerCV = () => {
         ]}
       />
       <main className="cv cv-machine-learning-engineer">
-        <div className="pdf-badge" onClick={() => window.print()} title="Save CV as a PDF file"><a>pdf</a></div>
+        <div className="pdf-badge" onClick={() => {
+          trackCustomEvent({
+            category: "cv",
+            action: "download",
+            label: "machine-learning",
+          })
+          window.print()
+        }} title="Download CV as a PDF file"><a>pdf</a></div>
         <header>
           <div className="theme-switcher">
             <ThemeSwitcher />
@@ -62,7 +70,7 @@ const MachineLearningEngineerCV = () => {
             <section>
               <h2><span>Education</span></h2>
               <ul>
-                <li><strong>Machine Learning Nanodegree</strong>, 2020-Present (6 months)</li>
+                <li><strong>Machine Learning Nanodegree</strong>, 2020-Present (8 months)</li>
                 <li><strong>M.S. Computer Engineering</strong><br/> Khmelnytskyi National University, Ukraine, 2018</li>
               </ul>
             </section>

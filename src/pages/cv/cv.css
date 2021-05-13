@@ -29,12 +29,6 @@ body.dark {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .cv .pdf-badge {
-        display: none;
-    }
-}
-
 .cv .cv-name {
     color: var(--nameColor);
 }
@@ -79,9 +73,6 @@ body.dark {
     font-size: 1.5rem;
 }
 
-.cv .social-list social-twitter {
-
-}
 
 .cv-content {
     display: grid;
@@ -163,6 +154,20 @@ body.dark {
 
 .cv .other-projects input[type="checkbox"]:checked ~ .other-projects-list {
     display: block;
+}
+
+@media (max-width: 768px) {
+    .cv-header-wrapper .cv-name {
+        font-size: 2.5rem;
+    }
+
+    .cv-content section h2 {
+        font-size: 1.5rem;
+    }
+
+    .cv .pdf-badge {
+        display: none;
+    }
 }
 
 @media print {
