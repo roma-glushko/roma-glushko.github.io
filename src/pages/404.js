@@ -4,6 +4,7 @@ import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import NotFoundImage from "../components/404/404-image"
 import MainNavigation from "../components/theme/main-navigation"
+import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 
 import "../components/404/404.css"
@@ -24,6 +25,7 @@ const NotFoundPage = () => (
           <ThemeSwitcher />
         </div>
       </main>
+      <BreadcrumbsRichSnippet crumbs={[]} />
     </div>
   </Layout>
 )

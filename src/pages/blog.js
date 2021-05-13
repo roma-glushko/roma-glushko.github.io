@@ -6,6 +6,7 @@ import ViewPageHeader from "../components/theme/view-page-header"
 import MainNavigation from "../components/theme/main-navigation"
 import BlogTeaser from "../components/blog/blog-teaser"
 import ThemeSwitcher from "../components/theme/theme-switcher"
+import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import Footer from "../components/theme/footer"
 
 import "./blog.css"
@@ -71,6 +72,7 @@ class BlogListPage extends Component {
           <div className="clearfix" />
         </div>
         <Footer />
+        <BreadcrumbsRichSnippet crumbs={[{'/blog/': 'Blog'}]} />
       </Layout>
     )
   }

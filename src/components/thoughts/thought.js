@@ -30,7 +30,7 @@ const Thought = (props) => {
                 <div className="thought-details">
                     <time className="thought-createdat" dateTime={publishedFullDate}>{publishedHumanDate}</time>
                     <span> • </span>
-                    <span className="thought-time2read">{timeToRead} min read</span>
+                    <span className="thought-time2read">{timeToRead}min read</span>
                     <div className="theme-switcher">
                         <ThemeSwitcher />
                     </div>

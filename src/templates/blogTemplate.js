@@ -12,6 +12,7 @@ import ShareBlock from '../components/thoughts/share-block'
 import NewsletterForm from '../components/blog/newsletter-form'
 import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
+import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import Footer from "../components/theme/footer"
 
 import "./blog-view.css"
@@ -72,6 +73,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       />
       <MathJax />
       <ReadingAnalytics contentType={`blog`} />
+      <BreadcrumbsRichSnippet crumbs={[{'/blog/': 'Blog'}, {[path]: title}]} />
     </Layout>
   )
 }

@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import PersonRichSnippet from "../components/homepage/person-rich-snippet"
+import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import Avatar from "../components/homepage/avatar"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ReactRotatingText from "react-rotating-text"
@@ -73,6 +74,7 @@ const IndexPage = () => (
                 </div>
             </div>
         </main>
+        <BreadcrumbsRichSnippet crumbs={[]} />
         <PersonRichSnippet />
     </Layout>
 )

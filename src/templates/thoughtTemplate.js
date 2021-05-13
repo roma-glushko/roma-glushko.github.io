@@ -8,10 +8,12 @@ import Footer from "../components/theme/footer"
 import SEO from "../components/seo"
 import NewsletterForm from '../components/blog/newsletter-form'
 import ShareBlock from '../components/thoughts/share-block'
+import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
+import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
 
 import "./thought-view.css"
-import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
+
 
 export default function Template({ data, pageContext: { prevThought, nextThought } }) {
   const {
@@ -66,6 +68,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         cover={cover}
       />
       <ReadingAnalytics contentType={`thought`} />
+      <BreadcrumbsRichSnippet crumbs={[{'/thoughts/': 'Thoughts'}, {[path]: title}]} />
     </Layout>
   )
 }

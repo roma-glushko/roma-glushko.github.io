@@ -6,6 +6,7 @@ import MainNavigation from "../../components/theme/main-navigation"
 import CvHeader from "../../components/cv/cv-header"
 import ThemeSwitcher from "../../components/theme/theme-switcher"
 import SocialLinks from "../../components/homepage/social-links"
+import BreadcrumbsRichSnippet from "../../components/theme/breadcrumbs-rich-snippet"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 import './cv.css'
@@ -222,6 +223,7 @@ const MachineLearningEngineerCV = () => {
           </div>
         </div>
       </main>
+      <BreadcrumbsRichSnippet crumbs={[{'/cv/machine-learning-engineer/': 'Machine Learning Engineer CV'}]} />
     </Layout>
   )
 }

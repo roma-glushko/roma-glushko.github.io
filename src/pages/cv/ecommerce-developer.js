@@ -85,6 +85,7 @@ const eCommerceDeveloperCV = () => (
               <ul>
                 <li>
                   <strong>Tech Lead / Software Developer</strong>, Atwix; Ukraine — 2017-2020 (3.5 years)<br/>
+                  
                   Skills: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing
                 </li>
                 <li>
