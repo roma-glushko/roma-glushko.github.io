@@ -54,7 +54,7 @@ const MachineLearningEngineerCV = () => {
                 <ul>
                   <li itemprop="itemListElement">Aspiring <strong>Problem Solver</strong> & Passionate Software Engineer</li>
                   <li itemprop="itemListElement"><strong>5+ years</strong> of experience in <strong>software engineering</strong> and eCommerce development</li>
-                  <li itemprop="itemListElement"><strong>3+ years</strong> of experience in <strong>technical management</strong></li>
+                  <li itemprop="itemListElement"><strong>3+ years</strong> of experience in <strong>technical management of scrum teams</strong></li>
                   <li itemprop="itemListElement">Expertise in a broad variety of technical and business topics</li>
                   <li itemprop="itemListElement">Constant, quick & curious learner</li>
                   <li itemprop="itemListElement">Positive attitudes</li>
@@ -67,7 +67,7 @@ const MachineLearningEngineerCV = () => {
                 <ul>
                   <li itemprop="itemListElement">Type of Services: Building eCommerce stores from scratch, Store Maintenance, Performance and SEO Audits, Extending of the default Magento setup, ERP/CRM/SaaS Integrations</li>
                   <li itemprop="itemListElement">Languages: <strong>PHP</strong>, Python, Golang, WebDev Stack (JS & HTML5 & CSS3)</li>
-                  <li itemprop="itemListElement">Platforms: <strong>Magento 2 Open Source and Adobe Commerce(former Magento2 Commerce)</strong>, Adobe Commerce Cloud</li>
+                  <li itemprop="itemListElement">Platforms: <strong>Magento 2 Open Source and Adobe Commerce(former Magento 2 Commerce)</strong>, Adobe Commerce Cloud</li>
                   <li itemprop="itemListElement">Software Engineering: Domain-Driven Design, SOLID, System Design</li>
                   <li itemprop="itemListElement">Management: Leading Scrum Teams, Product Owning, Problem Framing, Developer Mentoring, Giving Workshops</li>
                 </ul>
@@ -109,25 +109,18 @@ const MachineLearningEngineerCV = () => {
                     Huge catalog prompted us to <strong>research a ways to improve indexing and search systems.</strong> Besides that, we were working on improving website performance by leveraging <strong>ReactJS-based micro-frontend approach</strong>.
                   </div>
                   <ul className="project-details">
-                    <li><strong>Experience</strong>: Magento2 Migration, Adobe Commerce, Store Maintenance, Product Owning, Performance Audits, SEO Audits, Concept Creation, Work With Client's Team, Ongoing Improvement Sells, Magento Consulting, Magento Upgrades, Adobe Commerce Cloud, Nexcess Hosting</li>
+                    <li><strong>Experience</strong>: Magento 2 Migration, Adobe Commerce, Store Maintenance, Product Owning, Performance Audits, SEO Audits, Concept Creation, Work With Client's Team, Ongoing Improvement Sells, Magento Consulting, Magento Upgrades, Adobe Commerce Cloud, Nexcess Hosting</li>
                   </ul>
                 </li>
                 <li className="project">
                   <h3>Austrian B2C Bedroom Furniture Seller</h3>
                   <div className="project-description">
-                    TBU
+                    The client was a small Austrian-based bedroom furniture company with up to 10 showrooms in Austria and German. They sold beds, wardrobes, dressers made from 5 types of aromatic wood, breathable organic mattress.<br/><br/>
+                    They were on Magento 1 and they asked us for migration to Magento 2 Open Source. On Magento 1, they had <strong>a lot of custom functionality</strong>. We spent more than a year to redesign and implement it on Magento 2. Since major part of their sales came from showrooms, we payed extract attention on <strong>creating omnichannel-like experience</strong> for their customers. 
+                    We developed a workflow for their showroom stuff to let them guide and <strong>create quotes together with customers which came to the store</strong>.
                   </div>
                   <ul className="project-details">
-                    <li><strong>Experience</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
-                  </ul>
-                </li>
-                <li className="project">
-                  <h3>French Shipping Provider</h3>
-                  <div className="project-description">
-                    TBU
-                  </div>
-                  <ul className="project-details">
-                    <li><strong>Experience</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
+                    <li><strong>Experience</strong>: Magento 2 Migration, Concept Creations, Team Leading, Performance Audits, SEO Improvements, Ongoing Improvement Sells, Magento Consulting, Magento Upgrades</li>
                   </ul>
                 </li>
               </ul>
@@ -135,6 +128,15 @@ const MachineLearningEngineerCV = () => {
                 <input type="checkbox" id="other-projects-collapse" />
                 <label for="other-projects-collapse"><a>..click to show/hide other projects</a></label>
                 <ul className="other-projects-list">
+                  <li className="project">
+                    <h3>French Shipping Provider</h3>
+                    <div className="project-description">
+                      TBU
+                    </div>
+                    <ul className="project-details">
+                      <li><strong>Experience</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
+                    </ul>
+                  </li>
                   <li className="project">
                     <h3>UK Customer Review Service Provider</h3>
                     <div className="project-description">
@@ -220,7 +222,7 @@ const MachineLearningEngineerCV = () => {
                   <strong>Links</strong>: <a href="https://github.com/roma-glushko/tango">Github</a> • <a href="22">ProductHunt</a>
                 </li>
                 <li>
-                  <strong>GrumPHP Rules for Magento2</strong><br/>
+                  <strong>GrumPHP Rules for Magento 2</strong><br/>
                   <div>TBU</div>
                   <strong>Links</strong>: <a href="https://github.com/roma-glushko/grumphp-magento2">Github</a>
                 </li>
@@ -240,7 +242,7 @@ const MachineLearningEngineerCV = () => {
                   <strong>Links</strong>: <a href="https://github.com/roma-glushko/monolog-parser">Github</a>
                 </li>
                 <li>
-                  <strong>Magento2 Dir Buster</strong><br/>
+                  <strong>Magento 2 Dir Buster</strong><br/>
                   <div>TBU</div>
                   <strong>Links</strong>: <a href="https://github.com/roma-glushko/magento2-dir-buster">Github</a>
                 </li>
