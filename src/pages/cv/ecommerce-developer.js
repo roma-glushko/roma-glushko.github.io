@@ -117,10 +117,11 @@ const MachineLearningEngineerCV = () => {
                   <div className="project-description">
                     The client was a small Austrian-based bedroom furniture company with up to 10 showrooms in Austria and German. They sold beds, wardrobes, dressers made from 5 types of aromatic wood, breathable organic mattress.<br/><br/>
                     They were on Magento 1 and they asked us for migration to Magento 2 Open Source. On Magento 1, they had <strong>a lot of custom functionality</strong>. We spent more than a year to redesign and implement it on Magento 2. Since major part of their sales came from showrooms, we payed extract attention on <strong>creating omnichannel-like experience</strong> for their customers. 
-                    We developed a workflow for their showroom stuff to let them guide and <strong>create quotes together with customers which came to the store</strong>.
+                    We developed a workflow for their showroom stuff to let them guide and <strong>create quotes together with customers which came to the store</strong>. Also, client's team was interested in making changes to the most parts of the website frequently, so we provided them a way to <strong>manage blocks of information on category and product pages in an admin-friendly way.</strong><br/><br/>
+                    After migration, we worked on the ongoing support and improvements to the store. We helped them <strong>integrate a new line of fast-to-deliver products with an ability to manage orders that could contain regular and this kind of products</strong>. We also made sure that they were using <strong>cost-efficient hosting plans while got optimal user experience by performing load tests</strong>.
                   </div>
                   <ul className="project-details">
-                    <li><strong>Experience</strong>: Magento 2 Migration, Concept Creations, Team Leading, Performance Audits, SEO Improvements, Ongoing Improvement Sells, Magento Consulting, Magento Upgrades</li>
+                    <li><strong>Experience</strong>: Magento 2 Migration, Concept Creations, Team Leading, Performance Audits, SEO Improvements, Ongoing Improvement Sells, Magento Consulting, Magento Upgrades, Load Testing</li>
                   </ul>
                 </li>
               </ul>
@@ -131,28 +132,32 @@ const MachineLearningEngineerCV = () => {
                   <li className="project">
                     <h3>French Shipping Provider</h3>
                     <div className="project-description">
-                      TBU
+                      One of the biggest European shipping provider, based in French, was looking to expand their integration with existing eCommerce platforms. They had integrations with WooCommerce and PrestaShop, and they wanted to bring Magento 1 and Magento 2 to that list. <br /><br />
+                      My team was responsible for developing Magento 2 version of the integration. We were following and adjusting provided high-level concepts of the final result. <br /><br />
+                      After working on the project a few months, we were invited to the nearest office of the company for the final tests. Me and a few fellows from the team were invited and <strong>I was handling all main communication and coordination with the client team onsite</strong>. 
                     </div>
                     <ul className="project-details">
-                      <li><strong>Experience</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
+                      <li><strong>Experience</strong>: Magento Module Development, Team Leading, Integration with Third-Party Services, Onsite Meetings with Client Team</li>
                     </ul>
                   </li>
                   <li className="project">
                     <h3>UK Customer Review Service Provider</h3>
                     <div className="project-description">
-                      TBU
+                      A UK-based customer review service was looking for Magento integration after being successfully used on WooCommerce platform. <br /><br />
+                      I was <strong>mainly responsible for the integration design and development</strong>. After some time, I was included to <strong>the direct communication with client about ongoing questions and clarifications</strong>. 
                     </div>
                     <ul className="project-details">
-                      <li><strong>Experience</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
+                      <li><strong>Experience</strong>: Magento Module Development, Communication with Client</li>
                     </ul>
                   </li>
                   <li className="project">
                     <h3>US Cosmetics Reseller</h3>
                     <div className="project-description">
-                      TBU
+                      The client was running on the Magento 1 when I joined the team. They were looking for the major website redesign and improvements to customer experience.<br/><br/>
+                      In a scope of that plans, I was involved into <strong>development of a customer quiz</strong> that helped to select cosmetics based on the customer skin types and preferences. In addition to that, I was developing a feature to buy <strong>a customizable kit of products based on the quiz results</strong>.
                     </div>
                     <ul className="project-details">
-                      <li><strong>Experience</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
+                      <li><strong>Experience</strong>: Custom Functionality Development, Design Adjustments, Store Maintenance, Newsletter Integration</li>
                     </ul>
                   </li>
                 </ul>
