@@ -248,16 +248,16 @@ const MachineLearningEngineerCV = () => {
                   <div>A PoC of tool that analyzes Magento dataset growth over the time.</div>
                   <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/eyewear">Github</a>
                 </li>
-                <li>
-                  <strong>DB Trimmer</strong><br/>
-                  <div>A PoC of tool that is aimed to perform quick cleanup of huge Magento datasets during dev environment creation</div>
-                  <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/db-trimmer">Github</a>
-                </li>
               </ul>
               <div className="other-projects">
                 <input type="checkbox" id="other-open-source-projects-switcher" />
                 <label for="other-open-source-projects-switcher"><a>..click to show/hide other projects</a></label>
                 <ul className="other-projects-list">
+                  <li>
+                    <strong>DB Trimmer</strong><br/>
+                    <div>A PoC of tool that is aimed to perform quick cleanup of huge Magento datasets during dev environment creation</div>
+                    <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/db-trimmer">Github</a>
+                  </li>
                   <li>
                     <strong>Monolog Parser</strong><br/>
                     <div>A PHP parse of Monolog's log format that is used Magento to store internal logs.</div>
