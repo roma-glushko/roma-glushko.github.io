@@ -17,7 +17,7 @@ const MachineLearningEngineerCV = () => {
       <SEO
         isUniqueTitle={true}
         title={"Roman Glushko's Machine Learning Engineer CV"}
-        className="experiment-view-page"
+        className="cv-view-page"
         pagePath='/cv/machine-learning-engineer'
         ogType="website"
         description="Roman Glushko's Machine Learning Engineer CV"
@@ -95,7 +95,7 @@ const MachineLearningEngineerCV = () => {
                     The project includes problem framing, collecting and labeling dataset.
                   </div>
                   <ul className="project-details">
-                    <li><strong>Skills</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
+                    <li><strong>Experience</strong>: Problem Framing, Data Collection, Data Labeling, Image Data, Python, PyTorch, Object Detection</li>
                   </ul>
                 </li>
                 <li className="project">
@@ -107,7 +107,7 @@ const MachineLearningEngineerCV = () => {
                     Got to Top 45% of submitters on Kaggle. Got <a href="https://www.kaggle.com/c/shopee-product-matching/discussion/236496" target="blank">gold and silver medals</a> for providing deep insights on the domain and problem goal.
                   </div>
                   <ul className="project-details">
-                    <li><strong>Skills</strong>: eCommerce, Tabular & Image Data, Python, Keras, Data Processing, embeddings</li>
+                    <li><strong>Experience</strong>: eCommerce, Tabular & Image Data, Python, Keras, Data Processing, embeddings</li>
                     <li>Links: <a href="https://www.kaggle.com/c/shopee-product-matching" target="blank">Competition</a></li>
                   </ul>
                 </li>
@@ -121,7 +121,7 @@ const MachineLearningEngineerCV = () => {
                     Got to Top 15% of submitters on Kaggle.
                   </div>
                   <ul className="project-details">
-                    <li><strong>Skills</strong>: Biology, Image Medical Data, Weakly-Supervised Learning, Data Analysis, Data Processing, Instance Segmentation, Multi-Label Classification</li>
+                    <li><strong>Experience</strong>: Biology, Image Medical Data, Weakly-Supervised Learning, Data Analysis, Data Processing, Instance Segmentation, Multi-Label Classification</li>
                     <li>Links: <a href="https://www.kaggle.com/c/hpa-single-cell-image-classification" target="blank">Competition</a></li>
                   </ul>
                 </li>
@@ -138,7 +138,7 @@ const MachineLearningEngineerCV = () => {
                     Got <a href="https://www.kaggle.com/glushko/mall-customer-segmentation" target="blank">a silver medal on Kaggle</a> for the analysis.
                     </div>
                     <ul className="project-details">
-                      <li><strong>Skills</strong>: Clustering, Tabular Data, Data Analysis, Python, Scikit-Learn, Plotly, Seaborn</li>
+                      <li><strong>Experience</strong>: Clustering, Tabular Data, Data Analysis, Python, Scikit-Learn, Plotly, Seaborn</li>
                       <li>Links: <a href="https://www.kaggle.com/glushko/mall-customer-segmentation" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-mall-customer-segmentation" target="blank">Github</a></li>
                     </ul>
                   </li>
@@ -150,7 +150,7 @@ const MachineLearningEngineerCV = () => {
                       Got to Top 5% of submitters on Kaggle.
                     </div>
                     <ul className="project-details">
-                      <li><strong>Skills</strong>: Classification, Image Data, Python, Keras, Scikit-Learn, CNN</li>
+                      <li><strong>Experience</strong>: Classification, Image Data, Python, Keras, Scikit-Learn, CNN</li>
                       <li>Links: <a href="https://www.kaggle.com/glushko/digit-recognizer-0-99657-3-approaches-tpu" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-digit-recognizer" target="blank">Github</a></li>                    
                     </ul>
                   </li>
@@ -158,7 +158,7 @@ const MachineLearningEngineerCV = () => {
                     <h3>Wine Quality</h3>
                     <div className="project-description">Automated wine quality analysis based on results of physicochemical tests.</div>
                     <ul className="project-details">
-                      <li><strong>Skills</strong>: Classification, Tabular Data, Data Analysis, Python, Scikit-Learn</li>
+                      <li><strong>Experience</strong>: Classification, Tabular Data, Data Analysis, Python, Scikit-Learn</li>
                       <li>Links: <a href="https://www.kaggle.com/glushko/wine-quality-domain-driven-eda-part-i" target="blank">Data Analysis</a> • <a href="https://www.kaggle.com/glushko/wine-quality-modelling-part-ii" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-wine-quality" target="blank">Github</a></li>
                     </ul>
                   </li>
@@ -170,7 +170,7 @@ const MachineLearningEngineerCV = () => {
                       Got to Top 4% of submitters on Kaggle.
                     </div>
                     <ul className="project-details">
-                      <li><strong>Skills</strong>: Regression, Tabular Data, Real Estate, Data Analysis, Python, Scikit-Learn, XGBoost</li>
+                      <li><strong>Experience</strong>: Regression, Tabular Data, Real Estate, Data Analysis, Python, Scikit-Learn, XGBoost</li>
                       <li>Links: <a href="https://www.kaggle.com/glushko/house-prices-domain-driven-eda-part-i" target="blank">Data Analysis</a> • <a href="https://www.kaggle.com/glushko/house-prices-regression-modelling-part-ii" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-house-prices" target="blank">Github</a></li>
                     </ul>
                   </li>

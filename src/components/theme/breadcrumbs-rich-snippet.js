@@ -36,8 +36,6 @@ const BreadcrumbsRichSnippet = ({crumbs = []}) => {
     })
   })
 
-  console.log(crumbItems)
-
   const schemaJSONLD = {
     '@context': 'http://schema.org',
     '@type': 'BreadcrumbList',
