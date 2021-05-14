@@ -234,6 +234,11 @@ const MachineLearningEngineerCV = () => {
               <h2><span>Open Source</span></h2>
               <ul>
                 <li>
+                  <strong>Contributions to Magento 2 Open Source</strong><br/>
+                  <div>Since 2017 I had been contributing to numerous of Magento projects including Magento Core, Multi-Source Inventory, GraphQl, DevDocs and PHPStorm Plugin.</div>
+                  <strong>Links</strong>: <a rel="me" target="_blank" rel="noopener" href="https://opensource.magento.com/profile/roma-glushko/contribution_statistic">Magento Community Portal</a>
+                </li>
+                <li>
                   <strong>Tango</strong><br/>
                   <div>A cross-platform console tool for processing server logs and generating useful reports based on them.</div>
                   <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/tango">Github</a> • <a target="_blank" rel="noopener" href="https://www.producthunt.com/posts/tango-8b7c5fe8-b795-4071-b479-ffa84ce4999b">ProductHunt</a>
