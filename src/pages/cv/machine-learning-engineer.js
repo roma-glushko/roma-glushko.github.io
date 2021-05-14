@@ -8,6 +8,7 @@ import ThemeSwitcher from "../../components/theme/theme-switcher"
 import SocialLinks from "../../components/homepage/social-links"
 import BreadcrumbsRichSnippet from "../../components/theme/breadcrumbs-rich-snippet"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
+import { Link } from "gatsby"
 
 import './cv.css'
 
@@ -183,11 +184,17 @@ const MachineLearningEngineerCV = () => {
               <ul>
                 <li itemscope itemtype="http://schema.org/Organization" className="job">
                   <strong itemprop="jobTitle">Tech Lead / Software Developer</strong>, <span itemprop="name">Atwix</span>; Ukraine — 2017-2020 (3.5 years)<br/>
-                  <strong>Skills</strong>: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing
+                  <div className="job-description"><Link target="_blank" rel="noopener" to="/cv/ecommerce-developer/" title="Go to Technical blog">See what I have done there in great details</Link></div>
+                  <ul className="project-details">
+                    <li><strong>Experience</strong>: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing</li>
+                  </ul>
                 </li>
                 <li itemscope itemtype="http://schema.org/Organization" className="job">
                   <strong itemprop="jobTitle">eCommerce Magento Software Developer</strong>, <span itemprop="name">Atwix</span>; Ukraine — 2015-2017 (2 years)<br/>
-                  <strong>Skills</strong>: Linux, Git, PHP, MySQL, Elasticsearch, Redis
+                  <div className="job-description"><Link target="_blank" rel="noopener" to="/cv/ecommerce-developer/" title="Go to Technical blog">See what I have done there in great details</Link></div>
+                  <ul className="project-details">
+                    <li><strong>Experience</strong>: Linux, Git, PHP, MySQL, Elasticsearch, Redis</li>
+                  </ul>
                 </li>
               </ul>
             </section>
