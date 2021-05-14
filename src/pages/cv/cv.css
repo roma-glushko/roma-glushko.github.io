@@ -123,16 +123,27 @@ body.dark {
     margin-top: 0;
 }
 
+.cv .projects .project .project-details,
+.cv .jobs .project-details,
+.cv .certifications .certification {
+    list-style-type: "★";
+}
+
+.cv .jobs .job-description,
 .cv .projects .project-description {
     margin-bottom: 0.8rem;
 }
 
-.cv .projects .project ul.project-details {
-    list-style-type: "★";
-}
-
-.cv .projects .project ul.project-details li {
-    padding-left: 0.4rem;
+.cv .projects .project-details li,
+.cv .open-source-projects li,
+.cv .certifications li,
+.cv .skills li,
+.cv .education li,
+.cv .jobs li,
+.cv .leadership li,
+.cv .profile li {
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .cv .other-projects input {
@@ -152,7 +163,11 @@ body.dark {
     cursor: pointer;
 }
 
-.cv .other-projects input[type="checkbox"]:checked ~ .other-projects-list {
+.cv .projects .other-projects input[type="checkbox"]:checked ~ .other-projects-list {
+    display: block;
+}
+
+.cv .open-source-projects .other-projects input[type="checkbox"]:checked ~ .other-projects-list {
     display: block;
 }
 

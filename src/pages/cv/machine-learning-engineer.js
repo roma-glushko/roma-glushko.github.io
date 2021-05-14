@@ -217,6 +217,7 @@ const MachineLearningEngineerCV = () => {
                   <li itemprop="itemListElement">Reading</li>
                   <li itemprop="itemListElement"><a rel="me" target="_blank" rel="noopener" href="https://www.romaglushko.com/">Blogging</a></li>
                   <li itemprop="itemListElement"><a target="_blank" href="https://github.com/roma-glushko">Open Source</a></li>
+                  <li itemprop="itemListElement">Judaism</li>
                 </ul>
               </dl>
             </section>

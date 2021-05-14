@@ -48,7 +48,7 @@ const MachineLearningEngineerCV = () => {
         </header>
         <div className="cv-content">
           <div className="cv-content-column additional-column">
-            <section itemscope itemtype="http://schema.org/ItemList">
+            <section className="profile" itemscope itemtype="http://schema.org/ItemList">
               <dl>
                 <dt><h2 className={`notop-margin`}><span itemprop="name">Profile</span></h2></dt>
                 <ul>
@@ -61,19 +61,19 @@ const MachineLearningEngineerCV = () => {
                 </ul>
               </dl>
             </section>
-            <section itemtype="http://schema.org/ItemList">
+            <section className="skills" itemtype="http://schema.org/ItemList">
               <dl>
                 <dt><h2><span itemprop="name">Skills</span></h2></dt>
                 <ul>
-                  <li itemprop="itemListElement">Type of Services: Building eCommerce stores from scratch, Store Maintenance, Performance and SEO Audits, Extending of the default Magento setup, ERP/CRM/SaaS Integrations</li>
-                  <li itemprop="itemListElement">Languages: <strong>PHP</strong>, Python, Golang, WebDev Stack (JS & HTML5 & CSS3)</li>
-                  <li itemprop="itemListElement">Platforms: <strong>Magento 2 Open Source and Adobe Commerce(former Magento 2 Commerce)</strong>, Adobe Commerce Cloud</li>
-                  <li itemprop="itemListElement">Software Engineering: Domain-Driven Design, SOLID, System Design</li>
-                  <li itemprop="itemListElement">Management: Leading Scrum Teams, Product Owning, Problem Framing, Developer Mentoring, Giving Workshops</li>
+                  <li itemprop="itemListElement"><strong>Type of Services</strong>: Building eCommerce stores from scratch, Store Maintenance, Performance and SEO Audits, Extending of the default Magento setup, ERP/CRM/SaaS Integrations</li>
+                  <li itemprop="itemListElement"><strong>Languages</strong>: PHP, Python, Golang, WebDev Stack (JS & HTML5 & CSS3)</li>
+                  <li itemprop="itemListElement"><strong>Platforms</strong>: Magento 2 Open Source and Adobe Commerce(former Magento 2 Commerce), Adobe Commerce Cloud</li>
+                  <li itemprop="itemListElement"><strong>Software Engineering</strong>: Domain-Driven Design, SOLID, System Design</li>
+                  <li itemprop="itemListElement"><strong>Management</strong>: Leading Scrum Teams, Product Owning, Problem Framing, Developer Mentoring, Giving Workshops</li>
                 </ul>
               </dl>
             </section>
-            <section>
+            <section className="education">
               <h2><span>Education</span></h2>
               <ul>
                 <li itemscope itemtype="http://schema.org/EducationalOrganization">
@@ -93,7 +93,7 @@ const MachineLearningEngineerCV = () => {
                   <h3>B2B US Electrical Manufacturer</h3>
                   <div className="project-description">
                     The client was a big midwest US-based manufacturer of power units, electrical systems for home and office environments. They did not have a solid eCommerce platform and a lot of conversions happened during in-person sale meetings. Once COVID-19 struck the world, it became hardly possible to work that way. They urgently needed a viable eCommerce platform that would begin <strong>digitalization</strong> inside of the company. <br/><br/>
-                    My team delivered their partner portal powered by <strong>Adobe Commerce Cloud just in 6 weeks</strong>. This included <strong>ERP integration, custom product configurator, importing all B2B company and product</strong> information. <br/><br/>
+                    My team delivered their partner portal powered by <strong>Adobe Commerce Cloud just in 6 weeks</strong>. This included <strong>ERP and custom product configurator integration, importing all B2B company and product</strong> information and other stuff required by fully functional store.<br/><br/>
                     Also, I took part in concepts creation for the further features (package management capabilities for planned orders, integration with support system, B2B shipping, etc), B2C branch of their business.
                   </div>
                   <ul className="project-details">
@@ -126,15 +126,15 @@ const MachineLearningEngineerCV = () => {
                 </li>
               </ul>
               <div className="other-projects">
-                <input type="checkbox" id="other-projects-collapse" />
-                <label for="other-projects-collapse"><a>..click to show/hide other projects</a></label>
+                <input type="checkbox" id="other-projects-switcher" />
+                <label for="other-projects-switcher"><a>..click to show/hide other projects</a></label>
                 <ul className="other-projects-list">
                   <li className="project">
                     <h3>French Shipping Provider</h3>
                     <div className="project-description">
                       One of the biggest European shipping provider, based in French, was looking to expand their integration with existing eCommerce platforms. They had integrations with WooCommerce and PrestaShop, and they wanted to bring Magento 1 and Magento 2 to that list. <br /><br />
                       My team was responsible for developing Magento 2 version of the integration. We were following and adjusting provided high-level concepts of the final result. <br /><br />
-                      After working on the project a few months, we were invited to the nearest office of the company for the final tests. Me and a few fellows from the team were invited and <strong>I was handling all main communication and coordination with the client team onsite</strong>. 
+                      After working on the project for a few months, we were invited to the nearest office of the company for the final tests. Me and a few fellows from the team were invited and <strong>I was handling all main communication and coordination with the client team onsite</strong>. 
                     </div>
                     <ul className="project-details">
                       <li><strong>Experience</strong>: Magento Module Development, Team Leading, Integration with Third-Party Services, Onsite Meetings with Client Team</li>
@@ -167,22 +167,21 @@ const MachineLearningEngineerCV = () => {
             <section className="certifications">
               <h2><span>Certifications</span></h2>
               <ul>
-                <li>
-                  <strong><a href="https://www.credly.com/badges/85808e34-3436-407c-a087-71146c9d4caa">Adobe Commerce Business Practitioner</a></strong><br/>
-                  <div>TBU</div>
+                <li className="certification">
+                  <strong><a target="_blank" rel="noopener" href="https://www.credly.com/badges/85808e34-3436-407c-a087-71146c9d4caa">Adobe Commerce Business Practitioner</a></strong><br/>
+                  <div>Certified on knowledge of <strong>general Magento architecture, list of out-of-the-box features and usecases to apply them</strong>.</div>
                 </li>
-                <li>
-                  <strong><a href="https://www.credly.com/badges/6a093495-8d10-446f-a273-2a4da62402ec">Adobe Commerce Developer</a></strong><br/>
-                  <div>TBU</div>
+                <li className="certification">
+                  <strong><a target="_blank" rel="noopener" href="https://www.credly.com/badges/6a093495-8d10-446f-a273-2a4da62402ec">Adobe Commerce Developer</a></strong><br/>
+                  <div>Certified on knowing best practices related to <strong>Magento backend customizations and custom module development</strong>.</div>
                 </li>
-                <li>
-                  <strong><a href="https://www.credly.com/badges/30795767-4b7d-4ef7-bd03-c2e3eecd9455">Adobe Commerce JavaScript Developer</a></strong><br/>
-                  <div>TBU</div>
+                <li className="certification">
+                  <strong><a target="_blank" rel="noopener" href="https://www.credly.com/badges/30795767-4b7d-4ef7-bd03-c2e3eecd9455">Adobe Commerce JavaScript Developer</a></strong><br/>
+                  <div>Certified on knowing how to build complex <strong>JavaScript logic along the lines of Magento JavaScript framework</strong>.</div>
                 </li>
-                <li>
-                  <strong>Adobe Commerce Cloud Developer</strong><br/>
-                  <div>TBU</div>
-                  <strong>Links</strong>: <a href="https://www.credly.com/badges/e0813e5d-094f-496b-adf3-89916d9ff90f">Credentials</a>
+                <li className="certification">
+                  <strong><a target="_blank" rel="noopener" href="https://www.credly.com/badges/e0813e5d-094f-496b-adf3-89916d9ff90f">Adobe Commerce Cloud Developer</a></strong><br/>
+                  <div>Certified on <strong>building, running and deploying stores on Adobe Commerce Cloud</strong>.</div>
                 </li>
               </ul>
             </section>
@@ -191,23 +190,36 @@ const MachineLearningEngineerCV = () => {
               <ul>
                 <li itemscope itemtype="http://schema.org/Organization" className="job">
                   <strong itemprop="jobTitle">Tech Lead / Software Developer</strong>, <span itemprop="name">Atwix</span>; Ukraine — 2017-2020 (3.5 years)<br/>
-                  <div>TBU</div>
-                  <strong>Skills</strong>: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing, Domain-Driven Design
+                  <div className="job-description">
+                    I was responsible for <strong>leading different scrum teams (from 5 to 15 people incl. SEs, QA, PM, DevOps)</strong> that worked on building stores from scratch and maintaining them afterwards. I had close communications with project stakeholders, participating in problem grooming, requirement gathering and further translating that knowledge into technical concepts and technical vision for my teams. <br /><br />
+                    I was <strong>mentoring</strong> people in the team, performed onboarding, code reviews and internal workshops about various topics that team faced. Worked on <strong>partnership and developed relationships with other tech companies</strong> we worked with.<br /><br />
+                    Also, I was <strong>owning all technical processes and constantly worked on improving them</strong> and utilized new approaches and tools (like visual regression tools, etc).
+                    Finally, I <strong>advocated needs of technical team members and popularized ideas</strong> of solution sharing inside of the company.
+                  </div>
+                  <ul className="project-details">
+                    <li><strong>Experience</strong>: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing, Domain-Driven Design</li>
+                  </ul>
                 </li>
                 <li itemscope itemtype="http://schema.org/Organization" className="job">
                   <strong itemprop="jobTitle">eCommerce Magento Software Developer</strong>, <span itemprop="name">Atwix</span>; Ukraine — 2015-2017 (2 years)<br/>
-                  <div>TBU</div>
-                  <strong>Skills</strong>: Linux, Git, PHP, MySQL, Elasticsearch, Redis
+                  <div className="job-description">
+                    I was part of different teams that worked on ongoing support of existing eCommerce Magento projects and adding a new functionality to projects that came.
+                  </div>
+                  <ul className="project-details">
+                    <li><strong>Experience</strong>: Linux, Git, Docker, PHP, MySQL, Elasticsearch, Redis</li>
+                  </ul>
                 </li>
               </ul>
             </section>
-            <section itemscope itemtype="http://schema.org/ItemList" className="leadership">
+            <section className="leadership" itemscope itemtype="http://schema.org/ItemList">
               <dl>
                 <dt><h2><span itemprop="name">Communication & Leadership</span></h2></dt>
                 <ul>
                   <li itemprop="itemListElement">
-                    <strong>Technical Leadership</strong> of Software Engineering Team (3.5 years) <br/>
-                    Led cross-functional teams of different sizes (5-15 people incl. SEs, QA, PM, DevOps). Organized and optimized team processes. <br/> Took part in presentations and frequent calls with clients, project groomings, and delivered internal technical workshops. Advocated software engineer's needs behind C-level management.
+                    <strong>Technical Leadership</strong> of Software Engineering Team (3.5 years).
+                  </li>
+                  <li itemprop="itemListElement">
+                    3 people I had worked for the longest time with <strong>became technical leaders themselves</strong>. 
                   </li>
                   <li itemprop="itemListElement">
                     Organized technical and business <a target="_blank" rel="noopener" href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
@@ -223,45 +235,52 @@ const MachineLearningEngineerCV = () => {
               <ul>
                 <li>
                   <strong>Tango</strong><br/>
-                  <div>TBU</div>
-                  <strong>Links</strong>: <a href="https://github.com/roma-glushko/tango">Github</a> • <a href="22">ProductHunt</a>
-                </li>
-                <li>
-                  <strong>GrumPHP Rules for Magento 2</strong><br/>
-                  <div>TBU</div>
-                  <strong>Links</strong>: <a href="https://github.com/roma-glushko/grumphp-magento2">Github</a>
+                  <div>A cross-platform console tool for processing server logs and generating useful reports based on them.</div>
+                  <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/tango">Github</a> • <a target="_blank" rel="noopener" href="https://www.producthunt.com/posts/tango-8b7c5fe8-b795-4071-b479-ffa84ce4999b">ProductHunt</a>
                 </li>
                 <li>
                   <strong>Eyewear</strong><br/>
-                  <div>TBU</div>
-                  <strong>Links</strong>: <a href="https://github.com/roma-glushko/eyewear">Github</a>
+                  <div>A PoC of tool that analyzes Magento dataset growth over the time.</div>
+                  <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/eyewear">Github</a>
                 </li>
                 <li>
                   <strong>DB Trimmer</strong><br/>
-                  <div>TBU</div>
-                  <strong>Links</strong>: <a href="https://github.com/roma-glushko/db-trimmer">Github</a>
-                </li>
-                <li>
-                  <strong>Monolog Parser</strong><br/>
-                  <div>TBU</div>
-                  <strong>Links</strong>: <a href="https://github.com/roma-glushko/monolog-parser">Github</a>
-                </li>
-                <li>
-                  <strong>Magento 2 Dir Buster</strong><br/>
-                  <div>TBU</div>
-                  <strong>Links</strong>: <a href="https://github.com/roma-glushko/magento2-dir-buster">Github</a>
+                  <div>A PoC of tool that is aimed to perform quick cleanup of huge Magento datasets during dev environment creation</div>
+                  <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/db-trimmer">Github</a>
                 </li>
               </ul>
+              <div className="other-projects">
+                <input type="checkbox" id="other-open-source-projects-switcher" />
+                <label for="other-open-source-projects-switcher"><a>..click to show/hide other projects</a></label>
+                <ul className="other-projects-list">
+                  <li>
+                    <strong>Monolog Parser</strong><br/>
+                    <div>A PHP parse of Monolog's log format that is used Magento to store internal logs.</div>
+                    <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/monolog-parser">Github</a>
+                  </li>
+                  <li>
+                    <strong>GrumPHP Rules for Magento 2</strong><br/>
+                    <div>A set of GrumPHP checks that automates preventing common mistakes that Magento dev team may do.</div>
+                    <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/grumphp-magento2">Github</a>
+                  </li>
+                  <li>
+                    <strong>Magento 2 Dir Buster</strong><br/>
+                    <div>A list of URL to check that should be protected on every Magento store.</div>
+                    <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/magento2-dir-buster">Github</a>
+                  </li>
+                </ul>
+              </div>
             </section>
             <section itemscope itemtype="http://schema.org/ItemList">
               <dl>
                 <dt><h2><span itemprop="name">Hobby & Interests</span></h2></dt>
                 <ul>
-                  <li itemprop="itemListElement">Scooter driving</li>
-                  <li itemprop="itemListElement">Self-improvement</li>
+                  <li itemprop="itemListElement">Scooter Driving</li>
+                  <li itemprop="itemListElement">Self-Improvement</li>
                   <li itemprop="itemListElement">Reading</li>
                   <li itemprop="itemListElement"><a rel="me" target="_blank" rel="noopener" href="https://www.romaglushko.com/">Blogging</a></li>
                   <li itemprop="itemListElement"><a target="_blank" href="https://github.com/roma-glushko">Open Source</a></li>
+                  <li itemprop="itemListElement">Judaism</li>
                 </ul>
               </dl>
             </section>
