@@ -225,7 +225,6 @@ module.exports = {
                     `blog/communicate-through-code`, 
                     `blog/assumptions-of-the-linear-regression`,
                     `/indexv2`,
-                    `/cv/*`
                 ], // todo: handle all unpublished articles
             }
         }

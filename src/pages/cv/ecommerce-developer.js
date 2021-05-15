@@ -115,7 +115,7 @@ const MachineLearningEngineerCV = () => {
                 <li className="project">
                   <h3>Austrian B2C Bedroom Furniture Seller</h3>
                   <div className="project-description">
-                    The client was a small Austrian-based bedroom furniture company with up to 10 showrooms in Austria and German. They sold beds, wardrobes, dressers that were made from 5 types of aromatic wood, breathable organic mattress.<br/><br/>
+                    The client was a small Austrian-based bedroom furniture company with up to 10 showrooms in Austria and Germany. They sold beds, wardrobes, dressers that were made from 5 types of aromatic wood, breathable organic mattress.<br/><br/>
                     They were on Magento 1 and they asked us for migration to Magento 2 Open Source. On Magento 1, they had <strong>a lot of custom functionality</strong>. We spent more than a year to redesign and implement it on Magento 2. Since major part of their sales came from showrooms, we payed extract attention on <strong>creating omnichannel-like experience</strong> for their customers. 
                     We developed a workflow for their showroom stuff to let them guide and <strong>create quotes together with customers which came to the store</strong>. Also, client's team was interested in making changes to the most parts of the website frequently, so we provided them a way to <strong>manage blocks of information on category and product pages in an admin-friendly way.</strong><br/><br/>
                     After migration, we worked on the ongoing support and improvements to the store. We helped them <strong>integrate a new line of fast-to-deliver products with an ability to manage orders that could contain regular and this kind of products</strong>. We also made sure that they were using <strong>cost-efficient hosting plans while got optimal user experience by performing load tests</strong>.
@@ -219,7 +219,7 @@ const MachineLearningEngineerCV = () => {
                     <strong>Technical Leadership</strong> of Software Engineering Team (3.5 years).
                   </li>
                   <li itemprop="itemListElement">
-                    3 people I had worked for the longest time with <strong>became technical leaders themselves</strong>. 
+                    3 people I had mentored and worked for the longest time with <strong>became technical leaders themselves</strong>. 
                   </li>
                   <li itemprop="itemListElement">
                     Organized technical and business <a target="_blank" rel="noopener" href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
