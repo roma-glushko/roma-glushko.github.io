@@ -18,7 +18,7 @@ const MachineLearningEngineerCV = () => {
         isUniqueTitle={true}
         title={"Roman Glushko's eCommerce Magento Developer CV"}
         className="cv-view-page"
-        pagePath='/cv/ecommerce-developer'
+        pagePath='/cv/ecommerce-developer/'
         ogType="website"
         description="Roman Glushko's eCommerce Magento Developer CV"
         keywords={[
@@ -29,7 +29,7 @@ const MachineLearningEngineerCV = () => {
           "ecommerce magento developer resume"
         ]}
       />
-      <main itemscope itemtype="http://schema.org/Person" className="cv cv-ecommerce-developer">
+      <main itemScope itemType="http://schema.org/Person" className="cv cv-ecommerce-developer">
         <div className="pdf-badge" onClick={() => {
           trackCustomEvent({
             category: "cv",
@@ -43,44 +43,44 @@ const MachineLearningEngineerCV = () => {
             <ThemeSwitcher />
           </div>
           <MainNavigation space={"cv"} />
-          <CvHeader position={`eCommerce Magento Developer`} />
+          <CvHeader position={`eCommerce Magento Developer CV`} />
           <SocialLinks />
         </header>
         <div className="cv-content">
           <div className="cv-content-column additional-column">
-            <section className="profile" itemscope itemtype="http://schema.org/ItemList">
+            <section className="profile" itemScope itemType="http://schema.org/ItemList">
               <dl>
-                <dt><h2 className={`notop-margin`}><span itemprop="name">Profile</span></h2></dt>
+                <dt><h2 className={`notop-margin`}><span itemProp="name">Profile</span></h2></dt>
                 <ul>
-                  <li itemprop="itemListElement">Aspiring <strong>Problem Solver</strong> & Passionate Software Engineer</li>
-                  <li itemprop="itemListElement"><strong>5+ years</strong> of experience in <strong>software engineering</strong> and eCommerce development</li>
-                  <li itemprop="itemListElement"><strong>3+ years</strong> of experience in <strong>technical management of scrum teams</strong></li>
-                  <li itemprop="itemListElement">Expertise in a broad variety of technical and business topics</li>
-                  <li itemprop="itemListElement">Constant, quick & curious learner</li>
-                  <li itemprop="itemListElement">Positive attitudes</li>
+                  <li itemProp="itemListElement">Aspiring <strong>Problem Solver</strong> & Passionate Software Engineer</li>
+                  <li itemProp="itemListElement"><strong>5+ years</strong> of experience in <strong>software engineering</strong> and eCommerce development</li>
+                  <li itemProp="itemListElement"><strong>3+ years</strong> of experience in <strong>technical management of scrum teams</strong></li>
+                  <li itemProp="itemListElement">Expertise in a broad variety of technical and business topics</li>
+                  <li itemProp="itemListElement">Constant, quick & curious learner</li>
+                  <li itemProp="itemListElement">Positive attitudes</li>
                 </ul>
               </dl>
             </section>
-            <section className="skills" itemtype="http://schema.org/ItemList">
+            <section className="skills" itemType="http://schema.org/ItemList">
               <dl>
-                <dt><h2><span itemprop="name">Skills</span></h2></dt>
+                <dt><h2><span itemProp="name">Skills</span></h2></dt>
                 <ul>
-                  <li itemprop="itemListElement"><strong>Type of Services</strong>: Building eCommerce stores from scratch, Store Maintenance, Performance and SEO Audits, Extending of the default Magento setup, ERP/CRM/SaaS Integrations</li>
-                  <li itemprop="itemListElement"><strong>Languages</strong>: PHP, Python, Golang, WebDev Stack (JS & HTML5 & CSS3)</li>
-                  <li itemprop="itemListElement"><strong>Platforms</strong>: Magento 2 Open Source and Adobe Commerce(former Magento 2 Commerce), Adobe Commerce Cloud</li>
-                  <li itemprop="itemListElement"><strong>Software Engineering</strong>: Domain-Driven Design, SOLID, System Design</li>
-                  <li itemprop="itemListElement"><strong>Management</strong>: Leading Scrum Teams, Product Owning, Problem Framing, Developer Mentoring, Giving Workshops</li>
+                  <li itemProp="itemListElement"><strong>Type of Services</strong>: Building eCommerce stores from scratch, Store Maintenance, Performance and SEO Audits, Extending of the default Magento setup, ERP/CRM/SaaS Integrations</li>
+                  <li itemProp="itemListElement"><strong>Languages</strong>: PHP, Python, Golang, WebDev Stack (JS & HTML5 & CSS3)</li>
+                  <li itemProp="itemListElement"><strong>Platforms</strong>: Magento 2 Open Source and Adobe Commerce(former Magento 2 Commerce), Adobe Commerce Cloud</li>
+                  <li itemProp="itemListElement"><strong>Software Engineering</strong>: Domain-Driven Design, SOLID, System Design</li>
+                  <li itemProp="itemListElement"><strong>Management</strong>: Leading Scrum Teams, Product Owning, Problem Framing, Developer Mentoring, Giving Workshops</li>
                 </ul>
               </dl>
             </section>
             <section className="education">
               <h2><span>Education</span></h2>
               <ul>
-                <li itemscope itemtype="http://schema.org/EducationalOrganization">
+                <li itemScope itemType="http://schema.org/EducationalOrganization">
                   <strong>Machine Learning Nanodegree</strong>, 2020-Present (8 months)
                 </li>
-                <li itemscope itemtype="http://schema.org/EducationalOrganization">
-                  <strong>M.S. Computer Engineering</strong><br/> <span itemprop="name">Khmelnytskyi National University</span>, Ukraine, 2018
+                <li itemScope itemType="http://schema.org/EducationalOrganization">
+                  <strong>M.S. Computer Engineering</strong><br/> <span itemProp="name">Khmelnytskyi National University</span>, Ukraine, 2018
                 </li>
               </ul>
             </section>
@@ -127,7 +127,7 @@ const MachineLearningEngineerCV = () => {
               </ul>
               <div className="other-projects">
                 <input type="checkbox" id="other-projects-switcher" />
-                <label for="other-projects-switcher"><a>..click to show/hide other projects</a></label>
+                <label htmlFor="other-projects-switcher"><a>..click to show/hide other projects</a></label>
                 <ul className="other-projects-list">
                   <li className="project">
                     <h3>French Shipping Provider</h3>
@@ -188,8 +188,8 @@ const MachineLearningEngineerCV = () => {
             <section className="jobs">
               <h2><span>Work Experience</span></h2>
               <ul>
-                <li itemscope itemtype="http://schema.org/Organization" className="job">
-                  <strong itemprop="jobTitle">Tech Lead / Software Developer</strong>, <span itemprop="name">Atwix</span>; Ukraine — 2017-2020 (3.5 years)<br/>
+                <li itemScope itemType="http://schema.org/Organization" className="job">
+                  <strong itemProp="jobTitle">Tech Lead / Software Developer</strong>, <span itemProp="name">Atwix</span>; Ukraine — 2017-2020 (3.5 years)<br/>
                   <div className="job-description">
                     I was responsible for <strong>leading different scrum teams (from 5 to 15 people incl. SEs, QA, PM, DevOps)</strong> that worked on building stores from scratch and maintaining them afterwards. I had close communications with project stakeholders, participating in problem grooming, requirement gathering and further translating that knowledge into technical concepts and technical vision for my teams. <br /><br />
                     I was <strong>mentoring</strong> people in the team, performed onboarding, code reviews and internal workshops about various topics that team faced. Worked on <strong>partnership and developed relationships with other tech companies</strong> we worked with.<br /><br />
@@ -200,8 +200,8 @@ const MachineLearningEngineerCV = () => {
                     <li><strong>Experience</strong>: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing, Domain-Driven Design</li>
                   </ul>
                 </li>
-                <li itemscope itemtype="http://schema.org/Organization" className="job">
-                  <strong itemprop="jobTitle">eCommerce Magento Software Developer</strong>, <span itemprop="name">Atwix</span>; Ukraine — 2015-2017 (2 years)<br/>
+                <li itemScope itemType="http://schema.org/Organization" className="job">
+                  <strong itemProp="jobTitle">eCommerce Magento Software Developer</strong>, <span itemProp="name">Atwix</span>; Ukraine — 2015-2017 (2 years)<br/>
                   <div className="job-description">
                     I was part of different teams that worked on ongoing support of existing eCommerce Magento projects and adding a new functionality to projects that came.
                   </div>
@@ -211,20 +211,20 @@ const MachineLearningEngineerCV = () => {
                 </li>
               </ul>
             </section>
-            <section className="leadership" itemscope itemtype="http://schema.org/ItemList">
+            <section className="leadership" itemScope itemType="http://schema.org/ItemList">
               <dl>
-                <dt><h2><span itemprop="name">Communication & Leadership</span></h2></dt>
+                <dt><h2><span itemProp="name">Communication & Leadership</span></h2></dt>
                 <ul>
-                  <li itemprop="itemListElement">
+                  <li itemProp="itemListElement">
                     <strong>Technical Leadership</strong> of Software Engineering Team (3.5 years).
                   </li>
-                  <li itemprop="itemListElement">
+                  <li itemProp="itemListElement">
                     3 people I had mentored and worked for the longest time with <strong>became technical leaders themselves</strong>. 
                   </li>
-                  <li itemprop="itemListElement">
+                  <li itemProp="itemListElement">
                     Organized technical and business <a target="_blank" rel="noopener" href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
                   </li>
-                  <li itemprop="itemListElement">
+                  <li itemProp="itemListElement">
                     Write <a target="_blank" rel="noopener" href="https://www.romaglushko.com/blog/">technical blog posts</a> and <a target="_blank" rel="noopener" href="https://www.romaglushko.com/thoughts/">thoughts about management</a> 
                   </li>
                 </ul>
@@ -251,7 +251,7 @@ const MachineLearningEngineerCV = () => {
               </ul>
               <div className="other-projects">
                 <input type="checkbox" id="other-open-source-projects-switcher" />
-                <label for="other-open-source-projects-switcher"><a>..click to show/hide other projects</a></label>
+                <label htmlFor="other-open-source-projects-switcher"><a>..click to show/hide other projects</a></label>
                 <ul className="other-projects-list">
                   <li>
                     <strong>DB Trimmer</strong><br/>
@@ -276,16 +276,16 @@ const MachineLearningEngineerCV = () => {
                 </ul>
               </div>
             </section>
-            <section itemscope itemtype="http://schema.org/ItemList">
+            <section itemScope itemType="http://schema.org/ItemList">
               <dl>
-                <dt><h2><span itemprop="name">Hobby & Interests</span></h2></dt>
+                <dt><h2><span itemProp="name">Hobby & Interests</span></h2></dt>
                 <ul>
-                  <li itemprop="itemListElement">Scooter Driving</li>
-                  <li itemprop="itemListElement">Self-Improvement</li>
-                  <li itemprop="itemListElement">Reading</li>
-                  <li itemprop="itemListElement"><a rel="me" target="_blank" rel="noopener" href="https://www.romaglushko.com/">Blogging</a></li>
-                  <li itemprop="itemListElement"><a target="_blank" href="https://github.com/roma-glushko">Open Source</a></li>
-                  <li itemprop="itemListElement">Judaism</li>
+                  <li itemProp="itemListElement">Scooter Driving</li>
+                  <li itemProp="itemListElement">Self-Improvement</li>
+                  <li itemProp="itemListElement">Reading</li>
+                  <li itemProp="itemListElement"><a rel="me" target="_blank" rel="noopener" href="https://www.romaglushko.com/">Blogging</a></li>
+                  <li itemProp="itemListElement"><a target="_blank" href="https://github.com/roma-glushko">Open Source</a></li>
+                  <li itemProp="itemListElement">Judaism</li>
                 </ul>
               </dl>
             </section>
