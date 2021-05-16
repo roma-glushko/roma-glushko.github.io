@@ -72,38 +72,49 @@ from typing import List
 
 
 class PriorityQueue:
+    """
+    Represents the heap and preserves the heap property during adding/removing elements
+    """
+    items: List[int]
 
     def __init__(self, items: List[int]):
         self.items = self.build_heap(items)
 
     def build_heap(self, items: List[int]) -> List[int]:
-        n = len(items)
+        """
+        Turn an unsorted array into a heap
+        """
+        items_count = len(items)
 
-        for i in range(n // 2, -1, -1):
+        for i in range(items_count // 2, -1, -1):
             items = self.heapify(items, i)
 
         return items
 
-    def heapify(self, items: List[int], node_idx: int) -> List[int]:
-        n = len(items)
+    def heapify(self, items: List[int], node_idx: int, root_idx: int = 0) -> List[int]:
+        """
+        Check and fix violations of the heap property recursively
+        """
+        items_count = len(items)
         largest_idx = node_idx
 
         # formulas for zero-indexed arrays
-        left_child_idx = 2 * node_idx + 1
-        right_child_idx = 2 * node_idx + 2
+        left_child_idx = 2 * (node_idx - root_idx) + 1 + root_idx
+        right_child_idx = 2 * (node_idx - root_idx) + 2 + root_idx
 
-        if left_child_idx < n and items[left_child_idx] > items[largest_idx]:
+        # is the left child node bigger than parent node?
+        if left_child_idx < items_count and items[left_child_idx] > items[largest_idx]:
             largest_idx = left_child_idx
 
-        if right_child_idx < n and items[right_child_idx] > items[largest_idx]:
+        # is the right child node bigger than parent or left node?
+        if right_child_idx < items_count and items[right_child_idx] > items[largest_idx]:
             largest_idx = right_child_idx
 
+        # let's fix a violation of the heap property
         if largest_idx != node_idx:
-            tmp = items[node_idx]
-            items[node_idx] = items[largest_idx]
-            items[largest_idx] = tmp
+            items[node_idx], items[largest_idx] = items[largest_idx], items[node_idx]
 
-            return self.heapify(items, largest_idx)
+            return self.heapify(items, largest_idx, root_idx=root_idx)
 
         return items
 
@@ -126,6 +137,9 @@ Now we can take a look at the implementation:
 
 ```python
 def push(self, item: int):
+    """
+    Add a new item to the heap preserving the heap property
+    """
     self.items.append(item)
 
     idx = len(self.items) - 1
@@ -165,11 +179,14 @@ The implementation is straightforward:
 
 ```python
 def pop(self):
+    """
+    Extract the next item from the heap according to priority (the next biggest element in our max heap case)
+    """
     item = self.items[0]
 
-    n = len(self.items)
-    self.items[0] = self.items[n - 1]  # replace extracted max element with one of the balanced leaves
-    del self.items[n - 1]
+    items_count = len(self.items)
+    self.items[0] = self.items[items_count - 1]  # replace extracted max element with one of the balanced leaves
+    del self.items[items_count - 1]
 
     self.items = self.heapify(self.items, 0)
 
@@ -187,21 +204,42 @@ Heap sort is just the extraction of `n` elements from the heap.
 `video: title: "Heap Sort In Action": ./img/heap-sort.mp4`
 <div class="image-title">Heap Sort In Action</div>
 
-This is how it looks like in Python:
+The simplest implementation of the heap source may look like this in Python:
 
 ```python
 def heap_sort(heap: PriorityQueue) -> List[int]:
-    n = len(heap.size())
+    items_count = heap.size()
     
     result = []
 
-    for i in range(n):
+    for i in range(items_count):
         result.append(heap.pop())
 
     return result
 ```
 
-The complexity of heap sorting is $\Theta(nlog(n))$. Besides that, heap sorting doesn't require any additional memory for storing elements during sorting.
+The complexity of heap sorting is $\Theta(nlog(n))$.
+
+It takes the additional memory to store another sorted copy of the array. However, we can do in-place sorting as well:
+
+```python
+def sort(self) -> List[int]:
+    """
+    In-place version of the heap sort.
+    It breaks the heap property, so be aware of that.
+    """
+    items_count = self.size()
+
+    for i in range(1, items_count - 1):
+        # find the next max element/restore the heap property
+        items = self.heapify(self.items, i, root_idx=i)
+
+    return self.items
+```
+
+In this approach, we use the root node offset trick that helps us to change the position of the root node and move from the left to right sorting the `self.items` array. The `root_idx` param is just tweaks the child calculation formula for that.
+
+The cost of being in-place solution is breaking the heap property in `self.items` array. I would prefer the first version of the heap sort in order to avoid such a mutations to `self.items` array.
 
 ## Applications
 
