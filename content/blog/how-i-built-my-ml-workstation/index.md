@@ -187,7 +187,7 @@ Creating a multi-GPU cluster was not on my list. Yet still I wanted to have room
 - PC Case: <a target="_blank" rel="noopener" href="https://www.newegg.com/matte-black-nzxt-h-series-h510-atx-mid-tower/p/N82E16811146315">NZXT H510</a>
 - Wireless Adapter: <a target="_blank" rel="noopener" href="https://www.newegg.com/tp-link-archer-t2u-plus-usb-2-0/p/N82E16833704471">TP-Link Archer T2U Plus</a>
 
-The same list on PCPartsPicker can be found <a target="_blank" rel="noopener" href="https://pcpartpicker.com/user/roman-glushko/saved/8gZHGX">here</a>.
+The same list can be found on <a target="_blank" rel="noopener" href="https://pcpartpicker.com/user/roman-glushko/saved/8gZHGX">PCPartsPicker</a>.
 
 A few notes about the differences of my list compared to the original barebone. I have replaced a PSU and a cooler from the barebone following advice from Reddit users that said that changed parts are more up-to-date and modern.
 
@@ -477,7 +477,7 @@ CUDA is a parallel computing platform from NVIDIA that allows to fully leverage 
 <div class="image-title">NVIDIA Drivers Installation in Ubuntu</div>
 
 - **Install CUDA Toolkit**. NVIDIA has <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&=Ubuntu&target_version=20.04&target_type=deb_network">a sweet wizard</a> that can generate installation commands for your system. Execute all commands that it suggests you.
-- **Install cuDNN**. cuDNN is a GPU-accelerated library with primitives for deep learning. You need to be registered <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">here</a> in order to access the library. In the end, you will be landed on a page where you can download **cuDNN Runtime and Developer libraries** as well as **Code Samples and User Guide**. I downloaded all three of them as deb packages and installed.
+- **Install cuDNN**. cuDNN is a GPU-accelerated library with primitives for deep learning. You need to be registered in <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">NVIDIA Developer Program</a> in order to access the library. In the end, you will be landed on a page where you can download **cuDNN Runtime and Developer libraries** as well as **Code Samples and User Guide**. I downloaded all three of them as deb packages and installed.
 
 ![Download cuDNN page](./img/download-cudnn-page.png "Download cuDNN page")
 <div class="image-title">Download cuDNN page (<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">access is here</a>)</div>

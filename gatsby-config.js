@@ -227,6 +227,6 @@ module.exports = {
                     `/indexv2`,
                 ], // todo: handle all unpublished articles
             }
-        }
+        },
     ],
 }
