@@ -122,7 +122,7 @@ class PriorityQueue:
         return len(self.items)
 ```
 
-Complexity of this algorithm is $\Theta(n log(n))$.
+Complexity of this algorithm is $\Theta(n)$. This is because we check each position only once making our way up the heap. All levels below the current one at each point of time are already satisfying the heap property. So there are no needs to back to them again.
 
 ## Adding a New Element
 
