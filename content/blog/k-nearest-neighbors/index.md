@@ -7,6 +7,7 @@ cover: "./pexels-ollie-craig-6398503-min.jpg"
 excerpt: "Theoretical aspects of the KNN algorithm. Where it can be applied and when it fails."
 keywords:
     - machine learning
+includeMath: true
 ---
 
 K-Nearest Neighbors (a.k.a KNN) is one of the famous machine learning approaches. It's simple, intuitive and useful tool to have in your machine learning toolbox.

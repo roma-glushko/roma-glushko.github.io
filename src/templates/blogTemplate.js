@@ -30,6 +30,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         humanDate,
         fullDate,
         keywords,
+        includeMath,
         cover,
         excerpt
       },
@@ -83,9 +84,9 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         articleSection={"Technical Blog"}
         genre={["machine learning", "software engineering", "science", "deep learning", "statistics"]}
       />
-      <MathJax />
       <ReadingAnalytics contentType={`blog`} />
       <BreadcrumbsRichSnippet crumbs={[{'/blog/': 'Blog'}, {[path]: title}]} />
+      {includeMath ? <MathJax /> : ""}
     </Layout>
   )
 }
@@ -105,6 +106,7 @@ export const pageQuery = graphql`
         fullDate: date (formatString: "YYYY-MM-DD") 
         title
         keywords
+        includeMath
         excerpt
         cover {
           childImageSharp {

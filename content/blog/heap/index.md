@@ -9,6 +9,7 @@ keywords:
     - algorithmic coding
     - data structures
     - python
+includeMath: true
 ---
 
 When you have a sequence of candidates to process, then you build a queue to organize them. In the classical queue, the time of adding an item to the queue defines when it's going to be processed.
