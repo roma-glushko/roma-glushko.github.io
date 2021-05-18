@@ -107,36 +107,16 @@ void function() {
 <p>KNN is instance-based learning algorithm. It doesn't make any assumption about dataset relations and uses provided samples in order to estimate new items.</p>
 <h2 id="intuition" style="position:relative;"><a href="#intuition" aria-label="intuition permalink" class="anchor before"><svg class="anchor-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Intuition</h2>
 <p>As old saying goes, you are who you surround yourself with. This idea even has mathematical interpretation. In N-dimensional space, points that are closer to each other are more similar, then ones that stand apart. This is the assumption that KNN algorithm makes. It tries to find K nearest known points or samples, also called "neighbors", to some unknown sample. Majority class of neighbors defines class of the unknown sample.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/dbb3359885e09bbbb66596868e221934/8ae3e/k-nearest-neighbors.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 74.11764705882352%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAACRUlEQVQ4y31Tz08TQRj9OrsgXaAV0ZY1VNNgf+yCkY3giWhiohGJXkEMAWOMSjwINGpJ2S3+iDGaqNEYD548eNaz/gccPHHw4FXReNBEI5qw45vtTNltipN8eW9+vXnffDNEsnHPriP3rBovdhIXSBSjGpYQhySf84lyggMZ+owamxKNHBCax8YC+jvl+AhiL0Xn/998Q1ML2xGDanxDOsZYBaIHgC3AEzzqzmISR3zPuh/wY+lA0WeBs+tq7Y/NK9gGMR3RAz6lhBTGJHZBcEDw91dzsfChp4jaHsOtFMvDqR0xVSeutWXaP8vFybfjvcHGj4yGvxPdFfw30TkInJFCLJyqIXEPChHck+9a/XzZLgj+aT63uL5YDKq5vs80RFH211LWlatfRBpwDNElhN4g2hGjiLIUvAzx85F0jKjzJaLWIaKOUIUvQTAtBDO4M70+4Vqa4kezRoLfHOjmE+jcfqDp7pJzZGZGOauuEDlfiXaAzza9L+7asjD28IZrOc/HTNP37JfcTSWo+irOPO9R3KvUiqJpu6eJkmtIE4LH4XAX8I56xEk4nYfTuOxPwunZgN/q716ds9kWNYuHUtYhmFWF2Y64wUOpi3bQbBMbtEgWz4aCfgpiHTFqFfxzQ5Wp+QO37yFOqvG/Fevht2sF50/FWvhSyl8M1rw7zJJs89upPx+IIjSBvjwAKWcgmOBPB1uejPZ0rlzIOi9Om+nX45neD1f6UmLN2kK+SSHKhToq7oceOniJV+3lxn2rs31NL/UfK03ecKA4ho0AAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Nearest neighbors defines class of unknown sample"
-        title="Nearest neighbors defines class of unknown sample"
-        src="/static/dbb3359885e09bbbb66596868e221934/c5bb3/k-nearest-neighbors.png"
-        srcset="/static/dbb3359885e09bbbb66596868e221934/04472/k-nearest-neighbors.png 170w,
+<p><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; ">
+      <a class="gatsby-resp-image-link" href="/static/dbb3359885e09bbbb66596868e221934/8ae3e/k-nearest-neighbors.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 74.11764705882352%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAACRUlEQVQ4y31Tz08TQRj9OrsgXaAV0ZY1VNNgf+yCkY3giWhiohGJXkEMAWOMSjwINGpJ2S3+iDGaqNEYD548eNaz/gccPHHw4FXReNBEI5qw45vtTNltipN8eW9+vXnffDNEsnHPriP3rBovdhIXSBSjGpYQhySf84lyggMZ+owamxKNHBCax8YC+jvl+AhiL0Xn/998Q1ML2xGDanxDOsZYBaIHgC3AEzzqzmISR3zPuh/wY+lA0WeBs+tq7Y/NK9gGMR3RAz6lhBTGJHZBcEDw91dzsfChp4jaHsOtFMvDqR0xVSeutWXaP8vFybfjvcHGj4yGvxPdFfw30TkInJFCLJyqIXEPChHck+9a/XzZLgj+aT63uL5YDKq5vs80RFH211LWlatfRBpwDNElhN4g2hGjiLIUvAzx85F0jKjzJaLWIaKOUIUvQTAtBDO4M70+4Vqa4kezRoLfHOjmE+jcfqDp7pJzZGZGOauuEDlfiXaAzza9L+7asjD28IZrOc/HTNP37JfcTSWo+irOPO9R3KvUiqJpu6eJkmtIE4LH4XAX8I56xEk4nYfTuOxPwunZgN/q716ds9kWNYuHUtYhmFWF2Y64wUOpi3bQbBMbtEgWz4aCfgpiHTFqFfxzQ5Wp+QO37yFOqvG/Fevht2sF50/FWvhSyl8M1rw7zJJs89upPx+IIjSBvjwAKWcgmOBPB1uejPZ0rlzIOi9Om+nX45neD1f6UmLN2kK+SSHKhToq7oceOniJV+3lxn2rs31NL/UfK03ecKA4ho0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="Nearest neighbors defines class of unknown sample" title="Nearest neighbors defines class of unknown sample" src="/static/dbb3359885e09bbbb66596868e221934/c5bb3/k-nearest-neighbors.png" srcset="/static/dbb3359885e09bbbb66596868e221934/04472/k-nearest-neighbors.png 170w,
 /static/dbb3359885e09bbbb66596868e221934/9f933/k-nearest-neighbors.png 340w,
 /static/dbb3359885e09bbbb66596868e221934/c5bb3/k-nearest-neighbors.png 680w,
-/static/dbb3359885e09bbbb66596868e221934/8ae3e/k-nearest-neighbors.png 756w"
-        sizes="(max-width: 680px) 100vw, 680px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+/static/dbb3359885e09bbbb66596868e221934/8ae3e/k-nearest-neighbors.png 756w" sizes="(max-width: 680px) 100vw, 680px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
   </a>
-    </span></p>
+    </span>
+          </p>
 <div class="image-title">Nearest neighbors defines class of unknown sample</div>
 <p>To came from this idea to implementation, we need to define how to find closest points.</p>
 <h2 id="closest-points" style="position:relative;"><a href="#closest-points" aria-label="closest points permalink" class="anchor before"><svg class="anchor-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Closest Points</h2>
@@ -147,38 +127,18 @@ void function() {
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski Distance</a> - Generalization of Euclidean and Manhattan distances</li>
 <li>scikit-learn supports <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric">other metrics</a> as well</li>
 </ul>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/f8f6d672a5fb107dd1d6040218c5088d/966c1/distance-metrics.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 36.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABN0lEQVQoz01Ry07DMBCc9SNtkzohkBKakKIiEEI9wAEkxKGXiAsgoP0APoAzn8IH8iewaztqpWy8nt0Zz9oAoDQHfxyA1ZJoyQ3jWuqfhTZbl8lWRUwnJByQcHIrq+crBDHgbgzz5tp6aFJEdusuJMU67Y7X6TT3OBKyREby1UhPNq6tEDUIpL00kClLKBd6k8+n/cnzpXdsBJci8MLxnt7WrVuW3j37sCYl5Nf2K+vyfvbQipTViOoJOzqUTb88ax67aiQk4sl4LY+SVxb/HT2d3zT3DWyoQXqmwvm4WtSrmTPhoGgXYoeo5HUMzyAbYC1NhaJA5sFIToocxxw3cFTE/c8EWX83p/nEv8/uMGI3B6E5kEwU9I/39/MNl+y0KBZk5Bb+zrDvXNTnHA3CmLTHqSKnGPB/YCwRrPTRHkoAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Different distance metrics and their boundaries"
-        title="Different distance metrics and their boundaries"
-        src="/static/f8f6d672a5fb107dd1d6040218c5088d/c5bb3/distance-metrics.png"
-        srcset="/static/f8f6d672a5fb107dd1d6040218c5088d/04472/distance-metrics.png 170w,
+<p><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; ">
+      <a class="gatsby-resp-image-link" href="/static/f8f6d672a5fb107dd1d6040218c5088d/966c1/distance-metrics.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 36.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABN0lEQVQoz01Ry07DMBCc9SNtkzohkBKakKIiEEI9wAEkxKGXiAsgoP0APoAzn8IH8iewaztqpWy8nt0Zz9oAoDQHfxyA1ZJoyQ3jWuqfhTZbl8lWRUwnJByQcHIrq+crBDHgbgzz5tp6aFJEdusuJMU67Y7X6TT3OBKyREby1UhPNq6tEDUIpL00kClLKBd6k8+n/cnzpXdsBJci8MLxnt7WrVuW3j37sCYl5Nf2K+vyfvbQipTViOoJOzqUTb88ax67aiQk4sl4LY+SVxb/HT2d3zT3DWyoQXqmwvm4WtSrmTPhoGgXYoeo5HUMzyAbYC1NhaJA5sFIToocxxw3cFTE/c8EWX83p/nEv8/uMGI3B6E5kEwU9I/39/MNl+y0KBZk5Bb+zrDvXNTnHA3CmLTHqSKnGPB/YCwRrPTRHkoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="Different distance metrics and their boundaries" title="Different distance metrics and their boundaries" src="/static/f8f6d672a5fb107dd1d6040218c5088d/c5bb3/distance-metrics.png" srcset="/static/f8f6d672a5fb107dd1d6040218c5088d/04472/distance-metrics.png 170w,
 /static/f8f6d672a5fb107dd1d6040218c5088d/9f933/distance-metrics.png 340w,
 /static/f8f6d672a5fb107dd1d6040218c5088d/c5bb3/distance-metrics.png 680w,
 /static/f8f6d672a5fb107dd1d6040218c5088d/b12f7/distance-metrics.png 1020w,
 /static/f8f6d672a5fb107dd1d6040218c5088d/b5a09/distance-metrics.png 1360w,
-/static/f8f6d672a5fb107dd1d6040218c5088d/966c1/distance-metrics.png 1694w"
-        sizes="(max-width: 680px) 100vw, 680px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+/static/f8f6d672a5fb107dd1d6040218c5088d/966c1/distance-metrics.png 1694w" sizes="(max-width: 680px) 100vw, 680px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
   </a>
-    </span></p>
+    </span>
+          </p>
 <div class="image-title">Distance metrics and their boundaries in 2D</div>
 <p>Euclidean and Manhattan distances are two the most popular distance metrics:</p>
 $$
