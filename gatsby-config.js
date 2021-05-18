@@ -111,6 +111,12 @@ module.exports = {
                 pedantic: true,
                 gfm: true,
                 plugins: [
+                    {
+                        resolve: `gatsby-remark-images-native-lazy-load`,
+                        options: {
+                            loading: "lazy", // "lazy" | "eager" | "auto"
+                        }
+                    },
                     `gatsby-remark-mathjax`,
                     {
                         resolve: 'gatsby-remark-video',
