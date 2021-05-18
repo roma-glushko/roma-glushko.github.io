@@ -62,6 +62,7 @@
         "people",
         "blog"
     ],
+    "sideEffects": false,
     "license": "MIT",
     "scripts": {
         "deploy": "rm -rf .cache && rm -rf public && yarn run build && gh-pages -d public -b master",

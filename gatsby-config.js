@@ -81,6 +81,7 @@ module.exports = {
                 },
                 useMinify: true,
                 usePreload: true,
+                usePreconnect: true,
             }
         },
         `gatsby-plugin-offline`,
