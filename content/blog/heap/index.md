@@ -18,7 +18,7 @@ What if we need to change this principle and use some **relative importance scor
 
 Well, then we would reinvent ~~bicycle~~ the priority queue.
 
-<div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="https://giphy.com/embed/3orif1K6QR54NlWzLO" width="100%" height="100%" loading="lazy" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/thesimpsons-the-simpsons-6x25-3orif1K6QR54NlWzLO"></a></p>
+![Priority](https://media.giphy.com/media/3orif1K6QR54NlWzLO/giphy.gif "Priority")
 
 **The priority queue or heap** is a data structure that efficiently allows retrieving the next queued item with min or max importance score.
 

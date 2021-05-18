@@ -13,7 +13,7 @@ keywords:
 
 Kaggle Kernels and Google Colab are great.
 
-<div style="width:100%;height:0;padding-bottom:73%;position:relative;"><iframe src="https://giphy.com/embed/UmBdALbYTmCJ2" loading="lazy" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/UmBdALbYTmCJ2"></a></p>
+![Drop the mic](https://media.giphy.com/media/UmBdALbYTmCJ2/giphy.gif "Drop the mic")
 
 I would drop my mic at this point if this article was not about building a custom ML workstation.
 
@@ -36,7 +36,7 @@ First of all, my solution source code quickly became an entire project with a lo
 
 This approach turns out to have underwater stones. Kaggle notebooks randomly thrown weird errors after installing project packages. I think it was related to dependency version mismatch and I spotted errors like "method X is not found in package Y", etc. Autoreload was not helpful. Several mornings in a row I started my day dealing with new and new suddenly occurred unearthly issues.
 
-<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/l2YWmG9FBDtiqHTi0" loading="lazy" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/gilmoregirls-netflix-gilmore-girls-l2YWmG9FBDtiqHTi0"></a></p>
+![Unexpected](https://media.giphy.com/media/l2YWmG9FBDtiqHTi0/giphy.gif "Unexpected")
 
 While working on the competition, I switched from Keras to PyTorch. PyTorch is much slower on CPU than TensorFlow or Keras. It was time-consuming to even perform a dev run of my recent changes. However, PyTorch has outstanding support in academic and other ML-associated communities which means a bunch of (**almost**) read-to-use examples of state-of-art technics.
 
@@ -48,7 +48,7 @@ All in all, the experience was frustrating. I clearly realized if I wanted to do
 
 I have never been interested in custom PC building, hardware or gaming. So it took me a while to understand what did it cost me to build a custom machine.
 
-<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/kxkmUjgUwzhk7uIxOA" width="100%" loading="lazy" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/hyperrpg-twitch-kollok-kollok1991-kxkmUjgUwzhk7uIxOA"></a></p>
+![Need more information](https://media.giphy.com/media/kxkmUjgUwzhk7uIxOA/giphy.gif "Need more information")
 
 There are a lot of resources on building gaming PCs. While building a deep learning workstation sounds like a similar task, there are nuances that should be accounted in order to build a cost-efficient and ML-compatible machine.
 
