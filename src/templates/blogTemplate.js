@@ -10,7 +10,7 @@ import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
 import NewsletterForm from '../components/blog/newsletter-form'
-import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
+import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import Footer from "../components/theme/footer"
@@ -33,8 +33,13 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       html,
       rawMarkdownBody,
       timeToRead,
-      wordCount: { words }
-    }
+      wordCount: { words },
+      parent: {
+        fields: {
+          gitLogLatestDate
+        }
+      }
+    },
   } = data
 
   return (
@@ -63,13 +68,17 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <BlogNavigation prev={prevThought} next={nextThought} />
       </aside>
       <Footer />
-      <ThoughtRichSnippet
+      <ArticleRichSnippet
         title={title}
+        path={path}
         datePublished={fullDate}
+        dateModified={gitLogLatestDate}
         content={rawMarkdownBody}
         wordCount={words}
         keywords={keywords}
         cover={cover}
+        articleSection={"Technical Blog"}
+        genre={["machine learning", "software engineering", "science", "deep learning", "statistics"]}
       />
       <MathJax />
       <ReadingAnalytics contentType={`blog`} />
@@ -99,6 +108,13 @@ export const pageQuery = graphql`
             fluid(maxWidth: 3400) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+      }
+      parent {
+        ... on File {
+          fields {
+            gitLogLatestDate
           }
         }
       }

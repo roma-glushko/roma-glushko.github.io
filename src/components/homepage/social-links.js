@@ -1,7 +1,10 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faBriefcase } from '@fortawesome/free-solid-svg-icons'
-import { faGithubAlt, faTwitter, faLinkedinIn, faKaggle } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
+import { faGithubAlt } from '@fortawesome/free-brands-svg-icons/faGithubAlt'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn'
+import { faKaggle } from '@fortawesome/free-brands-svg-icons/faKaggle'
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import "./social-links.css"

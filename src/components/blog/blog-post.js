@@ -7,6 +7,7 @@ import BlogContentNavigation from "./blog-content-navigation"
 
 import "./blog-post.css"
 import "../theme/content.css"
+import "./code-theme.css"
 
 const BlogPost = (props) => {
 

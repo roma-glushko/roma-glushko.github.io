@@ -10,7 +10,7 @@ import NewsletterForm from '../components/blog/newsletter-form'
 import ShareBlock from '../components/thoughts/share-block'
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
-import ThoughtRichSnippet from "../components/thoughts/thought-rich-snippet"
+import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 
 import "./thought-view.css"
 
@@ -30,8 +30,13 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       rawMarkdownBody,
       timeToRead,
       excerpt,
-      wordCount: { words }
-    }
+      wordCount: { words },
+      parent: {
+        fields: {
+          gitLogLatestDate
+        }
+      }
+    },
   } = data
 
   return (
@@ -59,13 +64,17 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <ThoughtNavigation prev={prevThought} next={nextThought} />
       </aside>
       <Footer />
-      <ThoughtRichSnippet
+      <ArticleRichSnippet
         title={title}
+        path={path}
         datePublished={fullDate}
+        dateModified={gitLogLatestDate}
         content={rawMarkdownBody}
         wordCount={words}
         keywords={keywords}
         cover={cover}
+        articleSection={"Thoughts"}
+        genre={["self-improvement", "management", "thoughts", "life experience", "life exploration"]}
       />
       <ReadingAnalytics contentType={`thought`} />
       <BreadcrumbsRichSnippet crumbs={[{'/thoughts/': 'Thoughts'}, {[path]: title}]} />
@@ -94,6 +103,13 @@ export const pageQuery = graphql`
             fluid(maxWidth: 3400) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+      }
+      parent {
+        ... on File {
+          fields {
+            gitLogLatestDate
           }
         }
       }

@@ -158,7 +158,7 @@ module.exports = {
                           // Defaults to false.
                           // If you wish to only show line numbers on certain code blocks,
                           // leave false and use the {numberLines: true} syntax below
-                          showLineNumbers: false,
+                          showLineNumbers: true,
                           // If setting this to true, the parser won't handle and highlight inline
                           // code used in markdown i.e. single backtick code like `this`.
                           noInlineHighlight: false,
@@ -194,6 +194,12 @@ module.exports = {
         },
         `gatsby-transformer-json`,
         {
+            resolve: `gatsby-transformer-gitinfo`,
+            options: {
+                include: /\.md$/i, // Only .md files
+            },
+        },
+        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `markdown-pages`,
@@ -228,5 +234,6 @@ module.exports = {
                 ], // todo: handle all unpublished articles
             }
         },
+        "gatsby-plugin-webpack-bundle-analyser-v2",
     ],
 }

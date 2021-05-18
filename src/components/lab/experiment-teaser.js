@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlask } from '@fortawesome/free-solid-svg-icons'
+import { faFlask } from '@fortawesome/free-solid-svg-icons/faFlask'
 
 import "./experiment-teaser.css"
 

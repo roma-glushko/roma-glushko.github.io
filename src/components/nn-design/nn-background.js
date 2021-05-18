@@ -1,5 +1,5 @@
 import React from 'react'
-import { TweenLite, Circ } from 'gsap'
+import { TweenLite, Circ } from 'gsap/all'
 import 'gsap/CSSPlugin'
 
 import "./hero-header.css"

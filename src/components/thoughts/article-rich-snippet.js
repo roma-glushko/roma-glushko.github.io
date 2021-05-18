@@ -1,7 +1,19 @@
 import React from "react"
 import Helmet from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
 
-const ThoughtRichSnippet = ({ title, datePublished, cover, content, wordCount, keywords }) => {
+const ArticleRichSnippet = ({ genre, articleSection, title, path, datePublished, dateModified, cover, content, wordCount, keywords }) => {
+  const { site: { siteMetadata: {siteUrl} } } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
+      }
+    `
+  )
 
   const schemaJSONLD = {
     '@context': 'http://schema.org',
@@ -9,8 +21,8 @@ const ThoughtRichSnippet = ({ title, datePublished, cover, content, wordCount, k
     image: cover.childImageSharp.fluid.src,
     headline: title,
     dateCreated: datePublished,
-    dateModified: datePublished,
     datePublished,
+    dateModified: dateModified,
     inLanguage: "en-US",
     isFamilyFriendly: "true",
     author: {
@@ -18,13 +30,16 @@ const ThoughtRichSnippet = ({ title, datePublished, cover, content, wordCount, k
       "name": "Roman Glushko",
     },
     publisher: {
-      "@type": "Person",
-      "name": "Roman Glushko",
+      "@type": "Organization",
+      "name": "Roman Glushko's Website",
     },
-    mainEntityOfPage: "true",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}${path}`
+    },
     keywords: keywords,
-    genre: ["opinion", "thoughts", "life experience"],
-    articleSection: "Thoughts",
+    genre,
+    articleSection,
     articleBody: content,
     wordcount: wordCount
   }
@@ -38,4 +53,4 @@ const ThoughtRichSnippet = ({ title, datePublished, cover, content, wordCount, k
   )
 }
 
-export default ThoughtRichSnippet
+export default ArticleRichSnippet

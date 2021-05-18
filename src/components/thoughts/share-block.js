@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReddit, faTwitter, faLinkedinIn, faFacebook, faGetPocket } from '@fortawesome/free-brands-svg-icons'
+import { faReddit } from '@fortawesome/free-brands-svg-icons/faReddit'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook'
+import { faGetPocket } from '@fortawesome/free-brands-svg-icons/faGetPocket'
 import {
 	FacebookShareButton,
 	LinkedinShareButton,
