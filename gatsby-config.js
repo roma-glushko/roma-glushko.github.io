@@ -97,27 +97,46 @@ module.exports = {
         },
         'gatsby-plugin-dark-mode',
         {
-            resolve: `gatsby-transformer-remark`,
-            options: {
-                commonmark: true,
-                footnotes: true,
-                pedantic: true,
-                gfm: true,
-                plugins: [
-                    `gatsby-remark-mathjax`,
-                    {
-                        resolve: 'gatsby-remark-video',
-                        options: {
-                            width: '100%',
-                            height: 'auto',
-                            preload: 'auto',
-                            muted: true,
-                            autoplay: true,
-                            playsinline: true,
-                            controls: true,
-                            loop: true
-                        }
+        resolve: `gatsby-transformer-remark`,
+        options: {
+            commonmark: true,
+            footnotes: true,
+            pedantic: true,
+            gfm: true,
+            plugins: [
+                `gatsby-remark-mathjax`,
+                {
+                    resolve: 'gatsby-remark-video',
+                    options: {
+                        width: '100%',
+                        height: 'auto',
+                        preload: 'auto',
+                        muted: true,
+                        autoplay: true,
+                        playsinline: true,
+                        controls: true,
+                        loop: true
+                    }
+                },
+                {
+                    resolve: "gatsby-remark-embed-video",
+                    options: {
+                        width: '100%',
+                        ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
+                        height: 400, // Optional: Overrides optional.ratio
+                        related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
+                        noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
+                        loadingStrategy: 'lazy', //Optional: Enable support for lazy-load offscreen iframes. Default is disabled.
+                        urlOverrides: [
+                            {
+                                id: "youtube",
+                                embedURL: videoId => `https://www.youtube-nocookie.com/embed/${videoId}`,
+                            }
+                        ],
+                        containerClass: "embedVideo-container", //Optional: Custom CSS class for iframe container, for multiple classes separate them by space
+                        iframeId: false, //Optional: if true, iframe's id will be set to what is provided after 'video:' (YouTube IFrame player API requires iframe id)
                     },
+                },
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
@@ -187,7 +206,7 @@ module.exports = {
                             className: `anchor`,
                         },
                     },
-                    `gatsby-remark-youtube`,
+                    //`gatsby-remark-youtube`,
                     `gatsby-remark-responsive-iframe`
                 ],
             },

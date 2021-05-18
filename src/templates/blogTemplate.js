@@ -1,15 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
- 
+
+import loadable from '@loadable/component'
+
 import ViewPageHeader from "../components/theme/view-page-header"
 import MainNavigation from "../components/theme/main-navigation"
 import BlogPost from "../components/blog/blog-post"
-import BlogComments from "../components/blog/blog-comments"
 import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
-import NewsletterForm from '../components/blog/newsletter-form'
 import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
@@ -17,6 +17,9 @@ import Footer from "../components/theme/footer"
 
 import "./blog-view.css"
 import MathJax from "../components/blog/mathjax"
+
+const NewsletterForm = loadable(() => import('../components/blog/newsletter-form'));
+const BlogComments = loadable(() => import('../components/blog/blog-comments'));
 
 export default function Template({ data, pageContext: { prevThought, nextThought } }) {
   const {

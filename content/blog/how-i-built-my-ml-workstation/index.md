@@ -13,7 +13,7 @@ keywords:
 
 Kaggle Kernels and Google Colab are great.
 
-<div style="width:100%;height:0;padding-bottom:73%;position:relative;"><iframe src="https://giphy.com/embed/UmBdALbYTmCJ2" loading="lazy" width="100%" height="100%" style="position:absolute"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/UmBdALbYTmCJ2"></a></p>
+<div style="width:100%;height:0;padding-bottom:73%;position:relative;"><iframe src="https://giphy.com/embed/UmBdALbYTmCJ2" loading="lazy" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/UmBdALbYTmCJ2"></a></p>
 
 I would drop my mic at this point if this article was not about building a custom ML workstation.
 
@@ -204,7 +204,7 @@ Considering Tim's advice and crazy GPU prices, I was shooting for RTX 3070. RTX 
 
 There turned out to be a lot of vendors that produce RTX 3070 cards.
 
-[embed: Difference between graphic card vendors](https://www.youtube.com/embed/N3lfXsa08CY)
+`youtube: [Difference between graphic card vendors](https://www.youtube.com/embed/N3lfXsa08CY)`
 <div class="image-title">Difference between graphic card vendors</div>
 
 Basically, the main differences are in:
@@ -325,7 +325,7 @@ Next, you could assemble the cooler system. It's typically needed to attach cool
 
 One of the final steps, before you can attach your cooler, is thermal paste installation. I used the "pee" method explained in the video below.
 
-[embed: How to use thermal paste?](https://www.youtube.com/embed/-hNgFNH7zhQ)
+`youtube: [How to use thermal paste?](https://www.youtube.com/embed/-hNgFNH7zhQ)`
 <div class="image-title">How to use thermal paste?</div>
 
 When using thermal gel, you need to cover the CPU chip area as much as possible to allow better removal of CPU heat. Bubbles of airs that could pop up during this procedure would hurt.
@@ -373,7 +373,7 @@ Next, there are three cables you need to connect in order to power your system:
 
 It's straightforward how to connect CPU and motherboard power cables. However, it may be challenging to connect front panel cables for the first time. The following video was helpful in my case:
 
-[embed: How to connect the front panel power into JFP port?](https://www.youtube.com/embed/9--Nbg2qKUA)
+`youtube: [How to connect the front panel power into JFP port?](https://www.youtube.com/embed/9--Nbg2qKUA)`
 <div class="image-title">How to connect the front panel power into JFP port?</div>
 
 There may be still a few remaining cables to connect to the MoBo. In my case, I had USB, audio and Type-C power cables. The first two I was able to connect while the last one required an adapter since my MoBo doesn't have Type-C ports. So I kept it disconnected. By the way, PCPartsPicker can warn you about such an issue in advanced.
@@ -431,7 +431,7 @@ Onother symptoms I want to review is **your PC turns on but shuts down after sho
 
 The following video shows the process of troubleshooting in action:
 
-[embed: How to diagnose faulty PC components?](https://www.youtube.com/embed/QP6pAPctqbk)
+`youtube: [How to diagnose faulty PC components?](https://www.youtube.com/embed/QP6pAPctqbk)`
 <div class="image-title">How to diagnose faulty PC components?</div>
 
 Also, your motherboard may have debug LEDs which indicate what components in the system are not found. In this case, you need to double check that signalled components are getting power and installed correctly.
