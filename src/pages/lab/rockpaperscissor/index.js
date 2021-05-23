@@ -14,9 +14,9 @@ import "./index.css"
 const RockPaperScissorPage = () => (
     <Layout>
       <SEO
-        title={"Rock, Paper, Scissor - Lab"}
+        title={"Rock, Paper, Scissors Game - Lab by Roman Glushko"}
         className="experiment-view-page"
-        pagePath='/lab/rockpaperscissor'
+        pagePath='/lab/rock-paper-scissors'
         ogType="article"
         description=""
         keywords=""
@@ -29,8 +29,8 @@ const RockPaperScissorPage = () => (
         <div id="hero-header" className="lab-header">
           <NNBackground />
           <h1 className="title">
-            Rock, Paper, Scissor <br />
-            <span className="experiment-category">Computer Vision</span>
+            Rock, Paper, Scissors<br />
+            <span className="experiment-category">computer vision</span>
           </h1>
 
         </div>

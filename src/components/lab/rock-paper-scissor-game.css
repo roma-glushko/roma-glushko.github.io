@@ -88,6 +88,7 @@
 }
 
 .game-item .human-choice-image {
+    display: none;
     object-fit: cover;
     width: 100%;
     height: 100%;

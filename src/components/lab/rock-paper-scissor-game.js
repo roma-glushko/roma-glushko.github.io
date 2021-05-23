@@ -24,6 +24,8 @@ class RockPaperScissorGame extends React.Component {
       humanScore: 0,
       computerScore: 0,
       isRoundStarted: false,
+      showCamera: true,
+      showHumanChoice: false,
       roundCountdown: 3,
       computerChoice: -1,
       humanChoice: -1,
@@ -32,6 +34,15 @@ class RockPaperScissorGame extends React.Component {
  
   componentDidMount() {
     this.mountCameraStream(this.camera.current)
+    this.configureCanvas(this.humanChoiceImage.current)
+  }
+
+  configureCanvas = (canvasElement) => {
+    const canvasContext = canvasElement.getContext('2d');
+
+    // flip photo on canvas
+    canvasContext.translate(canvasElement.width, 0);
+    canvasContext.scale(-1, 1);
   }
 
   // mount camera video stream to video element
@@ -43,7 +54,7 @@ class RockPaperScissorGame extends React.Component {
       return
     }
 
-    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+    navigator.mediaDevices.getUserMedia({ video: { width: 300, height: 300 }, audio: false })
       .then((stream) => {
         cameraElement.srcObject = stream;
 
@@ -58,6 +69,8 @@ class RockPaperScissorGame extends React.Component {
 
   onRoundStarted = () => {
     this.setState({
+      showCamera: true,
+      showHumanChoice: false,
       isRoundStarted: true,
       roundCountdown: 3,
       computerChoice: -1,
@@ -81,25 +94,21 @@ class RockPaperScissorGame extends React.Component {
   }
 
   onRoundFinished = () => {
-    this.getHumanChoiceFrame()
-
     requestAnimationFrame(() => {
-      this.getHumanChoiceFrame(this.camera.current).then(() => {});
+      this.getHumanChoiceFrame(this.camera.current)
     });
 
     this.setState({
       computerChoice: this.makeComputerChoice(),
       isRoundStarted: false,
+      showCamera: false,
+      showHumanChoice: true,
     })
   }
 
   getHumanChoiceFrame = (cameraElement) => {
     const canvasElement = this.humanChoiceImage.current
-
     const context = canvasElement.getContext('2d');
-
-    context.translate(300, 0);
-    context.scale(-1, 1);
 
     context.drawImage(cameraElement, 0, 0, 300, 300);
 
@@ -133,7 +142,9 @@ class RockPaperScissorGame extends React.Component {
       humanScore, 
       computerScore,
       cameraStreamMounted, 
-      isRoundStarted, 
+      isRoundStarted,
+      showCamera,
+      showHumanChoice,
       roundCountdown,
       computerChoice,
       humanChoice,
@@ -142,16 +153,12 @@ class RockPaperScissorGame extends React.Component {
     return (
     <div className="game">
       <div className="game-item">
-        <div className="player">
-          <canvas className="human-choice-image" ref={this.humanChoiceImage}></canvas>
-        </div>
-      </div>
-      <div className="game-item">
         <div className="title">🧠 You</div>
         <div className="player human">
-          <video ref={this.camera} className="video-background" playsInline={true} autoPlay={true}>
+          <video width={300} height={300} ref={this.camera} style={{'display': showCamera ? 'block': 'none'}} className="video-background" playsInline={true} autoPlay={true}>
             No Video
           </video>
+          <canvas width={300} height={300} className="human-choice-image" ref={this.humanChoiceImage} style={{'display': showHumanChoice ? 'block': 'none'}}></canvas>
           {humanChoice !== -1 ? <div className="choice">{this.renderChoice(humanChoice)}</div> : ""}
         </div>
       </div>
