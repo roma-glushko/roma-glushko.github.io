@@ -12,7 +12,8 @@ class RockPaperScissorGame extends React.Component {
   constructor(props) {
     super(props);
     
-    this.modelUrl = 'https://drive.google.com/uc?export=download&id=1yKPLCM0xk3VOsBpcEVGrHznvgCFAP4pm'
+    // this.modelUrl = 'https://raw.githubusercontent.com/roma-glushko/romaglushko.com-lab/master/rock-paper-scissors/model.json'
+    this.modelUrl = 'https://raw.githubusercontent.com/trekhleb/machine-learning-experiments/master/demos/public/models/rock_paper_scissors_mobilenet_v2/model.json'
 
     this.choices = [
       '✊',
@@ -33,6 +34,7 @@ class RockPaperScissorGame extends React.Component {
       roundCountdown: 3,
       computerChoice: -1,
       humanChoice: -1,
+      isModelLoaded: false,
       model: null,
     }
   }
@@ -44,6 +46,7 @@ class RockPaperScissorGame extends React.Component {
     tf.loadLayersModel(this.modelUrl)
       .then((layersModel) => {
         this.setState({
+          isModelLoaded: true,
           model: layersModel,
         })
         console.log('model has been loaded');
@@ -112,7 +115,8 @@ class RockPaperScissorGame extends React.Component {
 
   onRoundFinished = () => {
     requestAnimationFrame(() => {
-      this.getHumanChoiceFrame(this.camera.current)
+      const canvasWithHumanChoice = this.getHumanChoiceFrame(this.camera.current)
+      this.predictHumanChoice(canvasWithHumanChoice)
     });
 
     this.setState({
@@ -129,11 +133,24 @@ class RockPaperScissorGame extends React.Component {
 
     context.drawImage(cameraElement, 0, 0, 300, 300);
 
-    return cameraElement
+    return canvasElement
   }
 
   predictHumanChoice = (videoFrame) => {
-    
+    const { model } = this.state 
+    const modelInputWidth = model.input.shape[1];
+    const modelInputHeight = model.input.shape[2];
+
+    const humanChoiceImage = tf.browser
+      .fromPixels(videoFrame)
+      .resizeNearestNeighbor([modelInputWidth, modelInputHeight])
+      // .div(255)
+      .reshape([1, modelInputWidth, modelInputHeight, 3])
+
+    const prediction = model.predict(humanChoiceImage)
+    const choiceIndex = prediction.argMax(1).dataSync()[0];
+
+    console.log('Human Choice: ', choiceIndex)
   }
 
   // identify winner of this pair
@@ -158,7 +175,8 @@ class RockPaperScissorGame extends React.Component {
     const {
       humanScore, 
       computerScore,
-      cameraStreamMounted, 
+      cameraStreamMounted,
+      isModelLoaded, 
       isRoundStarted,
       showCamera,
       showHumanChoice,
@@ -184,7 +202,7 @@ class RockPaperScissorGame extends React.Component {
           {humanScore} : {computerScore}
         </div>
         { !isRoundStarted ?
-          <button className="play" onClick={this.onRoundStarted} disabled={!cameraStreamMounted}>
+          <button className="play" onClick={this.onRoundStarted} disabled={!cameraStreamMounted || !isModelLoaded}>
             <FontAwesomeIcon icon={faPlay} /> Play
           </button>
           :
