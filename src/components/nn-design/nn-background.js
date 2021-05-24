@@ -139,12 +139,8 @@ class NNBackground extends React.Component {
 
         let rect = e.target.getBoundingClientRect()
         
-        console.dir(e)
-
         posx = e.pageX - rect.left; // x position within the element.
         posy = e.pageY - rect.top;  // y position within the element.
-        
-        console.log(posx, posy)
         
         target.x = posx
         target.y = posy

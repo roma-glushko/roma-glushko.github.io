@@ -1,5 +1,7 @@
 import React from 'react'
 
+import * as tf from '@tensorflow/tfjs';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay'
 
@@ -10,6 +12,8 @@ class RockPaperScissorGame extends React.Component {
   constructor(props) {
     super(props);
     
+    this.modelUrl = 'https://drive.google.com/uc?export=download&id=1yKPLCM0xk3VOsBpcEVGrHznvgCFAP4pm'
+
     this.choices = [
       '✊',
       '✋',
@@ -29,12 +33,25 @@ class RockPaperScissorGame extends React.Component {
       roundCountdown: 3,
       computerChoice: -1,
       humanChoice: -1,
+      model: null,
     }
   }
  
   componentDidMount() {
     this.mountCameraStream(this.camera.current)
     this.configureCanvas(this.humanChoiceImage.current)
+
+    tf.loadLayersModel(this.modelUrl)
+      .then((layersModel) => {
+        this.setState({
+          model: layersModel,
+        })
+        console.log('model has been loaded');
+      })
+      .catch((e) => {
+        // todo: show the reason of the issue to users
+        console.log('error during model loading: ', e.message)
+      });
   }
 
   configureCanvas = (canvasElement) => {

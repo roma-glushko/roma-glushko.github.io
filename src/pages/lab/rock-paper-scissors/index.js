@@ -16,7 +16,7 @@ const RockPaperScissorPage = () => (
       <SEO
         title={"Rock, Paper, Scissors Game - Lab by Roman Glushko"}
         className="experiment-view-page"
-        pagePath='/lab/rock-paper-scissors'
+        pagePath='/lab/rock-paper-scissors/'
         ogType="article"
         description=""
         keywords=""

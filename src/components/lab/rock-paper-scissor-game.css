@@ -50,7 +50,10 @@
 
 .controls .countdown {
     font-size: 3rem;
-    font-weight: bold
+    font-weight: bold;
+    min-width: 85px;
+    min-height: 15px;
+    text-align: center;
 }
 
 .controls button.play {

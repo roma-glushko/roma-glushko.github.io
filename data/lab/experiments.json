@@ -1,10 +1,10 @@
 [
     {
-        "id": "cv-rockpaperscissor",
-        "title": "Rock, Paper, Scissor",
+        "id": "cv-rock-paper-scissors",
+        "title": "Rock, Paper, Scissors",
         "publishDate": "2021-01-31 13:00:00",
-        "url": "/lab/rockpaperscissor/",
-        "description": "Legendary Rock, Paper, Scissor game powered by Computer Vision",
+        "url": "/lab/rock-paper-scissors/",
+        "description": "Classic Rock, Paper, Scissors game powered by Computer Vision",
         "category": "Computer Vision",
         "tags": [
             "computer vision",
