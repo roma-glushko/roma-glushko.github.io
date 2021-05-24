@@ -24,6 +24,44 @@ body.dark {
     height: 60rem;
 }
 
+.homepagev2 .mylife {
+    font-size: 1.4rem;
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.homepagev2 .mylife .activity-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+}
+
+.homepagev2 .mylife .recent-posts {
+    display: flex;
+    flex-direction: column;
+}
+
+.homepagev2 .mylife .recent-posts .blog-item {
+    display: flex;
+    padding: 10px;
+}
+
+.homepagev2 .mylife .recent-posts .blog-item .article-header {
+    flex: 1;
+    max-width: 25rem;
+}
+
+.homepagev2 .mylife .recent-posts .blog-item .article-header .cover {
+    max-height: 20rem;
+}
+
+.homepagev2 .mylife .recent-posts .blog-item .article-details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
 .homepagev2 .avatar {
     background-color: var(--socialBackgroundColor);
 }
