@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as tf from '@tensorflow/tfjs';
+import * as tf from '@tensorflow/tfjs-layers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay'
