@@ -210,7 +210,7 @@ There turned out to be a lot of vendors that produce RTX 3070 cards.
 Basically, the main differences are in:
 
 - **Max Power Limit** - affects GPU performance.
-- **Quality of the card cooling system - the ability to cold card and sustain performance for a long time.
+- **Quality of the card cooling system** - the ability to cold card and sustain performance for a long time.
 - **Fan Noise** - it's just annoying to run noisy cards (particularly if you working in a place where other people work or live).
 
 ## Hardware Installation
