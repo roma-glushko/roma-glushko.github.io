@@ -1,6 +1,32 @@
+.game-wrapper {
+    position: relative;
+}
+
 .game {
     display: flex;
     justify-content: center;
+    padding: 2rem;
+    transition: .1s;
+}
+
+.game-overlay {
+    position: absolute;
+    min-width: 800px;
+    min-height: 400px;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-message {
+    width: 300px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
     padding: 2rem;
 }
 
@@ -56,7 +82,8 @@
     text-align: center;
 }
 
-.controls button.play {
+.game-wrapper button.play,
+.game-wrapper button.start-game {
     display: inline-block;
     line-height: 1;
     white-space: nowrap;

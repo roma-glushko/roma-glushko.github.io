@@ -1,11 +1,16 @@
 import React from 'react'
 
-import * as tf from '@tensorflow/tfjs';
+import { browser as tf_browser } from '@tensorflow/tfjs-core';
+import { loadLayersModel } from '@tensorflow/tfjs-layers';
+import '@tensorflow/tfjs-backend-cpu';
+import '@tensorflow/tfjs-backend-webgl';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay'
 
 import './rock-paper-scissor-game.css'
+import { faServicestack } from '@fortawesome/free-brands-svg-icons';
+import { faHourglassEnd } from '@fortawesome/free-solid-svg-icons';
 
 class RockPaperScissorGame extends React.Component {
   
@@ -33,6 +38,7 @@ class RockPaperScissorGame extends React.Component {
     this.humanChoiceImage = React.createRef();
 
     this.state = {
+      isGameInited: false,
       cameraStreamMounted: false,
       humanScore: 0,
       computerScore: 0,
@@ -46,12 +52,16 @@ class RockPaperScissorGame extends React.Component {
       model: null,
     }
   }
- 
-  componentDidMount() {
+
+  initGame = () => {
+    this.setState({
+      isGameInited: true,
+    })
+
     this.mountCameraStream(this.camera.current)
     this.configureCanvas(this.humanChoiceImage.current)
 
-    tf.loadLayersModel(this.modelUrl)
+    loadLayersModel(this.modelUrl)
       .then((layersModel) => {
         this.setState({
           isModelLoaded: true,
@@ -154,7 +164,7 @@ class RockPaperScissorGame extends React.Component {
     const modelInputWidth = model.input.shape[1];
     const modelInputHeight = model.input.shape[2];
 
-    const humanChoiceImage = tf.browser
+    const humanChoiceImage = tf_browser
       .fromPixels(videoFrame)
       .resizeNearestNeighbor([modelInputWidth, modelInputHeight])
       .div(127.5).add(-1)  // scale between [-1; 1]
@@ -186,6 +196,7 @@ class RockPaperScissorGame extends React.Component {
 
   render() {
     const {
+      isGameInited,
       humanScore, 
       computerScore,
       cameraStreamMounted,
@@ -199,36 +210,49 @@ class RockPaperScissorGame extends React.Component {
     } = this.state
 
     return (
-    <div className="game">
-      <div className="game-item">
-        <div className="title">🧠 You</div>
-        <div className="player human">
-          <video width={300} height={300} ref={this.camera} style={{'display': showCamera ? 'block': 'none'}} className="video-background" playsInline={true} autoPlay={true}>
-            No Video
-          </video>
-          <canvas width={300} height={300} className="human-choice-image" ref={this.humanChoiceImage} style={{'display': showHumanChoice ? 'block': 'none'}}></canvas>
-          {humanChoice !== -1 ? <div className="choice">{this.renderChoice(humanChoice)}</div> : ""}
-        </div>
+      <div className="rock-paper-scissors-wrapper">
+        <section className="game-wrapper">
+          <div className="game" style={{'filter': !isGameInited ? 'blur(3px)': 'none'}}>
+            <div className="game-item">
+              <div className="title">🧠 You</div>
+              <div className="player human">
+                <video width={300} height={300} ref={this.camera} style={{'display': showCamera ? 'block': 'none'}} className="video-background" playsInline={true} autoPlay={true}>
+                  No Video
+                </video>
+                <canvas width={300} height={300} className="human-choice-image" ref={this.humanChoiceImage} style={{'display': showHumanChoice ? 'block': 'none'}}></canvas>
+                {humanChoice !== -1 ? <div className="choice">{this.renderChoice(humanChoice)}</div> : ""}
+              </div>
+            </div>
+            <div className="game-item controls">
+              <div className="score">
+                {humanScore} : {computerScore}
+              </div>
+              { !isRoundStarted ?
+                <button className="play" onClick={this.onRoundStarted} disabled={!cameraStreamMounted || !isModelLoaded}>
+                  <FontAwesomeIcon icon={faPlay} /> Play
+                </button>
+                :
+                <div className="countdown">{roundCountdown}</div>
+              }
+            </div>
+            <div className="game-item">
+              <div className="title">🤖 AI</div>
+              <div className="player computer">
+                {computerChoice !== -1 ? <div className="choice">{this.renderChoice(computerChoice)}</div> : ""}
+              </div>
+            </div>
+          </div>
+          <div className="game-overlay" style={{'display': !isGameInited ? 'flex': 'none'}}>
+            <div className="overlay-message">
+              <h3>Wanna Play?</h3>
+              <p>Game requests camera control to see your choices</p>
+              <button className="start-game" onClick={() => this.initGame()}>Start Game 🚀</button>
+              <p>no recordings, the game is serverless</p>
+            </div>
+          </div>
+        </section>
       </div>
-      <div className="game-item controls">
-        <div className="score">
-          {humanScore} : {computerScore}
-        </div>
-        { !isRoundStarted ?
-          <button className="play" onClick={this.onRoundStarted} disabled={!cameraStreamMounted || !isModelLoaded}>
-            <FontAwesomeIcon icon={faPlay} /> Play
-          </button>
-          :
-          <div className="countdown">{roundCountdown}</div>
-        }
-      </div>
-      <div className="game-item">
-        <div className="title">🤖 AI</div>
-        <div className="player computer">
-          {computerChoice !== -1 ? <div className="choice">{this.renderChoice(computerChoice)}</div> : ""}
-        </div>
-      </div>
-    </div>)
+    )
   }
 }
 
