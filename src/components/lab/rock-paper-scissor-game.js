@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as tf from '@tensorflow/tfjs-layers';
+import * as tf from '@tensorflow/tfjs';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay'
@@ -12,13 +12,21 @@ class RockPaperScissorGame extends React.Component {
   constructor(props) {
     super(props);
     
-    // this.modelUrl = 'https://raw.githubusercontent.com/roma-glushko/romaglushko.com-lab/master/rock-paper-scissors/model.json'
-    this.modelUrl = 'https://raw.githubusercontent.com/trekhleb/machine-learning-experiments/master/demos/public/models/rock_paper_scissors_mobilenet_v2/model.json'
+    this.modelUrl = 'https://raw.githubusercontent.com/roma-glushko/romaglushko.com-lab/master/rock-paper-scissors/model.json'
 
     this.choices = [
-      '✊',
-      '✋',
-      '✌️',
+      {
+        label: '✊',
+        beats: [2]
+      },
+      {
+        label: '✋',
+        beats: [0]
+      },
+      {
+        label: '✌️',
+        beats: [1]
+      }
     ]
 
     this.camera = React.createRef();
@@ -116,15 +124,20 @@ class RockPaperScissorGame extends React.Component {
   onRoundFinished = () => {
     requestAnimationFrame(() => {
       const canvasWithHumanChoice = this.getHumanChoiceFrame(this.camera.current)
-      this.predictHumanChoice(canvasWithHumanChoice)
-    });
 
-    this.setState({
-      computerChoice: this.makeComputerChoice(),
-      isRoundStarted: false,
-      showCamera: false,
-      showHumanChoice: true,
-    })
+      const computerChoice = this.makeComputerChoice()
+      const humanChoice = this.predictHumanChoice(canvasWithHumanChoice)
+
+      this.scoreRound(humanChoice, computerChoice)
+
+      this.setState({
+        computerChoice: computerChoice,
+        humanChoice: humanChoice,
+        isRoundStarted: false,
+        showCamera: false,
+        showHumanChoice: true,
+      })
+    });
   }
 
   getHumanChoiceFrame = (cameraElement) => {
@@ -144,13 +157,13 @@ class RockPaperScissorGame extends React.Component {
     const humanChoiceImage = tf.browser
       .fromPixels(videoFrame)
       .resizeNearestNeighbor([modelInputWidth, modelInputHeight])
-      // .div(255)
+      .div(127.5).add(-1)  // scale between [-1; 1]
       .reshape([1, modelInputWidth, modelInputHeight, 3])
 
     const prediction = model.predict(humanChoiceImage)
     const choiceIndex = prediction.argMax(1).dataSync()[0];
 
-    console.log('Human Choice: ', choiceIndex)
+    return choiceIndex
   }
 
   // identify winner of this pair
@@ -168,7 +181,7 @@ class RockPaperScissorGame extends React.Component {
       return ""
     }
 
-    return this.choices[choiceIdx]
+    return this.choices[choiceIdx].label
   }
 
   render() {
@@ -218,5 +231,8 @@ class RockPaperScissorGame extends React.Component {
     </div>)
   }
 }
+
+// - https://github.com/trekhleb/machine-learning-experiments/blob/master/demos/src/components/shared/RockPaperScissors.js <br/>
+// - https://colab.research.google.com/github/trekhleb/machine-learning-experiments/blob/master/experiments/rock_paper_scissors_mobilenet_v2/rock_paper_scissors_mobilenet_v2.ipynb#scrollTo=DJ8jGFnTLt8t
 
 export default RockPaperScissorGame
