@@ -9,8 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay'
 
 import './rock-paper-scissor-game.css'
-import { faServicestack } from '@fortawesome/free-brands-svg-icons';
-import { faHourglassEnd } from '@fortawesome/free-solid-svg-icons';
 
 class RockPaperScissorGame extends React.Component {
   
@@ -135,6 +133,11 @@ class RockPaperScissorGame extends React.Component {
     requestAnimationFrame(() => {
       const canvasWithHumanChoice = this.getHumanChoiceFrame(this.camera.current)
 
+      this.setState({
+        showCamera: false,
+        showHumanChoice: true,
+      })
+
       const computerChoice = this.makeComputerChoice()
       const humanChoice = this.predictHumanChoice(canvasWithHumanChoice)
 
@@ -144,8 +147,6 @@ class RockPaperScissorGame extends React.Component {
         computerChoice: computerChoice,
         humanChoice: humanChoice,
         isRoundStarted: false,
-        showCamera: false,
-        showHumanChoice: true,
       })
     });
   }
@@ -178,7 +179,19 @@ class RockPaperScissorGame extends React.Component {
 
   // identify winner of this pair
   scoreRound = (humanChoice, computerChoice) => {
-    
+    const { humanScore, computerScore } = this.state
+
+    if (this.choices[humanChoice].beats.find(choice => computerChoice == choice) !== undefined) {
+      this.setState({
+        humanScore: humanScore + 1
+      })
+    }
+
+    if (this.choices[computerChoice].beats.find(choice => humanChoice == choice) !== undefined) {
+      this.setState({
+        computerScore: computerScore + 1
+      })
+    }
   }
 
   // pick randomly one of 3 possible states
@@ -213,7 +226,7 @@ class RockPaperScissorGame extends React.Component {
       <div className="rock-paper-scissors-wrapper">
         <section className="game-wrapper">
           <div className="game" style={{'filter': !isGameInited ? 'blur(3px)': 'none'}}>
-            <div className="game-item">
+            <div className="game-item human">
               <div className="title">🧠 You</div>
               <div className="player human">
                 <video width={300} height={300} ref={this.camera} style={{'display': showCamera ? 'block': 'none'}} className="video-background" playsInline={true} autoPlay={true}>
@@ -221,6 +234,12 @@ class RockPaperScissorGame extends React.Component {
                 </video>
                 <canvas width={300} height={300} className="human-choice-image" ref={this.humanChoiceImage} style={{'display': showHumanChoice ? 'block': 'none'}}></canvas>
                 {humanChoice !== -1 ? <div className="choice">{this.renderChoice(humanChoice)}</div> : ""}
+                <div className="computer-choice-mobile">
+                  <div className="title">🤖</div>
+                  <div className="choice-wrapper">
+                    {computerChoice !== -1 ? <div className="choice">{this.renderChoice(computerChoice)}</div> : ""}
+                  </div>
+                </div>
               </div>
             </div>
             <div className="game-item controls">
@@ -235,7 +254,7 @@ class RockPaperScissorGame extends React.Component {
                 <div className="countdown">{roundCountdown}</div>
               }
             </div>
-            <div className="game-item">
+            <div className="game-item computer">
               <div className="title">🤖 AI</div>
               <div className="player computer">
                 {computerChoice !== -1 ? <div className="choice">{this.renderChoice(computerChoice)}</div> : ""}

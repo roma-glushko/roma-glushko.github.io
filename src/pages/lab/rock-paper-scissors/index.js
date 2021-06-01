@@ -40,11 +40,13 @@ const RockPaperScissorPage = () => (
              <p>
                 Rules are simple. You and your opponent choose one of three shapes (<span role="img">✊</span>, <span role="img">✋</span>, <span role="img">✌️</span>), which you both form simultaneously.
                 Your goal is to guess a shape that beats your opponent's choice:
-                <ul>
-                  <li>Rock beats Scissors (<span role="img">✊</span> → <span role="img">✌️</span>)</li>
-                  <li>Paper covers Rock (<span role="img">✋</span> → <span role="img">✊</span>)</li>
-                  <li>Scissors cuts Paper (<span role="img">✌️</span> → <span role="img">✋</span>)</li>
-                </ul>
+              </p>
+              <ul>
+                <li>Rock beats Scissors (<span role="img">✊</span> → <span role="img">✌️</span>)</li>
+                <li>Paper covers Rock (<span role="img">✋</span> → <span role="img">✊</span>)</li>
+                <li>Scissors cuts Paper (<span role="img">✌️</span> → <span role="img">✋</span>)</li>
+              </ul> 
+              <p>
                 Now you have a chance to try to play rock, paper, scissors in an AI-powered game online.
               </p>
               <h2>How Does it Work?</h2>
