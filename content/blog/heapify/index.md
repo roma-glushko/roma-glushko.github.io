@@ -18,7 +18,7 @@ What if we need to change this principle and use some **relative importance scor
 
 Well, then we would reinvent ~~bicycle~~ the priority queue.
 
-![Priority](https://media.giphy.com/media/3orif1K6QR54NlWzLO/giphy.gif "Priority")
+`video: title: "Priority": https://media.giphy.com/media/3orif1K6QR54NlWzLO/giphy.mp4`
 
 **The priority queue or heap** is a data structure that efficiently allows retrieving the next queued item with min or max importance score.
 
@@ -248,13 +248,13 @@ Heap sorting is not the only application of the priority queue. Here are a few m
 
 - access to a limited resource like making sure your Zoom application has a high network bandwidth priority, hence, lower latency
 - device interruption handling like pressing a key on the keyboard triggers a specific interruption handler that rads a key value and send it to the OS. There is an interruption latency associated with this process and interruptions from some devices we wish to be processed as soon as possible
-- the heap can be used during searching for <a target="_blank" rel="noopener nofollow" href="/blog/k-nearest-neighbors/">K-Nearest Neighbors</a>
+- the heap can be used during searching for <a target="_blank" rel="noopener" href="/blog/k-nearest-neighbors/">K-Nearest Neighbors</a>
 
 Broadly speaking, the heap may be used everywhere where we need to keep track of the list of min or max elements that may be changed during the runtime.
 
 ## heapq
 
-Thankfully, it's not required to implement the heap yourself everytime you need it. Python provides a library called <a target="_blank" rel="noopener nofollow" href="https://docs.python.org/3/library/heapq.html">heapq</a> which is a set of functions that operates on the "heapified" array preserving the min-heap property.
+Thankfully, it's not required to implement the heap yourself everytime you need it. Python provides a library called <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/heapq.html">heapq</a> which is a set of functions that operates on the "heapified" array preserving the min-heap property.
 
 The min-heap sort can be implemented this way:
 
@@ -287,6 +287,12 @@ Finally, let me in the comments what unusual applications of heaps have you seen
 
 ## References
 
+<<<<<<< HEAD:content/blog/heapify/index.md
 - <a target="_blank" rel="noopener nofollow" href="https://gist.github.com/roma-glushko/43678fcec904209adb276f33a56ce9de">Source code on the GitHub</a>
 - <a target="_blank" rel="noopener nofollow" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-4-heaps-and-heap-sort/">MIT 6.006 - Heaps and Heap Sort</a>
 - <a target="_blank" rel="noopener nofollow" href="https://visualgo.net/en/heap">Heap Visualized</a>
+=======
+- <a target="_blank" rel="noopener" href="https://gist.github.com/roma-glushko/43678fcec904209adb276f33a56ce9de">Source code on the GitHub</a>
+- <a target="_blank" rel="noopener" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-4-heaps-and-heap-sort/">MIT 6.006 - Heaps and Heap Sort</a>
+- <a target="_blank" rel="noopener" href="https://visualgo.net/en/heap">Heap Visualized</a>
+>>>>>>> develop:content/blog/heap/index.md

@@ -10,7 +10,7 @@ const NewsletterForm = () => {
         loading="lazy"
         width="100%" height="320" 
         style={{border: '1px solid #EEE'}}
-        frameborder="0" scrolling="no"
+        frameborder="0" scrolling="no" title="Newsletter Form"
       ></iframe>
     </div>
   );
