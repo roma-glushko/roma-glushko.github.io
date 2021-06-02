@@ -37,6 +37,7 @@ class RockPaperScissorGame extends React.Component {
 
     this.state = {
       isGameInited: false,
+      cameraNotFound: false,
       cameraStreamMounted: false,
       humanScore: 0,
       computerScore: 0,
@@ -87,6 +88,11 @@ class RockPaperScissorGame extends React.Component {
 
     if (!navigator.mediaDevices.getUserMedia) {
       console.log('No camera?')
+      
+      this.setState({
+        cameraNotFound: true,
+      })
+
       return
     }
 
@@ -99,7 +105,11 @@ class RockPaperScissorGame extends React.Component {
         })
       })
       .catch((error) => {
-        console.log("Something went wrong: " + error);
+        console.log("Error on requesting camera access: " + error);
+
+        this.setState({
+          cameraNotFound: true,
+        })
       })
   }
 
@@ -213,6 +223,7 @@ class RockPaperScissorGame extends React.Component {
       humanScore, 
       computerScore,
       cameraStreamMounted,
+      cameraNotFound,
       isModelLoaded, 
       isRoundStarted,
       showCamera,
@@ -234,6 +245,7 @@ class RockPaperScissorGame extends React.Component {
                 </video>
                 <canvas width={300} height={300} className="human-choice-image" ref={this.humanChoiceImage} style={{'display': showHumanChoice ? 'block': 'none'}}></canvas>
                 {humanChoice !== -1 ? <div className="choice">{this.renderChoice(humanChoice)}</div> : ""}
+                {cameraNotFound ? <span className="camera-not-found">Camera did not found. Check your permissions</span> : "" }
                 <div className="computer-choice-mobile">
                   <div className="title">🤖</div>
                   <div className="choice-wrapper">
