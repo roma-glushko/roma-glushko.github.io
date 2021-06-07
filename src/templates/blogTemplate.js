@@ -38,11 +38,6 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       rawMarkdownBody,
       timeToRead,
       wordCount: { words },
-      // parent: {
-      //   fields: {
-      //     gitLogLatestDate = null
-      //   } = {}
-      // } = {}
     },
   } = data
 

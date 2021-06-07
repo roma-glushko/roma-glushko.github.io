@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { browser as tf_browser } from '@tensorflow/tfjs-core';
+import { regularizers } from '@tensorflow/tfjs'
+import { browser as tf_browser, serialization } from '@tensorflow/tfjs-core';
 import { loadLayersModel } from '@tensorflow/tfjs-layers';
 import '@tensorflow/tfjs-backend-cpu';
 import '@tensorflow/tfjs-backend-webgl';
@@ -9,6 +10,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay'
 
 import './rock-paper-scissor-game.css'
+
+class L2 {
+
+  static className = 'L2';
+
+  constructor(config) {
+    return regularizers.l1l2(config)
+  }
+}
+
+serialization.registerClass(L2);
 
 class RockPaperScissorGame extends React.Component {
   
