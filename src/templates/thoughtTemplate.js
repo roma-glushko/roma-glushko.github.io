@@ -24,7 +24,8 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         humanDate,
         fullDate,
         keywords,
-        cover
+        cover,
+        coverCredits,
       },
       html,
       rawMarkdownBody,
@@ -55,7 +56,15 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <Link to="/thoughts/">Thoughts</Link>
       </div>
       <main>
-        <Thought title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} cover={cover} contentHtml={html} />
+        <Thought 
+          title={title} 
+          timeToRead={timeToRead} 
+          publishedHumanDate={humanDate} 
+          publishedFullDate={fullDate} 
+          cover={cover}
+          coverCredits={coverCredits}
+          contentHtml={html} 
+        />
         <ShareBlock title={title} path={path} tags={keywords} />
         <NewsletterForm />
       </main>
@@ -105,6 +114,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        coverCredits
       }
       parent {
         ... on File {

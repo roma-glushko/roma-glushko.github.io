@@ -2,10 +2,12 @@
 
 body {
     --thoughtHeaderColor: var(--red);
+    --imageTitleColor: gray;
 }
 
 body.dark {
     --thoughtHeaderColor: var(--pink);
+    --imageTitleColor: #8b949e;
 }
 
 
@@ -42,7 +44,7 @@ body.dark {
     margin-top: 0;
 }
 
-.thought-wrapper .cover-filter {
+.thought-wrapper .cover .cover-filter {
     left: 50%;
     margin-left: -50vw;
     overflow: hidden;
@@ -50,11 +52,24 @@ body.dark {
     width: 100vw;
 }
 
-.thought-wrapper .cover {
+.thought-wrapper .cover .cover-image {
     left: 50%;
     margin-left: -50vw;
     overflow: hidden;
     position: relative;
     max-height: 600px;
     width: 100vw;
+}
+
+.thought-wrapper .cover .image-title {
+    color: var(--imageTitleColor);
+    font-size: 1rem;
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.thought-wrapper .cover .image-title a{
+    color: var(--imageTitleColor);
+    font-size: 1rem;
+    text-decoration: underline;
 }

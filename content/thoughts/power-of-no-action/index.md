@@ -4,6 +4,7 @@ date: "2020-12-29 21:14:00"
 published: true
 title: "Power of No Action"
 cover: "./ian-hutchinson-aYg3tYxT3MQ-unsplash-min.jpg"
+coverCredits: Photo by <a href="https://unsplash.com/@ianhutchinson92">Ian Hutchinson</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
     - psychology
     - life exploring

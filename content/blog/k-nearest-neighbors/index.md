@@ -4,6 +4,7 @@ date: "2021-04-05 16:48:00"
 published: true
 title: "K-Nearest Neighbors 👨‍👩‍👧‍👦"
 cover: "./pexels-ollie-craig-6398503-min.jpg"
+coverCredits: Photo by <a href="https://www.pexels.com/@olliecraig1">Ollie Craig</a> from <a href="https://www.pexels.com/photo/roads-with-vehicles-near-buildings-and-autumn-trees-in-city-6398503/">Pexels</a>
 excerpt: "Theoretical aspects of the KNN algorithm. Where it can be applied and when it fails."
 keywords:
     - machine learning
