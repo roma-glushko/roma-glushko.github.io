@@ -204,8 +204,12 @@ body.dark {
         padding-left: 1rem;
     }
 
-    .cv .social-list .social-item svg {
-        font-size: 1.3rem;
+    .cv .social-list .social-item a svg {
+        display: none;
+    }
+
+    .cv .social-list .social-item a span {
+        display: block;
     }
 
     .cv-content section h2 {

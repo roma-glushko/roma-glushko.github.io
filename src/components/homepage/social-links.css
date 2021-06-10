@@ -8,3 +8,7 @@
     padding: 0;
     margin: 0;
 }
+
+.social .social-list a span {
+    display: none;
+}

@@ -4,6 +4,7 @@ date: "2020-02-08 22:17:00"
 published: true
 title: "Normal Life"
 cover: "./matthew-henry-uSdtHAt7E1Q-unsplash.jpg"
+coverCredits: Photo by <a href="https://unsplash.com/@matthewhenry">Matthew Henry</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
     - psychology
     - life exploring

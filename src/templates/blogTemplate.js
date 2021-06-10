@@ -32,6 +32,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         keywords,
         includeMath,
         cover,
+        coverCredits,
         excerpt
       },
       html,
@@ -58,7 +59,16 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <MainNavigation space={"blog"} />
       </div>
       <main>
-        <BlogPost title={title} timeToRead={timeToRead} publishedHumanDate={humanDate} publishedFullDate={fullDate} keywords={keywords} cover={cover} contentHtml={html} />
+        <BlogPost 
+          title={title} 
+          timeToRead={timeToRead} 
+          publishedHumanDate={humanDate} 
+          publishedFullDate={fullDate} 
+          keywords={keywords} 
+          cover={cover} 
+          coverCredits={coverCredits} 
+          contentHtml={html} 
+        />
         <ShareBlock title={title} path={path} tags={keywords} />
         <NewsletterForm />
         <BlogComments />
@@ -110,6 +120,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        coverCredits
       }
       parent {
         ... on File {

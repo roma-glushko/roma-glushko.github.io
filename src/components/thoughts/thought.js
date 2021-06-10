@@ -17,14 +17,18 @@ const Thought = (props) => {
         publishedFullDate,
         contentHtml,
         cover,
+        coverCredits,
     } = props;
 
     return (
         <article className="thought-wrapper">
             <header>
-                <div className="cover-filter">
-                    <Img className="cover" fluid={cover.childImageSharp.fluid} />
-                </div>
+                <figure className="cover">
+                    <div className="cover-filter">
+                        <Img className="cover-image" fluid={cover.childImageSharp.fluid} />
+                    </div>
+                    <figcaption className="image-title" dangerouslySetInnerHTML={{ __html: coverCredits }}></figcaption>
+                </figure>
                 <MainNavigation space={"thoughts"} />
                 <h1>{title}</h1>
                 <div className="thought-details">

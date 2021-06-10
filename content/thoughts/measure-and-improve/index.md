@@ -4,6 +4,7 @@ date: "2020-03-15 22:30:00"
 published: true
 title: "Measure and Improve"
 cover: "./neonbrand-KYxXMTpTzek-unsplash.jpg"
+coverCredits: Photo by <a href="https://unsplash.com/@neonbrand">NeONBRAND</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
     - psychology
     - life exploring

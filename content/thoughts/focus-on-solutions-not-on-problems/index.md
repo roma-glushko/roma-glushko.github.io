@@ -4,6 +4,7 @@ date: "2019-12-26 21:30:00"
 published: true
 title: "Focus on solutions, not on problems"
 cover: "./jake-givens-ocwmWiNAWGs-unsplash.jpg"
+coverCredits: Photo by <a href="https://unsplash.com/@jakegivens">Jake Givens</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
     - problem solving
     - dealing with challenges
