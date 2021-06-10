@@ -50,8 +50,8 @@ const MachineLearningEngineerCV = () => {
         <div className="cv-content">
           <div className="cv-content-column additional-column">
             <section itemScope itemType="http://schema.org/ItemList">
-              <dl>
-                <dt><h2 className={`notop-margin`}><span itemProp="name">Profile</span></h2></dt>
+              <dl className="notop-margin">
+                <dt><h2 className="notop-margin"><span itemProp="name">Profile</span></h2></dt>
                 <ul>
                   <li itemProp="itemListElement">Aspiring <strong>problem solver</strong> & ML engineer</li>
                   <li itemProp="itemListElement"><strong>5+ years</strong> of experience in <strong>software engineering</strong> and eCommerce development</li>
