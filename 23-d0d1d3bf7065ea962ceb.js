@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[23],{tF8h:function(e,t,r){"use strict";r.r(t);var n=r("q1tI"),o=r.n(n);r("yTES");t.default=function(){return o.a.createElement("div",{className:"newsletter-form"},o.a.createElement("iframe",{src:"https://romanglushko.substack.com/embed",loading:"lazy",width:"100%",height:"320",style:{border:"1px solid #EEE"},frameborder:"0",scrolling:"no",title:"Newsletter Form"}))}},yTES:function(e,t,r){}}]);
-//# sourceMappingURL=23-d0d1d3bf7065ea962ceb.js.map
