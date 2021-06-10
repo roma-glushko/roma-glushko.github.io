@@ -1,4 +1,5 @@
 import React from "react"
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import Layout from "../../../components/theme/layout"
 import SEO from "../../../components/seo"
@@ -27,7 +28,9 @@ const RockPaperScissorPage = () => (
         </header>
         {/** refactor NN background component */}
         <div id="hero-header" className="lab-header">
-          <NNBackground />
+          <ThemeToggler>
+          {({ theme }) => <NNBackground theme={theme} /> }
+          </ThemeToggler>
           <h1 className="title">
             Rock, Paper, Scissors<br />
             <span className="experiment-category">computer vision</span>

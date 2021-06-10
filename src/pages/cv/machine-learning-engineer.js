@@ -100,6 +100,18 @@ const MachineLearningEngineerCV = () => {
                   </ul>
                 </li>
                 <li className="project">
+                  <h3>Rock, Paper, Scissors Game</h3>
+                  <div className="project-description">
+                    Trained a model to recognize hand forms of rock, paper, scissors and incorporate it into a game.
+                    Collected hundreds of images in order to improve the model accuracy. <br/><br/>
+                    Ended up with model that is <strong>91% accurate</strong> and recognize common ways to shape RPS forms. The model was <strong>deployed as a serverless</strong> application using Tensorflow.js.
+                  </div>
+                  <ul className="project-details">
+                    <li><strong>Experience</strong>: Problem Framing, Data Collection, Image Data, Python, Tensorflow, Tensorflow.js</li>
+                    <li>Links: <a href="/lab/rock-paper-scissors/" target="blank">Live Demo</a> • <a href="https://github.com/roma-glushko/rock-paper-scissors" target="blank">GitHub</a></li>
+                  </ul>
+                </li>
+                <li className="project">
                   <h3>[Kaggle] Shopee - Price Match Guarantee</h3>
                   <div className="project-description">
                     The Shopee marketplace has a price match guarantee program. 
