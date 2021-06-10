@@ -20,23 +20,25 @@ const BlogTeaser = (props) => {
 
     return (
         <article className="blog-item">
-            <Link to={url}>
+            <Link className="article-header" to={url}>
                 <div className="cover-filter">
                     <Img className="cover" fluid={cover.childImageSharp.fluid} />
                 </div>
             </Link>
-            <h2><Link to={url}>{title}</Link></h2>
-            <div className="blog-details">
-                <time className="blog-created-at" dateTime={publishedFullDate}>{publishedHumanDate}</time>
-                <span> • </span>
-                <span className="blog-time2read">{timeToRead} min read</span>
+            <div className="article-details">
+                <h2><Link to={url}>{title}</Link></h2>
+                <div className="blog-details">
+                    <time className="blog-created-at" dateTime={publishedFullDate}>{publishedHumanDate}</time>
+                    <span> • </span>
+                    <span className="blog-time2read">{timeToRead} min read</span>
+                </div>
+                <p className="blog-digest">{excerpt}</p>
+                <ul className="blog-tags">
+                    {keywords.map(keyword => (
+                        <li key={url + keyword}>{keyword}</li>
+                    ))}
+                </ul>
             </div>
-            <p className="blog-digest">{excerpt}</p>
-            <ul className="blog-tags">
-                {keywords.map(keyword => (
-                    <li key={url + keyword}>{keyword}</li>
-                ))}
-            </ul>
         </article>
     );
 };

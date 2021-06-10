@@ -7,8 +7,9 @@ import "./hero-header.css"
 // Bright Theme - rgba(31, 43, 49) || 95, 99, 106
 // Dark Theme - rgba(228, 232, 240)
 
+
 class Circle {
-  // constructor
+
   constructor(ctx, pos, rad, color) {
     this.drawCtx = ctx
     this.pos = pos || null;
@@ -17,12 +18,12 @@ class Circle {
   }
 
   draw = function() {
-      if (!this.active) return
+    if (!this.active) return
 
-      this.drawCtx.beginPath()
-      this.drawCtx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false)
-      this.drawCtx.fillStyle = `rgba(95, 99, 106, ${this.active})`
-      this.drawCtx.fill()
+    this.drawCtx.beginPath()
+    this.drawCtx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false)
+    this.drawCtx.fillStyle = this.color.replace('{alpha}', this.active)
+    this.drawCtx.fill()
   }
 }
 
@@ -34,6 +35,10 @@ const getDistance = (p1, p2) => {
 class NNBackground extends React.Component {
 
   componentDidMount() {
+    const { theme } = this.props;
+    console.log(theme);
+    const colors = this.getColorsByTheme(theme);
+
     (function() {
       const pointSize = 3
       const pointDensity = 20
@@ -86,7 +91,7 @@ class NNBackground extends React.Component {
                 let p2 = points[j]
                 
                 if (p1 === p2) {
-                    continue
+                  continue
                 }
 
                 var placed = false
@@ -115,7 +120,7 @@ class NNBackground extends React.Component {
     
           // assign a circle to each point
           for (var i in points) {
-            points[i].circle = new Circle(ctx, points[i], pointSize + Math.random() * pointSize, 'rgba(255, 255, 255, 0.3)')
+            points[i].circle = new Circle(ctx, points[i], pointSize + Math.random() * pointSize, colors['circleColor'])
           }
       }
     
@@ -139,12 +144,8 @@ class NNBackground extends React.Component {
 
         let rect = e.target.getBoundingClientRect()
         
-        console.dir(e)
-
         posx = e.pageX - rect.left; // x position within the element.
         posy = e.pageY - rect.top;  // y position within the element.
-        
-        console.log(posx, posy)
         
         target.x = posx
         target.y = posy
@@ -186,7 +187,7 @@ class NNBackground extends React.Component {
             points[i].circle.active = 0;
           }
 
-          drawLines(points[i])
+          drawLines(points[i], colors['lineColor'])
           points[i].circle.draw()
         }
 
@@ -209,14 +210,14 @@ class NNBackground extends React.Component {
       }
     
       // Canvas manipulation
-      const drawLines = (p) => {
+      const drawLines = (p, lineColor) => {
         if (!p.active) return
 
         for (var i in p.closest) {
           ctx.beginPath()
           ctx.moveTo(p.x, p.y)
           ctx.lineTo(p.closest[i].x, p.closest[i].y)
-          ctx.strokeStyle = `rgba(95, 99, 106, ${p.active})`
+          ctx.strokeStyle = lineColor.replace('{alpha}', p.active)
           ctx.stroke()
         }
       }
@@ -227,6 +228,20 @@ class NNBackground extends React.Component {
       addListeners();
       
     })();
+  }
+
+  getColorsByTheme (theme) {
+    if (theme === 'dark') {
+      return {
+        'circleColor': `rgba(228, 232, 240, {alpha})`,
+        'lineColor': `rgba(228, 232, 240, {alpha})`,
+      }
+    }
+  
+    return {
+      'circleColor': `rgba(95, 99, 106, {alpha})`,
+      'lineColor': `rgba(95, 99, 106, {alpha})`,
+    }
   }
 
   render() {

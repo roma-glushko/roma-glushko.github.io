@@ -51,6 +51,10 @@ body.dark {
     margin-top: 0;
 }
 
+.blog-wrapper .cover {
+    margin: 0;
+}
+
 .blog-wrapper .cover .cover-filter {
     left: 50%;
     margin-left: -50vw;

@@ -2,10 +2,12 @@
 
 body {
     --thoughtTeaserHeaderLinkColor: var(--red);
+    --experimentIconColor: var(--blackLigher);
 }
 
 body.dark {
     --thoughtTeaserHeaderLinkColor: var(--pink);
+    --experimentIconColor: var(--grey);
 }
 
 .experiment-item {
@@ -49,6 +51,6 @@ body.dark {
 }
 
 .experiment-item .experiment-preview svg {
-    color: var(--blackLigher);;
+    color: var(--experimentIconColor);
     padding: 1rem;
 }

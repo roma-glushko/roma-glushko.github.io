@@ -1,7 +1,46 @@
+body {
+    --gameOverlayBackgroundColor: var(--white);
+}
+
+body.dark {
+    --gameOverlayBackgroundColor: var(--midnight);
+    --gameOverlayBorderColor: var(--grey);
+}
+
+.game-wrapper {
+    position: relative;
+}
+
 .game {
     display: flex;
     justify-content: center;
     padding: 2rem;
+    transition: .1s;
+}
+
+.game-overlay {
+    position: absolute;
+    min-width: 800px;
+    min-height: 400px;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-message {
+    width: 300px;
+    background: var(--gameOverlayBackgroundColor);
+    text-align: center;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    padding: 2rem;
+}
+
+body.dark .overlay-message {
+    border: 1px solid var(--gameOverlayBorderColor);
 }
 
 .game-item {
@@ -13,27 +52,19 @@
 }
 
 .player {
-    width: 300px;
-    height: 300px;
+    align-items: center;
     border: 1px solid #dcdfe6;
     border-radius: 4px;
+    font-size: 5rem;
+    width: 300px;
+    height: 300px;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 5rem;
-}
-
-.human {
-
 }
 
 .human .choice {
     position: absolute;
-}
-
-.computer {
-
 }
 
 .controls {
@@ -50,10 +81,14 @@
 
 .controls .countdown {
     font-size: 3rem;
-    font-weight: bold
+    font-weight: bold;
+    min-width: 85px;
+    min-height: 15px;
+    text-align: center;
 }
 
-.controls button.play {
+.game-wrapper button.play,
+.game-wrapper button.start-game {
     display: inline-block;
     line-height: 1;
     white-space: nowrap;
@@ -88,7 +123,68 @@
 }
 
 .game-item .human-choice-image {
+    display: none;
     object-fit: cover;
     width: 100%;
     height: 100%;
+}
+
+.game-item.human {
+    position: relative;
+}
+
+.game-item .camera-not-found {
+    font-size: 1rem;
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.game-item .computer-choice-mobile {
+    display: none;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+}
+
+.game-item .computer-choice-mobile .choice-wrapper {
+    display: flex;
+    font-size: 2rem;
+    background: white;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+    .game {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .game-item.computer {
+        display: none;
+    }
+
+    .game .computer-choice-mobile {
+        display: block;
+    }
+
+    .game .computer-choice-mobile .title {
+        margin-bottom: 0.5rem;
+    }
+
+    .game .game-item.controls {
+        width: 100%;
+    }
+
+    .game button.play {
+        width: 100%;
+        max-width: 300px;
+    }
 }
