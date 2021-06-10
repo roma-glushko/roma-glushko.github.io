@@ -4,7 +4,8 @@ date: "2021-05-16 09:00:00"
 published: true
 title: "Heapify ✌️"
 cover: "./markus-spiske-IiEFmIXZWSw-unsplash-min.jpg"
-excerpt: "How the priority queue works. Heap sorting and other applications."
+coverCredits: Photo by <a href="https://unsplash.com/@markusspiske">Markus Spiske</a> on <a href="https://unsplash.com/">Unsplash</a>
+excerpt: "How the priority queue and heap work: theory, implementation, complexity. Heap sorting and other applications."
 keywords:
     - algorithmic coding
     - data structures
@@ -287,6 +288,6 @@ Finally, let me in the comments what unusual applications of heaps have you seen
 
 ## References
 
-- <a target="_blank" rel="noopener" href="https://gist.github.com/roma-glushko/43678fcec904209adb276f33a56ce9de">Source code on the GitHub</a>
+- <a target="_blank" rel="noopener" href="https://gist.github.com/roma-glushko/43678fcec904209adb276f33a56ce9de">Source code on GitHub</a>
 - <a target="_blank" rel="noopener" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-4-heaps-and-heap-sort/">MIT 6.006 - Heaps and Heap Sort</a>
 - <a target="_blank" rel="noopener" href="https://visualgo.net/en/heap">Heap Visualized</a>

@@ -6,6 +6,7 @@ path: "/thoughts/factors-affecting-decision-making/"
 date: "2020-05-31 10:40:00"
 title: "Factors Affecting Decision Making"
 cover: "./jens-lelie-u0vgcIOQG08-unsplash.jpg"
+coverCredits: Photo by <a href="https://unsplash.com/@madebyjens?">Jens Lelie</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
     - psychology
     - life exploring

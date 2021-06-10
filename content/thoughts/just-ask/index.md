@@ -4,6 +4,7 @@ date: "2020-02-02 23:17:00"
 published: true
 title: "Just Ask"
 cover: "./jan-tinneberg-tVIv23vcuz4-unsplash.jpg"
+coverCredits: Photo by <a href="https://unsplash.com/@craft_ear">Jan Tinneberg</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
     - psychology
     - life exploring
