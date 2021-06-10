@@ -289,7 +289,7 @@ class RockPaperScissorGame extends React.Component {
             <div className="overlay-message">
               <h3>Wanna Play?</h3>
               <p>Game requests camera control to see your choices</p>
-              <button className="start-game" onClick={() => this.initGame()}>Start Game 🚀</button>
+              <button className="start-game" onClick={() => this.initGame()}>Start Game 🎮</button>
               <p>no recordings, the game is serverless</p>
             </div>
           </div>

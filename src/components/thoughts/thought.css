@@ -44,6 +44,10 @@ body.dark {
     margin-top: 0;
 }
 
+.thought-wrapper .cover {
+    margin: 0;
+}
+
 .thought-wrapper .cover .cover-filter {
     left: 50%;
     margin-left: -50vw;

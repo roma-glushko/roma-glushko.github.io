@@ -67,7 +67,7 @@ const RockPaperScissorPage = () => (
           <RockPaperScissorGame />
           <div>
             <h2>More About Experiment</h2>
-            <p>TBU</p>
+            <p>All information about model training will be available here later. Stay tuned <span role="img">🙌</span></p>
           </div>
         </main>
         <Footer />

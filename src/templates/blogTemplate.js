@@ -55,7 +55,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         meta={[]}
       />
       <div className="blogpost-header">
-        <ViewPageHeader />
+        <ViewPageHeader spaceTitle="Blog" spaceLink="/blog/" />
         <MainNavigation space={"blog"} />
       </div>
       <main>
