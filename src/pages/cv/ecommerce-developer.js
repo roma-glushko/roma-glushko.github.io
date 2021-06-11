@@ -44,7 +44,7 @@ const MachineLearningEngineerCV = () => {
           </div>
           <MainNavigation space={"cv"} />
           <CvHeader position={`eCommerce Magento Developer CV`} />
-          <SocialLinks />
+          <SocialLinks showPatreon={false} />
         </header>
         <div className="cv-content">
           <div className="cv-content-column additional-column">

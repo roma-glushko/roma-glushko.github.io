@@ -5,11 +5,12 @@ import { faGithubAlt } from '@fortawesome/free-brands-svg-icons/faGithubAlt'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn'
 import { faKaggle } from '@fortawesome/free-brands-svg-icons/faKaggle'
+import { faPatreon } from '@fortawesome/free-brands-svg-icons/faPatreon'
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import "./social-links.css"
 
-const SocialLinks = ({ iconSize }) => {
+const SocialLinks = ({ iconSize, showPatreon = true }) => {
   return (
     <div className="social">
       <ul className="social-list">
@@ -43,6 +44,14 @@ const SocialLinks = ({ iconSize }) => {
             <span>Twitter</span>
           </OutboundLink>
         </li>
+        { showPatreon ? (
+        <li className="social-item social-patreon">
+          <OutboundLink rel="me" itemProp="url" eventCategory="social" eventAction="click" eventLabel="patreon" href="https://www.patreon.com/roma_glushko" title="Support my content on Patreon" target="blank">
+            <FontAwesomeIcon icon={faPatreon} size={iconSize} />
+            <span>Patreon</span>
+          </OutboundLink>
+        </li>
+        ) : ""}
       </ul>
     </div>
   );
