@@ -1,7 +1,7 @@
 ---
 path: "/blog/design-lru-cache/"
-date: "2021-06-13 09:00:00"
-published: false
+date: "2021-06-15 09:00:00"
+published: true
 title: "Design LRU Cache"
 cover: "./kelly-sikkema-v9FQR4tbIq8-unsplash.jpeg"
 coverCredits: Photo by <a href="https://unsplash.com/@kellysikkema">Kelly Sikkema</a> on <a href="https://unsplash.com/s/photos/draw-on-paper">Unsplash</a>
