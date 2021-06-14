@@ -189,7 +189,7 @@ module.exports = {
                             // Defaults to false.
                             // If you wish to only show line numbers on certain code blocks,
                             // leave false and use the {numberLines: true} syntax below
-                            showLineNumbers: true,
+                            showLineNumbers: false,
                             // If setting this to true, the parser won't handle and highlight inline
                             // code used in markdown i.e. single backtick code like `this`.
                             noInlineHighlight: false,
@@ -201,9 +201,9 @@ module.exports = {
                             // Customize the prompt used in shell output
                             // Values below are default
                             prompt: {
-                            user: "root",
-                            host: "localhost",
-                            global: false,
+                                user: "root",
+                                host: "localhost",
+                                global: false,
                             },
                             // By default the HTML entities <>&'" are escaped.
                             // Add additional HTML escapes by providing a mapping
@@ -219,7 +219,7 @@ module.exports = {
                         },
                     },
                     //`gatsby-remark-youtube`,
-                    `gatsby-remark-responsive-iframe`
+                    `gatsby-remark-responsive-iframe`,
                 ],
             },
         },
