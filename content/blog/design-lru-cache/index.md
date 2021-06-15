@@ -12,17 +12,17 @@ keywords:
     - python
 ---
 
-While preparing to coding interviews, I went through huge number of algorithmic challenges. I found particularly interesting one subset of problems - challenges related to designing some tools that we all use and rarely stop and think about how they work.
+While preparing for coding interviews, I went through a huge number of algorithmic challenges. I found particularly interesting one subset of problems - challenges related to designing some tools that we all use and rarely stop and think about how they work.
 
-In this article, we are going to take a look at Least Recently Used (LRU) cache.
+In this article, we are going to take a look at the Least Recently Used (LRU) cache.
 
-**Least Recently Used Cache** is a key-value storage that has some capacity and specific key eviction policy. Whenever it's specified in Gb, percentage of RAM or number of keys, the cache capacity is useful to prevent the storage from overflowing the available memory resources and shutting down unexpectedly.
+**Least Recently Used Cache** is a key-value storage that has some capacity and a specific key eviction policy. Whenever it's specified in Gb, percentage of RAM or number of keys, the cache capacity is useful to prevent the storage from overflowing the available memory resources and shutting down unexpectedly.
 
 But what can we do when we are about to reach our capacity limits?
 
-This is where eviction is helpful. In case of LRU policy, we can just **remove key-values that were not accessed for a longest time** a.k.a least-recently-used items. This is pretty natural things to do and it's commonly used in such popular key-value storages like Redis.
+This is where eviction is helpful. In the case of LRU policy, we can just **remove key-values that were not accessed for the longest time** a.k.a least-recently-used items. This is a pretty natural things to do and it's commonly used in such popular key-value storages as Redis.
 
-Another part to pay attention to is cache. **Cache** is kind of storage that is usually **optimized for reading and retrieving information** that would be time- or resource-consuming to calculate or collect without the cache.
+Another part to pay attention to is cache. **Cache** is a kind of storage that is usually **optimized for reading and retrieving information** that would be time- or resource-consuming to calculate or collect without the cache.
 
 ## Problem Framing
 
@@ -30,9 +30,9 @@ Now we have a broad context around LRU cache use cases and we are ready to formu
 
 We want to design a **class that represents LRU cache and has the following APIs**:
 
-- `LRUCache(capacity: int)` class should be initialized with capacity of the storage where capacity is simply a number of keys that storage can hold.
-- `get(key: int)` method which can retrieve a value by key in a constant time (O(1)).
-- `put(key: int, value: int)` method which stores key-value pair in the cache in a constant time (O(1)). If a key is already in the storage, we need to replace its value by a new one. `put()` method should be constrained by capacity value and should not exceed it. When capacity restriction is about to be reached, we need to evict the least-recently-used item to put a new key-value pair to the storage.
+- `LRUCache(capacity: int)` class should be initialized with a capacity of the storage where the capacity is simply a number of keys that storage can hold.
+- `get(key: int)` method which can retrieve the value by key in a constant time (O(1)).
+- `put(key: int, value: int)` method which stores key-value pair in the cache in a constant time (O(1)). If a key is already in the storage, we need to replace its value with a new one. `put()` method should be constrained by capacity value and should not exceed it. When capacity restriction is about to be reached, we need to evict the least-recently-used item to put a new key-value pair to the storage.
 
 Since we are trying to design a cache storage, pretty much every operation should be done in **a constant time execution on average** to keep it practically useful. This means that key eviction should also happen in O(1) complexity range.
 
@@ -58,15 +58,15 @@ Let's not get hung up on hashtables. The problem with tracking item usage can be
 ![Cache based a linked list](./img/cache-based-on-linked-list.svg "Cache based a linked list")
 <div class="image-title">Cache based a linked list</div>
 
-With linked lists, we could **keep track of item usages in a constant time**. We could simply move the item we currently access to the top of the list. In a natural way, **least used items end up being in the very bottom of the list** and we would get list ordered by item usage as we go. Since we need to relink our items, it would be helpful to have reference to the previous and next items on the list.
+With linked lists, we could **keep track of item usages in a constant time**. We could simply move the item we currently access to the top of the list. In a natural way, **least used items end up being at the very bottom of the list** and we would get a list ordered by item usage as we go. Since we need to relink our items, it would be helpful to have reference to the previous and next items on the list.
 
 Nevertheless, linked lists don't meet our requirements completely. It would **take us O(n) in order to find and retrieve item by key**. This is a sad complexity for cache storages.
 
-To sum up, hashtables luck advantages of linked lists and linked lists luck advantages of hashtables. We find to **find a way to combine hashtables and linked lists** such that we meet our LRU cache requirements.
+To sum up, hashtables luck the advantages of linked lists and linked lists luck advantages of hashtables. We find to **find a way to combine hashtables and linked lists** such that we meet our LRU cache requirements.
 
 ## Design Solution
 
-After little bit of thinking, it may click that we can **map our keys not to the values directly, but to the linked list nodes** that represent this values. Mapping keys to list nodes means that the **dictionary will hold node references** which don't depend on node positions in the list itself. So we would be able to **rearrange list items without a need to remap** them in dictionary.
+After a little bit of thinking, it may click that we can **map our keys not to the values directly, but to the linked list nodes** that represent these values. Mapping keys to list nodes means that the **dictionary will hold node references** that don't depend on node positions in the list itself. So we would be able to **rearrange list items without a need to remap** them in the dictionary.
 
 ![LRU Cache Architecture](./img/lru-cache-architecture.svg "LRU Cache Architecture")
 <div class="image-title">LRU cache architecture based on combination of hashtable and linked list</div>
@@ -218,9 +218,9 @@ class LRUCache:
 
 ```
 
-The `get()` and `put()` methods only relay on methods that run in constant time, so our implementation has **a constant time on average**. Just like we have required earlier. In order to get here, we consume `O(2N)` memory to build a map and a linked list.
+The `get()` and `put()` methods only rely on methods that run in constant time, so our implementation has **a constant time on average**. Just like we have required earlier. In order to get here, we consume `O(2N)` memory to build a map and a linked list.
 
-This solution is common and can be implemented in any general purpose language. Specifically speaking about Python, it provides `OrderedDict` data structure that helps to implement LRU cache in much **more concise way**. Let's take a look:
+This solution is common and can be implemented in any general purpose language. Specifically speaking about Python, it provides `OrderedDict` data structure that helps to implement LRU cache in a much **more concise way**. Let's take a look:
 
 ```python
 from collections import OrderedDict
@@ -263,9 +263,9 @@ OrderedDict seems to be introduced specifically to implement [LRU cache](https:/
 
 ## Summary
 
-We went through designing and implementing an own LRU cache. We combined advantages of hashtables and linked list and built an efficient cache storage on top of them. 
+We went through designing and implementing our own LRU cache. We combined the advantages of hashtables and linked list and built efficient cache storage on top of them. 
 
-Besides being an interesting task, the problem is a common question on the coding interviews. So if you are preparing right now, feel free to implement LRU cache yourself on Leetcode.
+Besides being an interesting task, the problem is a common question in the coding interviews. So if you are preparing right now, feel free to implement LRU cache yourself on Leetcode.
 
 ## References
 
