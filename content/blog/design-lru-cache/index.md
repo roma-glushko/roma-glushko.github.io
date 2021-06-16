@@ -1,6 +1,6 @@
 ---
 path: "/blog/design-lru-cache/"
-date: "2021-06-15 09:00:00"
+date: "2021-06-16 20:00:00"
 published: true
 title: "Design LRU Cache"
 cover: "./kelly-sikkema-v9FQR4tbIq8-unsplash.jpeg"
