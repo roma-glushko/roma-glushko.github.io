@@ -12,7 +12,7 @@ keywords:
     - python
 ---
 
-While preparing for coding interviews, I went through a huge number of algorithmic challenges. I found particularly interesting one subset of problems - challenges related to designing some tools that we all use and rarely stop and think about how they work.
+While preparing for coding interviews, I went through a large number of algorithmic challenges. I found particularly interesting one subset of problems - challenges related to designing some tools that we all use and rarely stop and think about how they work.
 
 In this article, we are going to take a look at the Least Recently Used (LRU) cache.
 
@@ -263,7 +263,7 @@ OrderedDict seems to be introduced specifically to implement [LRU cache](https:/
 
 ## Summary
 
-We went through designing and implementing our own LRU cache. We combined the advantages of hashtables and linked list and built efficient cache storage on top of them. 
+We went through designing and implementing our own LRU cache. We combined the advantages of hashtables and linked list and built efficient cache storage on top of them.
 
 Besides being an interesting task, the problem is a common question in the coding interviews. So if you are preparing right now, feel free to implement LRU cache yourself on Leetcode.
 
