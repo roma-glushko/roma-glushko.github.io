@@ -31,10 +31,10 @@ Now we have a broad context around LRU cache use cases and we are ready to formu
 We want to design a **class that represents LRU cache and has the following APIs**:
 
 - `LRUCache(capacity: int)` class should be initialized with a capacity of the storage where the capacity is simply a number of keys that storage can hold.
-- `get(key: int)` method which can retrieve the value by key in a constant time (O(1)).
-- `put(key: int, value: int)` method which stores key-value pair in the cache in a constant time (O(1)). If a key is already in the storage, we need to replace its value with a new one. `put()` method should be constrained by capacity value and should not exceed it. When capacity restriction is about to be reached, we need to evict the least-recently-used item to put a new key-value pair to the storage.
+- `get(key: int)` method which can retrieve the value by key in constant time (O(1)).
+- `put(key: int, value: int)` method which stores key-value pair in the cache in constant time (O(1)). If a key is already in the storage, we need to replace its value with a new one. `put()` method should be constrained by capacity value and should not exceed it. When capacity restriction is about to be reached, we need to evict the least-recently-used item to put a new key-value pair to the storage.
 
-Since we are trying to design a cache storage, pretty much every operation should be done in **a constant time execution on average** to keep it practically useful. This means that key eviction should also happen in O(1) complexity range.
+Since we are trying to design a cache storage, pretty much every operation should be done in **constant time execution on average** to keep it practically useful. This means that key eviction should also happen in O(1) complexity range.
 
 ## Brainstorm Solutions
 
@@ -43,7 +43,7 @@ When I think about cache, **dictionaries or hashtables** come to my mind.
 ![Cache based on a hashtable](./img/cache-based-on-hashtable.svg "Cache based on a hashtable")
 <div class="image-title">Cache based on a hashtable</div>
 
-Hashtables allow to **read and write key-value pairs in a constant time with high probability**. 
+Hashtables allow to **read and write key-value pairs in constant time with high probability**. 
 
 The problem with dictionaries is that they usually don't guarantee order in which they manage keys. So we don't have a way to quickly remove least-recently-used items. We could introduce a notion of last-used timestamps for each item in the hashtable and update these timestamps during accessing the keys in `get()` method.
 
@@ -58,7 +58,7 @@ Let's not get hung up on hashtables. The problem with tracking item usage can be
 ![Cache based a linked list](./img/cache-based-on-linked-list.svg "Cache based a linked list")
 <div class="image-title">Cache based a linked list</div>
 
-With linked lists, we could **keep track of item usages in a constant time**. We could simply move the item we currently access to the top of the list. In a natural way, **least used items end up being at the very bottom of the list** and we would get a list ordered by item usage as we go. Since we need to relink our items, it would be helpful to have reference to the previous and next items on the list.
+With linked lists, we could **keep track of item usages in constant time**. We could simply move the item we currently access to the top of the list. In a natural way, **least used items end up being at the very bottom of the list** and we would get a list ordered by item usage as we go. Since we need to relink our items, it would be helpful to have reference to the previous and next items on the list.
 
 Nevertheless, linked lists don't meet our requirements completely. It would **take us O(n) in order to find and retrieve item by key**. This is a sad complexity for cache storages.
 
@@ -144,7 +144,7 @@ class LinkedList:
         item.next = None
 ```
 
-All node manipulations (e.g. `add_to_head()`, `unlink()` methods) operates in a constant time and doesn't depend on the size of the linked list.
+All node manipulations (e.g. `add_to_head()`, `unlink()` methods) operates in constant time and doesn't depend on the size of the linked list.
 
 Having a linked list implemented, we can actually code the idea of LRU architecture we came up with:
 
@@ -218,7 +218,7 @@ class LRUCache:
 
 ```
 
-The `get()` and `put()` methods only rely on methods that run in constant time, so our implementation has **a constant time on average**. Just like we have required earlier. In order to get here, we consume `O(2N)` memory to build a map and a linked list.
+The `get()` and `put()` methods only rely on methods that run in constant time, so our implementation has **constant running time on average**. Just like we have required earlier. In order to get here, we consume `O(2N)` memory to build a map and a linked list.
 
 This solution is common and can be implemented in any general purpose language. Specifically speaking about Python, it provides `OrderedDict` data structure that helps to implement LRU cache in a much **more concise way**. Let's take a look:
 
