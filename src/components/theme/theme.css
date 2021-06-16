@@ -7,12 +7,8 @@ body {
     --white: #ffffff;
     --grey: #ebebeb;
     --brownDarker: #5a4e3e;
-}
-
-body.dark {
-    --pink: #ffa7c4;
-    --white: #ffffff;
+    --regentGray: #8b949e;
     --midnight: #373c49;
     --midnightDarker: #0004;
-    --grey: #ebebeb;
+    --pink: #ffa7c4;
 }
