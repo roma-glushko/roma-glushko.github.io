@@ -12,6 +12,7 @@ keywords:
     - python
 ---
 
+
 While preparing for coding interviews, I went through a large number of algorithmic challenges. I found particularly interesting one subset of problems - challenges related to designing some tools that we all use and rarely stop and think about how they work.
 
 In this article, we are going to take a look at the Least Recently Used (LRU) cache.
