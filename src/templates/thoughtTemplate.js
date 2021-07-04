@@ -32,11 +32,11 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       timeToRead,
       excerpt,
       wordCount: { words },
-      parent: {
-        fields: {
-          gitLogLatestDate
-        }
-      }
+      // parent: {
+      //   fields: {
+      //     gitLogLatestDate = ''
+      //   } = {}
+      // } = {}
     },
   } = data
 
@@ -77,7 +77,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         title={title}
         path={path}
         datePublished={fullDate}
-        dateModified={gitLogLatestDate}
+        dateModified={fullDate} // gitLogLatestDate
         content={rawMarkdownBody}
         wordCount={words}
         keywords={keywords}
