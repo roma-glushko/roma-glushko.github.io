@@ -1,7 +1,7 @@
 ---
 path: "/thoughts/sunday-morning-problem/"
 date: "2021-07-04 10:30:00"
-published: false
+published: true
 title: "Sunday Morning Problem"
 cover: "./pexels-kaboompics-com-6067.jpg"
 coverCredits: 'Photo by <a target="_blank" rel="noopener" href="https://www.pexels.com/@kaboompics">Kaboompics</a> on <a target="_blank" rel="noopener" href="https://www.pexels.com/photo/coffee-magazine-6067">Pexels</a>'
