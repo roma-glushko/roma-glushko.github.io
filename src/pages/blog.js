@@ -41,7 +41,7 @@ class BlogListPage extends Component {
               <MainNavigation space={"blog"} />
             </div>
             <div className="blog-intro">
-              Technical blog about machine learning, data science, math and software engineering.
+              Technical notes about machine learning, data science, math and software engineering. Recording what I learn everyday.
             </div>
             <div className="misc">
               <div className="theme-switcher">
