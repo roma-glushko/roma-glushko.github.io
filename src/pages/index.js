@@ -36,7 +36,7 @@ const titles = shuffleArray([
 
 const IndexPage = () => (
     <Layout>
-        <SEO title="Roman Glushko - Machine Learning and Software Engineer Developer" isUniqueTitle={true} className="home-page" pagePath="/" />
+        <SEO title="Roman Glushko - Machine Learning and Software Engineer" isUniqueTitle={true} className="home-page" pagePath="/" />
         <main className="container">
             <div className="row">
                 <div className="column homepage-sidebar sidebar">
