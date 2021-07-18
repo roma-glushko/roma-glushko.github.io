@@ -144,7 +144,7 @@ For this reason, we need to make sure that message workers have business logic t
 
 `video: title: "Summary": https://media.giphy.com/media/3o7btNhMBytxAM6YBa/giphy.mp4`
 
-I hope you noticed that designing distributed systems is a great job for pessimists, because you always need to expect that system would partial fail at some point.
+I hope you noticed that designing distributed systems is a good fit for pessimists, because you always need to expect that system would partial fail at some point.
 
 Other than that, distributed systems have inherited complexity associated with their distributed nature. That's why you need to go building such a system if they are absolutely needed.
 
