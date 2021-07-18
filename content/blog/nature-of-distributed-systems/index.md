@@ -18,7 +18,7 @@ But **what do we even know about distributed systems? Are they really different 
 
 `video: title: "Welcome to the real world of distributed systems": https://media.giphy.com/media/2u8vej0S5Mx7W/giphy.mp4`
 
-Despite all benefits, I feel like many people underestimate challenges that come out of the box with distributed setups. So our goal is to dig into the nature of distributed systems and improve our reasoning about them.
+Despite all benefits, I feel like many people **underestimate challenges** that come out of the box with distributed setups. So our goal is to dig into the nature of distributed systems and improve our reasoning about them.
 
 ## Single Server Setup
 
@@ -98,7 +98,7 @@ In order to imagine all of this, let's take a look at [some measurements](http:/
 - Read 1 MB sequentially from HDD - 30,000,000ns (30,000us or 30 ms)
 - Send packet CA -> Netherlands -> CA - 150,000,000ns (150,000us or 150ms)
 
-This may be counter intuitive, but in some cases communication over network may be faster than reading from disk. Above we see that reading 1MB of data is a few times faster from 1Gbps network than from HDD.
+This may be counter intuitive, but in some cases **communication over network may be faster than reading from disk**. Above we see that reading 1MB of data is a few times faster from 1Gbps network than from HDD.
 
 ## CAP Theorem
 
@@ -142,13 +142,13 @@ For this reason, we need to make sure that message workers have business logic t
 
 ## Summary
 
-`video: title: "Summary": https://media.giphy.com/media/3o7btNhMBytxAM6YBa/giphy.mp4`
-
 I hope you noticed that designing distributed systems is a good fit for pessimists, because you always need to expect that system would partial fail at some point.
 
 Other than that, distributed systems have inherited complexity associated with their distributed nature. That's why you need to go building such a system if they are absolutely needed.
 
 Distributed world is all about tradeoffs. You need to know and realize them to successfully build robust distributed systems.
+
+`video: title: "Summary": https://media.giphy.com/media/3o7btNhMBytxAM6YBa/giphy.mp4`
 
 ## References
 
