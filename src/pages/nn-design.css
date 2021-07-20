@@ -50,12 +50,6 @@ body.dark {
     }
 }
 
-.blog-grid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
 .blog-grid.no-posts {
     justify-content: center;
 }
