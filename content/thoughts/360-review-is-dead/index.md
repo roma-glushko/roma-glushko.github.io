@@ -37,16 +37,16 @@ In my teams, we did not use 360 review. Partially because of the points I listed
 
 What other ways do we have to organize the feedback flow in a team? Let's forget the framework that 360 review puts us in and just purely focus on the common sense.
 
-It makes no sense to tell a person that he or she did a task wrong a year ago. This is already irrelevant. No one else really remember that and it's hard to analyze. 
+It makes no sense to tell a person that he or she did a task wrong a year ago. This is already irrelevant. No one else really remember that and it's hard to analyze.
 
 The rule #1: feedback should **be in context of recent situations**. The more promptly the feedback is, the better for person. The person would feel connected to the situation and it would be a way easier to draw the right conclusions and analyze ramifications.
 
-This doesn't mean you should be radically telling the first thing that comes to your mind. No, that's wrong and, in fact, can skew all constructive part of the feedback.  
+This doesn't mean you should be radically telling the first thing that comes to your mind. No, that's wrong and, in fact, can skew all constructive part of the feedback. Take some short time to think about the situation and about what you want to say.
 
 The rule #2: **before telling the feedback, make sure you assume the good intention in the other's actions**. This is super important to be respectful and not to sound harsh. No one ever wanted to put the production website down or badly failed some tasks. I don't think so. If you have other opinion, you probably have a bigger fish to fry, than establishing the feedback process.
 
 The rule #3: **no one needs to hear your feedback, if you don't spend some time to think about possible suggestions**. Your peer simply may not know how to improve weak points you are pointing. Take your feedback to the next level by suggesting possible and actionable ways to improve. It could be your personal experience, book you read or course you passed that helped you. All of this is valuable and necessary additions to your feedback.
 
-The rule #4: **facilitate feedbacks in your environment**. Establish culture of appreciation the feedback and educate people on how to properly give feedback for others. No one should be worry to give a feedback to no one else in a team. Feedback should be freely flowing back and forth throughout the working process. This flow is fully decentralized between team members. There are no needs for a third person to process or deliver the feedback.
+The rule #4: **facilitate feedbacks in your environment**. Establish culture of appreciation the feedback and educate people on how to properly give feedback for others (according to empirical rules I told you above). No one should be worry to give a feedback to no one else in a team. Feedback should be freely flowing back and forth throughout the working process. This flow is fully decentralized between team members. There are no needs for a third person to process or deliver the feedback.
 
-People around you came from different backgrounds and have different experience. Frequently, they are smarter and wiser, than you. So be sure to listen to their advice and learn from them. This is a unique opportunity, you should not miss!
+Finally, people around you came from different backgrounds and have different experience. Frequently, they are smarter and wiser, than you. So be sure to listen to their advice and learn from them. This is a unique opportunity, you should not miss!
