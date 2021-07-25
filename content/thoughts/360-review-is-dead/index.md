@@ -9,9 +9,9 @@ keywords:
     - management
 ---
 
-In the management world, there is one off-the-shelf solution to collect performance feedback on employers and it's called 360-degree review.
+In the management world, there is one off-the-shelf solution to collect performance feedback on employees. It's called 360-degree review.
 
-Essentially, this is a form with a few fields where you write about strongest, weakest points of your peers and suggest on how they can improve themselves. This form is usually being sent to all members in the team once per quarter or per half a year. Then all feedbacks are being collected and discussed with people on 1-on-1 meetings. This procedure is so popular that I'm sure you were involved in it at least once if you work long enough in the industry.
+Essentially, this is a form with a few fields where you write about strongest, weakest points of each of your peer and suggest on how they can improve themselves. This form is usually being sent to all members in the team once per quarter or per half a year. Then all feedbacks are being collected and discussed with people on 1-on-1 meetings. This procedure is so popular that I'm sure you were involved in it at least once if you work long enough in the industry.
 
 ## What's Wrong?
 
@@ -47,6 +47,6 @@ The rule #2: **before telling the feedback, make sure you assume the good intent
 
 The rule #3: **no one needs to hear your feedback, if you don't spend some time to think about possible suggestions**. Your peer simply may not know how to improve weak points you are pointing. Take your feedback to the next level by suggesting possible and actionable ways to improve. It could be your personal experience, book you read or course you passed that helped you. All of this is valuable and necessary additions to your feedback.
 
-The rule #4: **facilitate feedbacks in your environment**. Establish culture of appreciation for the feedback and educate people on how to give feedback for others. No one should be worry to give a feedback to no one in a team. Feedback should be flowing back and forth pretty freely throughout the working process. This is how the healthy team's feedback looks like.
+The rule #4: **facilitate feedbacks in your environment**. Establish culture of appreciation the feedback and educate people on how to properly give feedback for others. No one should be worry to give a feedback to no one else in a team. Feedback should be flowing back and forth pretty freely throughout the working process. This is how the healthy team's feedback looks like.
 
 People around you came from different backgrounds and have different experience. Frequently, they are smarter and wiser, than you. So be sure to listen to their advice and learn from them. This is a unique opportunity you should not miss!
