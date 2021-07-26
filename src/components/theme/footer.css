@@ -28,9 +28,18 @@ footer .footer-wrapper {
     padding: 4rem 1rem;
 }
 
-.copyright {
+footer .footer-wrapper .copyright {
     color: var(--copyrightColor);
     text-align: center;
+}
+
+footer .footer-wrapper .copyright a {
+    color: var(--copyrightColor);
+    font-weight: bold;
+}
+
+footer .footer-wrapper .copyright a:hover {
+    color: var(--footerIconColor);
 }
 
 .footer-separator {
