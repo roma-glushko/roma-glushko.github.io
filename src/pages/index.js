@@ -143,7 +143,7 @@ const IndexPage = () => {
                 <div>
                     <h2 className="activity-title">Learn & Share</h2>
                     <div>
-                        <p>I'm a life-time learner interested in a broad variety of topics: Machine and Deep Learning, Science-related Theory, Computer Science, Software Engineering, Distributed System Design, eCommerce and so on.</p>
+                        <p>I'm a lifetime learner interested in a broad variety of topics: Machine and Deep Learning, Science-related Theory, Computer Science, Software Engineering, Distributed System Design, eCommerce and so on.</p>
                         <p>When I have spare time, I enjoy putting together my knowledge about those topics and share with others. </p>
                         <div className="recent-posts">
                             {recentPosts.edges.map(({node}) => (
@@ -169,7 +169,7 @@ const IndexPage = () => {
                     <h2 className="activity-title">Think & Write</h2>
                     <div>
                         <p>Another thing I like to do is to explore this world, think about its components, their interconnections and finally capture my observations and thoughts. </p>
-                        <p>There thoughts are usually about self-development, management and people perceptions and mindsets.</p>
+                        <p>These thoughts are usually about self-development, management and people perceptions and mindsets.</p>
                         <div className="recent-thoughts">
                             {recentThoughts.edges.map(({node}) => (
                                 <ThoughtTeaser
