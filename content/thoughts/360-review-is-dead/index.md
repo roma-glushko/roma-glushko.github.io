@@ -1,6 +1,6 @@
 ---
 path: "/thoughts/360-review-is-dead/"
-date: "2021-07-25 17:50:00"
+date: "2021-07-26 9:20:00"
 published: true
 title: "360 Review is Dead"
 cover: "./charles-deluvio-Lks7vei-eAg-unsplash.jpeg"
