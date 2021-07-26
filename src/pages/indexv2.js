@@ -47,7 +47,7 @@ const IndexPage = () => {
           query {
             recentPosts: allMarkdownRemark(
                 sort: {order: DESC, fields: [frontmatter___date]}, 
-                limit: 3, 
+                limit: 2, 
                 filter: {
                     fileAbsolutePath: {regex: "/(blog)/"}, 
                     frontmatter: {published: {eq: true}}
@@ -160,8 +160,8 @@ const IndexPage = () => {
                                 />
                             ))}
                         </div>
-                        <div>
-                            <a className="read-all-button" href="">Read All Posts</a>
+                        <div className="all-button-wrapper">
+                            <a className="read-all-button" href="/blog/">Read All Posts</a>
                         </div>
                     </div>
                 </div>
@@ -184,8 +184,8 @@ const IndexPage = () => {
                                 />
                             ))}
                         </div>
-                        <div>
-                            <a className="read-all-button" href="">Read All Thoughts</a>
+                        <div className="all-button-wrapper">
+                            <a className="read-all-button" href="/thoughts/">Read All Thoughts</a>
                         </div>
                     </div>
                 </div>

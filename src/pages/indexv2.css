@@ -3,11 +3,15 @@
 body {
     --socialBackgroundColor: var(--white);
     --activityTitleColor: var(--red);
+    --allPostsButtonColor: var(--black);
+    --allPostsButtonTextHoverColor: var(--white);
 }
 
 body.dark {
     --socialBackgroundColor: var(--midnight);
     --activityTitleColor: var(--pink);
+    --allPostsButtonColor: var(--grey);
+    --allPostsButtonTextHoverColor: var(--midnight);
 }
 
 .homepagev2 .social {
@@ -41,10 +45,29 @@ body.dark {
 }
 
 .homepagev2 .read-all-button {
-    padding: 1rem;
-    border: 1px solid;
+    display: inline-block;
+    background: transparent;
+    border: 2px solid var(--allPostsButtonColor);
     border-radius: 5px;
+    font-weight: bold;
+    padding: 1rem;
     transition: 0.15s;
+
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: ease;
+}
+
+.homepagev2 .all-button-wrapper {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.homepagev2 .read-all-button:hover {
+    color: var(--allPostsButtonTextHoverColor);
+    background-color: var(--allPostsButtonColor);
 }
 
 .homepagev2 .mylife .activity-title {
@@ -70,7 +93,7 @@ body.dark {
 }
 
 .homepagev2 .mylife .recent-posts .blog-item .article-header .cover {
-    max-height: 20rem;
+    max-height: 200px;
 }
 
 .homepagev2 .mylife .recent-posts .blog-item .article-details {
@@ -115,7 +138,7 @@ body.dark {
 
 .homepagev2 .recent-thoughts .thought-item .cover,
 .homepagev2 .recent-thoughts .thought-item .cover-filter {
-    max-height: 20rem;
+    max-height: 200px;
 }
 
 @media screen and (max-width: 980px) {
