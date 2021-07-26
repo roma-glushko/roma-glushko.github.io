@@ -1,15 +1,18 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import PersonRichSnippet from "../components/homepage/person-rich-snippet"
-import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import Avatar from "../components/homepage/avatar"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ReactRotatingText from "react-rotating-text"
 import MainNavigation from "../components/theme/main-navigation"
+import BlogTeaser from "../components/blog/blog-teaser"
+import ThoughtTeaser from "../components/thoughts/thought-teaser"
 import SocialLinks from "../components/homepage/social-links"
-import { Link } from "gatsby"
+import NNBackground from "../components/nn-design/nn-background"
+import Footer from "../components/theme/footer"
 
 import "./index.css"
 
@@ -22,7 +25,7 @@ const titles = shuffleArray([
     'Human 🧔',
     'ML Engineer 🔬',
     'Passive Traveler 🏕',
-    'OpenSource Lover 🤝',
+    'Open Source Lover 👨‍👩‍👧‍👦',
     'Matzah Fan ✡️',
     '5x Magento Certified 🏅',
     'Problem Solver 🧠',
@@ -32,51 +35,181 @@ const titles = shuffleArray([
     'Tea Drinker 🍵',
     'Pythonista 🐍',
     'Idea Generator 💡',
+    'Scooter Driver 🛴',
+    'Software Engineer 👨‍💻',
+    'Life Explorer 🧗‍♂️',
+    'Rookie Hacker 🔐',
 ])
 
-const IndexPage = () => (
+const IndexPage = () => {
+    const {recentPosts, recentThoughts} = useStaticQuery(
+        graphql`
+          query {
+            recentPosts: allMarkdownRemark(
+                sort: {order: DESC, fields: [frontmatter___date]}, 
+                limit: 2, 
+                filter: {
+                    fileAbsolutePath: {regex: "/(blog)/"}, 
+                    frontmatter: {published: {eq: true}}
+                }) {
+                    edges {
+                        node {
+                            id
+                            timeToRead
+                            frontmatter {
+                            humanDate: date(formatString: "MMM D, YYYY")
+                            fullDate: date(formatString: "YYYY-MM-DD")
+                            path
+                            title
+                            keywords
+                            excerpt
+                            cover {
+                                childImageSharp {
+                                  fluid(maxWidth: 400) {
+                                    ...GatsbyImageSharpFluid
+                                  }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            recentThoughts: allMarkdownRemark(
+                    sort: {order: DESC, fields: [frontmatter___date]}, 
+                    limit: 3, 
+                    filter: {
+                        fileAbsolutePath: {regex: "/(thoughts)/"}, 
+                        frontmatter: {published: {eq: true}}
+                    }) {
+                        edges {
+                            node {
+                                id
+                                timeToRead
+                                excerpt(pruneLength: 100)
+                                frontmatter {
+                                    humanDate: date(formatString: "MMM D, YYYY")
+                                    fullDate: date(formatString: "YYYY-MM-DD")
+                                    path
+                                    title
+                                    keywords
+                                    cover {
+                                        childImageSharp {
+                                        fluid(maxWidth: 400) {
+                                            ...GatsbyImageSharpFluid
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+          }
+        `
+      )
+    
+    return (
     <Layout>
-        <SEO title="Roman Glushko - Machine Learning and Software Engineer" isUniqueTitle={true} className="home-page" pagePath="/" />
-        <main className="container">
-            <div className="row">
-                <div className="column homepage-sidebar sidebar">
-                    <div className="logo">
-                        <div className="avatar">
-                            <Avatar />
+        <SEO title="Roman Glushko - Machine Learning Engineer, Magento eCommerce Software Developer and Life Explorer" isUniqueTitle={true} className="home-page-v2" pagePath="/" />
+        <main className="homepagev2">
+            <div className="intro">
+                <div id="hero-header" className="hero-header homepage-sidebar">
+                    <NNBackground />
+                    <figure className="hero-intro">
+                        <div className="logo">
+                            <div className="avatar">
+                                <Avatar />
+                            </div>
                         </div>
-                    </div>
-                    <div className="main">
                         <h1 className="name">
                             <span className="first-name">Roman</span> <span className="second-name">Glushko</span>
                         </h1>
                         <div className="title">
                             <ReactRotatingText items={titles} />
                         </div>
-                    </div>
-                    <MainNavigation space={"homepage"} />
-                    <SocialLinks iconSize="sm" />
-                    <div className="theme-switcher">
-                        <ThemeSwitcher />
-                    </div>
-                </div>
-                <div className="column my-story-content">
-                    <div className="intro">
-                        <p className="hey">Hey, I'm Roman <span role="img">👋</span></p>
-                        <p className="title-summary">
-                            <a href="https://www.linkedin.com/in/glushko-roman/" target="blank">AI Researcher and Magento eCommerce Software Engineer</a> <span role="img">💼</span>
-                        </p>
-                    </div>
-                    <p>I have been doing software engineering for more than five years now. Most of this time, I was working as a Magento Software Engineer <span role="img">💻</span> at <a href="https://www.atwix.com/" target="blank">Atwix Inc.</a></p>
-                    <p>After some time, I grew to a technical lead position and was leading several teams at the company <span role="img">🌱</span> We had been helping merchants from around the globe to run their business on <a href="https://magento.com/" target="blank">Magento</a> 🛒 I learned how to translate business problems into software solutions, automate processes and work with people <span role="img">🙌</span> Also, I have passed 5 Magento certifications to expand my knowledge <span role="img">🏅</span></p>
-                    <p>I started <a href="https://www.atwix.com/tag/magenews/" target="blank">Atwix MageNews digest</a> <span role="img">🗞</span> It's a monthly roundup of the most important news and updates from the Magento community. It's useful for everyone: from developers to merchants <span role="img">🤝</span> </p>
-                    <p><strong>Most importantly</strong> I have decided to take a learning sabbatical recently. The goal is to obtain a Machine Learning Nanodegree <span role="img">👨‍🔬</span> and help to transform this world and our lives with AI-based systems. I know this is a big rock. So it's time to <Link to="/blog/">LEARN</Link><span role="img">📚</span></p>
-                    <p>For dessert, innovations and fresh ideas always drive me. That's why I do <a href="https://github.com/roma-glushko?tab=repositories" target="blank">open source projects</a><span role="img">🛠</span> and journal <Link to="/thoughts/">my thoughts</Link><span role="img">✏️</span> You may find them useful as well.</p>
+                        <MainNavigation space={"homepage"} />
+                        <SocialLinks iconSize="sm" />
+                        <div className="theme-switcher">
+                            <ThemeSwitcher />
+                        </div>
+                    </figure>
                 </div>
             </div>
+            <div className="mylife">
+                <div>
+                    <p className="hey">Hey,</p>
+                    <p>My name is Roman 👋</p>
+                    <p>I'm a Machine Learning and Software Engineer, Science Geek and Life Explorer.</p>
+                </div>
+                <div>
+                    <h2 className="activity-title">Learn & Share</h2>
+                    <div>
+                        <p>I'm a life-time learner interested in a broad variety of topics: Machine and Deep Learning, Science-related Theory, Computer Science, Software Engineering, Distributed System Design, eCommerce and so on.</p>
+                        <p>When I have spare time, I enjoy putting together my knowledge about those topics and share with others. </p>
+                        <div className="recent-posts">
+                            {recentPosts.edges.map(({node}) => (
+                                <BlogTeaser
+                                    key={node.id}
+                                    title={node.frontmatter.title}
+                                    url={node.frontmatter.path}
+                                    timeToRead={node.timeToRead}
+                                    publishedHumanDate={node.frontmatter.humanDate}
+                                    publishedFullDate={node.frontmatter.fullDate}
+                                    excerpt={node.frontmatter.excerpt}
+                                    cover={node.frontmatter.cover}
+                                    keywords={node.frontmatter.keywords}
+                                />
+                            ))}
+                        </div>
+                        <div className="all-button-wrapper">
+                            <a className="read-all-button" href="/blog/">Read All Posts</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 className="activity-title">Think & Write</h2>
+                    <div>
+                        <p>Another thing I like to do is to explore this world, think about its components, their interconnections and finally capture my observations and thoughts. </p>
+                        <p>There thoughts are usually about self-development, management and people perceptions and mindsets.</p>
+                        <div className="recent-thoughts">
+                            {recentThoughts.edges.map(({node}) => (
+                                <ThoughtTeaser
+                                    key={node.id}
+                                    title={node.frontmatter.title}
+                                    url={node.frontmatter.path}
+                                    timeToRead={node.timeToRead}
+                                    publishedHumanDate={node.frontmatter.humanDate}
+                                    publishedFullDate={node.frontmatter.fullDate}
+                                    excerpt={node.excerpt}
+                                    cover={node.frontmatter.cover}
+                                />
+                            ))}
+                        </div>
+                        <div className="all-button-wrapper">
+                            <a className="read-all-button" href="/thoughts/">Read All Thoughts</a>
+                        </div>
+                    </div>
+                </div>
+                {/* <div>
+                    <h2>Code & Open Source</h2>
+                </div> */}
+                {/* <div>
+                    <h2>Experiment & Deploy</h2>
+                </div> */}
+                {/* <div>
+                    <h2 className="activity-title">Work & Help</h2>
+                    <div>
+                        <p>If you have a great challenge to solve with Machine Learning and Software Engineering, feel free to let me know! </p>
+                        <p>Here is my CVs, by the way: </p>
+
+                        Insert CVs here
+                    </div>
+                </div> */}
+            </div>
         </main>
-        <BreadcrumbsRichSnippet crumbs={[]} />
+        <Footer />
         <PersonRichSnippet />
-    </Layout>
-)
+    </Layout>)
+}
+
 
 export default IndexPage
