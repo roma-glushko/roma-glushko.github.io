@@ -109,7 +109,7 @@ const IndexPage = () => {
     
     return (
     <Layout>
-        <SEO title="Roman Glushko - Machine Learning Engineer, Magento eCommerce Software Developer and Life Explorer" isUniqueTitle={true} className="home-page-v2" pagePath="/" />
+        <SEO title="Roman Glushko - Machine Learning and Software Engineer, Life Explorer" isUniqueTitle={true} className="home-page-v2" pagePath="/" />
         <main className="homepagev2">
             <div className="intro">
                 <div id="hero-header" className="hero-header homepage-sidebar">
