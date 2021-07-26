@@ -2,10 +2,16 @@
 
 body {
     --socialBackgroundColor: var(--white);
+    --activityTitleColor: var(--red);
 }
 
 body.dark {
     --socialBackgroundColor: var(--midnight);
+    --activityTitleColor: var(--pink);
+}
+
+.homepagev2 .social {
+    margin-bottom: 20px;
 }
 
 .homepagev2 .hero-intro {
@@ -30,9 +36,22 @@ body.dark {
     margin: 0 auto;
 }
 
+.homepagev2 .mylife p {
+    line-height: 1.8;
+}
+
+.homepagev2 .read-all-button {
+    padding: 1rem;
+    border: 1px solid;
+    border-radius: 5px;
+    transition: 0.15s;
+}
+
 .homepagev2 .mylife .activity-title {
+    color: var(--activityTitleColor);
     font-family: 'Dancing Script', cursive;
     font-size: 4rem;
+    text-align: center;
 }
 
 .homepagev2 .mylife .recent-posts {
@@ -60,6 +79,7 @@ body.dark {
     flex-direction: column;
     justify-content: center;
     padding: 10px;
+    padding-left: 1.5rem;
 }
 
 .homepagev2 .avatar {
@@ -78,3 +98,54 @@ body.dark {
 .homepagev2 .theme-switcher {
     pointer-events: all;
 }
+
+.homepagev2 .recent-thoughts {
+    display: flex;
+}
+
+.homepagev2 .recent-thoughts .thought-item {
+    padding-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.homepagev2 .recent-thoughts .thought-item h2 {
+    font-size: 1.3rem;
+}
+
+.homepagev2 .recent-thoughts .thought-item .cover,
+.homepagev2 .recent-thoughts .thought-item .cover-filter {
+    max-height: 20rem;
+}
+
+@media screen and (max-width: 980px) {
+    .homepagev2 .mylife {
+        margin: 1rem;
+    }
+
+    .homepagev2 .mylife .recent-posts .blog-item {
+        flex-direction: column;
+    }
+
+    .homepagev2 .mylife .recent-thoughts {
+        flex-direction: column;
+    }
+
+    /* .homepagev2 .recent-thoughts .thought-item .cover,
+    .homepagev2 .recent-thoughts .thought-item .cover-filter {
+        max-height: fit-content;
+    } */
+
+    .homepagev2 .mylife .recent-posts .blog-item .article-header {
+        max-width: 100%;
+    }
+
+    .homepagev2 .mylife .recent-posts .blog-item .article-details {
+        padding-left: 0;
+    }
+
+    .homepagev2 .recent-thoughts .thought-item {
+        padding-right: 0;
+    }
+}
+

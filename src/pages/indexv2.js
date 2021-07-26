@@ -12,6 +12,7 @@ import BlogTeaser from "../components/blog/blog-teaser"
 import ThoughtTeaser from "../components/thoughts/thought-teaser"
 import SocialLinks from "../components/homepage/social-links"
 import NNBackground from "../components/nn-design/nn-background"
+import Footer from "../components/theme/footer"
 
 import "./indexv2.css"
 
@@ -46,7 +47,7 @@ const IndexPage = () => {
           query {
             recentPosts: allMarkdownRemark(
                 sort: {order: DESC, fields: [frontmatter___date]}, 
-                limit: 2, 
+                limit: 3, 
                 filter: {
                     fileAbsolutePath: {regex: "/(blog)/"}, 
                     frontmatter: {published: {eq: true}}
@@ -75,7 +76,7 @@ const IndexPage = () => {
             }
             recentThoughts: allMarkdownRemark(
                     sort: {order: DESC, fields: [frontmatter___date]}, 
-                    limit: 2, 
+                    limit: 3, 
                     filter: {
                         fileAbsolutePath: {regex: "/(thoughts)/"}, 
                         frontmatter: {published: {eq: true}}
@@ -143,7 +144,7 @@ const IndexPage = () => {
                     <h2 className="activity-title">Learn & Share</h2>
                     <div>
                         <p>I'm a life-time learner interested in a broad variety of topics: Machine and Deep Learning, Science-related Theory, Computer Science, Software Engineering, Distributed System Design, eCommerce and so on.</p>
-                        <p>When I have spare time, I enjoy putting together my knowledge about those topics and share with other people. </p>
+                        <p>When I have spare time, I enjoy putting together my knowledge about those topics and share with others. </p>
                         <div className="recent-posts">
                             {recentPosts.edges.map(({node}) => (
                                 <BlogTeaser
@@ -159,14 +160,16 @@ const IndexPage = () => {
                                 />
                             ))}
                         </div>
+                        <div>
+                            <a className="read-all-button" href="">Read All Posts</a>
+                        </div>
                     </div>
                 </div>
                 <div>
                     <h2 className="activity-title">Think & Write</h2>
                     <div>
-                        <p>Another thing I like to do is to explore this worlds, think about its components, their interconnections and finally capture my observations and thoughts. </p>
+                        <p>Another thing I like to do is to explore this world, think about its components, their interconnections and finally capture my observations and thoughts. </p>
                         <p>There thoughts are usually about self-development, management and people perceptions and mindsets.</p>
-
                         <div className="recent-thoughts">
                             {recentThoughts.edges.map(({node}) => (
                                 <ThoughtTeaser
@@ -181,6 +184,9 @@ const IndexPage = () => {
                                 />
                             ))}
                         </div>
+                        <div>
+                            <a className="read-all-button" href="">Read All Thoughts</a>
+                        </div>
                     </div>
                 </div>
                 {/* <div>
@@ -189,7 +195,7 @@ const IndexPage = () => {
                 {/* <div>
                     <h2>Experiment & Deploy</h2>
                 </div> */}
-                <div>
+                {/* <div>
                     <h2 className="activity-title">Work & Help</h2>
                     <div>
                         <p>If you have a great challenge to solve with Machine Learning and Software Engineering, feel free to let me know! </p>
@@ -197,9 +203,10 @@ const IndexPage = () => {
 
                         Insert CVs here
                     </div>
-                </div>
+                </div> */}
             </div>
         </main>
+        <Footer />
         <PersonRichSnippet />
     </Layout>)
 }
