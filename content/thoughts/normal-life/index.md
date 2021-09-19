@@ -13,7 +13,7 @@ keywords:
 How do you imagine a normal life?
 
 It's like driving a comfortable car. You are going well. The weather outside is shining.
-You feel calm and everything seems to be under the control. You are driving toward your goals and plans.
+You feel calm and everything seems to be under control. You are driving towards your goals and plans.
 Nothing stops you!
 
 Have you ever considered roadblocks, car incidents or getting lost as a part of a normal life?

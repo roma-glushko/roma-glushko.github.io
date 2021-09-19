@@ -13,7 +13,7 @@ keywords:
 
 Don't search for disadvantages, because you will definitely find something! It's just easier to see the disadvantages. Look around: everything has disadvantages. At the same time, everything has advantages.
 
-This is a poor approach to start with disadvantages. Instead, try to inspect the advantages.
+It is a poor approach to start with disadvantages. Instead, try to inspect the advantages.
 
 I heard one inspiring story about this. Someone was walking along the street and saw a dead dog. Other walkers expressed revulsion.
 
