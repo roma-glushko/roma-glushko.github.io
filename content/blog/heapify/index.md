@@ -21,7 +21,7 @@ Well, then we would reinvent ~~bicycle~~ the priority queue.
 
 `video: title: "Priority": https://media.giphy.com/media/3orif1K6QR54NlWzLO/giphy.mp4`
 
-**The priority queue or heap** is a data structure that efficiently allows retrieving the next queued item with min or max importance score.
+**The priority queue or heap** is a data structure that efficiently allows the retrieval of the next queued item with min or max importance score.
 
 ## Nearly Complete Binary Tree
 
@@ -54,7 +54,7 @@ The heap has a distinct property that actually makes it helpful:
 To explain how all of this can be useful, we are going to implement the main heap functions from scratch.
 ## Heap Building
 
-There is going to be a custom `PriorityQueue` class which takes an arbitrary array of integers, make a heap from it and sustain the heap property during all operations.
+There is going to be a custom `PriorityQueue` class which takes an arbitrary array of integers, makes a heap from it and sustains the heap property during all operations.
 
 The first thing we need to do is to build a max heap from an unsorted array. We can already visualize the array as a heap, but it would **luck the max heap property**.
 
@@ -124,7 +124,7 @@ class PriorityQueue:
         return len(self.items)
 ```
 
-Complexity of this algorithm is $\Theta(n)$. This is because we check each position only once making our way up the heap. All levels below the current one at each point of time are already satisfying the heap property. So there are no needs to back to them again.
+Complexity of this algorithm is $\Theta(n)$. This is because we check each position only once making our way up the heap. All levels below the current one at each point of time are already satisfying the heap property. So there is no need to back them up.
 
 ## Adding a New Element
 
@@ -284,7 +284,7 @@ In this article, we have reviewed how to implement a priority queue, what proper
 
 If the heap concept was new for you, try to do a few problems from the practice section.
 
-Finally, let me in the comments what unusual applications of heaps have you seen in your practice.
+Finally, let me know in the comments what unusual applications of heaps you have seen in your practice.
 
 ## References
 

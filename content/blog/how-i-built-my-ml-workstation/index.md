@@ -17,7 +17,7 @@ Kaggle Kernels and Google Colab are great.
 
 I would drop my mic at this point if this article was not about building a custom ML workstation.
 
-There are always some "buts" that make our lives harder. When you start to approach nearly real-life problems and you see hundreds of gigabytes of large datasets, your gut feeling starts to tell you that your CPU or AMD GPU devices are not going to be enough to do meaningful things. This is how I came here.
+There are always some "buts" that make our lives harder. When you start to approach problems that are akin to real-life ones and you see hundreds of gigabytes of large datasets, your gut feeling starts to tell you that your CPU or AMD GPU devices are not going to be enough to do meaningful things. This is how I came here.
 
 I was taking part in <a href="https://www.kaggle.com/c/hpa-single-cell-image-classification">Human Protein Atlas (HPA) - Single Cell Classification</a> competition on Kaggle. HPA dataset contains nearly 150Gb of 8bits 4-channels protein images. 16bits variant of the dataset holds 350Gb.
 
@@ -30,11 +30,11 @@ Sounded good. I thought I would be able to prototype locally and then execute no
 
 ## Life Without GPU
 
-As it turned out, there are a lot of frictions in the mentioned workflow.
+As it turned out, there are a lot of issues I encountered in the mentioned workflow.
 
 First of all, my solution source code quickly became an entire project with a lot of source code and dependencies. I used <a href="https://python-poetry.org/">poetry</a> as a package manager and decided to generate an installable package every time I made meaningful changes to the project in order to test them in the cloud. These installable packages I was uploading into a private Kaggle dataset which in turn was mounted to a notebook. The notebook was calling classes and functions from the package.
 
-This approach turns out to have underwater stones. Kaggle notebooks randomly thrown weird errors after installing project packages. I think it was related to dependency version mismatch and I spotted errors like "method X is not found in package Y", etc. Autoreload was not helpful. Several mornings in a row I started my day dealing with new and new suddenly occurred unearthly issues.
+This approach turns out to have underwater stones. Kaggle notebooks randomly threw weird errors after installing project packages. I think it was related to dependency version mismatch and I spotted errors like "method X is not found in package Y", etc. Autoreload was not helpful. Several mornings in a row I started my day dealing with endless amount of new issues that had arisen all of the sudden.
 
 `video: title: "Unexpected Issues": https://media.giphy.com/media/l2YWmG9FBDtiqHTi0/giphy.mp4`
 
@@ -46,11 +46,11 @@ All in all, the experience was frustrating. I clearly realized if I wanted to do
 
 ## Investigation
 
-I have never been interested in custom PC building, hardware or gaming. So it took me a while to understand what did it cost me to build a custom machine.
+I have never been interested in custom PC building, hardware or gaming. So it took me a while to understand what it would cost me to build a custom machine.
 
 `video: title: "Need more information": https://media.giphy.com/media/kxkmUjgUwzhk7uIxOA/giphy.mp4`
 
-There are a lot of resources on building gaming PCs. While building a deep learning workstation sounds like a similar task, there are nuances that should be accounted in order to build a cost-efficient and ML-compatible machine.
+There are a lot of resources on building gaming PCs. While building a deep learning workstation sounds like a similar task, there are nuances that should be accounted for in order to build a cost-efficient and ML-compatible machine.
 
 I have found a few useful blog posts which helped me quickly to grasp the topic. Particularly, I could highlight two posts from <a target="_blank" rel="noopener" href="https://twitter.com/Tim_Dettmers">Tim Dettmers</a>:
 
@@ -119,7 +119,7 @@ The motherboard provides other interfaces to power your stuff. Among them, the o
 
 **The number of PCI ports** is another thing to consider. Since PCI ports are used to connect GPUs, you need to plan ahead your build and rooms for upgrades (to be able to add more cards in the future, for example). Also, pay attention that, effectively, graphic cards take more than one slot of space. We want to have **as much space as possible** between cards for **better air cooling**.
 
-Also, I'm pretty sure you would be happy to have build-in WiFi adapter. Otherwise, the only way to connect a PC would be via ethernet cable which is not always convenient (or just buy an external adapter).
+Also, I'm pretty sure you would be happy to have built-in WiFi adapter. Otherwise, the only way to connect a PC would be via ethernet cable which is not always convenient (or just buy an external adapter).
 
 ### CPU
 
@@ -229,7 +229,7 @@ Now it's time to get our hands dirty!
 
 ### Motherboard
 
-The motherboard is a central component. So I started unboxing from it.
+The motherboard is a central component. So I started unboxing it.
 
 ![MSI X470 Gaming Max Unboxing](./img/msi-x470-gaming-max-unboxing.jpg "MSI X470 Gaming Max Unboxing")
 <div class="image-title">Motherboard Unboxing</div>
@@ -253,7 +253,7 @@ We are going to install the CPU into the special CPU socket on the MoBo. It has 
 ![AM4 CPU Socket](./img/am4-cpu-socket.jpg "AM4 CPU Socket")
 <div class="image-title">CPU Socket</div>
 
-Be super careful with CPU pins. They are very tangible. Notice that there is also a little golden arrow on one of the edges.
+Be super careful with CPU pins. They are very fragile. Notice that there is also a little golden arrow on one of the edges.
 
 ![AM4 CPU Socket](./img/cpu-pins.jpg "CPU Pins")
 <div class="image-title">CPU Pins</div>
@@ -328,7 +328,7 @@ One of the final steps, before you can attach your cooler, is thermal paste inst
 `youtube: [How to use thermal paste?](https://www.youtube.com/embed/-hNgFNH7zhQ)`
 <div class="image-title">How to use thermal paste?</div>
 
-When using thermal gel, you need to cover the CPU chip area as much as possible to allow better removal of CPU heat. Bubbles of airs that could pop up during this procedure would hurt.
+When using thermal gel, you need to cover the CPU chip area as much as possible to allow better removal of CPU heat. Bubbles of airs that could pop up during this procedure could make cooling less effective.
 
 Finally, you can attach your cooler to the top of the CPU. Press CPU a bit to distribute your thermal gel well on the surface.
 
@@ -376,7 +376,7 @@ It's straightforward how to connect CPU and motherboard power cables. However, i
 `youtube: [How to connect the front panel power into JFP port?](https://www.youtube.com/embed/9--Nbg2qKUA)`
 <div class="image-title">How to connect the front panel power into JFP port?</div>
 
-There may be still a few remaining cables to connect to the MoBo. In my case, I had USB, audio and Type-C power cables. The first two I was able to connect while the last one required an adapter since my MoBo doesn't have Type-C ports. So I kept it disconnected. By the way, PCPartsPicker can warn you about such an issue in advanced.
+There may be still a few remaining cables to connect to the MoBo. In my case, I had USB, audio and Type-C power cables. The first two I was able to connect while the last one required an adapter since my MoBo doesn't have Type-C ports. So I kept it disconnected. By the way, PCPartsPicker can warn you about such an issue in advance.
 
 ![Motherboard installed into the computer case](./img/pc-motherboard-installed.jpg "Motherboard installed into the computer case")
 <div class="image-title">Motherboard installed into the computer case</div>
@@ -449,7 +449,7 @@ It's a good time to mount your PSU and take advantage of the cable management sy
 
 ## Software Installation
 
-I considered Ubuntu 20.10 and Windows10 + WSL2 setups. Linux setup is more stable and straightforward now. However, WSL2 sounds to be a pretty viable way to go as well. Tell you more about that next time.
+I considered Ubuntu 20.10 and Windows10 + WSL2 setups. Linux setup is more stable and straightforward now. However, WSL2 seemed to be a pretty viable way to go as well. Tell you more about that next time.
 
 I have only macOS at my hand, so I used <a target="_blank" rel="noopener" href="https://unetbootin.github.io/">the UNetBootIn application</a> to burn a Linux bootable USB. I preferred to use <a target="_blank" rel="noopener" href="https://ubuntu.com/download/alternative-downloads">a BitTorrent</a> to download the Ubuntu 20.10 image.
 

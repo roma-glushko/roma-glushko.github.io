@@ -10,9 +10,9 @@ keywords:
     - distributed system design
 ---
 
-The Internet evolves rapidly. We started  our own hardware servers, moved to managed hostings and now we entered the era of cloud computing. Ever growing need to handle more and more traffic pushes us beyond the limits.
+The Internet evolves rapidly. We started  our own hardware servers, moved to managed hostings and now we have entered the era of cloud computing. The ever growing need to handle more and more traffic pushes us beyond the limits.
 
-As a result, it's so natural nowadays to spin off a few instances on AWS or GCP and start building an own SaaS service that would scale in a way we need. Perhaps, your infrastructure already has load balancing, a couple of nodes or a message queue which means you have already begun with building a distributed system.
+As a result, it's so natural nowadays to spin off a few instances on AWS or GCP and start building one's own SaaS service that will scale in a way we need. Perhaps, your infrastructure already has load balancing, a couple of nodes or a message queue which means you have already begun with building a distributed system.
 
 But **what do we even know about distributed systems? Are they really different to simple single server setup?**
 
@@ -28,7 +28,7 @@ This is probably how we can get in a situation when we tend to apply our single 
 
 - **Latency** - when we have a single server, it's **CPU power and latency** we worry about. In distributed systems, our main concern is **network latency**.
 - **Memory Access** - in a single server, we have access to the **same memory space**, so it may be easier to write programs that interact with each other. You cannot get direct access from one server to another.
-- **Partial Failures** - both distributed and a single node systems have components that could fail. In case of a single server, there may be either total failure of the server (OS crashes or failures on ISP side) or partial failures of the applications installed on the server. Every single component in a distributed setup surely shares these problems. However, they become **undisguisable** from each other. Having more components only **increases a chance that some of them would be affected by some failures**.
+- **Partial Failures** - both distributed and a single node systems have components that could fail. In case of a single server, there may be either total failure of the server (OS crashes or failures on ISP side) or partial failures of the applications installed on the server. Every single component in a distributed setup surely shares these problems. However, they become **undisguisable** from each other. Having more components only **increases the chance that some of them would be affected by some failures**.
 
 These few differences are so significant that they effectively change the way we need to think and build distributed systems.
 
@@ -68,7 +68,7 @@ The only way generals can communicate is via messengers that have to bypass the 
 
 `video: title: "Consensus": https://media.giphy.com/media/XBLppkG4DwyKnplu1v/giphy.mp4`
 
-The situation is complicated as messengers can be intercepted and the message can be fabricated. Also, both messengers and generals can be traitors that are aimed to fail the operation and save the city.
+The situation is complicated as messengers can be intercepted and the message can be fabricated. Also, both messengers and generals can be traitors that are the objective to fail the operation and save the city.
 
 Generals and messengers need to agree on all messages that they send to each other in order to win the battle. This agreement is called **consensus**.
 
@@ -86,7 +86,7 @@ Another resource associated with communication over the network is **bandwidth**
 
 Latency and bandwidth are two main costs of information transportation. However, there are other ones. For example, you will definitely pay for the whole **network infrastructure** needed to make your communication possible. Even if that cost is hidden in the cloud provider tariffs.
 
-Yet another cost is the CPU resource you spend on **serializing and deserializing** data as well as **cost of TCP and HTTPS handshakes**. This is the cost we need to pay in order to transfer data between transportation to application layers. The same story goes when decide to **compress and decompress** data in order to speed up data transmission and optimize bandwidth.
+Yet another cost is the CPU resource you spend on **serializing and deserializing** data as well as **cost of TCP and HTTPS handshakes**. This is the cost we need to pay in order to transfer data between transportation to application layers. The same story goes for when we decide to **compress and decompress** data in order to speed up data transmission and optimize bandwidth.
 
 In order to imagine all of this, let's take a look at [some measurements](http://www.cs.cornell.edu/projects/ladis2009/talks/dean-keynote-ladis2009.pdf) that were done in Google data centers a while ago. They still are useful when you compare them:
 
@@ -102,7 +102,7 @@ This may be counterintuitive, but in some cases, **network communication may be 
 
 ## CAP Theorem
 
-Network hardware and software are not the only unreliable components. We can easily imagine as any of the connected nodes become faulty because of a broken hard drive or RAM stick. In such cases, there is a part of the distributed system that still works and another part that is failed. These situations are just inevitable.
+Network hardware and software are not the only unreliable components. We can easily imagine a situation when some of the connected nodes become faulty because of a broken hard drive or RAM stick. In such cases, there is a part of the distributed system that still works and another part that is failed. These situations are just inevitable.
 
 What can we do about it? We need to manage such failures and build system architectures around this fundamental problem. Such kind of systems are called **fault-tolerant**.
 
@@ -132,7 +132,7 @@ When a client dispatches a message it transmits to the receiver, the receiver pe
 
 Let's make it real by adding a partial failure. Now when the client sends a message and doesn't get a response in a reasonable amount of time. Maybe the receiver is down? Or there was a network failure? Or maybe the receiver is just overloaded at this time and slow down with response?
 
-There is no way to distinguish these issues. The message we try to send may be really important like an order fulfilment request. We are better to be safe than sorry. So the client emits one more message and waits again. We do this until we are sure that the message is received e.g. when we receive an ack message in response.
+There is no way to distinguish these issues. The message we try to send may be really important like an order fulfilment request. We are better to be safe than sorry. So the client sends out one more message and waits again. We do this until we are sure that the message is received e.g. when we receive an ack message in response.
 
 However, at that point, the receiver may get **several duplicated messages**.
 
@@ -142,7 +142,7 @@ For this reason, we need to make sure that message workers have business logic t
 
 ## Summary
 
-I hope you noticed that designing distributed systems is a good fit for pessimists, because you always need to expect that system would partially fail at some point.
+I hope you noticed that designing distributed systems is a good fit for pessimists, because you always need to expect that system could partially fail at some point.
 
 Other than that, distributed systems have inherited complexity associated with their distributed nature. That's why you need to go building such a system if they are absolutely needed.
 
