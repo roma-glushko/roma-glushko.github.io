@@ -67,6 +67,6 @@ BlogPost.propTypes = {
     keywords: PropTypes.array.isRequired,
     contentHtml: PropTypes.string.isRequired,
     cover: PropTypes.string.isRequired,
-  };
+}
 
 export default BlogPost;

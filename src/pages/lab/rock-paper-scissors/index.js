@@ -12,15 +12,17 @@ import RockPaperScissorGame from '../../../components/lab/rock-paper-scissor-gam
 
 import "./index.css"
 
-const RockPaperScissorPage = () => (
-    <Layout>
+const RockPaperScissorPage = ({data}) => {
+    const { markdownRemark: { html } } = data
+
+    return <Layout>
       <SEO
         title={"Rock, Paper, Scissors Game - Lab by Roman Glushko"}
         className="experiment-view-page"
         pagePath='/lab/rock-paper-scissors/'
         ogType="article"
-        description="Rock, paper, scisssors game powered by Machine Learning online"
-        keywords="rock, paper, scissors, game, machine learning, deep learning, computer vision"
+        description="Rock, paper, scissors online game powered by Machine Learning"
+        keywords="rock, paper, scissors, online game, machine learning, deep learning, computer vision"
       />
         <header className="experiment-header">
           <ViewPageHeader spaceTitle="Lab" spaceLink="/lab/" />
@@ -65,13 +67,25 @@ const RockPaperScissorPage = () => (
           </div>
           <h2>Try it Yourself</h2>
           <RockPaperScissorGame />
-          <div>
-            <h2>More About Experiment</h2>
-            <p>All information about model training will be available here later. Stay tuned <span role="img">🙌</span></p>
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </main>
         <Footer />
     </Layout>
-)
+}
+
+export const pageQuery = graphql`
+  query GetRPSDescription {
+    markdownRemark(fileAbsolutePath: {regex: "/lab\/rock-paper-scissors\/description.md/"}) {
+      html
+      parent {
+        ... on File {
+          fields {
+            gitLogLatestDate
+          }
+        }
+      }
+    }
+  }
+`
 
 export default RockPaperScissorPage
