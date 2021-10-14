@@ -18,6 +18,11 @@ body.dark {
     height: 30rem;
 }
 
+.experiment-view-page .experiment-header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 .experiment-view-page .experiment-category {
     display: inline-block;
     line-height: 1;
