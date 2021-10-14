@@ -146,17 +146,17 @@ const IndexPage = () => {
                         <p>I'm a lifetime learner interested in a broad variety of topics: Machine and Deep Learning, Science-related Theory, Computer Science, Software Engineering, Distributed System Design, eCommerce and so on.</p>
                         <p>When I have spare time, I enjoy putting together my knowledge about those topics and share with others. </p>
                         <div className="recent-posts">
-                            {recentPosts.edges.map(({node}) => (
+                            {recentPosts.edges.map(({node: {id, timeToRead, frontmatter}}) => (
                                 <BlogTeaser
-                                    key={node.id}
-                                    title={node.frontmatter.title}
-                                    url={node.frontmatter.path}
-                                    timeToRead={node.timeToRead}
-                                    publishedHumanDate={node.frontmatter.humanDate}
-                                    publishedFullDate={node.frontmatter.fullDate}
-                                    excerpt={node.frontmatter.excerpt}
-                                    cover={node.frontmatter.cover}
-                                    keywords={node.frontmatter.keywords}
+                                    key={id}
+                                    title={frontmatter.title}
+                                    url={frontmatter.path}
+                                    timeToRead={timeToRead}
+                                    publishedHumanDate={frontmatter.humanDate}
+                                    publishedFullDate={frontmatter.fullDate}
+                                    excerpt={frontmatter.excerpt}
+                                    cover={frontmatter.cover}
+                                    keywords={frontmatter.keywords}
                                 />
                             ))}
                         </div>
@@ -171,16 +171,16 @@ const IndexPage = () => {
                         <p>Another thing I like to do is to explore this world, think about its components, their interconnections and finally capture my observations and thoughts. </p>
                         <p>These thoughts are usually about self-development, management and people perceptions and mindsets.</p>
                         <div className="recent-thoughts">
-                            {recentThoughts.edges.map(({node}) => (
+                            {recentThoughts.edges.map(({node: {id, timeToRead, excerpt, frontmatter}}) => (
                                 <ThoughtTeaser
-                                    key={node.id}
-                                    title={node.frontmatter.title}
-                                    url={node.frontmatter.path}
-                                    timeToRead={node.timeToRead}
-                                    publishedHumanDate={node.frontmatter.humanDate}
-                                    publishedFullDate={node.frontmatter.fullDate}
-                                    excerpt={node.excerpt}
-                                    cover={node.frontmatter.cover}
+                                    key={id}
+                                    title={frontmatter.title}
+                                    url={frontmatter.path}
+                                    timeToRead={timeToRead}
+                                    publishedHumanDate={frontmatter.humanDate}
+                                    publishedFullDate={frontmatter.fullDate}
+                                    excerpt={excerpt}
+                                    cover={frontmatter.cover}
                                 />
                             ))}
                         </div>

@@ -44,13 +44,13 @@ const RockPaperScissorPage = ({data}) => {
           <div id="intro" className="into content">
              <p><strong>Rock, paper, scissors</strong> is a legendary hand game that many of us played with friends in the childhood.</p>
              <p>
-                Rules are simple. You and your opponent choose one of three shapes (<span role="img">✊</span>, <span role="img">✋</span>, <span role="img">✌️</span>), which you both form simultaneously.
+                Rules are simple. You and your opponent choose one of three shapes (<span aria-label="rock figure" role="img">✊</span>, <span aria-label="paper figure" role="img">✋</span>, <span aria-label="scissors figure" role="img">✌️</span>), which you both form simultaneously.
                 Your goal is to guess a shape that beats your opponent's choice:
               </p>
               <ul>
-                <li>Rock beats Scissors (<span role="img">✊</span> → <span role="img">✌️</span>)</li>
-                <li>Paper covers Rock (<span role="img">✋</span> → <span role="img">✊</span>)</li>
-                <li>Scissors cuts Paper (<span role="img">✌️</span> → <span role="img">✋</span>)</li>
+                <li>Rock beats Scissors (<span aria-label="rock figure" role="img">✊</span> → <span aria-label="beats scissors figure" role="img">✌️</span>)</li>
+                <li>Paper covers Rock (<span aria-label="paper figure" role="img">✋</span> → <span aria-label="beats rock figure" role="img">✊</span>)</li>
+                <li>Scissors cuts Paper (<span aria-label="scissors figure" role="img">✌️</span> → <span aria-label="beats paper figure" role="img">✋</span>)</li>
               </ul> 
               <p>
                 Now you have a chance to try to play rock, paper, scissors in an AI-powered game online.

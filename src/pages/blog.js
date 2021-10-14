@@ -52,8 +52,8 @@ class BlogListPage extends Component {
           <main className={`blog-list blog-grid ${!edges.length ? "no-posts" : ""}`}>
             {!edges.length && (
             <div className="no-posts-placeholder">
-              Great posts will be here as soon as my muse comes back to me 💫 <br />
-              Come back soon 👋
+              Great posts will be here as soon as my muse comes back to me <span role="img" aria-label="magic will happen soon">💫</span> <br />
+              Come back soon <span aria-label="bye" role="img">👋</span>
             </div> )}
             {edges.map(({node}) => (
               <BlogTeaser
