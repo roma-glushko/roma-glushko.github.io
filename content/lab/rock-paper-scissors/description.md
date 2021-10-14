@@ -8,7 +8,7 @@ All machine learning experiments start with data. I wanted to find some open sou
 
 Fortunately, I could find a few datasets on Kaggle that seemed to match the goal. Namely, I picked:
 
-- [frtgnn/rock-paper-scissor dataset](https://www.kaggle.com/frtgnn/rock-paper-scissor)
+- [[Kaggle] frtgnn/rock-paper-scissor dataset](https://www.kaggle.com/frtgnn/rock-paper-scissor)
 
 Here are how samples from the dataset look like:
 
@@ -24,14 +24,12 @@ MobileNet is a popular 2M+ params network that performs very well considering it
 
 I wasn't the only one on the Internet who was thinking about this idea, so I was quickly able to a good notebook to build my baseline on:
 
-- [trekhleb/rock-paper-scissors-mobilenet-v2 on Google Colab](https://colab.research.google.com/github/trekhleb/machine-learning-experiments/blob/master/experiments/rock_paper_scissors_mobilenet_v2/rock_paper_scissors_mobilenet_v2.ipynb)
+- [[Google Colab] trekhleb/rock-paper-scissors-mobilenet-v2](https://colab.research.google.com/github/trekhleb/machine-learning-experiments/blob/master/experiments/rock_paper_scissors_mobilenet_v2/rock_paper_scissors_mobilenet_v2.ipynb)
 
 Before doing any experiments I'd configured a few more things:
 
 - configuration management with [Morty](https://github.com/roma-glushko/morty) which is my open source project to track ML/DL experiments
 - experiment tracking with [Weights & Biases](https://wandb.com/)
-
-todo: add more information about experiments and model architecture
 
 The baseline had been successfully established, however, the results of the model was not that good. It made a lot of misclassifications and it was too early to use it.
 
@@ -51,7 +49,7 @@ Turned out, it wasn't super easy. I had to group all of the images by classes (r
 
 After a bit of thinking, I had come up with the following project:
 
-- https://github.com/roma-glushko/campy
+- [[Github] roma-glushko/campy project](https://github.com/roma-glushko/campy)
 
 Campy is an Electron-based desktop application that can simply take photos of the same size and put them to the right class folder:
 
@@ -73,7 +71,7 @@ As a result, we were able to collect:
 
 You can find the final dataset on Kaggle:
 
-- https://www.kaggle.com/glushko/rock-paper-scissors-dataset
+- [[Kaggle] glushko/rock-paper-scissors-dataset dataset](https://www.kaggle.com/glushko/rock-paper-scissors-dataset)
 
 For training my model, I used not only images I had took but also the whole dataset I used to train my baseline model on.
 
@@ -83,17 +81,34 @@ The custom dataset helped quite a lot, but there were still a noticeable number 
 
 With my initial model architecture, there was merely one single dense layer that was training at that point. It wasn't really enough to gain a good accuracy in this task. So I went for fine-tuning of my MobileNet network.
 
-I took the best configs I got at that point and started to unfreeze more and more layers starting from the end of the MobileNet feature extractor. With the RMSProp optimizer and 50 unfreezed layers, I was able to get 93% accuracy on my test dataset and to significantly reduce number of misclassifications which was a way more important for the game.
+I took the best configs I was able to get at that point and started to unfreeze more layers starting from the end of the MobileNet feature extractor. With the RMSProp optimizer and 55 unfreezed layers, I was able to get 93% accuracy on my test dataset and to significantly reduce number of misclassifications which was a way more important for the game.
 
+I ended up with the model that was trained for 50 epochs with:
+
+- MobileNetV2 (55 unfeezed layers)
+- RMSprop optimizer (I could not beat it <span role="img">😄</span>) with 0.01 L2 regularization
+- Small learning rate (10-4)
 ### Deployment
 
-TBU
+I did not want to buy any servers or cloud instances to run my tiny little pet project. That was a challenging requirement that left me with few options. The most solid one was to use Tensorflow.js.
+
+Tensorflow.js a JavaScript frontend library that can loads Tensorflow models right into the browser and uses them to perform predictions.
+
+You will need to [convert](https://www.tensorflow.org/js/tutorials/conversion/import_keras) a Tensorflow model to Tensorflow.js compatible format. This is only possible if you persisted the whole model and not just only the model weights.
+
+Next, your model may fail to load in Tensorflow.js if you used any layers in your Tensorflow model that don't map to any layers on Tensorflow.js side. In my case, I used L2 normalization and I had to implement a new layer to map it on the JS side.
+
+After model is loaded, it may be very slow at the very first prediction, so you may need to call run your predict method on the dummy tensor to warm up the model during the model initialization.
+
+Finally, Tensorflow.js and your model may add a few megabytes to your download resources that can be harmful for your frontend performance. So be sure you loads your model and Tensorflow.js only where and when they are needed.
 
 ### Conclusions
 
-TBU
+I noticed that building AI-enabled application, even a simple one, is quite different story then training models in Jupyter notebooks just for the sake of training and getting the best possible score. You stop evaluating success of your project by some metrics and you are getting focused on how well your project solves your problem.
 
 ## Resources
 
-- https://github.com/roma-glushko/rock-paper-scissors
-- https://www.kaggle.com/glushko/rock-paper-scissors-dataset
+- [[Github] roma-glushko/rock-paper-scissors project](https://github.com/roma-glushko/rock-paper-scissors)
+- [[Github] Trained Tensorflow.js model](https://github.com/roma-glushko/romaglushko.com-lab/tree/master/rock-paper-scissors)
+- [[Kaggle] glushko/rock-paper-scissors-dataset dataset](https://www.kaggle.com/glushko/rock-paper-scissors-dataset)
+- [[trekhleb.dev] Rock Paper Scissors (MobilenetV2)](https://trekhleb.dev/machine-learning-experiments/#/experiments/RockPaperScissorsMobilenetV2)
