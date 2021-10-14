@@ -5,6 +5,7 @@ import { browser as tf_browser, serialization, zeros as tf_zeros } from '@tensor
 import { loadLayersModel } from '@tensorflow/tfjs-layers';
 import '@tensorflow/tfjs-backend-cpu';
 import '@tensorflow/tfjs-backend-webgl';
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay'
@@ -99,6 +100,12 @@ class RockPaperScissorGame extends React.Component {
         // todo: show the reason of the issue to users
         console.log('error during model loading: ', e.message)
       });
+
+      trackCustomEvent({
+        category: 'lab',
+        action: 'startExperiment',
+        label: "rock-paper-scissors",
+      })
   }
 
   configureCanvas = (canvasElement) => {
@@ -177,13 +184,19 @@ class RockPaperScissorGame extends React.Component {
 
       const computerChoice = this.makeComputerChoice()
       const humanChoice = this.predictHumanChoice(canvasWithHumanChoice)
-
-      this.scoreRound(humanChoice, computerChoice)
+      const winner = this.scoreRound(humanChoice, computerChoice)
 
       this.setState({
         computerChoice: computerChoice,
         humanChoice: humanChoice,
         isRoundStarted: false,
+      })
+
+      trackCustomEvent({
+        category: 'lab',
+        action: 'roundPlayed',
+        label: "rock-paper-scissors",
+        value: winner,
       })
     });
   }
@@ -222,13 +235,19 @@ class RockPaperScissorGame extends React.Component {
       this.setState({
         humanScore: humanScore + 1
       })
+
+      return `human`
     }
 
     if (this.choices[computerChoice].beats.find(choice => humanChoice == choice) !== undefined) {
       this.setState({
         computerScore: computerScore + 1
       })
+
+      return `computer`
     }
+
+    return `draw`
   }
 
   // pick randomly one of 3 possible states

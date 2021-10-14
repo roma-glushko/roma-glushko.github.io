@@ -49,6 +49,7 @@ body.dark .overlay-message {
 
 .game-item .title {
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .player {
@@ -171,12 +172,18 @@ body.dark .overlay-message {
         display: none;
     }
 
+    .game .human .title {
+        text-align: center;
+    }
+
     .game .computer-choice-mobile {
         display: block;
     }
 
     .game .computer-choice-mobile .title {
-        margin-bottom: 0.5rem;
+        font-size: 1.8rem;
+        margin-bottom: 0;
+        text-align: center;
     }
 
     .game .game-item.controls {

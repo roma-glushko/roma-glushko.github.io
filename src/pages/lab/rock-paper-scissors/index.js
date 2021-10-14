@@ -7,6 +7,7 @@ import ViewPageHeader from "../../../components/theme/view-page-header"
 import MainNavigation from "../../../components/theme/main-navigation"
 import NNBackground from "../../../components/nn-design/nn-background.js"
 import Footer from "../../../components/theme/footer"
+import ReadingAnalytics from "../../../components/blog/reading-analytics"
 
 import RockPaperScissorGame from '../../../components/lab/rock-paper-scissor-game.js'
 
@@ -40,7 +41,7 @@ const RockPaperScissorPage = ({data}) => {
 
         </div>
         <main className="rockpaperscissor-wrapper">
-          <div className="into">
+          <div id="intro" className="into content">
              <p><strong>Rock, paper, scissors</strong> is a legendary hand game that many of us played with friends in the childhood.</p>
              <p>
                 Rules are simple. You and your opponent choose one of three shapes (<span role="img">✊</span>, <span role="img">✋</span>, <span role="img">✌️</span>), which you both form simultaneously.
@@ -67,7 +68,9 @@ const RockPaperScissorPage = ({data}) => {
           </div>
           <h2>Try it Yourself</h2>
           <RockPaperScissorGame />
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+          <div id="content-end" />
+          <ReadingAnalytics contentType={`lab`} />
         </main>
         <Footer />
     </Layout>
