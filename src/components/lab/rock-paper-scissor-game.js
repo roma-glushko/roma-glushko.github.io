@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { regularizers } from '@tensorflow/tfjs'
-import { browser as tf_browser, serialization } from '@tensorflow/tfjs-core';
+import { browser as tf_browser, serialization, zeros as tf_zeros } from '@tensorflow/tfjs-core';
 import { loadLayersModel } from '@tensorflow/tfjs-layers';
 import '@tensorflow/tfjs-backend-cpu';
 import '@tensorflow/tfjs-backend-webgl';
@@ -74,11 +74,26 @@ class RockPaperScissorGame extends React.Component {
 
     loadLayersModel(this.modelUrl)
       .then((layersModel) => {
+        console.log('model has been loaded');
+
+        const inputShapeWithNulls = layersModel.input.shape;
+        const inputShape = inputShapeWithNulls.map((dimension) => {
+          if (dimension === null || dimension === -1) {
+            return 1;
+          }
+
+          return dimension;
+        });
+
+        const fakeInput = tf_zeros(inputShape, 'int32');
+        layersModel.predict(fakeInput);
+
+        console.log('model has been warmed');
+        
         this.setState({
           isModelLoaded: true,
           model: layersModel,
         })
-        console.log('model has been loaded');
       })
       .catch((e) => {
         // todo: show the reason of the issue to users
