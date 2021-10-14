@@ -218,8 +218,14 @@ module.exports = {
                             className: `anchor`,
                         },
                     },
-                    //`gatsby-remark-youtube`,
                     `gatsby-remark-responsive-iframe`,
+                    {
+                        resolve: "gatsby-remark-external-links",
+                        options: {
+                            target: "_blank",
+                            rel: "noopener noreferrer"
+                        }
+                    }
                 ],
             },
         },
