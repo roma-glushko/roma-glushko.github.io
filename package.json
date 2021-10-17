@@ -31,6 +31,7 @@
         "gatsby-remark-autolink-headers": "^3.2.0",
         "gatsby-remark-copy-linked-files": "^3.2.0",
         "gatsby-remark-embed-video": "^3.1.1",
+        "gatsby-remark-external-links": "^0.0.4",
         "gatsby-remark-images": "^4.1.1",
         "gatsby-remark-images-native-lazy-load": "^1.0.0",
         "gatsby-remark-mathjax": "^1.0.0",

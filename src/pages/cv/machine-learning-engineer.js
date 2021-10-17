@@ -77,7 +77,7 @@ const MachineLearningEngineerCV = () => {
               <h2><span>Education</span></h2>
               <ul>
                 <li itemScope itemType="http://schema.org/EducationalOrganization">
-                  <strong>Machine Learning Nanodegree</strong>, 2020-Present (8 months)
+                  <strong>Machine Learning Nanodegree</strong>, 2020-2021
                 </li>
                 <li itemScope itemType="http://schema.org/EducationalOrganization">
                   <strong>M.S. Computer Engineering</strong><br/> <span itemProp="name">Khmelnytskyi National University</span>, Ukraine, 2018
@@ -194,6 +194,13 @@ const MachineLearningEngineerCV = () => {
             <section className="jobs">
               <h2><span>Work Experience</span></h2>
               <ul>
+                <li itemScope itemType="http://schema.org/Organization" className="job">
+                  <strong itemProp="jobTitle">Software Engineer (R&D, AI Apps)</strong>, <span itemProp="name">DataRobot</span>; Ukraine — 2021-Present (3 month)<br/>
+                  <div className="job-description">Research, design and develop a Python-based framework to build AI-enabled applications</div>
+                  <ul className="project-details">
+                    <li><strong>Experience</strong>: Problem Solving, Python, Software Architecture, Machine Learning</li>
+                  </ul>
+                </li>
                 <li itemScope itemType="http://schema.org/Organization" className="job">
                   <strong itemProp="jobTitle">Tech Lead / Software Developer</strong>, <span itemProp="name">Atwix</span>; Ukraine — 2017-2020 (3.5 years)<br/>
                   <div className="job-description"><Link target="_blank" rel="noopener" to="/cv/ecommerce-developer/" title="Go to Technical blog">See what I have done there in great details</Link></div>

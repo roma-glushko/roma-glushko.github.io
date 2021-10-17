@@ -36,8 +36,8 @@ class LabListPage extends Component {
           <main className={`experiment-list experiment-grid ${!edges.length ? "no-experiments" : ""}`}>
             {!edges.length && (
             <div className="no-experiments-placeholder">
-              Great posts will be here as soon as my muse comes back to me 💫 <br />
-              Come back soon 👋
+              Great experiments will be here as soon as my muse comes back to me <span role="img" aria-label="magic will happen soon">💫</span> <br />
+              Come back soon <span aria-label="bye" role="img">👋</span>
             </div> )}
             {edges.map(experiment => (
               <ExperimentTeaser
