@@ -42,7 +42,7 @@ const RockPaperScissorPage = ({data}) => {
         </div>
         <main className="rockpaperscissor-wrapper">
           <div id="intro" className="into content">
-             <p><strong>Rock, paper, scissors</strong> is a legendary hand game that many of us played with friends in the childhood.</p>
+             <p><strong>Rock, paper, scissors</strong> is a legendary hand game that many of us played with friends in childhood.</p>
              <p>
                 Rules are simple. You and your opponent choose one of three shapes (<span aria-label="rock figure" role="img">✊</span>, <span aria-label="paper figure" role="img">✋</span>, <span aria-label="scissors figure" role="img">✌️</span>), which you both form simultaneously.
                 Your goal is to guess a shape that beats your opponent's choice:
@@ -57,11 +57,11 @@ const RockPaperScissorPage = ({data}) => {
               </p>
               <h2>How Does it Work?</h2>
               <p>
-                The game requests your web camera access and load a computer vision model directly into your browser (the game is completely serverless). 
+                The game requests your web camera access and loads a computer vision model directly into your browser (the game is completely serverless). 
               </p>
               <p>
                 When you press the play button, you have 3 seconds to form one of three choices and to show it on camera. 
-                The model will try to predict what form you showed and compare with another choice which computer simultaneously made with you.
+                The model will try to predict what form you showed and compare it with another choice which computer simultaneously made with you.
                 The game compares both choices and updates your scores.
               </p>
               <p>Try to play until you win!</p>
