@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import PersonRichSnippet from "../components/homepage/person-rich-snippet"
 import Avatar from "../components/homepage/avatar"
 import ThemeSwitcher from "../components/theme/theme-switcher"
@@ -68,9 +68,7 @@ const IndexPage = () => {
                             excerpt
                             cover {
                                 childImageSharp {
-                                  fluid(maxWidth: 400) {
-                                    ...GatsbyImageSharpFluid
-                                  }
+                                    gatsbyImageData(layout: CONSTRAINED)
                                 }
                             }
                         }
@@ -78,28 +76,26 @@ const IndexPage = () => {
                 }
             }
             recentThoughts: allMarkdownRemark(
-                    sort: {order: DESC, fields: [frontmatter___date]}, 
-                    limit: 3, 
-                    filter: {
-                        fileAbsolutePath: {regex: "/(thoughts)/"}, 
-                        frontmatter: {published: {eq: true}}
-                    }) {
-                        edges {
-                            node {
-                                id
-                                timeToRead
-                                excerpt(pruneLength: 100)
-                                frontmatter {
-                                    humanDate: date(formatString: "MMM D, YYYY")
-                                    fullDate: date(formatString: "YYYY-MM-DD")
-                                    path
-                                    title
-                                    keywords
-                                    cover {
-                                        childImageSharp {
-                                        fluid(maxWidth: 400) {
-                                            ...GatsbyImageSharpFluid
-                                        }
+                sort: {order: DESC, fields: [frontmatter___date]}, 
+                limit: 3, 
+                filter: {
+                    fileAbsolutePath: {regex: "/(thoughts)/"}, 
+                    frontmatter: {published: {eq: true}}
+                }) {
+                    edges {
+                        node {
+                            id
+                            timeToRead
+                            excerpt(format: PLAIN, pruneLength: 100, truncate: true)
+                            frontmatter {
+                                humanDate: date(formatString: "MMM D, YYYY")
+                                fullDate: date(formatString: "YYYY-MM-DD")
+                                path
+                                title
+                                keywords
+                                cover {
+                                    childImageSharp {
+                                        gatsbyImageData(layout: CONSTRAINED)
                                     }
                                 }
                             }
@@ -112,7 +108,7 @@ const IndexPage = () => {
     
     return (
     <Layout>
-        <SEO title="Roman Glushko - Machine Learning and Software Engineer, Life Explorer" isUniqueTitle={true} className="home-page-v2" pagePath="/" />
+        <Seo title="Roman Glushko - Machine Learning and Software Engineer, Life Explorer" isUniqueTitle={true} className="home-page-v2" pagePath="/" />
         <main className="homepagev2">
             <div className="intro">
                 <div id="hero-header" className="hero-header homepage-sidebar">

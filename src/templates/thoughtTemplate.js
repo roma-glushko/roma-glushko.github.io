@@ -1,11 +1,12 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { getSrc } from "gatsby-plugin-image"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import Thought from "../components/thoughts/thought"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
 import Footer from "../components/theme/footer"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import NewsletterForm from '../components/blog/newsletter-form'
 import ShareBlock from '../components/thoughts/share-block'
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
@@ -42,11 +43,11 @@ export default function Template({ data, pageContext: { prevThought, nextThought
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={title + " - Thoughts"}
         className="thought-view-page"
         pagePath={path}
-        imagePath={cover.childImageSharp.fluid.src}
+        imagePath={getSrc(cover.childImageSharp.gatsbyImageData)}
         ogType="article"
         description={excerpt}
         keywords={keywords}
@@ -109,9 +110,7 @@ export const pageQuery = graphql`
         keywords
         cover {
           childImageSharp {
-            fluid(maxWidth: 3400) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         coverCredits

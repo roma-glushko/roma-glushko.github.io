@@ -1,7 +1,7 @@
 import React from "react"
 
 import Layout from "../../components/theme/layout"
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import MainNavigation from "../../components/theme/main-navigation"
 import CvHeader from "../../components/cv/cv-header"
 import ThemeSwitcher from "../../components/theme/theme-switcher"
@@ -15,7 +15,7 @@ import './cv.css'
 const MachineLearningEngineerCV = () => {
   return (
     <Layout>
-      <SEO
+      <Seo
         isUniqueTitle={true}
         title={"Roman Glushko's Machine Learning Engineer CV"}
         className="cv-view-page"
@@ -92,7 +92,7 @@ const MachineLearningEngineerCV = () => {
                 <li className="project">
                   <h3>Wireframe Scanner</h3>
                   <div className="project-description">
-                    <a href="https://www.commerceframe.com/" target="blank">CommerceFrame</a>, my side project about swift eCommerce wireframing, needs a functionality to import wireframes that were drawn on a piece of paper or a whiteboard.
+                    CommerceFrame, my side project about swift eCommerce wireframing, needs a functionality to import wireframes that were drawn on a piece of paper or a whiteboard.
                     The project includes problem framing, collecting and labeling dataset.
                   </div>
                   <ul className="project-details">
@@ -108,7 +108,7 @@ const MachineLearningEngineerCV = () => {
                   </div>
                   <ul className="project-details">
                     <li><strong>Experience</strong>: Problem Framing, Data Collection, Image Data, Python, Tensorflow, Tensorflow.js</li>
-                    <li>Links: <a href="/lab/rock-paper-scissors/" target="blank">Live Demo</a> • <a href="https://github.com/roma-glushko/rock-paper-scissors" target="blank">GitHub</a></li>
+                    <li>Links: <a href="/lab/rock-paper-scissors/" target="_blank" rel="noopener noreferrer">Live Demo</a> • <a href="https://github.com/roma-glushko/rock-paper-scissors" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                   </ul>
                 </li>
                 <li className="project">
@@ -135,7 +135,7 @@ const MachineLearningEngineerCV = () => {
                   </div>
                   <ul className="project-details">
                     <li><strong>Experience</strong>: Biology, Image Medical Data, Weakly-Supervised Learning, Data Analysis, Data Processing, Instance Segmentation, Multi-Label Classification</li>
-                    <li>Links: <a href="https://www.kaggle.com/c/hpa-single-cell-image-classification" target="blank">Competition</a></li>
+                    <li>Links: <a href="https://www.kaggle.com/c/hpa-single-cell-image-classification" target="_blank" rel="noopener noreferrer">Competition</a></li>
                   </ul>
                 </li>
               </ul>
@@ -148,11 +148,11 @@ const MachineLearningEngineerCV = () => {
                     <div className="project-description">
                     Analyzed dataset of mall customers and segment them according to their spending patterns.
                     <br/><br/>
-                    Got <a href="https://www.kaggle.com/glushko/mall-customer-segmentation" target="blank">a silver medal on Kaggle</a> for the analysis.
+                    Got <a href="https://www.kaggle.com/glushko/mall-customer-segmentation" target="_blank" rel="noopener noreferrer">a silver medal on Kaggle</a> for the analysis.
                     </div>
                     <ul className="project-details">
                       <li><strong>Experience</strong>: Clustering, Tabular Data, Data Analysis, Python, Scikit-Learn, Plotly, Seaborn</li>
-                      <li>Links: <a href="https://www.kaggle.com/glushko/mall-customer-segmentation" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-mall-customer-segmentation" target="blank">Github</a></li>
+                      <li>Links: <a href="https://www.kaggle.com/glushko/mall-customer-segmentation" target="_blank" rel="noopener noreferrer">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-mall-customer-segmentation" target="_blank" rel="noopener noreferrer">Github</a></li>
                     </ul>
                   </li>
                   <li className="project">
@@ -164,7 +164,7 @@ const MachineLearningEngineerCV = () => {
                     </div>
                     <ul className="project-details">
                       <li><strong>Experience</strong>: Classification, Image Data, Python, Keras, Scikit-Learn, CNN</li>
-                      <li>Links: <a href="https://www.kaggle.com/glushko/digit-recognizer-0-99657-3-approaches-tpu" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-digit-recognizer" target="blank">Github</a></li>                    
+                      <li>Links: <a href="https://www.kaggle.com/glushko/digit-recognizer-0-99657-3-approaches-tpu" target="_blank" rel="noopener noreferrer">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-digit-recognizer" target="_blank" rel="noopener noreferrer">Github</a></li>                    
                     </ul>
                   </li>
                   <li className="project">
@@ -172,7 +172,7 @@ const MachineLearningEngineerCV = () => {
                     <div className="project-description">Automated wine quality analysis based on results of physicochemical tests.</div>
                     <ul className="project-details">
                       <li><strong>Experience</strong>: Classification, Tabular Data, Data Analysis, Python, Scikit-Learn</li>
-                      <li>Links: <a href="https://www.kaggle.com/glushko/wine-quality-domain-driven-eda-part-i" target="blank">Data Analysis</a> • <a href="https://www.kaggle.com/glushko/wine-quality-modelling-part-ii" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-wine-quality" target="blank">Github</a></li>
+                      <li>Links: <a href="https://www.kaggle.com/glushko/wine-quality-domain-driven-eda-part-i" rel="noopener noreferrer" target="_blank">Data Analysis</a> • <a href="https://www.kaggle.com/glushko/wine-quality-modelling-part-ii" target="_blank" rel="noopener noreferrer">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-wine-quality" target="_blank" rel="noopener noreferrer">Github</a></li>
                     </ul>
                   </li>
                   <li className="project">
@@ -184,12 +184,12 @@ const MachineLearningEngineerCV = () => {
                     </div>
                     <ul className="project-details">
                       <li><strong>Experience</strong>: Regression, Tabular Data, Real Estate, Data Analysis, Python, Scikit-Learn, XGBoost</li>
-                      <li>Links: <a href="https://www.kaggle.com/glushko/house-prices-domain-driven-eda-part-i" target="blank">Data Analysis</a> • <a href="https://www.kaggle.com/glushko/house-prices-regression-modelling-part-ii" target="blank">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-house-prices" target="blank">Github</a></li>
+                      <li>Links: <a href="https://www.kaggle.com/glushko/house-prices-domain-driven-eda-part-i" rel="noopener noreferrer" target="_blank">Data Analysis</a> • <a href="https://www.kaggle.com/glushko/house-prices-regression-modelling-part-ii" target="_blank" rel="noopener noreferrer">Modeling</a> • <a href="https://github.com/roma-glushko/kaggle-house-prices" target="_blank" rel="noopener noreferrer">Github</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
-              <span className="other-projects-link">Other projects can be found on <a target="_blank" rel="noopener" href="https://github.com/roma-glushko?tab=repositories&q=machine-learning">GitHub</a> and <a target="_blank" rel="noopener" href="https://www.kaggle.com/glushko/code">Kaggle</a></span>
+              <span className="other-projects-link">Other projects can be found on <a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko?tab=repositories&q=machine-learning">GitHub</a> and <a target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/glushko/code">Kaggle</a></span>
             </section>
             <section className="jobs">
               <h2><span>Work Experience</span></h2>
@@ -203,14 +203,14 @@ const MachineLearningEngineerCV = () => {
                 </li>
                 <li itemScope itemType="http://schema.org/Organization" className="job">
                   <strong itemProp="jobTitle">Tech Lead / Software Developer</strong>, <span itemProp="name">Atwix</span>; Ukraine — 2017-2020 (3.5 years)<br/>
-                  <div className="job-description"><Link target="_blank" rel="noopener" to="/cv/ecommerce-developer/" title="Go to Technical blog">See what I have done there in great details</Link></div>
+                  <div className="job-description"><Link target="_blank" rel="noopener noreferrer" to="/cv/ecommerce-developer/" title="Go to Technical blog">See what I have done there in great details</Link></div>
                   <ul className="project-details">
                     <li><strong>Experience</strong>: Problem Solving, eCommerce, Marketing, Leadership, System Design, Problem Framing</li>
                   </ul>
                 </li>
                 <li itemScope itemType="http://schema.org/Organization" className="job">
                   <strong itemProp="jobTitle">eCommerce Magento Software Developer</strong>, <span itemProp="name">Atwix</span>; Ukraine — 2015-2017 (2 years)<br/>
-                  <div className="job-description"><Link target="_blank" rel="noopener" to="/cv/ecommerce-developer/" title="Go to Technical blog">See what I have done there in great details</Link></div>
+                  <div className="job-description"><Link target="_blank" rel="noopener noreferrer" to="/cv/ecommerce-developer/" title="Go to Technical blog">See what I have done there in great details</Link></div>
                   <ul className="project-details">
                     <li><strong>Experience</strong>: Linux, Git, PHP, MySQL, Elasticsearch, Redis</li>
                   </ul>
@@ -226,10 +226,10 @@ const MachineLearningEngineerCV = () => {
                     Led cross-functional teams of different sizes (5-15 people incl. SEs, QA, PM, DevOps). Organized and optimized team processes. <br/> Took part in presentations and frequent calls with clients, project groomings, and delivered internal technical workshops. Advocated software engineer's needs behind C-level management.
                   </li>
                   <li itemProp="itemListElement">
-                    Organized technical and business <a target="_blank" rel="noopener" href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
+                    Organized technical and business <a target="_blank" rel="noopener noreferrer" href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
                   </li>
                   <li itemProp="itemListElement">
-                    Write <a target="_blank" rel="noopener" href="https://www.romaglushko.com/blog/">technical blog posts</a> and <a target="_blank" rel="noopener" href="https://www.romaglushko.com/thoughts/">thoughts about management</a> 
+                    Write <a target="_blank" rel="noopener noreferrer" href="https://www.romaglushko.com/blog/">technical blog posts</a> and <a target="_blank" rel="noopener" href="https://www.romaglushko.com/thoughts/">thoughts about management</a> 
                   </li>
                 </ul>
               </dl>
@@ -241,8 +241,8 @@ const MachineLearningEngineerCV = () => {
                   <li itemProp="itemListElement">Scooter driving</li>
                   <li itemProp="itemListElement">Self-improvement</li>
                   <li itemProp="itemListElement">Reading</li>
-                  <li itemProp="itemListElement"><a rel="me" target="_blank" rel="noopener" href="https://www.romaglushko.com/">Blogging</a></li>
-                  <li itemProp="itemListElement"><a target="_blank" href="https://github.com/roma-glushko">Open Source</a></li>
+                  <li itemProp="itemListElement"><a rel="me" target="_blank" rel="noopener noreferrer" href="https://www.romaglushko.com/">Blogging</a></li>
+                  <li itemProp="itemListElement"><a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko">Open Source</a></li>
                   <li itemProp="itemListElement">Judaism</li>
                 </ul>
               </dl>

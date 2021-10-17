@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ViewPageHeader from "../components/theme/view-page-header"
 import MainNavigation from "../components/theme/main-navigation"
 import BlogTeaser from "../components/blog/blog-teaser"
@@ -17,7 +17,7 @@ class BlogListPage extends Component {
 
     return (
       <Layout>
-        <SEO
+        <Seo
           title="Blog"
           pagePath="/blog/"
           className="blog-list-page"
@@ -104,9 +104,7 @@ export const pageQuery = graphql`
             excerpt
             cover {
               childImageSharp {
-                fluid(maxWidth: 620) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
           }

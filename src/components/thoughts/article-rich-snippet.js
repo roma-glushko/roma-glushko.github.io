@@ -1,6 +1,8 @@
 import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { getSrc } from "gatsby-plugin-image"
+
 
 const ArticleRichSnippet = ({ genre, articleSection, title, path, datePublished, dateModified, cover, content, wordCount, keywords }) => {
   const { site: { siteMetadata: {siteUrl} } } = useStaticQuery(
@@ -18,7 +20,7 @@ const ArticleRichSnippet = ({ genre, articleSection, title, path, datePublished,
   const schemaJSONLD = {
     '@context': 'http://schema.org',
     '@type': 'BlogPosting',
-    image: cover.childImageSharp.fluid.src,
+    image: getSrc(cover.childImageSharp.gatsbyImageData),
     headline: title,
     dateCreated: datePublished,
     datePublished,

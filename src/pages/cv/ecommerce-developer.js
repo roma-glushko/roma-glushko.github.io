@@ -1,7 +1,7 @@
 import React from "react"
 
 import Layout from "../../components/theme/layout"
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import MainNavigation from "../../components/theme/main-navigation"
 import CvHeader from "../../components/cv/cv-header"
 import ThemeSwitcher from "../../components/theme/theme-switcher"
@@ -14,7 +14,7 @@ import './cv.css'
 const MachineLearningEngineerCV = () => {
   return (
     <Layout>
-      <SEO
+      <Seo
         isUniqueTitle={true}
         title={"Roman Glushko's eCommerce Magento Developer CV"}
         className="cv-view-page"
@@ -162,25 +162,25 @@ const MachineLearningEngineerCV = () => {
                   </li>
                 </ul>
               </div>
-              <span className="other-projects-link">Other projects can be found on <a target="_blank" rel="noopener" href="https://github.com/roma-glushko?tab=repositories">GitHub</a> and <a target="_blank" rel="noopener" href="https://www.kaggle.com/glushko/code">Kaggle</a></span>
+              <span className="other-projects-link">Other projects can be found on <a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko?tab=repositories">GitHub</a> and <a target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/glushko/code">Kaggle</a></span>
             </section>
             <section className="certifications">
               <h2><span>Certifications</span></h2>
               <ul>
                 <li className="certification">
-                  <strong><a target="_blank" rel="noopener" href="https://www.credly.com/badges/85808e34-3436-407c-a087-71146c9d4caa">Adobe Commerce Business Practitioner</a></strong><br/>
+                  <strong><a target="_blank" rel="noopener noreferrer" href="https://www.credly.com/badges/85808e34-3436-407c-a087-71146c9d4caa">Adobe Commerce Business Practitioner</a></strong><br/>
                   <div>Certified on knowledge of <strong>general Magento architecture, list of out-of-the-box features and usecases to apply them</strong>.</div>
                 </li>
                 <li className="certification">
-                  <strong><a target="_blank" rel="noopener" href="https://www.credly.com/badges/6a093495-8d10-446f-a273-2a4da62402ec">Adobe Commerce Developer</a></strong><br/>
+                  <strong><a target="_blank" rel="noopener noreferrer" href="https://www.credly.com/badges/6a093495-8d10-446f-a273-2a4da62402ec">Adobe Commerce Developer</a></strong><br/>
                   <div>Certified on knowing best practices related to <strong>Magento backend customizations and custom module development</strong>.</div>
                 </li>
                 <li className="certification">
-                  <strong><a target="_blank" rel="noopener" href="https://www.credly.com/badges/30795767-4b7d-4ef7-bd03-c2e3eecd9455">Adobe Commerce JavaScript Developer</a></strong><br/>
+                  <strong><a target="_blank" rel="noopener noreferrer" href="https://www.credly.com/badges/30795767-4b7d-4ef7-bd03-c2e3eecd9455">Adobe Commerce JavaScript Developer</a></strong><br/>
                   <div>Certified on knowing how to build complex <strong>JavaScript logic along the lines of Magento JavaScript framework</strong>.</div>
                 </li>
                 <li className="certification">
-                  <strong><a target="_blank" rel="noopener" href="https://www.credly.com/badges/e0813e5d-094f-496b-adf3-89916d9ff90f">Adobe Commerce Cloud Developer</a></strong><br/>
+                  <strong><a target="_blank" rel="noopener noreferrer" href="https://www.credly.com/badges/e0813e5d-094f-496b-adf3-89916d9ff90f">Adobe Commerce Cloud Developer</a></strong><br/>
                   <div>Certified on <strong>building, running and deploying stores on Adobe Commerce Cloud</strong>.</div>
                 </li>
               </ul>
@@ -222,10 +222,10 @@ const MachineLearningEngineerCV = () => {
                     3 people I had mentored and worked for the longest time with <strong>became technical leaders themselves</strong>. 
                   </li>
                   <li itemProp="itemListElement">
-                    Organized technical and business <a target="_blank" rel="noopener" href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
+                    Organized technical and business <a target="_blank" rel="noopener noreferrer" href="https://www.atwix.com/magento/atwix-magenews-jun-2020/">newsletter</a> (led for 2 years) <br/>
                   </li>
                   <li itemProp="itemListElement">
-                    Write <a target="_blank" rel="noopener" href="https://www.romaglushko.com/blog/">technical blog posts</a> and <a target="_blank" rel="noopener" href="https://www.romaglushko.com/thoughts/">thoughts about management</a> 
+                    Write <a target="_blank" rel="noopener noreferrer" href="https://www.romaglushko.com/blog/">technical blog posts</a> and <a target="_blank" rel="noopener noreferrer" href="https://www.romaglushko.com/thoughts/">thoughts about management</a> 
                   </li>
                 </ul>
               </dl>
@@ -236,17 +236,17 @@ const MachineLearningEngineerCV = () => {
                 <li>
                   <strong>Contributions to Magento 2 Open Source</strong><br/>
                   <div>Since 2017 I had been contributing to numerous of Magento projects including Magento Core, Multi-Source Inventory, GraphQl, DevDocs and PHPStorm Plugin.</div>
-                  <strong>Links</strong>: <a rel="me" target="_blank" rel="noopener" href="https://opensource.magento.com/profile/roma-glushko/contribution_statistic">Magento Community Portal</a>
+                  <strong>Links</strong>: <a rel="me" target="_blank" rel="noopener noreferrer" href="https://opensource.magento.com/profile/roma-glushko/contribution_statistic">Magento Community Portal</a>
                 </li>
                 <li>
                   <strong>Tango</strong><br/>
                   <div>A cross-platform console tool for processing server logs and generating useful reports based on them.</div>
-                  <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/tango">Github</a> • <a target="_blank" rel="noopener" href="https://www.producthunt.com/posts/tango-8b7c5fe8-b795-4071-b479-ffa84ce4999b">ProductHunt</a>
+                  <strong>Links</strong>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko/tango">Github</a> • <a target="_blank" rel="noopener noreferrer" href="https://www.producthunt.com/posts/tango-8b7c5fe8-b795-4071-b479-ffa84ce4999b">ProductHunt</a>
                 </li>
                 <li>
                   <strong>Eyewear</strong><br/>
                   <div>A PoC of tool that analyzes Magento dataset growth over the time.</div>
-                  <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/eyewear">Github</a>
+                  <strong>Links</strong>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko/eyewear">Github</a>
                 </li>
               </ul>
               <div className="other-projects">
@@ -256,22 +256,22 @@ const MachineLearningEngineerCV = () => {
                   <li>
                     <strong>DB Trimmer</strong><br/>
                     <div>A PoC of tool that is aimed to perform quick cleanup of huge Magento datasets during dev environment creation</div>
-                    <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/db-trimmer">Github</a>
+                    <strong>Links</strong>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko/db-trimmer">Github</a>
                   </li>
                   <li>
                     <strong>Monolog Parser</strong><br/>
                     <div>A PHP parse of Monolog's log format that is used Magento to store internal logs.</div>
-                    <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/monolog-parser">Github</a>
+                    <strong>Links</strong>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko/monolog-parser">Github</a>
                   </li>
                   <li>
                     <strong>GrumPHP Rules for Magento 2</strong><br/>
                     <div>A set of GrumPHP checks that automates preventing common mistakes that Magento dev team may do.</div>
-                    <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/grumphp-magento2">Github</a>
+                    <strong>Links</strong>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko/grumphp-magento2">Github</a>
                   </li>
                   <li>
                     <strong>Magento 2 Dir Buster</strong><br/>
                     <div>A list of URL to check that should be protected on every Magento store.</div>
-                    <strong>Links</strong>: <a target="_blank" rel="noopener" href="https://github.com/roma-glushko/magento2-dir-buster">Github</a>
+                    <strong>Links</strong>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko/magento2-dir-buster">Github</a>
                   </li>
                 </ul>
               </div>
@@ -283,8 +283,8 @@ const MachineLearningEngineerCV = () => {
                   <li itemProp="itemListElement">Scooter Driving</li>
                   <li itemProp="itemListElement">Self-Improvement</li>
                   <li itemProp="itemListElement">Reading</li>
-                  <li itemProp="itemListElement"><a rel="me" target="_blank" rel="noopener" href="https://www.romaglushko.com/">Blogging</a></li>
-                  <li itemProp="itemListElement"><a target="_blank" href="https://github.com/roma-glushko">Open Source</a></li>
+                  <li itemProp="itemListElement"><a rel="me" target="_blank" rel="noopener noreferrer" href="https://www.romaglushko.com/">Blogging</a></li>
+                  <li itemProp="itemListElement"><a target="_blank" rel="noopener noreferrer" href="https://github.com/roma-glushko">Open Source</a></li>
                   <li itemProp="itemListElement">Judaism</li>
                 </ul>
               </dl>

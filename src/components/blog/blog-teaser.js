@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import "./blog-teaser.css"
 
@@ -22,7 +22,7 @@ const BlogTeaser = (props) => {
         <article className="blog-item">
             <Link className="article-header" to={url}>
                 <div className="cover-filter">
-                    <Img className="cover" fluid={cover.childImageSharp.fluid} />
+                    <GatsbyImage className="cover" width={400} image={cover.childImageSharp.gatsbyImageData} />
                 </div>
             </Link>
             <div className="article-details">

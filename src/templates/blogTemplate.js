@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { getSrc } from "gatsby-plugin-image"
 
 import loadable from '@loadable/component'
 
@@ -8,7 +9,7 @@ import MainNavigation from "../components/theme/main-navigation"
 import BlogPost from "../components/blog/blog-post"
 import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ShareBlock from '../components/thoughts/share-block'
 import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
@@ -44,11 +45,11 @@ export default function Template({ data, pageContext: { prevThought, nextThought
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={title + " - Blog"}
         className="blogpost-view-page"
         pagePath={path}
-        imagePath={cover.childImageSharp.fluid.src}
+        imagePath={getSrc(cover.childImageSharp.gatsbyImageData)}
         ogType="article"
         description={excerpt}
         keywords={keywords}
@@ -115,9 +116,7 @@ export const pageQuery = graphql`
         excerpt
         cover {
           childImageSharp {
-            fluid(maxWidth: 3400) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         coverCredits
