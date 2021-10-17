@@ -31,21 +31,21 @@ Before doing any experiments I'd configured a few more things:
 - configuration management with [Morty](https://github.com/roma-glushko/morty) which is my open source project to track ML/DL experiments
 - experiment tracking with [Weights & Biases](https://wandb.com/)
 
-The baseline had been successfully established, however, the results of the model was not that good. It made a lot of misclassifications and it was too early to use it.
+The baseline had been successfully established, however, the results of the model were not that good. It made a lot of misclassifications and it was too early to use it.
 
 ### Collecting a Custom Dataset
 
-One of possible reasons of that was in the training dataset. I assumed that it's distributed differently than images I'd got from my webcam.
+One possible reason for that was the training dataset itself. I assumed that it's distributed differently than images I'd got from my webcam.
 
-Besides possible differences in the hidden technical attributes of photos, my images had different compositions. There were backgrounds, other parts of the body (not only one hand on the picture), different light conditions and things like that.
+Besides possible differences in the hidden technical attributes of photos, my images had different compositions. There were backgrounds, other parts of the body (not only one hand in the picture), different light conditions and things like that.
 
 ![Me collecting samples for a custom rock-paper-scissors dataset](./img/rps-custom-dataset.png "Me collecting samples for a custom rock-paper-scissors dataset")
 
-So I decided not to spend much time trying fancy DL technics for gradient optimization or learning rate schedule, but, instead, I started improving my dataset.
+So I decided not to spend much time trying fancy DL techniques for gradient optimization or learning rate schedule, but, instead, I started improving my dataset.
 
 The goal was clear. I needed to take hundreds of images that would be as close as possible to what I expected my model to work with.
 
-Turned out, it wasn't super easy. I had to group all of the images by classes (rock, paper, scissors). Also, I needed to track the number of images per each class to keep the distribution even among all classes. I needed some workflow to make it easy for me and possibly for other people that would decide to help me with this project.
+It wasn't super easy as it turned out. I had to group all of the images by classes (rock, paper, scissors). Also, I needed to track the number of images per each class to keep the distribution even among all classes. I needed some workflow to make it easy for me and possibly for other people that would decide to help me with this project.
 
 After a bit of thinking, I had come up with the following project:
 
@@ -59,7 +59,7 @@ The UI could have been sexier, but it'd done its job <span role="img">😌</span
 
 Having Campy in place helped me to streamline dataset building.
 
-Another important thing is the test dataset. I chose to delegate this part to my girlfriend, so I would be more confident that my model was not learning how I looked like and would work with other people. Thankfully, girls like to take pictures, so I came with the right request:
+Another important thing is the test dataset. I chose to delegate this part to my girlfriend, so I would be more confident that my model was not learning what I looked like and would work with other people as well. Thankfully, girls like to take pictures, so I came with the right request:
 
 ![Test Dataset](./img/rps-custom-test-dataset.png "Test Dataset")
 
@@ -93,19 +93,19 @@ I ended up with the model that was trained for 50 epochs with:
 
 I did not want to buy any servers or cloud instances to run my tiny little pet project. That was a challenging requirement that left me with few options. The most solid one was to use Tensorflow.js.
 
-Tensorflow.js is a JavaScript frontend library that can load Tensorflow models right into the browser and uses them to perform predictions.
+Tensorflow.js is a JavaScript frontend library that can load Tensorflow models right into the browser and use them to perform predictions.
 
 You will need to [convert](https://www.tensorflow.org/js/tutorials/conversion/import_keras) a Tensorflow model to Tensorflow.js compatible format. This is only possible if you persisted the whole model and not just only the model weights.
 
 Next, your model may fail to load in Tensorflow.js if you used any layers in your Tensorflow model that don't map to any layers on Tensorflow.js side. In my case, I used L2 normalization and I had to implement a new layer to map it on the JS side.
 
-After model is loaded, it may be very slow at the very first prediction, so you may need to call run your predict method on the dummy tensor to warm up the model during the model initialization.
+After the model is loaded, it may be very slow at the very first prediction, so you may need to call run your predict method on the dummy tensor to warm up the model during the model initialization.
 
 Finally, Tensorflow.js and your model may add a few megabytes to your download resources that can be harmful to your frontend performance. So be sure you load your model weights and Tensorflow.js only where and when they are needed.
 
 ### Conclusions
 
-I noticed that building AI-enabled application, even a simple one, is quite a different story than training models in Jupyter notebooks just for the sake of training and getting the best possible score. You stop evaluating the success of your project by some metrics and you are getting focused on how well your project solves your problem.
+I noticed that building AI-enabled applications, even simple ones, is quite a different story than training models in Jupyter notebooks just for the sake of training and getting the best possible score. You stop evaluating the success of your project by some metrics and you are getting focused on how well your project solves your problem.
 
 ## Resources
 
