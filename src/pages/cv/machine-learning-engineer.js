@@ -104,7 +104,7 @@ const MachineLearningEngineerCV = () => {
                   <div className="project-description">
                     Trained a model to recognize hand forms of rock, paper, scissors and incorporate it into a game.
                     Collected hundreds of images in order to improve the model accuracy. <br/><br/>
-                    Ended up with model that is <strong>90% accurate</strong> and recognize common ways to shape RPS forms. The model was <strong>deployed as a serverless</strong> application using Tensorflow.js.
+                    Ended up with a model that is <strong>90% accurate</strong> and recognizes common ways to shape RPS forms. The model was <strong>deployed as a serverless</strong> application using Tensorflow.js.
                   </div>
                   <ul className="project-details">
                     <li><strong>Experience</strong>: Problem Framing, Data Collection, Image Data, Python, Tensorflow, Tensorflow.js</li>
@@ -115,7 +115,7 @@ const MachineLearningEngineerCV = () => {
                   <h3>[Kaggle] Shopee - Price Match Guarantee</h3>
                   <div className="project-description">
                     The Shopee marketplace has a price match guarantee program. 
-                    They needed a model that could automate process of finding marketplace lots with similar product offerings and prices, despite marketing strategy, product titles and images which merchants might use. 
+                    They needed a model that could automate the process of finding marketplace lots with similar product offerings and prices, despite marketing strategy, product titles and images which merchants might use. 
                     <br/><br/>
                     Got to Top 45% of submitters on Kaggle. Got <a href="https://www.kaggle.com/c/shopee-product-matching/discussion/236496" target="blank">gold and silver medals</a> for providing deep insights on the domain and problem goal.
                   </div>
@@ -127,8 +127,8 @@ const MachineLearningEngineerCV = () => {
                 <li className="project">
                   <h3>[Kaggle] HPA - Single Cell Classification</h3>
                   <div className="project-description">
-                    Human Protein Atlas organization was interested in finding patterns of protein distribution inside of the single cell. This should helped to understand role of different proteins in disease development, medical treatment impact, etc.<br/>
-                    Based on 150Gb of 4-layers human cells images, it was needed to segments each cell and predict in which organelle of the cell the protein of interest were located. 
+                    Human Protein Atlas organization was interested in finding patterns of protein distribution inside of the single cell. This helped to understand role of different proteins in disease development, medical treatment impact, etc.<br/>
+                    Based on 150Gb of 4-layers human cells images, it was needed to segment each cell and predict in which organelle of the cell the protein of interest were located. 
                     Provided dataset contained only inaccurate image-level labels (not directly connected to particular cells).
                     <br/><br/>
                     Got to Top 15% of submitters on Kaggle.
