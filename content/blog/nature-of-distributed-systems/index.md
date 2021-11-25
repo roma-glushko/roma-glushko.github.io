@@ -22,19 +22,19 @@ Despite all benefits, I feel like many people **underestimate challenges** that 
 
 ## Single Server Setup
 
-The Single server setup is when your application, database and files are served on the same physical or virtual server. It is a reasonable baseline and often you may never need more than that. We work a lot with this kind of systems. Even our personal computers may be an example of the single-node systems.
+The Single server setup is when your application, database and files are served on the same physical or virtual server. It is a reasonable baseline and often you may never need more than that. We work a lot with this kind of system. Even our personal computers may be an example of the single-node systems.
 
 This is probably how we can get in a situation when we tend to apply our single server mental model to think about distributed systems. However, distributed setup is a fundamentally different beast and it has four main differences:
 
 - **Latency** - when we have a single server, it's **CPU power and latency** we worry about. In distributed systems, our main concern is **network latency**.
 - **Memory Access** - in a single server, we have access to the **same memory space**, so it may be easier to write programs that interact with each other. You cannot get direct access from one server to another.
-- **Partial Failures** - both distributed and a single node systems have components that could fail. In case of a single server, there may be either total failure of the server (OS crashes or failures on ISP side) or partial failures of the applications installed on the server. Every single component in a distributed setup surely shares these problems. However, they become **undisguisable** from each other. Having more components only **increases the chance that some of them would be affected by some failures**.
+- **Partial Failures** - both distributed and a single node systems have components that could fail. In the case of a single server, there may be either total failure of the server (OS crashes or failures on the ISP side) or partial failures of the applications installed on the server. Every single component in a distributed setup surely shares these problems. However, they become **undisguisable** from each other. Having more components only **increases the chance that some of them would be affected by some failures**.
 
 These few differences are so significant that they effectively change the way we need to think and build distributed systems.
 
 ## Beyond Single Server
 
-From the brief comparison becomes clear that role of the network is crucial in multi-server setups. In order to let services communicate with each other, they expose accessible APIs via standard protocols like:
+From the brief comparison it becomes clear that the role of the network is crucial in multi-server setups. In order to let services communicate with each other, they expose accessible APIs via standard protocols like:
 
 - REST
 - SOAP
@@ -52,9 +52,9 @@ Requests over the network can fail and there are a lot of reasons for that. Your
 
 In other cases, your hardware may be partially faulty in a way that would slow down the whole nodes that it connects. So troubleshooting becomes time-consuming and painful.
 
-While people work on making networks reliable, probably there will be always a reason that causes the failure.
+While people work on making networks reliable, there will probably always be a reason that causes the failure.
 
-Even if network links works well, it doesn't mean that we are safe.
+Even if network links work well, it doesn't mean that we are safe.
 
 Network can be intercepted and the information may be **recorded, modified or fabricated**. This becomes an issue if transmitted information is confidential like PII or CC data.
 
@@ -80,13 +80,13 @@ When two applications communicate on the same server, the communication latency 
 
 `video: title: "Latency in Matrix": https://media.giphy.com/media/6xE1FNcorRInS/giphy.mp4`
 
-Network latency can be in **a few orders of magnitude higher** than communication inside of the same memory space. Two computers from different parts of the world are connected via optical cables and the light is used to transmit information. So we seem to be pretty much limited to the speed of the light at this point. All of this tells us that latency is a new and important factor in the distributed systems.
+Network latency can be **a few orders of magnitude higher** than communication inside of the same memory space. Two computers from different parts of the world are connected via optical cables and the light is used to transmit information. So we seem to be pretty much limited to the speed of the light at this point. All of this tells us that latency is a new and important factor in distributed systems.
 
-Another resource associated with communication over the network is **bandwidth**. Each network connection has a bandwidth limit and you cannot send a larger chunk of data over unit of time via the network. This is especially important when you deal with file uploading and downloading like in Google Drive, Dropbox or even Netflix where you need to stream high-quality video files for millions of users over the globe.
+Another resource associated with communication over the network is **bandwidth**. Each network connection has a bandwidth limit and you cannot send a larger chunk of data over a unit of time via the network. This is especially important when you deal with file uploading and downloading like in Google Drive, Dropbox or even Netflix where you need to stream high-quality video files for millions of users over the globe.
 
 Latency and bandwidth are two main costs of information transportation. However, there are other ones. For example, you will definitely pay for the whole **network infrastructure** needed to make your communication possible. Even if that cost is hidden in the cloud provider tariffs.
 
-Yet another cost is the CPU resource you spend on **serializing and deserializing** data as well as **cost of TCP and HTTPS handshakes**. This is the cost we need to pay in order to transfer data between transportation to application layers. The same story goes for when we decide to **compress and decompress** data in order to speed up data transmission and optimize bandwidth.
+Yet another cost is the CPU resource you spend on **serializing and deserializing** data as well as **the cost of TCP and HTTPS handshakes**. This is the cost we need to pay in order to transfer data between transportation to application layers. The same story goes for when we decide to **compress and decompress** data in order to speed up data transmission and optimize bandwidth.
 
 In order to imagine all of this, let's take a look at [some measurements](http://www.cs.cornell.edu/projects/ladis2009/talks/dean-keynote-ladis2009.pdf) that were done in Google data centers a while ago. They still are useful when you compare them:
 
@@ -104,7 +104,7 @@ This may be counterintuitive, but in some cases, **network communication may be 
 
 Network hardware and software are not the only unreliable components. We can easily imagine a situation when some of the connected nodes become faulty because of a broken hard drive or RAM stick. In such cases, there is a part of the distributed system that still works and another part that is failed. These situations are just inevitable.
 
-What can we do about it? We need to manage such failures and build system architectures around this fundamental problem. Such kind of systems are called **fault-tolerant**.
+What can we do about it? We need to manage such failures and build system architectures around this fundamental problem. Such systems are called **fault-tolerant**.
 
 **CAP theorem** says that there are two logical ways to respond to the partial failure of the system:
 
@@ -116,13 +116,13 @@ What can we do about it? We need to manage such failures and build system archit
 
 The most important is that **we cannot pick all three of these attributes: Consistency, Availability and Partial Failure Tolerance**.
 
-Another interesting thing is the **Consistency-Availability** pair. Since partial failures are unavoidable, it's effectively not possible to implement this pair for distributed systems and it should be only possible in a case of a single-server setup.
+Another interesting thing is the **Consistency-Availability** pair. Since partial failures are unavoidable, it's effectively not possible to implement this pair for distributed systems and it should be only possible in the case of a single-server setup.
 
 However, failures don't happen all the time and most of the time the system is in a fully functional state. That's why there is an addition to the CAP theorem called the **PACELC theorem**.
 
-PACELC theorem states that when there are **no partial failures** in the system, then distributed system can **trade between latency and consistency**. In other words, in case you have a horizontally scaled cluster with a couple of nodes, then you can balance your system latency over consistency by choosing the number of nodes you need to have in sync when change happens. The change may be propagated with **a few nodes right away** and respond to the client after that. The rest of the nodes become eventually synced with this change over time. On the flip side, you can wait until **all nodes** get in sync and only then respond to the client. In the second case, we get a **strongly consistent** system, but with the **higher latency** comparing to the first case.
+PACELC theorem states that when there are **no partial failures** in the system, then a distributed system can **trade between latency and consistency**. In other words, in case you have a horizontally scaled cluster with a couple of nodes, then you can balance your system latency over consistency by choosing the number of nodes you need to have in sync when change happens. The change may be propagated with **a few nodes right away** and respond to the client after that. The rest of the nodes eventually become synced with this change over time. On the flip side, you can wait until **all nodes** get in sync and only then respond to the client. In the second case, we get a **strongly consistent** system, but with a **higher latency** comparing to the first case.
 
-By choosing number of nodes we want to have in sync when change happen, we can specify **the level of consistency** of the system.
+By choosing the number of nodes we want to have in sync when changes happen, we can specify **the level of consistency** of the system.
 
 ## At Least Once Delivery
 
