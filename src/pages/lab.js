@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import LabHeader from "../components/lab/lab-header"
@@ -7,12 +6,11 @@ import MainNavigation from "../components/theme/main-navigation"
 import ExperimentTeaser from "../components/lab/experiment-teaser"
 import Footer from "../components/theme/footer"
 
+import experiments from "../../data/lab/experiments.json"
 import "./lab.css"
 
 class LabListPage extends Component {
-  render() {
-    const { data: { allExperimentsJson: { edges } } } = this.props
-
+  render() {    
     return (
       <Layout>
         <SEO
@@ -33,19 +31,19 @@ class LabListPage extends Component {
             <LabHeader />
             <MainNavigation space={"lab"} />
           </aside>
-          <main className={`experiment-list experiment-grid ${!edges.length ? "no-experiments" : ""}`}>
-            {!edges.length && (
+          <main className={`experiment-list experiment-grid ${!experiments.length ? "no-experiments" : ""}`}>
+            {!experiments.length && (
             <div className="no-experiments-placeholder">
               Great experiments will be here as soon as my muse comes back to me <span role="img" aria-label="magic will happen soon">💫</span> <br />
               Come back soon <span aria-label="bye" role="img">👋</span>
             </div> )}
-            {edges.map(experiment => (
+            {experiments.map(experiment => (
               <ExperimentTeaser
-                key={experiment.node.id}
-                title={experiment.node.title}
-                url={experiment.node.url}
-                description={experiment.node.description}
-                category={experiment.node.category}
+                key={experiment.id}
+                title={experiment.title}
+                url={experiment.url}
+                description={experiment.description}
+                category={experiment.category}
               />
             ))}
           </main>
@@ -58,20 +56,3 @@ class LabListPage extends Component {
 }
 
 export default LabListPage
-
-export const pageQuery = graphql`
-  query LabListQuery {
-    allExperimentsJson {
-      edges {
-        node {
-          id
-          title
-          url
-          description
-          category
-          publishDate
-        }
-      }
-    }
-  }
-`
