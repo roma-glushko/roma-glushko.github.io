@@ -25,7 +25,7 @@ const Thought = (props) => {
             <header>
                 <figure className="cover">
                     <div className="cover-filter">
-                        <Img className="cover-image" fluid={cover.childImageSharp.fluid} />
+                        <Img className="cover cover-image" fluid={cover.childImageSharp.fluid} />
                     </div>
                     <figcaption className="image-title" dangerouslySetInnerHTML={{ __html: coverCredits }}></figcaption>
                 </figure>

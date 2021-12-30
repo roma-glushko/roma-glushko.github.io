@@ -2,7 +2,7 @@
 path: "/blog/nature-of-distributed-systems/"
 date: "2021-07-20 09:00:00"
 published: true
-title: "Nature of Distributed Systems"
+title: "The Nature of Distributed Systems"
 cover: "./marcin-jozwiak-oh0DITWoHi4-unsplash.jpeg"
 coverCredits: Photo by <a href="https://unsplash.com/@marcinjozwiak">Marcin Jozwiak</a> on <a href="https://unsplash.com/s/photos/distribution-center">Unsplash</a>
 excerpt: "How distributed systems are different to single-node setups?"
