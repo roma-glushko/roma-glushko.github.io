@@ -1,10 +1,10 @@
 ---
 path: "/blog/communicate-through-code/"
 date: "2022-05-22 13:15:00"
-published: false
+published: true
 title: "Communicate Through Code"
 cover: "./jantine-doornbos-HvYy5SEefC8-unsplash.jpg"
-excerpt: "TBU"
+excerpt: "Learn to communicate your ideas clearly while coding"
 keywords:
     - software engineering
     - python
