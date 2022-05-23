@@ -82,14 +82,14 @@ I can say without doubts that this piece of code is complex and it's hard to und
 
 ## Communication Tools
 
-I hope that that at this point you are already eager to know how improve your "communicate through code" skills.
+I hope that at this point you are already eager to know how improve your "communicate through code" skills.
 
 There are two main ways to communicate your intent better:
 
 - via programing language expressions and idioms
 - via comments
 
-Each of them them deserves a detailed view, so let's dive it.
+Each of them deserves a detailed view, so let's dive it.
 
 ## Language Expressions
 
@@ -146,31 +146,27 @@ Lists and sets have their **unmutable** counterparts which are **tuples** and **
 Python goes even further and lets you name each item in the tuples via the `NamedTuple` class:
 
 ```python
-langs: set[str] = {
-    "Python", 
-    "Golang", 
-    "PHP", 
-    "R", 
-    "Julia", 
-    "JavaScript", 
-    "Python",
-}
+from typing import NamedTuple
 
-for lang in langs:
-    print(lang)
 
-# Outputs (mention that there are no duplicates):
-# Python
-# Golang
-# PHP
-# R
-# Julia
-# JavaScript
+class Student(NamedTuple):
+    name: str
+    score: float
+
+
+student = Student("Roma", 10.4)
+
+print(student.score)
+# 10.4
+
+# equivalent to:
+# print(student[1])
+# but a way more readable
 ```
 
 #### Dicts
 
-Dicts are the members of royal family in Python. The whole Python language is based on them. Essentially, **dicts** are **mutable** mappings of **unique keys** to corresponding values. Dicts are typically iterated over or accesses by keys: 
+Dicts are the members of royal family in Python. The whole Python language is based on them. Essentially, **dicts** are **mutable** mappings of **unique keys** to corresponding values. Dicts are typically iterated over or accesses by keys:
 
 ```python
 lang_mascots: dict[str, str] = {
@@ -215,10 +211,9 @@ Often we need to count how many times each item occurs in the list or dict or to
 
 ```python
 from collections import Counter
-from typing import List
 
 
-langs: List[str] = [
+langs: list[str] = [
     "Python", 
     "Golang", 
     "PHP", 
@@ -242,7 +237,7 @@ from collections import defaultdict
 from typing import Dict, List
 
 
-langs: List[str] = [
+langs: list[str] = [
     "Python", 
     "Golang", 
     "PHP", 
@@ -253,7 +248,7 @@ langs: List[str] = [
     "Fortran",
 ]
 
-counter: Dict[str, int] = defaultdict(int)
+counter: dict[str, int] = defaultdict(int)
 
 for lang in langs:
     counter[lang] += 1
@@ -301,7 +296,7 @@ for pet in pets:
 
 #### Comprehensions
 
-Often we need to keep data from collection **unmodified**, but just to change its output format. For example, we may have a plain list of JSON strings and we need to convert them to the list of dicts. In such cases, there are no side effects to the data itself, we just converting **one collection into another**. Python has brilliant constructions called list and dict comprehensions that are designed to be helpful here:
+Often we need to keep data from collection **unmodified**, but just to change its output format. For example, we may have a plain list of JSON strings and we need to convert them to the list of dicts. In such cases, there are no side effects to the data itself, we just converting **one collection into another**. Python has brilliant constructions called list/dict/set comprehensions that are designed to be helpful here:
 
 ```python
 raw_orders: list[str] = ["{...}", "{...}", "{...}"]  # each item is a JSON string that contains order information
