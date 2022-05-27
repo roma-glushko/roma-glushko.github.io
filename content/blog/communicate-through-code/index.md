@@ -1,6 +1,6 @@
 ---
 path: "/blog/communicate-through-code/"
-date: "2022-05-22 13:15:00"
+date: "2022-05-27 13:06:00"
 published: true
 title: "Communicate Through Code"
 cover: "./jantine-doornbos-HvYy5SEefC8-unsplash.jpg"
@@ -10,7 +10,7 @@ keywords:
     - python
 ---
 
-I had been a technical lead for more than 3 years. One of my responsibilities was to make sure that my teams produced quality eCommerce solutions. During code reviews, I frequently saw one particular problem which did a great job at **killing software maintainability**. This problem is better known from the people management area, but, believe me, it's vitally important for software development as well. The problem is called **"poorly communicated intent"**.
+I had been a technical lead for more than 3 years. One of my responsibilities was to make sure that my teams produced quality eCommerce solutions. During code reviews, I frequently saw one particular problem which did a great job at **killing software maintainability**. This problem is better known by the people management area, but, believe me, it's vitally important for software development as well. The problem is called **"poorly communicated intent"**.
 
 ## Code Lifecycle
 
@@ -26,7 +26,7 @@ At the same time, it's **unlikely** you are around all the time to ask you about
 
 Being always around is a synchronous communication and it **doesn't scale** well.
 
-In the worse case, when code owner is not available, you can still review all places that consume the code and make sure your changes will not break them. This rather tedious process significantly slows down progress of the application development and frequently slips your deadlines.
+In the worse case, when the code owner is not available, you can still review all places that consume the code and make sure your changes will not break them. This rather tedious process significantly slows down the progress of the application development and frequently slips your deadlines.
 
 When you adjust code that you don't understand completely, there is a constant fear that there is a subtle use case which you may miss and which eventually will break. Those situations turn codebase maintenance and evolution into a desperately painful task.
 
@@ -36,7 +36,7 @@ This is not a way to go.
 
 ## Intention in Code
 
-The root of the problem is that people don't always realize that they actually **communicate their intent when they do coding**. Think for a moment. It's called "programing language", hence, it must have something **in common with natural languages**. Just like natural languages are useful for communication your ideas, programing languages inherit pretty much the same idea, but **language expressions** are slightly different. If so, then each expression exists to convey some information, meaning and intention.
+The root of the problem is that people don't always realize that they actually **communicate their intent when they do coding**. Think for a moment. It's called "programing language", hence, it must have something **in common with natural languages**. Just like natural languages are useful for communicating your ideas, programing languages inherit pretty much the same idea, but **language expressions** are slightly different. If so, then each expression exists to convey some information, meaning and intention.
 
 Problems start when you try to **misuse** those expressions. This leads to implementations that are hard to read, understand, maintain and change.
 
@@ -46,7 +46,7 @@ This is how we can get **a complex solution**, but why it's actually complex?
 
 Primarily, there are two sources of complexity:
 
-- **domain complexity** - implementation is complex, because the problem it solves is complex (e.g. plane's runway scheduling)
+- **domain complexity** - implementation is complex because the problem it solves is complex (e.g. plane's runway scheduling)
 - **accidental complexity** - implementation could be simpler but we have implemented it in an unmaintainable way
 
 Domain complexity is something we can't do much about. We just need to deal with it and there are a few approaches like [domain-driven design](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215).
@@ -72,24 +72,24 @@ def remove_duplicates(clean_tokens: list):
     return result
 ```
 
-Try to read this function a few times. What's your impressions?
+Try to read this function a few times. What are your impressions?
 
-- the function is called `remove_duplicates()` but it seems to omit only non alpha-numerical values, not duplicated values
+- the function is called `remove_duplicates()` but it seems to omit only non-alpha-numerical values, not duplicated values
 - what values are inside `tok[0]` and `tok[2]` items? How many items are there in each `tok` array?
 - what's the meaning of `tok[2]` sum for each `tok[0]`?
 
-I can say without doubts that this piece of code is complex and it's hard to understand. However, this piece is not about launching a SpaceX shuttle (hopefully). It does something very simple, but what exactly it does was highly obscured by poor choice of language expressions. This is what **accidental complexity** really means.
+I can say without doubts that this piece of code is complex and it's hard to understand. However, this piece is not about launching a SpaceX shuttle (hopefully). It does something very simple, but what exactly it does was highly obscured by a poor choice of language expressions. This is what **accidental complexity** really means.
 
 ## Communication Tools
 
-I hope that at this point you are already eager to know how improve your "communicate through code" skills.
+I hope that at this point you are already eager to know how to improve your "communicate through code" skills.
 
 There are two main ways to communicate your intent better:
 
 - via programing language expressions and idioms
 - via comments
 
-Each of them deserves a detailed view, so let's dive it.
+Each of them deserves a detailed view, so let's dive into it.
 
 ## Language Expressions
 
@@ -97,24 +97,24 @@ Each of them deserves a detailed view, so let's dive it.
 
 Surprisingly, let's talk about PHP for a second.
 
-I have started delving in Python after I had spent quite a few year dealing with PHP.
-After looking at Python, my first question was: "Why does Python have so many data structures?". There are lists, tuples, sets, frozen sets, dicts and this is just a few to name.
+I started delving into Python after I had spent quite a few years dealing with PHP.
+After looking at Python, my first question was: "Why does Python have so many data structures?". There are lists, tuples, sets, frozen sets, dicts and this are just a few to name.
 
 In the PHP world, there are arrays and associative arrays (counterparts of Python's lists and dicts). That's it. Interestingly, there are PHP's [SPL](https://www.php.net/manual/en/book.spl.php) and [Data Structures](https://www.php.net/manual/en/book.ds.php), but, to be honest, I have hardly ever seen them in use in the wild.
 
-So I was really curios. The understanding has come to me later.
+So I was really curious. The understanding has come to me later.
 
-It's all about communication of your intent. Python provides many more expressions, built-in functions and approaches that should be used in specific cases to **offload meaning** that each of them should deliver. Conversely, in PHP people often get arrays **overloaded** in terms of meaning arrays should convey which makes code harder to grasp.
+It's all about communication of your intent. Python provides many more expressions, built-in functions and approaches that should be used in specific cases to **offload meaning** that each of them should deliver. Conversely, in PHP people often get arrays **overloaded** in terms of the meaning arrays should convey which makes code harder to grasp.
 
 Let's review a few examples.
 
 ### Types and Collections
 
-Python has many data types and good part of them are covered by syntax sugar to make them easier to use. Remaining data types can be found in the `collections` package.
+Python has many data types and a good part of them are covered by syntax sugar to make them easier to use. Remaining data types can be found in the `collections` package.
 
 #### Mutable and Unmutable
 
-**Lists** and **sets** are amount the basic data structures that are built-in into Python's syntax.
+**Lists** and **sets** are among the basic data structures that are built-in into Python's syntax.
 
 Lists are **mutable** containers for items. Their items should not be necessarily the same type. Lists may contain duplicates. It's rare to see someone accesses items from the middle of the list. Sets are **mutable** containers with no **duplicates** or **a specific order**.
 
@@ -141,7 +141,7 @@ for lang in langs:
 # Python
 ```
 
-Lists and sets have their **unmutable** counterparts which are **tuples** and **frozen sets**. Tuples and frozen sets cannot be modified after creation. They are used to say that it doesn't make sense to change them because they represents constants or some well-defined structure where each item has a special meaning like a database row.
+Lists and sets have their **immutable** counterparts which are **tuples** and **frozen sets**. Tuples and frozen sets cannot be modified after creation. They can be used to say that it doesn't make sense to change them because they represent constants or some well-defined structure where each item has a special meaning like a database row.
 
 Python goes even further and lets you name each item in the tuples via the `NamedTuple` class:
 
@@ -166,7 +166,7 @@ print(student.score)
 
 #### Dicts
 
-Dicts are the members of royal family in Python. The whole Python language is based on them. Essentially, **dicts** are **mutable** mappings of **unique keys** to corresponding values. Dicts are typically iterated over or accesses by keys:
+Dicts are the members of the royal family in Python. The whole Python language is based on them. Essentially, **dicts** are **mutable** mappings of **unique keys** to corresponding values. Dicts are typically iterated over or accesses by keys:
 
 ```python
 lang_mascots: dict[str, str] = {
@@ -185,7 +185,7 @@ for lang, mascot in lang_mascots.items():
 # golang -> 🐹
 ```
 
-Even though dicts has [become ordered recently (remembers order of adding keys)](https://stackoverflow.com/questions/39980323/are-dictionaries-ordered-in-python-3-6), you may still want to consider them unordered and use a whole another `OrderedDict` class as a means of emphasizing that you need key ordering.
+Even though dicts have [become ordered recently (remembers order of adding keys)](https://stackoverflow.com/questions/39980323/are-dictionaries-ordered-in-python-3-6), you may still want to consider them unordered and use a whole another `OrderedDict` class as a means of emphasizing that you need key ordering.
 
 You can be even more specific if your values are the same type. The `defaultdict` class will help you to automatically init all non-existing keys:
 
@@ -207,7 +207,7 @@ pokemons_by_owner_safe.append("Pikachu")
 
 #### Counters
 
-Often we need to count how many times each item occurs in the list or dict or to sum up items weights. I'm sure we could do that via dicts, but Python has a better way to achieve that via the Counter class:
+Often we need to count how many times each item occurs in the list or dict or to sum up items' weights. I'm sure we could do that via dicts, but Python has a better way to achieve that via the Counter class:
 
 ```python
 from collections import Counter
@@ -259,7 +259,7 @@ print(most_common[:3])
 # [('Python', 2), ('Golang', 2), ('PHP', 2)]
 ```
 
-As we can see, the dict-based implementation has much more cognitive burden and it's harder and longer to realize that we were just looking for three most popular languages.
+As we can see, the dict-based implementation has much more cognitive burden and it's harder and longer to realize that we were just looking for the three most popular languages.
 
 ### Looping
 
@@ -267,7 +267,7 @@ Data structures are not the only way to express your intention in code. Loops ar
 
 #### For and While loops
 
-The for loop is the most frequently used loop in Python. It helps to iterate through the collection or its range and to perform some actions on each item.
+The for loop is the most frequently used loop in Python. It helps to iterate through the collection or its range and perform some actions on each item.
 
 The while loop is used less frequently and it's aimed to iterate until some condition holds true and we usually don't know the exact number of iterations to take.
 
@@ -285,7 +285,7 @@ while i < len(pets):
     i += 1
 ```
 
-In such cases, we need to pay attention to the condition and analyze how it changes with every iteration. This is a lot to think about when we just want to check every item in collections. The for loop hides this complexity and focus us on the item processing part:
+In such cases, we need to pay attention to the condition and analyze how it changes with every iteration. This is a lot to think about when we just want to check every item in collections. The "for" loop hides this complexity and focuses us on the item processing part:
 
 ```python
 pets: list[str] = ["dog", "cat", "parrot"]
@@ -296,7 +296,7 @@ for pet in pets:
 
 #### Comprehensions
 
-Often we need to keep data from collection **unmodified**, but just to change its output format. For example, we may have a plain list of JSON strings and we need to convert them to the list of dicts. In such cases, there are no side effects to the data itself, we just converting **one collection into another**. Python has brilliant constructions called list/dict/set comprehensions that are designed to be helpful here:
+Often we need to keep data from collection **unmodified**, but just to change its output format. For example, we may have a plain list of JSON strings and we need to convert them to the list of dicts. In such cases, there are no side effects to the data itself, we just convert **one collection into another**. Python has brilliant constructions called list/dict/set comprehensions that are designed to be helpful here:
 
 ```python
 raw_orders: list[str] = ["{...}", "{...}", "{...}"]  # each item is a JSON string that contains order information
@@ -304,11 +304,11 @@ raw_orders: list[str] = ["{...}", "{...}", "{...}"]  # each item is a JSON strin
 orders: list[Order] = [Order(raw_order_info) for raw_order_info in raw_orders]
 ```
 
-However, if there is a need for side effects during enumeration, it's recommended to fallback to good old loops.
+However, if there is a need for side effects during enumeration, it's recommended to fallback into good old loops.
 
 ### Exceptions and Assertions
 
-Exceptions have a special place in Python. They are used to control code flows and to implement the [EAFP pattern](https://devblogs.microsoft.com/python/idiomatic-python-eafp-versus-lbyl/) (stands for "it’s easier to ask for forgiveness than permission"). Python code developers spent some time to optimize performance of exception raising. In fact, they are now even using exceptions internally to handle things like [ending the iteration process by raising the StopIteration exception](https://peps.python.org/pep-0234/).
+Exceptions have a special place in Python. They are used to control code flows and to implement [the EAFP pattern](https://devblogs.microsoft.com/python/idiomatic-python-eafp-versus-lbyl/) (which stands for "it’s easier to ask for forgiveness than permission"). Python code developers spent some time optimizing performance of exception raising. In fact, they are now even using exceptions internally to handle things like [ending the iteration process by raising the StopIteration exception](https://peps.python.org/pep-0234/).
 
 In our case, we can use exceptions in the following way:
 
@@ -341,15 +341,15 @@ def get_config(config_path: PathLike) -> dict[str, str]:
     
 ```
 
-Pay attention how exceptions helped us to separate different scenarios in the get_config() function:
+Pay attention to how exceptions helped us to separate different scenarios in the get_config() function:
 
 - the main "success path" case (between try and the first except statements)
-- the no config file case (content of the FileNotFoundError handler)
+- the no config file case (the content of the FileNotFoundError handler)
 - the wrong config format case (the YAMLError handler)
 
-That separation improve readability of the code comparing to retrieving some flags or status codes like in the Linux system programing.
+That separation improves the readability of the code compared to retrieving some flags or status codes like in the Linux system programing.
 
-With a heavy use of exceptions, it becomes important to create a custom one, so it's going to be easier to perform the granular error handling. The snippet above introduces a new InvalidConfigFormat exception that then can be caught by consumer code. It's also a common practice to reraise a custom exception that makes more sense for the concreate application and then connect it with the initial exception via the [raise from](https://docs.python.org/3/tutorial/errors.html#exception-chaining) expression.
+With heavy use of exceptions, it becomes important to create a custom one, so it's going to be easier to perform the granular error handling. The snippet above introduces a new InvalidConfigFormat exception that they can be caught by consumer code. It's also a common practice to reraise a custom exception that makes more sense for the concrete application and then connects it with the initial exception via the [raise from](https://docs.python.org/3/tutorial/errors.html#exception-chaining) expression.
 
 Another useful case to know is how to ignore some specific exceptions if you are okay that they can happen:
 
@@ -362,7 +362,7 @@ with suppress(ImportError):
     import pandas
 ```
 
-It's also useful to know about `assert` and `AssertionError`s. Usually you will see assert expression is being used in tests, but that's not the only use. `assert`'s may be also used to [dump some assumptions about the code that has to be true](https://realpython.com/python-assert-statement/) in the 95% of the cases but which may still be violated accidentally during the refactoring or other code adjustments. So having such sanity checks could reduce the ripple effect of the error and help to find the cause quicker:
+It's also useful to know about `assert` and `AssertionError`s. Usually, you will see assert expression is being used in tests, but that's not the only use. `assert`'s may be also used to [dump some assumptions about the code that has to be true](https://realpython.com/python-assert-statement/) in the 95% of the cases but which may still be violated accidentally during the refactoring or other code adjustments. So having such sanity checks could reduce the ripple effect of the error and help to find the cause quicker:
 
 ```python
 def get_discount(price: float) -> float:
@@ -375,9 +375,9 @@ In order to let `assert`'s work, you should not catch any `AssertionError` and l
 
 ### Decorators
 
-Most likely you have heard about the decorator design pattern that is a part of [the GoF's design patterns](https://en.wikipedia.org/wiki/Design_Patterns). The pattern is all about wrapping a function or a method into a code that will be running before or after the original one, or even replacing to the original code under needed conditions. It's a transparent way to extend the code without modifying it.
+Most likely you have heard about the decorator design pattern that is a part of [the GoF's design patterns](https://en.wikipedia.org/wiki/Design_Patterns). The pattern is all about wrapping a function or a method into a code that will be running before or after the original one, or even replacing the original code under needed conditions. It's a transparent way to extend the code without modifying it.
 
-Python took this idea to the next level. It has [a dedicate syntax to register decorators](https://peps.python.org/pep-0318/) in a declarative way:
+Python took this idea to the next level. It has [a dedicated syntax to register decorators](https://peps.python.org/pep-0318/) in a declarative way:
 
 ```python
 import functools
@@ -409,29 +409,29 @@ def sample_task():
     print("Sample task has been executed")
 ```
 
-To give you a better idea how decorators are used in the wild, let's go through just a few very common problems that can be solved with decorators:
+To give you a better idea of how decorators are used in the wild, let's go through just a few very common problems that can be solved with decorators:
 
-- register a new item in some registry. Let's say, you want to give an elegant way to extend a list webapp routes that you don't know beforehand. The example above illustrates the register pattern you can use to achieve that. Many Python web frameworks use decorators for that purpose like [Flask](https://flask.palletsprojects.com/en/1.0.x/tutorial/layout/), [Bottle](https://bottlepy.org/docs/dev/), [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/) and others. Another example is [Python's Socket.io client](https://python-socketio.readthedocs.io/en/latest/intro.html#client-examples)  that uses decorators to register handlers to some events. Yet another example is [Celery](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#application) that uses decorators to register their tasks.
-- do caching of some function results without modifying the function code. The built-in `functools` package contains `lru_cache` decorator that can be used to cache output of any function.
+- register a new item in some registry. Let's say, you want to give an elegant way to extend a list webapp routes that you don't know beforehand. The example above illustrates the "register" pattern you can use to achieve that. Many Python web frameworks use decorators for that purpose like [Flask](https://flask.palletsprojects.com/en/1.0.x/tutorial/layout/), [Bottle](https://bottlepy.org/docs/dev/), [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/) and others. Another example is [Python's Socket.io client](https://python-socketio.readthedocs.io/en/latest/intro.html#client-examples) which uses decorators to register handlers to some events. Yet another example is [Celery](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#application) which uses decorators to register their tasks.
+- do caching of some function results without modifying the function code. The built-in `functools` package contains `lru_cache` decorator that can be used to cache the output of any function.
 - add some markers to the function for the following processing. Tensorflow, for example, has a [`do_not_generate_docs()`](https://github.com/tensorflow/tensorflow/blob/299cb76dd913e7bb0349a13c1165459dac4ea81e/tensorflow/tools/docs/doc_controls.py#L46) decorator that marks functions that should not be exposed in its documentation.
-- mark route as one that requires authorization. [Django](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/#the-staff-member-required-decorator) and many Flask extension use decorators to mark webapp routes as ones that requires authorization.
+- mark route as one that requires authorization. [Django](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/#the-staff-member-required-decorator) and many Flask extensions use decorators to mark webapp routes as ones that require authorization.
 - parametrize a test function. [Pytest](https://docs.pytest.org/en/6.2.x/example/parametrize.html) uses decorators heavily and one of the use cases is to pass a few test cases to the same test function.
-- MANY more..
+- MANY more...
 
 ### Context Managers
 
 Finally, let's review another case where Python has a concise solution.
 
-You have probably noticed that quite a few components in programming require us to do in three steps:
+You have probably noticed that quite a few components in programming require us to do three steps:
 
 - initialization (beginning of a context)
 - the actual business logic
 - clean up (end of the context)
 
-You can think about work with database, acquiring locks, work with files, mocking something in tests, so on.
+You can think about working with database, acquiring locks, working with files, mocking something in tests and so on.
 Those initialization and cleanup stages create some kind of context where you can perform some business logic.
 
-This pattern is so common that Python has got a separate support on the language level to write those things in a readable way. It's called context manager. Here is an example:
+This pattern is so common that Python has got separate support on the language level to write those things in a readable way. It's called context manager. Here is an example:
 
 ```python
 from contextlib import contextmanager
@@ -458,20 +458,20 @@ with timer("factorial"):
     factorial(1e3)
 ```
 
-Context managers help to decouple business logic from the context creation. That makes usage of contexts a way more cleaner without unnecessary burden that initialization/cleanup code could bring to the code.
+Context managers help to decouple business logic from the context creation. That makes the usage of contexts more cleaner without the unnecessary burden that initialization/cleanup code could bring to the code.
 
-Here is just a few examples of using context managers in the wild:
+Here are just a few examples of using context managers in the wild:
 
 - work with files. Python vanilla [`open()`](https://docs.python.org/3/library/functions.html#open) function is implemented as a context manager.
 - create a request context. [HTTPX](https://www.python-httpx.org/async/) uses an async context manager to create a request session.
 - mock objects for testing purposes. [Python's mock object library](https://docs.python.org/3/library/unittest.mock.html) uses a context manager to create a context where some object is going to be mocked for the sake of unit testing.
-- control over backpropagation. [Tensorflow and Keras](https://keras.io/getting_started/intro_to_keras_for_researchers/) uses a context manager to give a fine-grained control over DNN backprogation gradients.
-- define event emitting scope. I have used context managers to elaborate scope to which you want to emit Socket.io events in [the socket.io-redis-emitter project](https://github.com/roma-glushko/socket.io-redis-emitter)
+- control over backpropagation. [Tensorflow and Keras](https://keras.io/getting_started/intro_to_keras_for_researchers/) use a context manager to give fine-grained control over DNN backprogation gradients.
+- define event emitting scope. I have used context managers to elaborate the scope to which you want to emit Socket.io events in [the socket.io-redis-emitter project](https://github.com/roma-glushko/socket.io-redis-emitter)
 - etc.
 
 ## Comments
 
-Knowing the full context of the solution will help other contributors to evolve it. Some solutions are suboptimal, because the code owner did not know a better way to implement it. So someone can understand the context and refactor the code.
+Knowing the full context of the solution will help other contributors to evolve it. Some solutions are suboptimal because the code owner did not know a better way to implement them. So someone can understand the context and refactor the code.
 
 More frequently there are external requirements and conditions that prompt us to write suboptimal code. We need to specify them in order to let everyone know in the team. There is probably no better place for that than a comment near the code it belongs to.
 
@@ -537,11 +537,11 @@ Code comments are far from being the only tool to convey your intention, but it'
 
 Finally, how can we identify spots in our codebase that don't communicate their intend well?
 
-One of the [Python's Zens](https://en.wikipedia.org/wiki/Zen_of_Python) is "there should be one and only one way to do things". The obvious and expected approaches should be preferably used to solve problems. The approaches that doesn't surprise you when you read the code. That would reduce the mental burden and significantly improve codebase maintenance. All code pieces that can not be described that way should be on the list of candidates to be refactored or revisited.
+One of the [Python's Zens](https://en.wikipedia.org/wiki/Zen_of_Python) is "there should be one and only one way to do things". The obvious and expected approaches should be preferably used to solve problems. The approaches don't surprise you when you read the code. That would reduce the mental burden and significantly improve codebase maintenance. All code pieces that can not be described that way should be on the list of candidates to be refactored or revisited.
 
-This rules from the Python Zen is related to another famous rule which is [the rule of the least surprise](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). Your code should not astonish its readers and it should make them read it twice to understand.
+This rule from the Python Zen is related to another famous rule which is [the rule of the least surprise](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). Your code should not astonish its readers and it should make them read it twice to understand.
 
-In the real life, it may be harder to achieve high brevity of the code. After all, it's all about trade-offs. However, you should always remember about your best friends on this way: language idioms, comments, because using them does take you closer to that goal.
+In the real life, it may be harder to achieve high brevity of the code. After all, it's all about trade-offs. However, you should always remember about your best friends on this way: language idioms and comments, because using them does take you closer to that goal.
 
 ## References
 
