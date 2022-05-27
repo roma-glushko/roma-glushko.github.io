@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-22fa0e136c234d8b60a6.js"
+    "url": "webpack-runtime-a5435cf35e12249ee6f6.js"
   },
   {
     "url": "framework-68e90182ffbbad46751e.js"
@@ -37,16 +37,16 @@ self.__precacheManifest = [
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "62dd0606ba5ae183cf0211bafd98e089"
+    "revision": "41a6288c7a6d9c1c6f2a8045bdc208d4"
   },
   {
-    "url": "static/webfonts/s/dancingscript/v19/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7BMSo3Sup8.woff2"
+    "url": "static/webfonts/s/dancingscript/v23/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7BMSo3Sup8.woff2"
   },
   {
-    "url": "static/webfonts/s/dancingscript/v19/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7B1i03Sup8.woff2"
+    "url": "static/webfonts/s/dancingscript/v23/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7B1i03Sup8.woff2"
   },
   {
-    "url": "static/webfonts/s/ledger/v11/j8_q6-HK1L3if_sBnMrx.woff2"
+    "url": "static/webfonts/s/ledger/v16/j8_q6-HK1L3if_sBnMrx.woff2"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-b8fe54a3d24900f783e9.js"
