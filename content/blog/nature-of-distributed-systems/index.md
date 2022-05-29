@@ -7,7 +7,7 @@ cover: "./marcin-jozwiak-oh0DITWoHi4-unsplash.jpeg"
 coverCredits: Photo by <a href="https://unsplash.com/@marcinjozwiak">Marcin Jozwiak</a> on <a href="https://unsplash.com/s/photos/distribution-center">Unsplash</a>
 excerpt: "How distributed systems are different to single-node setups?"
 keywords:
-    - distributed system design
+    - system design
 ---
 
 The Internet evolves rapidly. We started  our own hardware servers, moved to managed hostings and now we have entered the era of cloud computing. The ever growing need to handle more and more traffic pushes us beyond the limits.
