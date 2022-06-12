@@ -26,7 +26,12 @@ const NotFoundImage = () => {
     }
   `)
 
-  return <Img className="not-found-img" fluid={data.placeholderImage.childImageSharp.fluid} />
+  return (
+    <Img
+      className="not-found-img"
+      fluid={data.placeholderImage.childImageSharp.fluid}
+    />
+  )
 }
 
 export default NotFoundImage

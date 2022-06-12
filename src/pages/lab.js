@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
 import LabHeader from "../components/lab/lab-header"
@@ -10,7 +10,7 @@ import experiments from "../../data/lab/experiments.json"
 import "./lab.css"
 
 class LabListPage extends Component {
-  render() {    
+  render() {
     return (
       <Layout>
         <SEO
@@ -19,11 +19,11 @@ class LabListPage extends Component {
           className="lab-list-page"
           description="Machine Learning Experiments Live"
           keywords={[
-            'artificial intelligent',
-            'machine learning',
-            'deep networks',
-            'neural networks',
-            'AI demo',
+            "artificial intelligent",
+            "machine learning",
+            "deep networks",
+            "neural networks",
+            "AI demo",
           ]}
         />
         <div className="lab-wrapper">
@@ -31,13 +31,26 @@ class LabListPage extends Component {
             <LabHeader />
             <MainNavigation space={"lab"} />
           </aside>
-          <main className={`experiment-list experiment-grid ${!experiments.length ? "no-experiments" : ""}`}>
+          <main
+            className={`experiment-list experiment-grid ${
+              !experiments.length ? "no-experiments" : ""
+            }`}
+          >
             {!experiments.length && (
-            <div className="no-experiments-placeholder">
-              Great experiments will be here as soon as my muse comes back to me <span role="img" aria-label="magic will happen soon">💫</span> <br />
-              Come back soon <span aria-label="bye" role="img">👋</span>
-            </div> )}
-            {experiments.map(experiment => (
+              <div className="no-experiments-placeholder">
+                Great experiments will be here as soon as my muse comes back to
+                me{" "}
+                <span role="img" aria-label="magic will happen soon">
+                  💫
+                </span>{" "}
+                <br />
+                Come back soon{" "}
+                <span aria-label="bye" role="img">
+                  👋
+                </span>
+              </div>
+            )}
+            {experiments.map((experiment) => (
               <ExperimentTeaser
                 key={experiment.id}
                 title={experiment.title}

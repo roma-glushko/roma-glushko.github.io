@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -14,19 +14,23 @@ import Img from "gatsby-image"
  */
 
 const Avatar = () => {
-  const data = useStaticQuery(graphql`
+  const { placeholderImage } = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "homepage/photo3.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FIXED)
         }
       }
     }
   `)
 
-  return <Img className="logo-img" fluid={data.placeholderImage.childImageSharp.fluid} alt="Roman Glushko - Magento Developer, eCommerce Specialist and Life Explorer" />
+  return (
+    <GatsbyImage
+      className="logo-img"
+      image={placeholderImage.childImageSharp.gatsbyImageData}
+      alt="Roman Glushko - Magento Developer, eCommerce Specialist and Life Explorer"
+    />
+  )
 }
 
 export default Avatar

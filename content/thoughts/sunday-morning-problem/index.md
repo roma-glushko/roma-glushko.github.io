@@ -6,9 +6,9 @@ title: "Sunday Morning Problem"
 cover: "./pexels-kaboompics-com-6067.jpg"
 coverCredits: 'Photo by <a target="_blank" rel="noopener" href="https://www.pexels.com/@kaboompics">Kaboompics</a> on <a target="_blank" rel="noopener" href="https://www.pexels.com/photo/coffee-magazine-6067">Pexels</a>'
 keywords:
-    - psychology
-    - life exploring
-    - self-improvement
+  - psychology
+  - life exploring
+  - self-improvement
 ---
 
 It's a Sunday's morning. You got up early in the morning to enjoy your breakfast meal and cup of latte.

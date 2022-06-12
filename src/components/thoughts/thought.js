@@ -9,53 +9,60 @@ import "./thought.css"
 import "../theme/content.css"
 
 const Thought = (props) => {
+  const {
+    title,
+    timeToRead,
+    publishedHumanDate,
+    publishedFullDate,
+    contentHtml,
+    cover,
+    coverCredits,
+  } = props
 
-    const {
-        title,
-        timeToRead,
-        publishedHumanDate,
-        publishedFullDate,
-        contentHtml,
-        cover,
-        coverCredits,
-    } = props;
-
-    return (
-        <article className="thought-wrapper">
-            <header>
-                <figure className="cover">
-                    <div className="cover-filter">
-                        <Img className="cover cover-image" fluid={cover.childImageSharp.fluid} />
-                    </div>
-                    <figcaption className="image-title" dangerouslySetInnerHTML={{ __html: coverCredits }}></figcaption>
-                </figure>
-                <MainNavigation space={"thoughts"} />
-                <h1>{title}</h1>
-                <div className="thought-details">
-                    <time className="thought-createdat" dateTime={publishedFullDate}>{publishedHumanDate}</time>
-                    <span> • </span>
-                    <span className="thought-time2read">{timeToRead}min read</span>
-                    <div className="theme-switcher">
-                        <ThemeSwitcher />
-                    </div>
-                </div>
-            </header>
-            <div id="intro" className="thought-divider" />
-            <div
-                className="content thought-content"
-                dangerouslySetInnerHTML={{ __html: contentHtml }}
+  return (
+    <article className="thought-wrapper">
+      <header>
+        <figure className="cover">
+          <div className="cover-filter">
+            <Img
+              className="cover cover-image"
+              fluid={cover.childImageSharp.fluid}
             />
-            <div id="content-end" />
-        </article>
-    );
-};
+          </div>
+          <figcaption
+            className="image-title"
+            dangerouslySetInnerHTML={{ __html: coverCredits }}
+          ></figcaption>
+        </figure>
+        <MainNavigation space={"thoughts"} />
+        <h1>{title}</h1>
+        <div className="thought-details">
+          <time className="thought-createdat" dateTime={publishedFullDate}>
+            {publishedHumanDate}
+          </time>
+          <span> • </span>
+          <span className="thought-time2read">{timeToRead}min read</span>
+          <div className="theme-switcher">
+            <ThemeSwitcher />
+          </div>
+        </div>
+      </header>
+      <div id="intro" className="thought-divider" />
+      <div
+        className="content thought-content"
+        dangerouslySetInnerHTML={{ __html: contentHtml }}
+      />
+      <div id="content-end" />
+    </article>
+  )
+}
 
 Thought.propTypes = {
-    title: PropTypes.string.isRequired,
-    timeToRead: PropTypes.number.isRequired,
-    publishedHumanDate: PropTypes.string.isRequired,
-    publishedFullDate: PropTypes.string.isRequired,
-    contentHtml: PropTypes.string.isRequired,
-};
+  title: PropTypes.string.isRequired,
+  timeToRead: PropTypes.number.isRequired,
+  publishedHumanDate: PropTypes.string.isRequired,
+  publishedFullDate: PropTypes.string.isRequired,
+  contentHtml: PropTypes.string.isRequired,
+}
 
 export default Thought

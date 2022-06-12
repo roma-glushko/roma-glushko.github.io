@@ -11,10 +11,16 @@ import "../components/404/404.css"
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not Found" className="not-found-page" meta={[{
-      name: `robots`,
-      content: `noindex,nofollow`,
-    }]} />
+    <SEO
+      title="404: Not Found"
+      className="not-found-page"
+      meta={[
+        {
+          name: `robots`,
+          content: `noindex,nofollow`,
+        },
+      ]}
+    />
     <div className="container">
       <main className="row not-found-wrapper">
         <NotFoundImage />

@@ -6,10 +6,9 @@ title: "How I built my ML workstation 🔬"
 cover: "./machine-learning-workstation.jpg"
 excerpt: "A full story about building a custom ML workstation. From parts picking to software installation and using."
 keywords:
-    - machine learning
-    - computer engineering
+  - machine learning
+  - computer engineering
 ---
-
 
 Kaggle Kernels and Google Colab are great.
 
@@ -91,6 +90,7 @@ It makes sense to dig just slightly deeper in a simplified CUDA architecture. Mo
 So any bottlenecks in data loading flow would lead to suboptimal utilization of tensor cores, no matter how many of them you have in your GPU.
 
 ![CUDA Hardware Architecture](./img/cuda-hardware-architecture.png "CUDA Hardware Architecture")
+
 <div class="image-title">CUDA Hardware Architecture (<a target="_blank" rel="noopener" href="https://dadaiscrazy.github.io/usuba/2020/03/28/CUDA-basics.html" title="source of the image">source</a>)</div>
 
 With that being said, these are roughly the main GPU features important for ML tasks:
@@ -130,13 +130,13 @@ CPU is the "right hand" of GPU. In ML builds, CPU is used for:
 - **Transmitting batches from RAM to the GPU global memory**
 - **Running functions in GPU device**
 
-So it's not really helpful to have high CPU frequency. Nonetheless, it's important to be able effectively to execute small tasks in parallel. In other words, the number of **threads and cores** are important property for ML machines.  
+So it's not really helpful to have high CPU frequency. Nonetheless, it's important to be able effectively to execute small tasks in parallel. In other words, the number of **threads and cores** are important property for ML machines.
 
 ### RAM
 
 When it comes to RAM, the **memory capacity** is all that matters. It's perfect to have enough RAM to run model training without falling back to **swapping**. Larger capacity would allow to run bigger batches of data and execute more data loaders to make GPU wait less.
 
- RAM is also helpful during **data processing and feature engineering**. Hence, the larger RAM you would have, the better would be for you.
+RAM is also helpful during **data processing and feature engineering**. Hence, the larger RAM you would have, the better would be for you.
 
 ### Storage
 
@@ -148,7 +148,7 @@ Among SSDs, you could find <a target="_blank" rel="noopener" href="https://www.m
 
 The PSU is what makes your PC alive. To choose your PSU, you need to calculate the **wattage consumption** of your build. Typically there are two the most power consuming components: **CPU and GPUs**. If you sum up their consumptions and adds another 10-15% on top of that (for other components, overclocking, etc), you would roughly estimate your power needs. I also used <a target="_blank" rel="noopener" href="https://pcpartpicker.com">PCPartpicker Builder</a> to estimate my PC wattage.
 
-Other than that, you should consider the number of **slots and connectors** that the PSU provides. 
+Other than that, you should consider the number of **slots and connectors** that the PSU provides.
 
 This is the point where you can plan ahead. Just include potential GPUs you would like to buy in the future to the wattage consumption and connectors consideration.
 
@@ -196,6 +196,7 @@ Also, I was able to buy only 750W version of EVGA G2. My estimated wattage is 42
 The situation with GPU was much more complicated. It was the beginning of the GPU shortage (end of 2020 - beginning of 2021) when GPU prices skyrocketed twice or sometimes three times. In that time, Bitcoin jumped to almost $60k as well as other factors that impacted the supply chain and increased GPU demand (mostly, global COVID-19 lockdown).
 
 ![GPU Price Dynamics: end of 2020 - beginning of 2021](./img/gpu-price-dynamics.png "GPU Price Dynamics: end of 2020 - beginning of 2021")
+
 <div class="image-title">GPU Price Dynamics: end of 2020 - beginning of 2021. Wild time</div>
 
 I had been closely watching for price updates for like 3 months. The situation was not really changing. Well, it got even worse while I was waiting.
@@ -205,6 +206,7 @@ Considering Tim's advice and crazy GPU prices, I was shooting for RTX 3070. RTX 
 There turned out to be a lot of vendors that produce RTX 3070 cards.
 
 `youtube: [Difference between graphic card vendors](https://www.youtube.com/embed/N3lfXsa08CY)`
+
 <div class="image-title">Difference between graphic card vendors</div>
 
 Basically, the main differences are in:
@@ -218,6 +220,7 @@ Basically, the main differences are in:
 It took me a couple of weeks to collect all parts.
 
 ![PC Parts](./img/pc-parts.jpg "PC Parts")
+
 <div class="image-title">PC parts arrived. I think I could build a new house with these boxes. Stay tuned for more updates on this</div>
 
 Before unboxing all of those packages, keep in mind the following:
@@ -232,11 +235,13 @@ Now it's time to get our hands dirty!
 The motherboard is a central component. So I started unboxing it.
 
 ![MSI X470 Gaming Max Unboxing](./img/msi-x470-gaming-max-unboxing.jpg "MSI X470 Gaming Max Unboxing")
+
 <div class="image-title">Motherboard Unboxing</div>
 
 It has lots of ports which we are going to use further in this section.
 
 ![MotherBoard](./img/msi-x470-gamin-plus-detailed-view.jpg "MotherBoard")
+
 <div class="image-title">Motherboard. Detailed View</div>
 
 The MoBo instruction is useful when you install components. Definitely take a look at it!
@@ -246,16 +251,19 @@ The MoBo instruction is useful when you install components. Definitely take a lo
 Now let's unbox a CPU. The CPU box contained a CPU chip itself and a basic CPU cooler which actually holds most of the space in the box.
 
 ![AMD Ryzen 5 3600 Unboxing](./img/amd-ryzen-5-3600-unboxing.jpg "AMD Ryzen 5 3600 Unboxing")
+
 <div class="image-title">CPU Unboxing</div>
 
 We are going to install the CPU into the special CPU socket on the MoBo. It has AM4 format in my setup.
 
 ![AM4 CPU Socket](./img/am4-cpu-socket.jpg "AM4 CPU Socket")
+
 <div class="image-title">CPU Socket</div>
 
 Be super careful with CPU pins. They are very fragile. Notice that there is also a little golden arrow on one of the edges.
 
 ![AM4 CPU Socket](./img/cpu-pins.jpg "CPU Pins")
+
 <div class="image-title">CPU Pins</div>
 
 It's there to guide you on how to connect your CPU. There is **only one way** pins can be installed into the socket. It's when the golden arrow banded edge is in the bottom left corner of the CPU retention plate.
@@ -263,6 +271,7 @@ It's there to guide you on how to connect your CPU. There is **only one way** pi
 Push a retention lever down and outward to release the CPU retention plate and put your CPU in the mentioned way.
 
 ![Installed CPU AM4](./img/installed-cpu-am4.jpg "Installed CPU AM4")
+
 <div class="image-title">Installed CPU</div>
 
 Push the retention lever back to firmly install your CPU chip.
@@ -272,11 +281,13 @@ Push the retention lever back to firmly install your CPU chip.
 NVMe SSDs are much smaller than their SATA friends. It's just a one little plane that sits in the box.
 
 ![Samsung 970 EVO NVMe M.2 SSD Unboxing](./img/samsung-970-evo-m.2-unboxing.jpg "Samsung 970 EVO M.2 SSD Unboxing")
+
 <div class="image-title">M.2 SSD Unboxing</div>
 
 To connect this kind of SSDs, you need to use the M.2 socket. My MoBo has two of them. Each of them is supplied with a pair of a screw and a mounting screw. The MoBo has a few mounting posts for SSDs of different lengths.
 
 ![NVMe SSD Installation. M.2 Screw](./img/ssd-m.2-installation.jpg "NVMe SSD Installation. M.2 Screw")
+
 <div class="image-title">NVMe SSD Installation. M.2 Screw</div>
 
 Just pick a mounting post that corresponds to your SSD size, install there a mounting screw and fix the SSD with the remaining screw.
@@ -286,11 +297,13 @@ Just pick a mounting post that corresponds to your SSD size, install there a mou
 RAM planks are easy to install as well.
 
 ![G.Skill Ripjaws V Series 32Gb Unboxing](./img/g.skill-ripjaws-v-series-32gb-unboxing.jpg "G.Skill Ripjaws V Series 32Gb Unboxing")
+
 <div class="image-title">RAM Unboxing</div>
 
 Unlock your RAM slots and align your RAM plank with the slot. There is **also only one way** the plank can be firmly installed.
 
 ![RAM Installation](./img/ram-installation.jpg "RAM Installation")
+
 <div class="image-title">RAM Installation</div>
 
 Notice that your MoBo instruction may specify recommended positions for different number of RAMs. Follow those recommendations!
@@ -302,21 +315,25 @@ People suggest **avoiding to apply power** to the CPU before installing its cool
 My cooler is designed to work with both Intel and AMD CPUs. So the cooler box actually contains much more screws and other details than I needed in this particular build. This is the reason why its back panel has such a bizarre form.
 
 ![Cooler Unboxing](./img/cooler-master-hyper-212-black-unboxing.jpg "Cooler Unboxing")
+
 <div class="image-title">Cooler Unboxing</div>
 
 The first step to install the cooler is to uninstall the stock back panel.
 
 ![Uninstalling Stock CPU Back Panel](./img/uninstalling-cpu-backpanel.jpg "Uninstalling Stock CPU Back Panel")
+
 <div class="image-title">Uninstalling Stock CPU Back Panel</div>
 
 This back panel is going to be replaced by another one provided with your custom cooler. In my case, I had to assemble a back panel in AMD-compatible way.
 
 ![Cooler Master Backplate](./img/cpu-cooler-backplate.jpg "Cooler Master Backplate")
+
 <div class="image-title">Cooler Backplate</div>
 
 Flip your board around and match screws from your new back panel with the motherboard.
 
 ![Cooler Master Backplate Installed](./img/cpu-cooler-backplate-installed.jpg "Cooler Master Backplate Installed")
+
 <div class="image-title">Cooler Backplate Installed</div>
 
 To finalize the back panel installation, you need to install mounting screws on which the actual cooling system would be joined.
@@ -326,6 +343,7 @@ Next, you could assemble the cooler system. It's typically needed to attach cool
 One of the final steps, before you can attach your cooler, is thermal paste installation. I used the "pee" method explained in the video below.
 
 `youtube: [How to use thermal paste?](https://www.youtube.com/embed/-hNgFNH7zhQ)`
+
 <div class="image-title">How to use thermal paste?</div>
 
 When using thermal gel, you need to cover the CPU chip area as much as possible to allow better removal of CPU heat. Bubbles of airs that could pop up during this procedure could make cooling less effective.
@@ -341,24 +359,29 @@ Finally, you can connect the cooler power cable to the nearest port on the MoBo 
 A PSU box includes a power unit module and various cables.
 
 ![EVGA G2 750W Power Supply Unboxing](./img/evga-g2-750w-power-supply.jpg "EVGA G2 750W Power Supply Unboxing")
+
 <div class="image-title">Power Supply Unboxing</div>
 
 A computer case is just a metal box with two removable panels on the opposite sides of the box.
 
 ![NZXT H500 Computer Case](./img/nzxt-h500-pc-case.jpg "NZXT H500 Computer Case")
+
 <div class="image-title">Computer case without glass panel</div>
 
 On the top side of the box, you can see the front panel of the case. You can have a few more ports there as well as power buttons.
 
 ![NZXT H500 Front Panel](./img/nzxt-h500-front-panel.jpg "NZXT H500 Front Panel")
+
 <div class="image-title">Computer case front panel</div>
 
 First of all, install the main I/O ports cover that comes with your motherboard into your computer case. Surprisingly, it's important to make sure that all little latches on the sides of the cover are fully installed and visible on the flip side. Otherwise, they may prevent you from screwing your motherboard down.
 
 ![I/O Port Cover Latches](./img/io-cover-latches.jpg "I/O Port Cover Latches")
+
 <div class="image-title">Three little metal latches on the top side of I/O port cover. You should see them on the all of the sides</div>
 
 ![Main I/O ports](./img/pc-io-ports.jpg "Main I/O ports")
+
 <div class="image-title">Main I/O ports</div>
 
 Then, you can try to screw down your motherboard to the case mounting positions.
@@ -374,11 +397,13 @@ Next, there are three cables you need to connect in order to power your system:
 It's straightforward how to connect CPU and motherboard power cables. However, it may be challenging to connect front panel cables for the first time. The following video was helpful in my case:
 
 `youtube: [How to connect the front panel power into JFP port?](https://www.youtube.com/embed/9--Nbg2qKUA)`
+
 <div class="image-title">How to connect the front panel power into JFP port?</div>
 
 There may be still a few remaining cables to connect to the MoBo. In my case, I had USB, audio and Type-C power cables. The first two I was able to connect while the last one required an adapter since my MoBo doesn't have Type-C ports. So I kept it disconnected. By the way, PCPartsPicker can warn you about such an issue in advance.
 
 ![Motherboard installed into the computer case](./img/pc-motherboard-installed.jpg "Motherboard installed into the computer case")
+
 <div class="image-title">Motherboard installed into the computer case</div>
 
 Additionally, you may need to connect coolers which come with your computer case.
@@ -390,11 +415,13 @@ At this point, you may try to apply power to your PC but you will get **no video
 The GPU box includes a card itself and an instruction.
 
 ![Gigabyte Aorus RTX 3070 Master Unboxing](./img/gigabyte-aorus-master-rtx-3070-unboxing.jpg "Gigabyte Aorus RTX 3070 Master Unboxing")
+
 <div class="image-title">RTX 3070 Graphic Card</div>
 
-My GPU holds two slots, so I needed to match output covers to replace them with actual GPU I/O ports. 
+My GPU holds two slots, so I needed to match output covers to replace them with actual GPU I/O ports.
 
 ![Graphic Card Covers on the Computer Case](./img/graphic-card-covers.jpg "Graphic Card Covers on the Computer Case")
+
 <div class="image-title">Graphic Card Covers on the Computer Case</div>
 
 GPU ports are HDMIs and DPs with mocks to protect them from the dust. On the left side of the I/O steel plate you can see two teeth that help to mount the graphic card.
@@ -402,26 +429,29 @@ GPU ports are HDMIs and DPs with mocks to protect them from the dust. On the lef
 Make sure to **use one of these ports to connect your monitor**. HDMI port on the motherboard may not work properly.
 
 ![Gigabyte Aorus RTX 3070 Master Ports](./img/gigabyte-aorus-master-rtx-3070-ports.jpg "Gigabyte Aorus RTX 3070 Master Ports")
+
 <div class="image-title">Ports on Graphic Card</div>
 
 The computer case has special slots for these teeth. If you find that **your GPU teeth cannot be installed**, you most likely have some issues with motherboard mounting. Try to remount your motherboard to match the slots.
 
 ![PC Boot](./img/graphic-card-teeth-mounted.jpg "PC Boot")
+
 <div class="image-title">Graphic Card Teeth Mounted</div>
 
 Gigabyte Aorus Master RTX 3070 requires two VGA cables to power it. Make sure the ends of your cables are firmly installed into the GPU and PSU. Otherwise, the GPU may be not found by the motherboard.
 
 ![PC Boot](./img/gigabyte-aorus-master-rtx-3070-power-applied.jpg "PC Boot")
+
 <div class="image-title">Power applied to the graphic card</div>
 
 ## Hardware Troubleshooting
 
 If you put your first custom PC together, it's plausible that it's not going to work from the first try. In my case, the workstation simply did not turn on. There are a few things you want to double check before returning your parts back to your suppliers:
 
- - **The front panel power is connected correctly**. Get back to <a href="#how-to-install-front-panel-power-cables">the front panel power cable installation</a> and double check if you get them installed the right way. For instance, this was the reason why my PC did not work.
- - **RAM sticks are seated securely**. Try to reinstall your RAM sticks. RAM port mechanism should lock them down.
- - **Power supply cables are connected firmly**. Make sure your power cables are fully connected on both sides. I had some issues with this as well. Each connector has a plastic lock mechanism that should hold cables inside of the ports. Check if all locks are activated.
- - **The motherboard is installed on the standoffs**. Some cases provide a special standoff screws on which motherboard should be installed. Standoffs elevate the motherboard and protect it from touching metal trays which may lead to the short out.
+- **The front panel power is connected correctly**. Get back to <a href="#how-to-install-front-panel-power-cables">the front panel power cable installation</a> and double check if you get them installed the right way. For instance, this was the reason why my PC did not work.
+- **RAM sticks are seated securely**. Try to reinstall your RAM sticks. RAM port mechanism should lock them down.
+- **Power supply cables are connected firmly**. Make sure your power cables are fully connected on both sides. I had some issues with this as well. Each connector has a plastic lock mechanism that should hold cables inside of the ports. Check if all locks are activated.
+- **The motherboard is installed on the standoffs**. Some cases provide a special standoff screws on which motherboard should be installed. Standoffs elevate the motherboard and protect it from touching metal trays which may lead to the short out.
 
 Onother symptoms I want to review is **your PC turns on but shuts down after short time during booting**. In this case, there may be faulty components that prevent your PC build from running. I found a good strategy to diagnose this kind of issues:
 
@@ -432,6 +462,7 @@ Onother symptoms I want to review is **your PC turns on but shuts down after sho
 The following video shows the process of troubleshooting in action:
 
 `youtube: [How to diagnose faulty PC components?](https://www.youtube.com/embed/QP6pAPctqbk)`
+
 <div class="image-title">How to diagnose faulty PC components?</div>
 
 Also, your motherboard may have debug LEDs which indicate what components in the system are not found. In this case, you need to double check that signalled components are getting power and installed correctly.
@@ -439,13 +470,14 @@ Also, your motherboard may have debug LEDs which indicate what components in the
 Finally, after some time you will be able to see a video signal on your screen and system that is looking for a bootable device.
 
 ![PC Boot](./img/pc-boot.jpg "PC Boot")
+
 <div class="image-title">PC Boot and back side of the case with cable management sections</div>
 
-It's a good time to mount your PSU and take advantage of the cable management system that your computer case provides. 
+It's a good time to mount your PSU and take advantage of the cable management system that your computer case provides.
 
 ![EVGA G2 750W Installed](./img/evga-g2-750w-installed.jpg "EVGA G2 750W Installed")
-<div class="image-title">Mounted PSU</div>
 
+<div class="image-title">Mounted PSU</div>
 
 ## Software Installation
 
@@ -474,12 +506,14 @@ CUDA is a parallel computing platform from NVIDIA that allows to fully leverage 
 - **Installing graphic card drivers**. The recommended way to install NVIDIA drivers in Ubuntu is through Software & Update application.
 
 ![NVIDIA Drivers Installation on Ubuntu](./img/linux-nvidia-driver-installation-via-software-updates-app.jpg "NVIDIA Drivers Installation on Ubuntu")
+
 <div class="image-title">NVIDIA Drivers Installation in Ubuntu</div>
 
 - **Install CUDA Toolkit**. NVIDIA has <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&=Ubuntu&target_version=20.04&target_type=deb_network">a sweet wizard</a> that can generate installation commands for your system. Execute all commands that it suggests you.
 - **Install cuDNN**. cuDNN is a GPU-accelerated library with primitives for deep learning. You need to be registered in <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">NVIDIA Developer Program</a> in order to access the library. In the end, you will be landed on a page where you can download **cuDNN Runtime and Developer libraries** as well as **Code Samples and User Guide**. I downloaded all three of them as deb packages and installed.
 
 ![Download cuDNN page](./img/download-cudnn-page.png "Download cuDNN page")
+
 <div class="image-title">Download cuDNN page (<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn-download-survey">access is here</a>)</div>
 
 Here is <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-linux">the official installation guide</a> from NVIDIA.
@@ -505,6 +539,7 @@ With this workflow, you can still work from your MacBook, while running the code
 It's awesome to see how a small idea of having some GPU resource at my hand grown in the entire project!
 
 ![My Deep Learning Workstation 1.0](./img/deep-learning-workstation-final-look.jpg "My Deep Learning Workstation 1.0")
+
 <div class="image-title">My Deep Learning Workstation 1.0</div>
 
 I hope this article will be helpful when you build your own deep learning workstation. Be sure to let me know if this is true in the comments below!

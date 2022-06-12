@@ -6,7 +6,7 @@ title: "360 Review is Dead"
 cover: "./charles-deluvio-Lks7vei-eAg-unsplash.jpeg"
 coverCredits: 'Photo by <a href="https://unsplash.com/@charlesdeluvio">Charles Deluvio</a> on <a href="https://unsplash.com/s/photos/feedback">Unsplash</a>'
 keywords:
-    - management
+  - management
 ---
 
 In the management world, there is one off-the-shelf solution to collect performance feedback on employees. It's called a 360-degree review.

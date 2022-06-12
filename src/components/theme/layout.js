@@ -12,9 +12,7 @@ import "./theme.css"
 import "./general.css"
 
 const Layout = ({ children }) => {
-  return (
-    <div>{children}</div>
-  )
+  return <div>{children}</div>
 }
 
 Layout.propTypes = {

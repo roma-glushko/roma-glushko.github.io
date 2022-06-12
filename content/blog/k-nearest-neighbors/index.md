@@ -7,7 +7,7 @@ cover: "./pexels-ollie-craig-6398503-min.jpg"
 coverCredits: Photo by <a href="https://www.pexels.com/@olliecraig1">Ollie Craig</a> from <a href="https://www.pexels.com/photo/roads-with-vehicles-near-buildings-and-autumn-trees-in-city-6398503/">Pexels</a>
 excerpt: "Theoretical aspects of the KNN algorithm. Where it can be applied and when it fails."
 keywords:
-    - machine learning
+  - machine learning
 includeMath: true
 ---
 
@@ -20,6 +20,7 @@ KNN is instance-based learning algorithm. It doesn't make any assumption about d
 As old saying goes, you are who you surround yourself with. This idea even has mathematical interpretation. In N-dimensional space, points that are closer to each other are more similar, then ones that stand apart. This is the assumption that KNN algorithm makes. It tries to find K nearest known points or samples, also called "neighbors", to some unknown sample. Majority class of neighbors defines class of the unknown sample.
 
 ![Nearest neighbors defines class of unknown sample](./img/k-nearest-neighbors.png "Nearest neighbors defines class of unknown sample")
+
 <div class="image-title">Nearest neighbors defines class of unknown sample</div>
 
 To came from this idea to implementation, we need to define how to find closest points.
@@ -34,6 +35,7 @@ We need to somehow measure distance between samples in order to find closest (he
 - scikit-learn supports <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric">other metrics</a> as well
 
 ![Different distance metrics and their boundaries](./img/distance-metrics.png?22 "Different distance metrics and their boundaries")
+
 <div class="image-title">Distance metrics and their boundaries in 2D</div>
 
 Euclidean and Manhattan distances are two the most popular distance metrics:
@@ -72,6 +74,7 @@ We can try to rescale all features to the same range (0-1, for example). This wi
 $$
 Z = \frac{x - \overline{x}}{S}
 $$
+
 where $x$ is sample feature value, $\overline{x}$ is a feature mean and $S$ is a feature standard deviation.
 
 Z is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Standard_score">standard score (or z-score)</a> of the sample feature value. It's a dimensionless quantity and it shows how "unusual" or far sample feature value from the feature mean (which is usual or expected value).
@@ -92,7 +95,7 @@ This is the reason why ratio of features to samples is important for KNN algorit
 
 Effectiveness of applying KNN depends greatly on choosing appropriate size of neighborhood a.k.a **K** hyperparam. In turn this choice is determined by dataset. It's usual to see K in range from 1 to 20 (5 is default size in scikit-learn).
 
-Smaller value of K adds more sensitivity and variance. For noisy datasets this means that given a slightly adjusted dataset we may get a different neighbors.  
+Smaller value of K adds more sensitivity and variance. For noisy datasets this means that given a slightly adjusted dataset we may get a different neighbors.
 
 Increasing K hyperparam adds more bias to KNN results and smoother decision boundaries. If K param value is too big, KNN will loose its ability to find local structures in the dataset.
 
@@ -105,6 +108,7 @@ You may find KNN-based classificators and regressors which is a trivial applicat
 ### Feature Engineering
 
 KNN is able to identify local structures in the dataset. This information is useful clue itself and local structure labels may be used in classification/regression pipeline as an additional feature.
+
 ### Neighbors in Embeddings
 
 KNN algorithm becomes useful when you have embeddings - samples projected into lower dimensional latent space. In embedding space distance means similarity and KNN can suggest similar items. This is especially useful for recommendation systems. In that case, nearest neighbor search can be optimized further by leveraging <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Locality-sensitive_hashing">locality-sensitive hashing</a>, for instance.

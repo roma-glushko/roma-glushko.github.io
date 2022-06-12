@@ -6,9 +6,9 @@ title: "Disadvantages are everywhere"
 cover: "./elias-schupmann-4IubHMQ_0nA-unsplash.jpg"
 coverCredits: Photo by <a href="https://unsplash.com/@2epg2">Elias Schupmann</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
-    - psychology
-    - life exploring
-    - life style
+  - psychology
+  - life exploring
+  - life style
 ---
 
 Don't search for disadvantages, because you will definitely find something! It's just easier to see the disadvantages. Look around: everything has disadvantages. At the same time, everything has advantages.

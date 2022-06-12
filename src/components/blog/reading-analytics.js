@@ -1,146 +1,161 @@
-import React from 'react'
+import React from "react"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 class ReadingAnalytics extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-        'contentType': props.contentType,
-        'intializedAt': (new Date()).getTime(),
-        'isReadingStarted': false,
-        'readingStartedAt': undefined,
-        'isReadingEnded': false,
-        'readingEndedAt': undefined,
+      contentType: props.contentType,
+      intializedAt: new Date().getTime(),
+      isReadingStarted: false,
+      readingStartedAt: undefined,
+      isReadingEnded: false,
+      readingEndedAt: undefined,
     }
   }
 
-    componentDidMount () {
-        if (typeof window === 'undefined') {
-            return
-        }
-
-        const articleStart = document.getElementById('intro')
-        const articleEnd = document.getElementById('content-end')
-
-        const mainSections = Array.from(document.querySelectorAll('.content h2[id]'))
-        const subSections = Array.from(document.querySelectorAll('.content h3[id]'))
-        const allSections = mainSections.concat(subSections)
-
-        this.readingStartObserver = new IntersectionObserver(this.trackReadingStart.bind(this));
-        this.readingEndObserver = new IntersectionObserver(this.trackReadingEnd.bind(this));
-        this.readingObserver = new IntersectionObserver(this.trackReading.bind(this));
-
-        allSections.forEach(section => {
-            this.readingObserver.observe(section);
-        });
-
-        this.readingStartObserver.observe(articleStart)
-        this.readingEndObserver.observe(articleEnd)
+  componentDidMount() {
+    if (typeof window === "undefined") {
+      return
     }
 
-    trackReadingStart = (startSection) => {
-        startSection = startSection[0]
+    const articleStart = document.getElementById("intro")
+    const articleEnd = document.getElementById("content-end")
 
-        if (!startSection.isIntersecting || startSection.intersectionRatio <= 0) {
-            return 
-        }
+    const mainSections = Array.from(
+      document.querySelectorAll(".content h2[id]")
+    )
+    const subSections = Array.from(document.querySelectorAll(".content h3[id]"))
+    const allSections = mainSections.concat(subSections)
 
-        const { isReadingStarted, intializedAt, contentType } = this.state
+    this.readingStartObserver = new IntersectionObserver(
+      this.trackReadingStart.bind(this)
+    )
+    this.readingEndObserver = new IntersectionObserver(
+      this.trackReadingEnd.bind(this)
+    )
+    this.readingObserver = new IntersectionObserver(
+      this.trackReading.bind(this)
+    )
 
-        if (isReadingStarted) {
-            // already tracked start of reading
-            return
-        }
+    allSections.forEach((section) => {
+      this.readingObserver.observe(section)
+    })
 
-        const readingStartedAt = (new Date()).getTime()
-        const secondsUntilStartedReading = Math.round((readingStartedAt - intializedAt) / 1000)
+    this.readingStartObserver.observe(articleStart)
+    this.readingEndObserver.observe(articleEnd)
+  }
 
-        trackCustomEvent({
-            category: 'content',
-            action: 'startReading',
-            label: contentType,
-            value: secondsUntilStartedReading,
-        })
+  trackReadingStart = (startSection) => {
+    startSection = startSection[0]
 
-        this.setState({
-            'isReadingStarted': true,
-            'readingStartedAt': readingStartedAt,
-        })
+    if (!startSection.isIntersecting || startSection.intersectionRatio <= 0) {
+      return
     }
 
-    trackReadingEnd = (endSection) => { 
-        endSection = endSection[0]
+    const { isReadingStarted, intializedAt, contentType } = this.state
 
-        if (!endSection.isIntersecting || endSection.intersectionRatio <= 0) {
-            return
-        }
-
-        const { isReadingEnded, readingStartedAt, contentType } = this.state
-
-        if (isReadingEnded) {
-            // already tracked end of reading
-            return
-        }
-
-        const readingEndedAt = (new Date()).getTime()
-
-        this.setState({
-            'isReadingEnded': true,
-            'readingEndedAt': readingEndedAt,
-        })
-
-        const secondsUntilEndedReading = Math.round((readingEndedAt - readingStartedAt) / 1000)
-
-        window.requestAnimationFrame(() => {
-            trackCustomEvent({
-                category: 'content',
-                action: 'endReading',
-                label: contentType,
-                value: secondsUntilEndedReading,
-            })
-        });
+    if (isReadingStarted) {
+      // already tracked start of reading
+      return
     }
 
-    trackReading = (sections) => {
-        const { isReadingStarted, isReadingEnded, readingStartedAt, contentType } = this.state
+    const readingStartedAt = new Date().getTime()
+    const secondsUntilStartedReading = Math.round(
+      (readingStartedAt - intializedAt) / 1000
+    )
 
-        if (!isReadingStarted) {
-            return
-        }
+    trackCustomEvent({
+      category: "content",
+      action: "startReading",
+      label: contentType,
+      value: secondsUntilStartedReading,
+    })
 
-        if (isReadingEnded) {
-            return
-        }
-        
-        let currentReadingSections = []
+    this.setState({
+      isReadingStarted: true,
+      readingStartedAt: readingStartedAt,
+    })
+  }
 
-        sections.forEach(section => {
-            if (!section.isIntersecting || section.intersectionRatio <= 0) {
-                return 
-            }
+  trackReadingEnd = (endSection) => {
+    endSection = endSection[0]
 
-            currentReadingSections.push(section.target.getAttribute('id'))
-        })
-
-        if (currentReadingSections.length === 0) {
-            return
-        }
-        
-        window.requestAnimationFrame(() => {
-            const spentTimeReading = (new Date()).getTime()
-            const secondsReading = Math.round((spentTimeReading - readingStartedAt) / 1000)
-
-            trackCustomEvent({
-                category: 'content',
-                action: 'reading',
-                label: contentType,
-                value: secondsReading,
-            })
-        });
+    if (!endSection.isIntersecting || endSection.intersectionRatio <= 0) {
+      return
     }
 
-    render = () => (<span></span>)
+    const { isReadingEnded, readingStartedAt, contentType } = this.state
+
+    if (isReadingEnded) {
+      // already tracked end of reading
+      return
+    }
+
+    const readingEndedAt = new Date().getTime()
+
+    this.setState({
+      isReadingEnded: true,
+      readingEndedAt: readingEndedAt,
+    })
+
+    const secondsUntilEndedReading = Math.round(
+      (readingEndedAt - readingStartedAt) / 1000
+    )
+
+    window.requestAnimationFrame(() => {
+      trackCustomEvent({
+        category: "content",
+        action: "endReading",
+        label: contentType,
+        value: secondsUntilEndedReading,
+      })
+    })
+  }
+
+  trackReading = (sections) => {
+    const { isReadingStarted, isReadingEnded, readingStartedAt, contentType } =
+      this.state
+
+    if (!isReadingStarted) {
+      return
+    }
+
+    if (isReadingEnded) {
+      return
+    }
+
+    let currentReadingSections = []
+
+    sections.forEach((section) => {
+      if (!section.isIntersecting || section.intersectionRatio <= 0) {
+        return
+      }
+
+      currentReadingSections.push(section.target.getAttribute("id"))
+    })
+
+    if (currentReadingSections.length === 0) {
+      return
+    }
+
+    window.requestAnimationFrame(() => {
+      const spentTimeReading = new Date().getTime()
+      const secondsReading = Math.round(
+        (spentTimeReading - readingStartedAt) / 1000
+      )
+
+      trackCustomEvent({
+        category: "content",
+        action: "reading",
+        label: contentType,
+        value: secondsReading,
+      })
+    })
+  }
+
+  render = () => <span></span>
 }
 
 export default ReadingAnalytics

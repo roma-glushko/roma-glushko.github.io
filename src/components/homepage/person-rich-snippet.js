@@ -3,9 +3,21 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 const PersonRichSnippet = () => {
-  const { personImage, site: { siteMetadata: { personRichSnippet: {
-    name, alternateName, gender, sameAs, jobTitle, worksFor
-  } } } } = useStaticQuery(
+  const {
+    personImage,
+    site: {
+      siteMetadata: {
+        personRichSnippet: {
+          name,
+          alternateName,
+          gender,
+          sameAs,
+          jobTitle,
+          worksFor,
+        },
+      },
+    },
+  } = useStaticQuery(
     graphql`
       query {
         site {
@@ -35,8 +47,8 @@ const PersonRichSnippet = () => {
   )
 
   const schemaJSONLD = {
-    '@context': 'http://schema.org',
-    '@type': 'Person',
+    "@context": "http://schema.org",
+    "@type": "Person",
     name,
     alternateName,
     image: personImage.childImageSharp.fluid.src,
@@ -46,15 +58,13 @@ const PersonRichSnippet = () => {
     worksFor: {
       "@type": "Organization",
       name: worksFor.name,
-      sameAs: worksFor.sameAs
-    }
+      sameAs: worksFor.sameAs,
+    },
   }
 
   return (
     <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(schemaJSONLD)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(schemaJSONLD)}</script>
     </Helmet>
   )
 }

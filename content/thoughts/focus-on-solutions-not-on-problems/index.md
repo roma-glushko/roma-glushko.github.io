@@ -6,10 +6,10 @@ title: "Focus on solutions, not on problems"
 cover: "./jake-givens-ocwmWiNAWGs-unsplash.jpg"
 coverCredits: Photo by <a href="https://unsplash.com/@jakegivens">Jake Givens</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
-    - problem solving
-    - dealing with challenges
-    - psychology
-    - life exploring
+  - problem solving
+  - dealing with challenges
+  - psychology
+  - life exploring
 ---
 
 Sometimes we too focus on problems and regrets. You should know that it doesn't make any sense.

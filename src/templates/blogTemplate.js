@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import loadable from '@loadable/component'
+import loadable from "@loadable/component"
 
 import ViewPageHeader from "../components/theme/view-page-header"
 import MainNavigation from "../components/theme/main-navigation"
@@ -9,7 +9,7 @@ import BlogPost from "../components/blog/blog-post"
 import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
 import SEO from "../components/seo"
-import ShareBlock from '../components/thoughts/share-block'
+import ShareBlock from "../components/thoughts/share-block"
 import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
@@ -18,10 +18,15 @@ import Footer from "../components/theme/footer"
 import "./blog-view.css"
 import MathJax from "../components/blog/mathjax"
 
-const NewsletterForm = loadable(() => import('../components/blog/newsletter-form'));
-const BlogComments = loadable(() => import('../components/blog/blog-comments'));
+const NewsletterForm = loadable(() =>
+  import("../components/blog/newsletter-form")
+)
+const BlogComments = loadable(() => import("../components/blog/blog-comments"))
 
-export default function Template({ data, pageContext: { prevThought, nextThought } }) {
+export default function Template({
+  data,
+  pageContext: { prevThought, nextThought },
+}) {
   const {
     markdownRemark: {
       frontmatter: {
@@ -33,7 +38,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         includeMath,
         cover,
         coverCredits,
-        excerpt
+        excerpt,
       },
       html,
       rawMarkdownBody,
@@ -45,7 +50,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
   return (
     <Layout>
       <SEO
-        title={title + " - Blog"}
+        title={`${title} - Blog`}
         className="blogpost-view-page"
         pagePath={path}
         imagePath={cover.childImageSharp.fluid.src}
@@ -59,15 +64,15 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <MainNavigation space={"blog"} />
       </div>
       <main>
-        <BlogPost 
-          title={title} 
-          timeToRead={timeToRead} 
-          publishedHumanDate={humanDate} 
-          publishedFullDate={fullDate} 
-          keywords={keywords} 
-          cover={cover} 
-          coverCredits={coverCredits} 
-          contentHtml={html} 
+        <BlogPost
+          title={title}
+          timeToRead={timeToRead}
+          publishedHumanDate={humanDate}
+          publishedFullDate={fullDate}
+          keywords={keywords}
+          cover={cover}
+          coverCredits={coverCredits}
+          contentHtml={html}
         />
         <ShareBlock title={title} path={path} tags={keywords} />
         <NewsletterForm />
@@ -87,17 +92,33 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         keywords={keywords}
         cover={cover}
         articleSection={"Technical Blog"}
-        genre={["machine learning", "software engineering", "science", "deep learning", "statistics"]}
+        genre={[
+          "machine learning",
+          "software engineering",
+          "science",
+          "deep learning",
+          "statistics",
+        ]}
       />
       <ReadingAnalytics contentType={`blog`} />
-      <BreadcrumbsRichSnippet crumbs={[{'/blog/': 'Blog'}, {[path]: title}]} />
+      <BreadcrumbsRichSnippet
+        crumbs={[{ "/blog/": "Blog" }, { [path]: title }]}
+      />
       {includeMath ? <MathJax /> : ""}
     </Layout>
   )
 }
 
+// parent {
+//         ... on File {
+//           fields {
+//             gitLogLatestDate
+//           }
+//         }
+//       }
+
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       timeToRead
@@ -108,7 +129,7 @@ export const pageQuery = graphql`
       frontmatter {
         path
         humanDate: date(formatString: "MMM D, YYYY")
-        fullDate: date (formatString: "YYYY-MM-DD") 
+        fullDate: date(formatString: "YYYY-MM-DD")
         title
         keywords
         includeMath
@@ -121,13 +142,6 @@ export const pageQuery = graphql`
           }
         }
         coverCredits
-      }
-      parent {
-        ... on File {
-          fields {
-            gitLogLatestDate
-          }
-        }
       }
     }
   }

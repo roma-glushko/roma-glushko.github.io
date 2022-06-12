@@ -6,8 +6,8 @@ title: "Measure and Improve"
 cover: "./neonbrand-KYxXMTpTzek-unsplash.jpg"
 coverCredits: Photo by <a href="https://unsplash.com/@neonbrand">NeONBRAND</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
-    - psychology
-    - life exploring
+  - psychology
+  - life exploring
 ---
 
 Measurements are where any improvements start from. You cannot improve your life without having any idea about what's going wrong. You need to constantly watch and inspect your decisions, feelings and actions to grow and develop yourself.

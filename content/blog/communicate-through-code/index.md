@@ -6,8 +6,8 @@ title: "Communicate Through Code"
 cover: "./jantine-doornbos-HvYy5SEefC8-unsplash.jpg"
 excerpt: "Learn to communicate your ideas clearly while coding"
 keywords:
-    - software engineering
-    - python
+  - software engineering
+  - python
 ---
 
 I had been a technical lead for more than 3 years. One of my responsibilities was to make sure that my teams produced quality eCommerce solutions. During code reviews, I frequently saw one particular problem which did a great job at **killing software maintainability**. This problem is better known by the people management area, but, believe me, it's vitally important for software development as well. The problem is called **"poorly communicated intent"**.
@@ -66,7 +66,7 @@ def remove_duplicates(clean_tokens: list):
                 clean_dict[tok[0]] += tok[2]
             else:
                 clean_dict[tok[0]] = tok[2]
-    
+
     result = list(map(list, clean_dict.items()))
 
     return result
@@ -120,12 +120,12 @@ Lists are **mutable** containers for items. Their items should not be necessaril
 
 ```python
 langs: list[str] = [
-    "Python", 
-    "Golang", 
-    "PHP", 
-    "R", 
-    "Julia", 
-    "JavaScript", 
+    "Python",
+    "Golang",
+    "PHP",
+    "R",
+    "Julia",
+    "JavaScript",
     "Python"
 ]
 
@@ -214,12 +214,12 @@ from collections import Counter
 
 
 langs: list[str] = [
-    "Python", 
-    "Golang", 
-    "PHP", 
-    "Python", 
-    "Golang", 
-    "PHP", 
+    "Python",
+    "Golang",
+    "PHP",
+    "Python",
+    "Golang",
+    "PHP",
     "Python",
     "Fortran",
 ]
@@ -238,12 +238,12 @@ from typing import Dict, List
 
 
 langs: list[str] = [
-    "Python", 
-    "Golang", 
-    "PHP", 
-    "Python", 
-    "Golang", 
-    "PHP", 
+    "Python",
+    "Golang",
+    "PHP",
+    "Python",
+    "Golang",
+    "PHP",
     "Python",
     "Fortran",
 ]
@@ -338,7 +338,7 @@ def get_config(config_path: PathLike) -> dict[str, str]:
             f"Oh no, {config_path!r} doesn't seem to be a valid config file: {e!r}"
             "Please, double check the file content"
         ) from e
-    
+
 ```
 
 Pay attention to how exceptions helped us to separate different scenarios in the get_config() function:

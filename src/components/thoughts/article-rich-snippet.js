@@ -2,8 +2,23 @@ import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const ArticleRichSnippet = ({ genre, articleSection, title, path, datePublished, dateModified, cover, content, wordCount, keywords }) => {
-  const { site: { siteMetadata: {siteUrl} } } = useStaticQuery(
+const ArticleRichSnippet = ({
+  genre,
+  articleSection,
+  title,
+  path,
+  datePublished,
+  dateModified,
+  cover,
+  content,
+  wordCount,
+  keywords,
+}) => {
+  const {
+    site: {
+      siteMetadata: { siteUrl },
+    },
+  } = useStaticQuery(
     graphql`
       query {
         site {
@@ -16,8 +31,8 @@ const ArticleRichSnippet = ({ genre, articleSection, title, path, datePublished,
   )
 
   const schemaJSONLD = {
-    '@context': 'http://schema.org',
-    '@type': 'BlogPosting',
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
     image: cover.childImageSharp.fluid.src,
     headline: title,
     dateCreated: datePublished,
@@ -27,28 +42,26 @@ const ArticleRichSnippet = ({ genre, articleSection, title, path, datePublished,
     isFamilyFriendly: "true",
     author: {
       "@type": "Person",
-      "name": "Roman Glushko",
+      name: "Roman Glushko",
     },
     publisher: {
       "@type": "Organization",
-      "name": "Roman Glushko's Website",
+      name: "Roman Glushko's Website",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${siteUrl}${path}`
+      "@id": `${siteUrl}${path}`,
     },
     keywords: keywords,
     genre,
     articleSection,
     articleBody: content,
-    wordcount: wordCount
+    wordcount: wordCount,
   }
 
   return (
     <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(schemaJSONLD)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(schemaJSONLD)}</script>
     </Helmet>
   )
 }

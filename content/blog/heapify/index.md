@@ -7,9 +7,9 @@ cover: "./markus-spiske-IiEFmIXZWSw-unsplash-min.jpg"
 coverCredits: Photo by <a href="https://unsplash.com/@markusspiske">Markus Spiske</a> on <a href="https://unsplash.com/">Unsplash</a>
 excerpt: "How the priority queue and heap work: theory, implementation, complexity. Heap sorting and other applications."
 keywords:
-    - algorithmic coding
-    - data structures
-    - python
+  - algorithmic coding
+  - data structures
+  - python
 includeMath: true
 ---
 
@@ -28,6 +28,7 @@ Well, then we would reinvent ~~bicycle~~ the priority queue.
 The heap can be represented as an array or a list that is visualized as a nearly complete binary tree:
 
 ![Max Heap](./img/max-heap.png "Max Heap")
+
 <div class="image-title">Max Heap</div>
 
 Since it's a binary tree, **all parent nodes** have **at max 2 children**. The binary tree is filled level by level from top to bottom, from left incomplete parent nodes (with none or one child) to right ones.
@@ -52,6 +53,7 @@ The heap has a distinct property that actually makes it helpful:
 - or all children node values should be **greater or equal** to the parent node value (**the min-heap property**)
 
 To explain how all of this can be useful, we are going to implement the main heap functions from scratch.
+
 ## Heap Building
 
 There is going to be a custom `PriorityQueue` class which takes an arbitrary array of integers, makes a heap from it and sustains the heap property during all operations.
@@ -65,6 +67,7 @@ We start moving from right to left, from the bottom to the top of the heap. For 
 However, this switching of the nodes may create a new violation on the levels below. So we need to perform the same procedure again for a node that became a child.
 
 `video: title: "Building a heap": ./img/heapify.mp4`
+
 <div class="image-title">Max Heapifying</div>
 
 Here is how this can be implemented:
@@ -130,9 +133,10 @@ Complexity of this algorithm is $\Theta(n)$. This is because we check each posit
 
 Another useful method to have is adding a new item to the heap. In this case, it's convenient to add a new item as a leaf node in the end of the heap array. This makes sure there are no violations below it. However, there may be some going upward. That's why we need to go all the way up and check whenever parent nodes are greater than the new item. If they are not, we will switch their positions.
 
-Since the max heap property had stayed true before we add the new item, it's sufficient for us to check only parent nodes as we know that all child nodes should be less or equal to the parent value. 
+Since the max heap property had stayed true before we add the new item, it's sufficient for us to check only parent nodes as we know that all child nodes should be less or equal to the parent value.
 
 `video: title: "Insert a new item to the heap": ./img/insert-a-new-item-to-the-heap.mp4`
+
 <div class="image-title">Insert a new item to the heap</div>
 
 Now we can take a look at the implementation:
@@ -175,6 +179,7 @@ That's not all. The extraction would remove the element from the heap and we can
 Like before, the safest way is to **replace the hole with the last leaf node** (not to change the heap property in other branches of the heap). The last item is just handy to use, but it's not necessarily the next needed candidate to be at the top of the heap. To make sure, we need to run the `heapify()` method which recursively fixes all violations.
 
 `video: title: "Extract the max element from the heap": ./img/extract-max-element-from-the-heap.mp4`
+
 <div class="image-title">Extract the max element from the heap</div>
 
 The implementation is straightforward:
@@ -204,6 +209,7 @@ Now we have all components to implement one of the most frequent applications of
 Heap sort is just the extraction of `n` elements from the heap.
 
 `video: title: "Heap Sort In Action": ./img/heap-sort.mp4`
+
 <div class="image-title">Heap Sort In Action</div>
 
 The simplest implementation of the heap source may look like this in Python:
@@ -211,7 +217,7 @@ The simplest implementation of the heap source may look like this in Python:
 ```python
 def heap_sort(heap: PriorityQueue) -> List[int]:
     items_count = heap.size()
-    
+
     result = []
 
     for i in range(items_count):

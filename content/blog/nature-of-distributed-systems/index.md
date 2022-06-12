@@ -7,10 +7,10 @@ cover: "./marcin-jozwiak-oh0DITWoHi4-unsplash.jpeg"
 coverCredits: Photo by <a href="https://unsplash.com/@marcinjozwiak">Marcin Jozwiak</a> on <a href="https://unsplash.com/s/photos/distribution-center">Unsplash</a>
 excerpt: "How distributed systems are different to single-node setups?"
 keywords:
-    - system design
+  - system design
 ---
 
-The Internet evolves rapidly. We started  our own hardware servers, moved to managed hostings and now we have entered the era of cloud computing. The ever growing need to handle more and more traffic pushes us beyond the limits.
+The Internet evolves rapidly. We started our own hardware servers, moved to managed hostings and now we have entered the era of cloud computing. The ever growing need to handle more and more traffic pushes us beyond the limits.
 
 As a result, it's so natural nowadays to spin off a few instances on AWS or GCP and start building one's own SaaS service that will scale in a way we need. Perhaps, your infrastructure already has load balancing, a couple of nodes or a message queue which means you have already begun with building a distributed system.
 
@@ -112,6 +112,7 @@ What can we do about it? We need to manage such failures and build system archit
 - lock the system until all nodes become **consistent** after the failure
 
 ![CAP Theorem Visualized](./img/cap-theorem.png "CAP Theorem Visualized")
+
 <div class="image-title">CAP Theorem Visualized (<a target="_blank" rel="noopener" href="https://www.researchgate.net/figure/Visualization-of-CAP-theorem_fig2_282679529">source</a>)</div>
 
 The most important is that **we cannot pick all three of these attributes: Consistency, Availability and Partial Failure Tolerance**.
