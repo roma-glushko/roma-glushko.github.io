@@ -140,7 +140,7 @@ const IndexPage = () => {
             <div className="mylife">
                 <div>
                     <p className="hey">Hey,</p>
-                    <p>My name is Roman 👋</p>
+                    <p>My name is Roman <span role="img">👋</span></p>
                     <p>I'm a Machine Learning and Software Engineer, Science Geek and Life Explorer.</p>
                 </div>
                 <div>

@@ -284,7 +284,7 @@ class RockPaperScissorGame extends React.Component {
         <section className="game-wrapper">
           <div className="game" style={{'filter': !isGameInited ? 'blur(3px)': 'none'}}>
             <div className="game-item human">
-              <div className="title">🧠 You</div>
+              <div className="title"><span role="img">🧠</span> You</div>
               <div className="player human">
                 <video width={300} height={300} ref={this.camera} style={{'display': showCamera ? 'block': 'none'}} className="video-background" playsInline={true} autoPlay={true}>
                   No Video
@@ -293,7 +293,7 @@ class RockPaperScissorGame extends React.Component {
                 {humanChoice !== -1 ? <div className="choice">{this.renderChoice(humanChoice)}</div> : ""}
                 {cameraNotFound ? <span className="camera-not-found">Camera did not found. Check your permissions</span> : "" }
                 <div className="computer-choice-mobile">
-                  <div className="title">🤖</div>
+                  <div className="title" role="img">🤖</div>
                   <div className="choice-wrapper">
                     {computerChoice !== -1 ? <div className="choice">{this.renderChoice(computerChoice)}</div> : ""}
                   </div>
@@ -313,7 +313,7 @@ class RockPaperScissorGame extends React.Component {
               }
             </div>
             <div className="game-item computer">
-              <div className="title">🤖 AI</div>
+              <div className="title"><span role="img">🤖</span> AI</div>
               <div className="player computer">
                 {computerChoice !== -1 ? <div className="choice">{this.renderChoice(computerChoice)}</div> : ""}
               </div>
