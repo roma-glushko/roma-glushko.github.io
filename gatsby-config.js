@@ -266,11 +266,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [
+        excludes: [
           `/nn-design`,
-          `/lab`,
-          `/lab/*`,
-          `blog/communicate-through-code`,
           `blog/assumptions-of-the-linear-regression`,
           `/indexv2`,
         ], // todo: handle all unpublished articles
