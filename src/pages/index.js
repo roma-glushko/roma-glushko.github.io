@@ -183,7 +183,7 @@ const IndexPage = () => {
                 )}
               </div>
               <div className="all-button-wrapper">
-                <a className="read-all-button" href="/blog/">
+                <a className="read-all-button" href={"/blog/"}>
                   Read All Posts
                 </a>
               </div>
@@ -218,7 +218,7 @@ const IndexPage = () => {
                 )}
               </div>
               <div className="all-button-wrapper">
-                <a className="read-all-button" href="/thoughts/">
+                <a className="read-all-button" href={"/thoughts/"}>
                   Read All Thoughts
                 </a>
               </div>

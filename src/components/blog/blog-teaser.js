@@ -33,7 +33,7 @@ const BlogTeaser = (props) => {
             {publishedHumanDate}
           </time>
           <span> • </span>
-          <span className="blog-time2read">{timeToRead}min read</span>
+          <span className="blog-time2read">{timeToRead}{timeToRead > 1 ? "mins": "min"} read</span>
         </div>
         <p className="blog-digest">{excerpt}</p>
         <ul className="blog-tags">
