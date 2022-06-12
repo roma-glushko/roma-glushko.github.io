@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ViewPageHeader from "../components/theme/view-page-header"
 import MainNavigation from "../components/theme/main-navigation"
 import BlogTeaser from "../components/blog/blog-teaser"
@@ -22,7 +22,7 @@ class BlogListPage extends Component {
 
     return (
       <Layout>
-        <SEO
+        <Seo
           title="Blog"
           pagePath="/blog/"
           className="blog-list-page"
@@ -75,17 +75,17 @@ class BlogListPage extends Component {
                 </span>
               </div>
             )}
-            {edges.map(({ node }) => (
+            {edges.map(({ node: {id, timeToRead, frontmatter: {title, path, humanDate, fullDate, excerpt, keywords, cover: {childImageSharp: {gatsbyImageData}}}, } }) => (
               <BlogTeaser
-                key={node.id}
-                title={node.frontmatter.title}
-                url={node.frontmatter.path}
-                timeToRead={node.timeToRead}
-                publishedHumanDate={node.frontmatter.humanDate}
-                publishedFullDate={node.frontmatter.fullDate}
-                excerpt={node.frontmatter.excerpt}
-                cover={node.frontmatter.cover}
-                keywords={node.frontmatter.keywords}
+                key={id}
+                title={title}
+                url={path}
+                timeToRead={timeToRead}
+                publishedHumanDate={humanDate}
+                publishedFullDate={fullDate}
+                excerpt={excerpt}
+                cover={gatsbyImageData}
+                keywords={keywords}
               />
             ))}
           </main>
@@ -122,9 +122,7 @@ export const pageQuery = graphql`
             excerpt
             cover {
               childImageSharp {
-                fluid(maxWidth: 620) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED, width: 620, placeholder: BLURRED)
               }
             }
           }

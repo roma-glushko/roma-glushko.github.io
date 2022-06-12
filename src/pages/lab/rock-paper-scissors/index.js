@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 import Layout from "../../../components/theme/layout"
-import SEO from "../../../components/seo"
+import Seo from "../../../components/seo"
 import ViewPageHeader from "../../../components/theme/view-page-header"
 import MainNavigation from "../../../components/theme/main-navigation"
 import NNBackground from "../../../components/nn-design/nn-background.js"
@@ -22,7 +22,7 @@ const RockPaperScissorPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={"Rock, Paper, Scissors Game - Lab by Roman Glushko"}
         className="experiment-view-page"
         pagePath="/lab/rock-paper-scissors/"
@@ -131,14 +131,6 @@ const RockPaperScissorPage = ({ data }) => {
     </Layout>
   )
 }
-
-// parent {
-//         ... on File {
-//           fields {
-//             gitLogLatestDate
-//           }
-//         }
-//       }
 
 export const pageQuery = graphql`
   query GetRPSDescription {

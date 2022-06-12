@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import PersonRichSnippet from "../components/homepage/person-rich-snippet"
 import Avatar from "../components/homepage/avatar"
 import ThemeSwitcher from "../components/theme/theme-switcher"
@@ -69,9 +69,7 @@ const IndexPage = () => {
                 excerpt
                 cover {
                   childImageSharp {
-                    fluid(maxWidth: 400) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(layout: CONSTRAINED, width: 400, placeholder: BLURRED)
                   }
                 }
               }
@@ -99,9 +97,7 @@ const IndexPage = () => {
                 keywords
                 cover {
                   childImageSharp {
-                    fluid(maxWidth: 400) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(layout: CONSTRAINED, width: 400, placeholder: BLURRED)
                   }
                 }
               }
@@ -114,7 +110,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Roman Glushko - Machine Learning and Software Engineer, Life Explorer"
         isUniqueTitle={true}
         className="home-page-v2"
@@ -167,7 +163,7 @@ const IndexPage = () => {
               </p>
               <p>
                 When I have spare time, I enjoy putting together my knowledge
-                about those topics and share with others.{" "}
+                about those topics and share with others.
               </p>
               <div className="recent-posts">
                 {recentPosts.edges.map(
@@ -180,7 +176,7 @@ const IndexPage = () => {
                       publishedHumanDate={frontmatter.humanDate}
                       publishedFullDate={frontmatter.fullDate}
                       excerpt={frontmatter.excerpt}
-                      cover={frontmatter.cover}
+                      cover={frontmatter.cover.childImageSharp.gatsbyImageData}
                       keywords={frontmatter.keywords}
                     />
                   )
@@ -199,7 +195,7 @@ const IndexPage = () => {
               <p>
                 Another thing I like to do is to explore this world, think about
                 its components, their interconnections and finally capture my
-                observations and thoughts.{" "}
+                observations and thoughts.
               </p>
               <p>
                 These thoughts are usually about self-development, management
@@ -216,7 +212,7 @@ const IndexPage = () => {
                       publishedHumanDate={frontmatter.humanDate}
                       publishedFullDate={frontmatter.fullDate}
                       excerpt={excerpt}
-                      cover={frontmatter.cover}
+                      cover={frontmatter.cover.childImageSharp.gatsbyImageData}
                     />
                   )
                 )}

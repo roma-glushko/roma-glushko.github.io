@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import "./thought-teaser.css"
 
@@ -30,7 +30,7 @@ const ThoughtTeaser = (props) => {
       </div>
       <Link to={url}>
         <div className="cover-filter">
-          <Img className="cover" fluid={cover.childImageSharp.fluid} />
+          <GatsbyImage className="cover" image={cover} alt={title} />
         </div>
       </Link>
       <p className="thought-digest">{excerpt}</p>
@@ -42,7 +42,7 @@ ThoughtTeaser.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
-  publishedDate: PropTypes.string.isRequired,
+  publishedFullDate: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
 }
 

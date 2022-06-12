@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import LabHeader from "../components/lab/lab-header"
 import MainNavigation from "../components/theme/main-navigation"
 import ExperimentTeaser from "../components/lab/experiment-teaser"
@@ -13,7 +13,7 @@ class LabListPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO
+        <Seo
           title="Lab"
           pagePath="/lab/"
           className="lab-list-page"

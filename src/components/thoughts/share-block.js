@@ -127,13 +127,6 @@ const ShareBlock = ({ title, path, keywords }) => {
 }
 
 ShareBlock.propTypes = {
-  socialConfig: PropTypes.shape({
-    twitterHandle: PropTypes.string.isRequired,
-    config: PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    }),
-  }).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
 }
 

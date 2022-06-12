@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import MainNavigation from "../theme/main-navigation"
 import ThemeSwitcher from "../theme/theme-switcher"
@@ -24,15 +24,16 @@ const Thought = (props) => {
       <header>
         <figure className="cover">
           <div className="cover-filter">
-            <Img
+            <GatsbyImage
               className="cover cover-image"
-              fluid={cover.childImageSharp.fluid}
+              image={cover}
+              alt={title}
             />
           </div>
           <figcaption
             className="image-title"
             dangerouslySetInnerHTML={{ __html: coverCredits }}
-          ></figcaption>
+          />
         </figure>
         <MainNavigation space={"thoughts"} />
         <h1>{title}</h1>

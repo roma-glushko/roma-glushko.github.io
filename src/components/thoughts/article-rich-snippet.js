@@ -33,7 +33,7 @@ const ArticleRichSnippet = ({
   const schemaJSONLD = {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    image: cover.childImageSharp.fluid.src,
+    image: cover.images.fallback.src,
     headline: title,
     dateCreated: datePublished,
     datePublished,

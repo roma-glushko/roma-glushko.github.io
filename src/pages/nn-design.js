@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import HeroBlock from "../components/nn-design/hero-header"
 import Footer from "../components/theme/footer"
 
@@ -10,7 +10,7 @@ class NNDesignListPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO
+        <Seo
           title="Catalog of Neural Network Architectures"
           pagePath="/deep-design/"
           className="blog-list-page"

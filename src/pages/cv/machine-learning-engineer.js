@@ -1,7 +1,7 @@
 import React from "react"
 
 import Layout from "../../components/theme/layout"
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import MainNavigation from "../../components/theme/main-navigation"
 import CvHeader from "../../components/cv/cv-header"
 import ThemeSwitcher from "../../components/theme/theme-switcher"
@@ -15,7 +15,7 @@ import "./cv.css"
 const MachineLearningEngineerCV = () => {
   return (
     <Layout>
-      <SEO
+      <Seo
         isUniqueTitle={true}
         title={"Roman Glushko's Machine Learning Engineer CV"}
         className="cv-view-page"

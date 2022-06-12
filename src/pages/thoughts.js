@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import MainNavigation from "../components/theme/main-navigation"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
@@ -22,7 +22,7 @@ class ThoughtListPage extends Component {
 
     return (
       <Layout>
-        <SEO
+        <Seo
           title="Thoughts"
           pagePath="/thoughts/"
           className="thoughts-list-page"
@@ -60,7 +60,7 @@ class ThoughtListPage extends Component {
                 publishedHumanDate={thought.node.frontmatter.humanDate}
                 publishedFullDate={thought.node.frontmatter.fullDate}
                 excerpt={thought.node.excerpt}
-                cover={thought.node.frontmatter.cover}
+                cover={thought.node.frontmatter.cover.childImageSharp.gatsbyImageData}
               />
             ))}
           </main>
@@ -96,9 +96,11 @@ export const pageQuery = graphql`
             title
             cover {
               childImageSharp {
-                fluid(maxWidth: 400) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                    layout: CONSTRAINED, 
+                    width: 690,
+                    placeholder: BLURRED
+                )
               }
             }
           }

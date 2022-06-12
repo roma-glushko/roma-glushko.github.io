@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import ThemeSwitcher from "../theme/theme-switcher"
 import BlogContentNavigation from "./blog-content-navigation"
@@ -26,15 +26,16 @@ const BlogPost = (props) => {
       <header>
         <figure className="cover">
           <div className="cover-filter">
-            <Img
+            <GatsbyImage
               className="cover cover-image"
-              fluid={cover.childImageSharp.fluid}
+              image={cover}
+              alt={title}
             />
           </div>
           <figcaption
             className="image-title"
             dangerouslySetInnerHTML={{ __html: coverCredits }}
-          ></figcaption>
+          />
         </figure>
         <h1>{title}</h1>
         <div className="blog-details">
@@ -49,7 +50,7 @@ const BlogPost = (props) => {
         </div>
         <ul className="blog-tags">
           {keywords.map((keyword) => (
-            <li key={"tag-" + keyword}>{keyword}</li>
+            <li key={`tag-${keyword}`}>{keyword}</li>
           ))}
         </ul>
       </header>
@@ -73,7 +74,7 @@ BlogPost.propTypes = {
   publishedFulDate: PropTypes.string.isRequired,
   keywords: PropTypes.array.isRequired,
   contentHtml: PropTypes.string.isRequired,
-  cover: PropTypes.string.isRequired,
+  cover: PropTypes.object.isRequired,
 }
 
 export default BlogPost

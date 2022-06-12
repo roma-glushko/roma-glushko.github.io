@@ -58,6 +58,7 @@ module.exports = {
         domains: ["https://utteranc.es", "https://www.google-analytics.com"],
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -240,12 +241,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-json`,
-    // {
-    //     resolve: `gatsby-transformer-gitinfo`,
-    //     options: {
-    //         include: /\.md$/i, // Only .md files
-    //     },
-    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

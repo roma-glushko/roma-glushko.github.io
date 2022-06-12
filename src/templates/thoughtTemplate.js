@@ -5,7 +5,7 @@ import Thought from "../components/thoughts/thought"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
 import Footer from "../components/theme/footer"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import NewsletterForm from "../components/blog/newsletter-form"
 import ShareBlock from "../components/thoughts/share-block"
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
@@ -26,7 +26,7 @@ export default function Template({
         humanDate,
         fullDate,
         keywords,
-        cover,
+        cover: {childImageSharp: {gatsbyImageData}},
         coverCredits,
       },
       html,
@@ -34,21 +34,16 @@ export default function Template({
       timeToRead,
       excerpt,
       wordCount: { words },
-      // parent: {
-      //   fields: {
-      //     gitLogLatestDate = ''
-      //   } = {}
-      // } = {}
     },
   } = data
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={`${title} - Thoughts`}
         className="thought-view-page"
         pagePath={path}
-        imagePath={cover.childImageSharp.fluid.src}
+        imagePath={gatsbyImageData.images.fallback.src}
         ogType="article"
         description={excerpt}
         keywords={keywords}
@@ -63,7 +58,7 @@ export default function Template({
           timeToRead={timeToRead}
           publishedHumanDate={humanDate}
           publishedFullDate={fullDate}
-          cover={cover}
+          cover={gatsbyImageData}
           coverCredits={coverCredits}
           contentHtml={html}
         />
@@ -83,7 +78,7 @@ export default function Template({
         content={rawMarkdownBody}
         wordCount={words}
         keywords={keywords}
-        cover={cover}
+        cover={gatsbyImageData}
         articleSection={"Thoughts"}
         genre={[
           "self-improvement",
@@ -119,9 +114,7 @@ export const pageQuery = graphql`
         keywords
         cover {
           childImageSharp {
-            fluid(maxWidth: 3400) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
         coverCredits

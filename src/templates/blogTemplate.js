@@ -8,15 +8,16 @@ import MainNavigation from "../components/theme/main-navigation"
 import BlogPost from "../components/blog/blog-post"
 import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ShareBlock from "../components/thoughts/share-block"
 import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import Footer from "../components/theme/footer"
 
-import "./blog-view.css"
 import MathJax from "../components/blog/mathjax"
+
+import "./blog-view.css"
 
 const NewsletterForm = loadable(() =>
   import("../components/blog/newsletter-form")
@@ -36,7 +37,7 @@ export default function Template({
         fullDate,
         keywords,
         includeMath,
-        cover,
+        cover: {childImageSharp: { gatsbyImageData }},
         coverCredits,
         excerpt,
       },
@@ -49,11 +50,11 @@ export default function Template({
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={`${title} - Blog`}
         className="blogpost-view-page"
         pagePath={path}
-        imagePath={cover.childImageSharp.fluid.src}
+        imagePath={gatsbyImageData.images.fallback.src}
         ogType="article"
         description={excerpt}
         keywords={keywords}
@@ -70,7 +71,7 @@ export default function Template({
           publishedHumanDate={humanDate}
           publishedFullDate={fullDate}
           keywords={keywords}
-          cover={cover}
+          cover={gatsbyImageData}
           coverCredits={coverCredits}
           contentHtml={html}
         />
@@ -90,7 +91,7 @@ export default function Template({
         content={rawMarkdownBody}
         wordCount={words}
         keywords={keywords}
-        cover={cover}
+        cover={gatsbyImageData}
         articleSection={"Technical Blog"}
         genre={[
           "machine learning",
@@ -108,14 +109,6 @@ export default function Template({
     </Layout>
   )
 }
-
-// parent {
-//         ... on File {
-//           fields {
-//             gitLogLatestDate
-//           }
-//         }
-//       }
 
 export const pageQuery = graphql`
   query ($path: String!) {
@@ -136,9 +129,7 @@ export const pageQuery = graphql`
         excerpt
         cover {
           childImageSharp {
-            fluid(maxWidth: 3400) {
-              ...GatsbyImageSharpFluid
-            }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
         coverCredits
