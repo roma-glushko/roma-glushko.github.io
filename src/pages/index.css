@@ -223,6 +223,7 @@ body.dark {
 
     .homepagev2 .recent-thoughts .thought-item {
         padding-right: 0;
+        width: 100%;
     }
 }
 

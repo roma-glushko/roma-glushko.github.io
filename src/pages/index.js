@@ -69,7 +69,7 @@ const IndexPage = () => {
                 excerpt
                 cover {
                   childImageSharp {
-                    gatsbyImageData(layout: CONSTRAINED, width: 400, placeholder: BLURRED)
+                    gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
                   }
                 }
               }
@@ -97,7 +97,7 @@ const IndexPage = () => {
                 keywords
                 cover {
                   childImageSharp {
-                    gatsbyImageData(layout: CONSTRAINED, width: 400, placeholder: BLURRED)
+                    gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
                   }
                 }
               }

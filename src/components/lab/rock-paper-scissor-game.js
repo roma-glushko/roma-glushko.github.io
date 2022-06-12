@@ -229,9 +229,8 @@ class RockPaperScissorGame extends React.Component {
       .reshape([1, modelInputWidth, modelInputHeight, 3])
 
     const prediction = model.predict(humanChoiceImage)
-    const choiceIndex = prediction.argMax(1).dataSync()[0]
 
-    return choiceIndex
+    return  prediction.argMax(1).dataSync()[0]
   }
 
   // identify winner of this pair
@@ -240,7 +239,7 @@ class RockPaperScissorGame extends React.Component {
 
     if (
       this.choices[humanChoice].beats.find(
-        (choice) => computerChoice == choice
+        (choice) => computerChoice === choice
       ) !== undefined
     ) {
       this.setState({
@@ -252,7 +251,7 @@ class RockPaperScissorGame extends React.Component {
 
     if (
       this.choices[computerChoice].beats.find(
-        (choice) => humanChoice == choice
+        (choice) => humanChoice === choice
       ) !== undefined
     ) {
       this.setState({
@@ -323,7 +322,7 @@ class RockPaperScissorGame extends React.Component {
                   className="human-choice-image"
                   ref={this.humanChoiceImage}
                   style={{ display: showHumanChoice ? "block" : "none" }}
-                ></canvas>
+                />
                 {humanChoice !== -1 ? (
                   <div className="choice">{this.renderChoice(humanChoice)}</div>
                 ) : (
@@ -391,7 +390,7 @@ class RockPaperScissorGame extends React.Component {
               <h3>Wanna Play?</h3>
               <p>Game requests camera control to see your choices</p>
               <button className="start-game" onClick={() => this.initGame()}>
-                Start Game 🎮
+                Start Game <span role={"img"}>🎮</span>
               </button>
               <p>no recordings, the game is serverless</p>
             </div>
