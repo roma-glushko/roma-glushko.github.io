@@ -52,7 +52,7 @@ a:hover {
 }
 
 .avatar {
-    border: 1px solid var(--avatarBorderColor);
+    border: 2px solid var(--avatarBorderColor);
     border-radius: 50%;
     height: 170px;
     margin: 0 auto;
@@ -61,6 +61,7 @@ a:hover {
 }
 
 .logo-img {
+    display: block;
     border-radius: 50%;
     width: 10rem;
     height: auto;
