@@ -1,27 +1,33 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import loadable from '@loadable/component'
+import loadable from "@loadable/component"
 
 import ViewPageHeader from "../components/theme/view-page-header"
 import MainNavigation from "../components/theme/main-navigation"
 import BlogPost from "../components/blog/blog-post"
 import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
-import ShareBlock from '../components/thoughts/share-block'
+import Seo from "../components/seo"
+import ShareBlock from "../components/thoughts/share-block"
 import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import Footer from "../components/theme/footer"
 
-import "./blog-view.css"
 import MathJax from "../components/blog/mathjax"
 
-const NewsletterForm = loadable(() => import('../components/blog/newsletter-form'));
-const BlogComments = loadable(() => import('../components/blog/blog-comments'));
+import "./blog-view.css"
 
-export default function Template({ data, pageContext: { prevThought, nextThought } }) {
+const NewsletterForm = loadable(() =>
+  import("../components/blog/newsletter-form")
+)
+const BlogComments = loadable(() => import("../components/blog/blog-comments"))
+
+export default function Template({
+  data,
+  pageContext: { prevThought, nextThought },
+}) {
   const {
     markdownRemark: {
       frontmatter: {
@@ -31,9 +37,9 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         fullDate,
         keywords,
         includeMath,
-        cover,
+        cover: {childImageSharp: { gatsbyImageData }},
         coverCredits,
-        excerpt
+        excerpt,
       },
       html,
       rawMarkdownBody,
@@ -44,11 +50,11 @@ export default function Template({ data, pageContext: { prevThought, nextThought
 
   return (
     <Layout>
-      <SEO
-        title={title + " - Blog"}
+      <Seo
+        title={`${title} - Blog`}
         className="blogpost-view-page"
         pagePath={path}
-        imagePath={cover.childImageSharp.fluid.src}
+        imagePath={gatsbyImageData.images.fallback.src}
         ogType="article"
         description={excerpt}
         keywords={keywords}
@@ -59,15 +65,15 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <MainNavigation space={"blog"} />
       </div>
       <main>
-        <BlogPost 
-          title={title} 
-          timeToRead={timeToRead} 
-          publishedHumanDate={humanDate} 
-          publishedFullDate={fullDate} 
-          keywords={keywords} 
-          cover={cover} 
-          coverCredits={coverCredits} 
-          contentHtml={html} 
+        <BlogPost
+          title={title}
+          timeToRead={timeToRead}
+          publishedHumanDate={humanDate}
+          publishedFullDate={fullDate}
+          keywords={keywords}
+          cover={gatsbyImageData}
+          coverCredits={coverCredits}
+          contentHtml={html}
         />
         <ShareBlock title={title} path={path} tags={keywords} />
         <NewsletterForm />
@@ -85,19 +91,27 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         content={rawMarkdownBody}
         wordCount={words}
         keywords={keywords}
-        cover={cover}
+        cover={gatsbyImageData}
         articleSection={"Technical Blog"}
-        genre={["machine learning", "software engineering", "science", "deep learning", "statistics"]}
+        genre={[
+          "machine learning",
+          "software engineering",
+          "science",
+          "deep learning",
+          "statistics",
+        ]}
       />
       <ReadingAnalytics contentType={`blog`} />
-      <BreadcrumbsRichSnippet crumbs={[{'/blog/': 'Blog'}, {[path]: title}]} />
+      <BreadcrumbsRichSnippet
+        crumbs={[{ "/blog/": "Blog" }, { [path]: title }]}
+      />
       {includeMath ? <MathJax /> : ""}
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       timeToRead
@@ -108,26 +122,17 @@ export const pageQuery = graphql`
       frontmatter {
         path
         humanDate: date(formatString: "MMM D, YYYY")
-        fullDate: date (formatString: "YYYY-MM-DD") 
+        fullDate: date(formatString: "YYYY-MM-DD")
         title
         keywords
         includeMath
         excerpt
         cover {
           childImageSharp {
-            fluid(maxWidth: 3400) {
-              ...GatsbyImageSharpFluid
-            }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
         coverCredits
-      }
-      parent {
-        ... on File {
-          fields {
-            gitLogLatestDate
-          }
-        }
       }
     }
   }

@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
 export default function HTML(props) {
   if (process.env.NODE_ENV === "production") {
     for (const component of props.headComponents) {
       if (component.type === "style") {
-        const index = props.headComponents.indexOf(component);
+        const index = props.headComponents.indexOf(component)
         const link = (
           <link rel="stylesheet" href={component.props["data-href"]} />
-        );
-        props.headComponents.splice(index, 1, link);
+        )
+        props.headComponents.splice(index, 1, link)
       }
     }
   }
@@ -34,7 +34,7 @@ export default function HTML(props) {
         {props.postBodyComponents}
       </body>
     </html>
-  );
+  )
 }
 
 HTML.propTypes = {
@@ -43,5 +43,5 @@ HTML.propTypes = {
   bodyAttributes: PropTypes.object,
   preBodyComponents: PropTypes.array,
   body: PropTypes.string,
-  postBodyComponents: PropTypes.array
-};
+  postBodyComponents: PropTypes.array,
+}

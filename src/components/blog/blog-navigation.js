@@ -1,19 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "gatsby";
+import React from "react"
+import PropTypes from "prop-types"
+import { Link } from "gatsby"
 
 import "./blog-navigation.css"
 
-const BlogNavigation = props => {
-
+const BlogNavigation = (props) => {
   const {
-    next: {
-      frontmatter: { title: nextTitle, path: nextUrl } = {}
-    } = {},
-    prev: {
-      frontmatter: { title: prevTitle, path: prevUrl } = {}
-    } = {}
-  } = props;
+    next: { frontmatter: { title: nextTitle, path: nextUrl } = {} } = {},
+    prev: { frontmatter: { title: prevTitle, path: prevUrl } = {} } = {},
+  } = props
 
   return (
     <div className="blog-navigation-wrapper">
@@ -30,16 +25,18 @@ const BlogNavigation = props => {
               ← {prevTitle}
             </Link>
           )}
-          <Link className="all-posts" to="/blog/">All Posts</Link>
+          <Link className="all-posts" to="/blog/">
+            All Posts
+          </Link>
         </div>
       </nav>
     </div>
-  );
-};
+  )
+}
 
 BlogNavigation.propTypes = {
   next: PropTypes.object,
   prev: PropTypes.object,
-};
+}
 
-export default BlogNavigation;
+export default BlogNavigation

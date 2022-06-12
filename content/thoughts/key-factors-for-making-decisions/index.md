@@ -8,10 +8,10 @@ title: "Factors Affecting Decision Making"
 cover: "./jens-lelie-u0vgcIOQG08-unsplash.jpg"
 coverCredits: Photo by <a href="https://unsplash.com/@madebyjens?">Jens Lelie</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
-    - psychology
-    - life exploring
-    - decision making
-    - decisions
+  - psychology
+  - life exploring
+  - decision making
+  - decisions
 ---
 
 There are no right decisions or choices.
@@ -35,6 +35,7 @@ Emotions push us to make decisions quickly without profoundly considering the si
 How do emotions impact decision making? They make us take hasty unconsidered decisions.
 
 A proven way to avoid the impact of emotions is to postpone making decisions. Emotions want us to make decisions right now. Go in the opposite direction!
+
 <blockquote>Call off making your decision to the next day at least. You may still think about your decision but never make it right away.</blockquote>
 
 <h3 id="ramifications-go-first">Ramifications Go First</h3>

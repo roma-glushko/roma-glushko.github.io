@@ -5,17 +5,19 @@ import Thought from "../components/thoughts/thought"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
 import Footer from "../components/theme/footer"
-import SEO from "../components/seo"
-import NewsletterForm from '../components/blog/newsletter-form'
-import ShareBlock from '../components/thoughts/share-block'
+import Seo from "../components/seo"
+import NewsletterForm from "../components/blog/newsletter-form"
+import ShareBlock from "../components/thoughts/share-block"
 import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
 import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 
-import "./thought-view.css"
+import "./ThoughtView.css"
 
-
-export default function Template({ data, pageContext: { prevThought, nextThought } }) {
+export default function Template({
+  data,
+  pageContext: { prevThought, nextThought },
+}) {
   const {
     markdownRemark: {
       frontmatter: {
@@ -24,7 +26,7 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         humanDate,
         fullDate,
         keywords,
-        cover,
+        cover: {childImageSharp: {gatsbyImageData}},
         coverCredits,
       },
       html,
@@ -32,21 +34,16 @@ export default function Template({ data, pageContext: { prevThought, nextThought
       timeToRead,
       excerpt,
       wordCount: { words },
-      // parent: {
-      //   fields: {
-      //     gitLogLatestDate = ''
-      //   } = {}
-      // } = {}
     },
   } = data
 
   return (
     <Layout>
-      <SEO
-        title={title + " - Thoughts"}
+      <Seo
+        title={`${title} - Thoughts`}
         className="thought-view-page"
         pagePath={path}
-        imagePath={cover.childImageSharp.fluid.src}
+        imagePath={gatsbyImageData.images.fallback.src}
         ogType="article"
         description={excerpt}
         keywords={keywords}
@@ -56,14 +53,14 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         <Link to="/thoughts/">Thoughts</Link>
       </div>
       <main>
-        <Thought 
-          title={title} 
-          timeToRead={timeToRead} 
-          publishedHumanDate={humanDate} 
-          publishedFullDate={fullDate} 
-          cover={cover}
+        <Thought
+          title={title}
+          timeToRead={timeToRead}
+          publishedHumanDate={humanDate}
+          publishedFullDate={fullDate}
+          cover={gatsbyImageData}
           coverCredits={coverCredits}
-          contentHtml={html} 
+          contentHtml={html}
         />
         <ShareBlock title={title} path={path} tags={keywords} />
         <NewsletterForm />
@@ -81,18 +78,26 @@ export default function Template({ data, pageContext: { prevThought, nextThought
         content={rawMarkdownBody}
         wordCount={words}
         keywords={keywords}
-        cover={cover}
+        cover={gatsbyImageData}
         articleSection={"Thoughts"}
-        genre={["self-improvement", "management", "thoughts", "life experience", "life exploration"]}
+        genre={[
+          "self-improvement",
+          "management",
+          "thoughts",
+          "life experience",
+          "life exploration",
+        ]}
       />
       <ReadingAnalytics contentType={`thought`} />
-      <BreadcrumbsRichSnippet crumbs={[{'/thoughts/': 'Thoughts'}, {[path]: title}]} />
+      <BreadcrumbsRichSnippet
+        crumbs={[{ "/thoughts/": "Thoughts" }, { [path]: title }]}
+      />
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       timeToRead
@@ -104,24 +109,15 @@ export const pageQuery = graphql`
       frontmatter {
         path
         humanDate: date(formatString: "MMM D, YYYY")
-        fullDate: date (formatString: "YYYY-MM-DD") 
+        fullDate: date(formatString: "YYYY-MM-DD")
         title
         keywords
         cover {
           childImageSharp {
-            fluid(maxWidth: 3400) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
         coverCredits
-      }
-      parent {
-        ... on File {
-          fields {
-            gitLogLatestDate
-          }
-        }
       }
     }
   }

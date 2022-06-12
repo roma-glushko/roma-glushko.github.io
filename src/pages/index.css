@@ -183,6 +183,7 @@ body.dark {
 }
 
 .homepagev2 .recent-thoughts .thought-item {
+    width: 33.33%;
     padding-right: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -222,6 +223,7 @@ body.dark {
 
     .homepagev2 .recent-thoughts .thought-item {
         padding-right: 0;
+        width: 100%;
     }
 }
 

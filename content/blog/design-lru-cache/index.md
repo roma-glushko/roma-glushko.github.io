@@ -7,11 +7,10 @@ cover: "./kelly-sikkema-v9FQR4tbIq8-unsplash.jpeg"
 coverCredits: Photo by <a href="https://unsplash.com/@kellysikkema">Kelly Sikkema</a> on <a href="https://unsplash.com/s/photos/draw-on-paper">Unsplash</a>
 excerpt: "Have fun designing least-recently-used cache in Python"
 keywords:
-    - algorithmic coding
-    - data structures
-    - python
+  - algorithmic coding
+  - data structures
+  - python
 ---
-
 
 While preparing for coding interviews, I went through a large number of algorithmic challenges. I found particularly interesting one subset of problems - challenges related to designing some tools that we all use and rarely stop and think about how they work.
 
@@ -42,14 +41,15 @@ Since we are trying to design a cache storage, pretty much every operation shoul
 When I think about cache, **dictionaries or hashtables** come to my mind.
 
 ![Cache based on a hashtable](./img/cache-based-on-hashtable.svg "Cache based on a hashtable")
+
 <div class="image-title">Cache based on a hashtable</div>
 
-Hashtables allow to **read and write key-value pairs in constant time with high probability**. 
+Hashtables allow to **read and write key-value pairs in constant time with high probability**.
 
 The problem with dictionaries is that they usually don't guarantee order in which they manage keys. So we don't have a way to quickly remove least-recently-used items. We could introduce a notion of last-used timestamps for each item in the hashtable and update these timestamps during accessing the keys in `get()` method.
 
-
 ![Timestamps won't help us because of sequential search we need to do on the hashtable](./img/cache-based-on-hashtable-with-timestamps.svg "Cache as a hashtable")
+
 <div class="image-title">Timestamps won't help us because of sequential search we need to do on the hashtable</div>
 
 However, it would still **take us O(n) in order to find items to evict** by timestamps. It's too time-consuming to meet our requirements.
@@ -57,6 +57,7 @@ However, it would still **take us O(n) in order to find items to evict** by time
 Let's not get hung up on hashtables. The problem with tracking item usage can be solved with **linked lists**.
 
 ![Cache based a linked list](./img/cache-based-on-linked-list.svg "Cache based a linked list")
+
 <div class="image-title">Cache based a linked list</div>
 
 With linked lists, we could **keep track of item usages in constant time**. We could simply move the item we currently access to the top of the list. In a natural way, **least used items end up being at the very bottom of the list** and we would get a list ordered by item usage as we go. Since we need to relink our items, it would be helpful to have reference to the previous and next items on the list.
@@ -70,8 +71,8 @@ To sum up, hashtables luck the advantages of linked lists and linked lists luck 
 After a little bit of thinking, it may click that we can **map our keys not to the values directly, but to the linked list nodes** that represent these values. Mapping keys to list nodes means that the **dictionary will hold node references** that don't depend on node positions in the list itself. So we would be able to **rearrange list items without a need to remap** them in the dictionary.
 
 ![LRU Cache Architecture](./img/lru-cache-architecture.svg "LRU Cache Architecture")
-<div class="image-title">LRU cache architecture based on combination of hashtable and linked list</div>
 
+<div class="image-title">LRU cache architecture based on combination of hashtable and linked list</div>
 
 ## Implement Solution
 

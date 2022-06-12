@@ -9,7 +9,7 @@
 }
 
 .view-page-header-wrapper .logo {
-    border: 1px solid var(--avatarBorderColor);
+    border: 2px solid var(--avatarBorderColor);
     border-radius: 50%;
     height: 90px;
     user-select: none;

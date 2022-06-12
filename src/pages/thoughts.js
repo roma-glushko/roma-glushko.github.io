@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import MainNavigation from "../components/theme/main-navigation"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
@@ -13,26 +13,31 @@ import "./thoughts.css"
 
 class ThoughtListPage extends Component {
   render() {
-    const { data: { socialImage, allMarkdownRemark: { edges } } } = this.props
+    const {
+      data: {
+        socialImage,
+        allMarkdownRemark: { edges },
+      },
+    } = this.props
 
     return (
       <Layout>
-        <SEO
+        <Seo
           title="Thoughts"
           pagePath="/thoughts/"
           className="thoughts-list-page"
           description="Thoughts and experience that will help you to go through your life in the very best way"
           imagePath={socialImage.publicURL}
           keywords={[
-            'thoughts',
-            'opinion',
-            'life exploring',
-            'psychology',
-            'roman glushko thoughts',
-            'roman hlushko thoughts',
-            'life',
-            'people',
-            'management',
+            "thoughts",
+            "opinion",
+            "life exploring",
+            "psychology",
+            "roman glushko thoughts",
+            "roman hlushko thoughts",
+            "life",
+            "people",
+            "management",
           ]}
           meta={[]}
         />
@@ -46,7 +51,7 @@ class ThoughtListPage extends Component {
             </div>
           </aside>
           <main className="thoughts-list">
-            {edges.map(thought => (
+            {edges.map((thought) => (
               <ThoughtTeaser
                 key={thought.node.id}
                 title={thought.node.frontmatter.title}
@@ -55,14 +60,14 @@ class ThoughtListPage extends Component {
                 publishedHumanDate={thought.node.frontmatter.humanDate}
                 publishedFullDate={thought.node.frontmatter.fullDate}
                 excerpt={thought.node.excerpt}
-                cover={thought.node.frontmatter.cover}
+                cover={thought.node.frontmatter.cover.childImageSharp.gatsbyImageData}
               />
             ))}
           </main>
           <div className="clearfix" />
         </div>
         <Footer />
-        <BreadcrumbsRichSnippet crumbs={[{'/thoughts/': 'Thoughts'}]} />
+        <BreadcrumbsRichSnippet crumbs={[{ "/thoughts/": "Thoughts" }]} />
       </Layout>
     )
   }
@@ -73,12 +78,10 @@ export default ThoughtListPage
 export const pageQuery = graphql`
   query ThoughtListQuery {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }, 
+      sort: { order: DESC, fields: [frontmatter___date] }
       filter: {
-        fileAbsolutePath: {regex: "/(thoughts)/"}
-        frontmatter: { 
-          published: {eq: true}
-        }
+        fileAbsolutePath: { regex: "/(thoughts)/" }
+        frontmatter: { published: { eq: true } }
       }
     ) {
       edges {
@@ -88,14 +91,16 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             humanDate: date(formatString: "MMM D, YYYY")
-            fullDate: date (formatString: "YYYY-MM-DD") 
+            fullDate: date(formatString: "YYYY-MM-DD")
             path
             title
             cover {
               childImageSharp {
-                fluid(maxWidth: 400) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                    layout: CONSTRAINED, 
+                    width: 690,
+                    placeholder: BLURRED
+                )
               }
             }
           }

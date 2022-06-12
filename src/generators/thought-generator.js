@@ -1,12 +1,12 @@
 const path = require(`path`)
 
-const ENV = process.env.GATSBY_ENV || 'development'
+const ENV = process.env.GATSBY_ENV || "development"
 
 module.exports = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const thoughtTemplate = path.resolve(`src/templates/thoughtTemplate.js`)
 
-  const postStatuses = ENV === 'development' ? [true, false] : [true]
+  const postStatuses = ENV === "development" ? [true, false] : [true]
 
   const result = await graphql(`
    {
@@ -40,12 +40,18 @@ module.exports = async ({ actions, graphql, reporter }) => {
 
   const thoughts = result.data.allMarkdownRemark.edges
 
+  console.debug(`🚚 Loading thought posts.. (found ${thoughts.length} thoughts)`)
+
   thoughts.forEach(({ node }, index) => {
-    prevThought = index === 0 ? undefined : thoughts[index - 1].node;
-    nextThought = index === thoughts.length - 1 ? undefined : thoughts[index + 1].node;
+    const prevThought = index === 0 ? undefined : thoughts[index - 1].node
+    const nextThought = index === thoughts.length - 1 ? undefined : thoughts[index + 1].node
+
+    const path = node.frontmatter.path
+
+    console.debug(`- Generating "${path}"..`)
 
     createPage({
-      path: node.frontmatter.path,
+      path: path,
       component: thoughtTemplate,
       context: {
         prevThought,

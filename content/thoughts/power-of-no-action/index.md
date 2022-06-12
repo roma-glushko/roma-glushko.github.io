@@ -6,10 +6,10 @@ title: "Power of No Action"
 cover: "./ian-hutchinson-aYg3tYxT3MQ-unsplash-min.jpg"
 coverCredits: Photo by <a href="https://unsplash.com/@ianhutchinson92">Ian Hutchinson</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
-    - psychology
-    - life exploring
-    - decision making
-    - statistics
+  - psychology
+  - life exploring
+  - decision making
+  - statistics
 ---
 
 Being decisive is good. Although taking rash actions without deep consideration of bad outcomes can be destructive. Often our life gives us a situation when the best possible move is to take no action.

@@ -82,13 +82,14 @@ The custom dataset helped quite a lot, but there were still a noticeable number 
 With my initial model architecture, there was merely one single dense layer that was training at that point. It wasn't really enough to gain a good accuracy in this task. So I went for fine-tuning of my MobileNet network.
 
 I took the best configs I was able to get at that point and started to unfreeze more layers starting from the end of the MobileNet feature extractor. With the RMSProp optimizer and 55 unfrozen layers
- layers, I was able to get 93% accuracy on my test dataset and significantly reduce the number of misclassifications which was a way more important for the game.
+layers, I was able to get 93% accuracy on my test dataset and significantly reduce the number of misclassifications which was a way more important for the game.
 
 I ended up with the model that was trained for 50 epochs with:
 
 - MobileNetV2 (55 unfeezed layers)
 - RMSprop optimizer (I could not beat it <span role="img">😄</span>) with 0.01 L2 regularization
 - Small learning rate (10-4)
+
 ### Deployment
 
 I did not want to buy any servers or cloud instances to run my tiny little pet project. That was a challenging requirement that left me with few options. The most solid one was to use Tensorflow.js.

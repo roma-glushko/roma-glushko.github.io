@@ -7,7 +7,7 @@
     border-radius: 50%;
     width: 122px;
     height: 122px;
-    border: 1px solid var(--avatarBorderColor);
+    border: 2px solid var(--avatarBorderColor);
 }
 
 .thought-author-wrapper .logo-img {

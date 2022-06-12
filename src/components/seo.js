@@ -10,8 +10,21 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, className, imagePath, pagePath, ogType }) => {
-  const { site: { siteMetadata } } = useStaticQuery(
+const Seo = ({
+  description,
+  keywords,
+  lang,
+  meta = [],
+  title,
+  isUniqueTitle,
+  className,
+  imagePath,
+  pagePath,
+  ogType,
+}) => {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(
     graphql`
       query {
         site {
@@ -29,10 +42,12 @@ const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, cla
 
   meta = meta || []
 
-  const type = ogType || 'website'
+  const type = ogType || "website"
   const metaDescription = description || siteMetadata.description
   const metaKeywords = keywords || siteMetadata.keywords
-  const titleTemplate = isUniqueTitle ? `${title}` : `${title} by ${siteMetadata.title}`
+  const titleTemplate = isUniqueTitle
+    ? `${title}`
+    : `${title} by ${siteMetadata.title}`
 
   if (imagePath) {
     meta.push({
@@ -103,17 +118,17 @@ const SEO = ({ description, keywords, lang, meta = [], title, isUniqueTitle, cla
   )
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 }
 
-SEO.propTypes = {
+Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }
 
-export default SEO
+export default Seo

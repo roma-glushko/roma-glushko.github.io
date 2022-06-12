@@ -3,9 +3,21 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 const PersonRichSnippet = () => {
-  const { personImage, site: { siteMetadata: { personRichSnippet: {
-    name, alternateName, gender, sameAs, jobTitle, worksFor
-  } } } } = useStaticQuery(
+  const {
+    personImage,
+    site: {
+      siteMetadata: {
+        personRichSnippet: {
+          name,
+          alternateName,
+          gender,
+          sameAs,
+          jobTitle,
+          worksFor,
+        },
+      },
+    },
+  } = useStaticQuery(
     graphql`
       query {
         site {
@@ -23,11 +35,9 @@ const PersonRichSnippet = () => {
             }
           }
         }
-        personImage: file(relativePath: { eq: "homepage/photo.jpeg" }) {
+        personImage: file(relativePath: { eq: "homepage/photo3.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 300) {
-              src
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 300)
           }
         }
       }
@@ -35,26 +45,24 @@ const PersonRichSnippet = () => {
   )
 
   const schemaJSONLD = {
-    '@context': 'http://schema.org',
-    '@type': 'Person',
+    "@context": "http://schema.org",
+    "@type": "Person",
     name,
     alternateName,
-    image: personImage.childImageSharp.fluid.src,
+    image: personImage.childImageSharp.gatsbyImageData.images.fallback.src,
     gender,
     sameAs,
     jobTitle,
     worksFor: {
       "@type": "Organization",
       name: worksFor.name,
-      sameAs: worksFor.sameAs
-    }
+      sameAs: worksFor.sameAs,
+    },
   }
 
   return (
     <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(schemaJSONLD)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(schemaJSONLD)}</script>
     </Helmet>
   )
 }
