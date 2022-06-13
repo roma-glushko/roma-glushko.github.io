@@ -1,24 +1,25 @@
-import React from "react"
+import * as React from "react"
+
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/theme/layout"
 import Seo from "../components/seo"
-import PersonRichSnippet from "../components/homepage/person-rich-snippet"
+import PersonRichSnippet from "../components/homepage/PersonRichSnippet"
 import Avatar from "../components/homepage/avatar"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ReactRotatingText from "react-rotating-text"
 import MainNavigation from "../components/theme/main-navigation"
 import BlogTeaser from "../components/blog/blog-teaser"
 import ThoughtTeaser from "../components/thoughts/thought-teaser"
-import SocialLinks from "../components/homepage/social-links"
+import SocialLinks from "../components/homepage/SocialLinks"
 import NNBackground from "../components/nn-design/nn-background"
 import Footer from "../components/theme/footer"
 
-import "./index.css"
+import "./Index.css"
 
-const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5)
+const shuffleArray = (strings: string[]) => strings.sort(() => Math.random() - 0.5)
 
-const titles = shuffleArray([
+const titles: string[] = shuffleArray([
   "Web Developer 🛠",
   "Golang Enthusiast 🐹",
   "Human with a beard 🦁",
@@ -44,7 +45,7 @@ const titles = shuffleArray([
   "Shabbat Enjoyer 🍇",
 ])
 
-const IndexPage = () => {
+const IndexPage = (): JSX.Element => {
   const { recentPosts, recentThoughts } = useStaticQuery(
     graphql`
       query {
@@ -134,7 +135,7 @@ const IndexPage = () => {
                 <ReactRotatingText items={titles} />
               </div>
               <MainNavigation space={"homepage"} />
-              <SocialLinks iconSize="sm" />
+              <SocialLinks showPatreon={true} iconSize="sm" />
               <div className="theme-switcher">
                 <ThemeSwitcher />
               </div>
@@ -224,21 +225,6 @@ const IndexPage = () => {
               </div>
             </div>
           </div>
-          {/* <div>
-                    <h2>Code & Open Source</h2>
-                </div> */}
-          {/* <div>
-                    <h2>Experiment & Deploy</h2>
-                </div> */}
-          {/* <div>
-                    <h2 className="activity-title">Work & Help</h2>
-                    <div>
-                        <p>If you have a great challenge to solve with Machine Learning and Software Engineering, feel free to let me know! </p>
-                        <p>Here is my CVs, by the way: </p>
-
-                        Insert CVs here
-                    </div>
-                </div> */}
         </div>
       </main>
       <Footer />

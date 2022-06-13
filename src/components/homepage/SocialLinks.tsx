@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope"
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons/faGithubAlt"
@@ -8,9 +8,29 @@ import { faKaggle } from "@fortawesome/free-brands-svg-icons/faKaggle"
 import { faPatreon } from "@fortawesome/free-brands-svg-icons/faPatreon"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
-import "./social-links.css"
+import "./SocialLinks.css"
 
-const SocialLinks = ({ iconSize, showPatreon = true }) => {
+export type IconSize =
+  | "xs"
+  | "lg"
+  | "sm"
+  | "1x"
+  | "2x"
+  | "3x"
+  | "4x"
+  | "5x"
+  | "6x"
+  | "7x"
+  | "8x"
+  | "9x"
+  | "10x";
+
+type Props = {
+  iconSize: IconSize,
+  showPatreon: boolean,
+}
+
+const SocialLinks = ({ iconSize = "sm", showPatreon = true }: Props): JSX.Element => {
   return (
     <div className="social">
       <ul className="social-list">

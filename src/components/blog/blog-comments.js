@@ -22,6 +22,6 @@ export default class BlogComments extends Component {
   }
 
   render() {
-    return <div ref={this.commentBox} className="comment-box"></div>
+    return <div ref={this.commentBox} className="comment-box" />
   }
 }

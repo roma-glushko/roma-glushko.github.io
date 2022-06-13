@@ -1,23 +1,15 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 
 const NotFoundImage = () => {
-  const {placeholderImage} = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "404/not-found-image.png" }) {
-        childImageSharp {
-          gatsbyImageData(layout: CONSTRAINED, width: 300)
-        }
-      }
-    }
-  `)
-
   return (
-    <GatsbyImage
+    <StaticImage
       className="not-found-img"
-      image={placeholderImage.childImageSharp.gatsbyImageData}
+      src={`../../images/404/not-found-image.png`}
+      width={300}
+      quality={80}
+      formats={["auto", "webp", "avif"]}
       alt={`Not Found Space`}
     />
   )

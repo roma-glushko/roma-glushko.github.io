@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 
 import Layout from "../components/theme/layout"
 import Seo from "../components/seo"
@@ -9,7 +9,7 @@ import ThemeSwitcher from "../components/theme/theme-switcher"
 
 import "../components/404/404.css"
 
-const NotFoundPage = () => (
+const NotFoundPage = (): JSX.Element => (
   <Layout>
     <Seo
       title="404: Not Found"

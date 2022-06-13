@@ -45,15 +45,15 @@ export default class ThemeSwitcher extends PureComponent {
 
           return (
             <div className={classNames} onClick={this.handleClick}>
-              <div className="theme-switcher-track"></div>
-              <div className="theme-switcher-thumb"></div>
+              <div className="theme-switcher-track" />
+              <div className="theme-switcher-thumb" />
 
               <input
                 className="theme-switcher-input"
                 type="checkbox"
-                checked={theme === "dark"}
+                checked={theme === `dark`}
                 readOnly={true}
-                aria-label="Switch between Dark and Light mode"
+                aria-label="Switch between Dark and Light modes"
               />
             </div>
           )

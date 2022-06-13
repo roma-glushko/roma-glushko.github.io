@@ -15,7 +15,7 @@ const LabHeader = () => {
         <span className="highlight">Lab</span> <br />
         Machine Learning Experiments <br />
         <span className="subscript">
-          Live <div className="live-circle pulse"></div>
+          Live <div className="live-circle pulse" />
         </span>
       </h1>
     </div>

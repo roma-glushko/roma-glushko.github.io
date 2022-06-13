@@ -1,24 +1,16 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 
 const Logo = () => {
   // TODO: parametrize and unify this component with Avatar one
-  const { placeholderImage } = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "homepage/photo3.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(layout: CONSTRAINED, width: 150)
-        }
-      }
-    }
-  `)
-
   return (
-    <GatsbyImage
+    <StaticImage
       className="logo-img"
-      image={placeholderImage.childImageSharp.gatsbyImageData}
+      src={`../../images/homepage/photo3.jpg`}
+      width={150}
+      quality={80}
+      formats={["auto", "webp", "avif"]}
       alt={`Roman Glushko`}
     />
   )

@@ -55,9 +55,14 @@
         "typewriter-effect": "^2.18.2"
     },
     "devDependencies": {
+        "@types/node": "^17.0.42",
+        "@types/react": "^18.0.12",
+        "@types/react-dom": "^18.0.5",
+        "@types/react-helmet": "^6.1.5",
         "gatsby-disable-404": "^0.2.1",
         "gh-pages": "^4.0.0",
-        "prettier": "^2.6.2"
+        "prettier": "^2.6.2",
+        "typescript": "^4.7.3"
     },
     "keywords": [
         "personal-blog",
@@ -67,12 +72,13 @@
     "license": "MIT",
     "scripts": {
         "deploy": "rm -rf .cache && rm -rf public && yarn run build && gh-pages -d public -b master",
-        "build": "GATSBY_ENV=production gatsby build --prefix-paths",
+        "build": "rm -rf .cache && rm -rf public && GATSBY_ENV=production gatsby build --prefix-paths",
         "develop": "GATSBY_ENV=development gatsby develop",
-        "cleanup": "rm -rf .cache && rm -rf public",
+        "cleanup": "rm -rf .cache && rm -rf public && gatsby clean",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "start": "GATSBY_ENV=development npm run develop",
-        "serve": "gatsby serve"
+        "serve": "gatsby serve",
+        "typecheck": "tsc --noEmit"
     },
     "repository": {
         "type": "git",
