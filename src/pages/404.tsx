@@ -4,7 +4,7 @@ import Layout from "../components/theme/layout"
 import Seo from "../components/seo"
 import NotFoundImage from "../components/404/404-image"
 import MainNavigation from "../components/theme/main-navigation"
-import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
+import BreadcrumbsSnippet from "../components/theme/breadcrumbs-snippet"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 
 import "../components/404/404.css"
@@ -31,7 +31,7 @@ const NotFoundPage = (): JSX.Element => (
           <ThemeSwitcher />
         </div>
       </main>
-      <BreadcrumbsRichSnippet crumbs={[]} />
+      <BreadcrumbsSnippet crumbs={[]} />
     </div>
   </Layout>
 )

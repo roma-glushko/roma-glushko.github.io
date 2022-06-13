@@ -6,7 +6,7 @@ import MainNavigation from "../components/theme/main-navigation"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ThoughtTeaser from "../components/thoughts/thought-teaser"
-import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
+import BreadcrumbsSnippet from "../components/theme/breadcrumbs-snippet"
 import Footer from "../components/theme/footer"
 
 import "./thoughts.css"
@@ -69,7 +69,7 @@ class ThoughtListPage extends Component {
           <div className="clearfix" />
         </div>
         <Footer />
-        <BreadcrumbsRichSnippet crumbs={[{ "/thoughts/": "Thoughts" }]} />
+        <BreadcrumbsSnippet crumbs={[{ "/thoughts/": "Thoughts" }]} />
       </Layout>
     )
   }

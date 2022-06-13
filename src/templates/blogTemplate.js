@@ -12,7 +12,7 @@ import Seo from "../components/seo"
 import ShareBlock from "../components/thoughts/share-block"
 import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
-import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
+import BreadcrumbsSnippet from "../components/theme/breadcrumbs-snippet"
 import Footer from "../components/theme/footer"
 
 import MathJax from "../components/blog/mathjax"
@@ -104,7 +104,7 @@ export default function Template({
         ]}
       />
       <ReadingAnalytics contentType={`blog`} />
-      <BreadcrumbsRichSnippet
+      <BreadcrumbsSnippet
         crumbs={[{ "/blog/": "Blog" }, { [path]: title }]}
       />
       {includeMath ? <MathJax /> : ""}

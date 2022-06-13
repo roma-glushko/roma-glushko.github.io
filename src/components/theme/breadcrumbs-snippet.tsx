@@ -16,7 +16,7 @@ interface Props {
   crumbs: Crumb[]
 }
 
-const BreadcrumbsRichSnippet = ({ crumbs = [] }: Props): JSX.Element => {
+const BreadcrumbsSnippet = ({ crumbs = [] }: Props): JSX.Element => {
   const { siteUrl } = useWebsiteMetadata()
 
   const crumbItems: Breadcrumb[] = [
@@ -52,4 +52,4 @@ const BreadcrumbsRichSnippet = ({ crumbs = [] }: Props): JSX.Element => {
   )
 }
 
-export default BreadcrumbsRichSnippet
+export default BreadcrumbsSnippet

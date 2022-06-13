@@ -8,7 +8,7 @@ import Footer from "../components/theme/footer"
 import Seo from "../components/seo"
 import NewsletterForm from "../components/blog/newsletter-form"
 import ShareBlock from "../components/thoughts/share-block"
-import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
+import BreadcrumbsSnippet from "../components/theme/breadcrumbs-snippet"
 import ReadingAnalytics from "../components/blog/reading-analytics"
 import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
 
@@ -91,7 +91,7 @@ export default function Template({
         ]}
       />
       <ReadingAnalytics contentType={`thought`} />
-      <BreadcrumbsRichSnippet
+      <BreadcrumbsSnippet
         crumbs={[{ "/thoughts/": "Thoughts" }, { [path]: title }]}
       />
     </Layout>
