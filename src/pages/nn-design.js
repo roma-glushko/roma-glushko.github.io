@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import Layout from "../components/theme/layout"
-import Seo from "../components/seo"
+import Seo from "../components/seo/seo"
 import HeroBlock from "../components/nn-design/hero-header"
-import Footer from "../components/theme/footer"
+import Footer from "../components/footer"
 
 import "./nn-design.css"
 

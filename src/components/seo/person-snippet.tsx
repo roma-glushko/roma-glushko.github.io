@@ -4,7 +4,7 @@ import { usePersonMetadata } from "../../hooks/person-metadata";
 
 
 
-const PersonRichSnippet = (): JSX.Element => {
+const PersonSnippet = (): JSX.Element => {
   const metadata = usePersonMetadata()
 
   const schemaJSONLD = {
@@ -30,4 +30,4 @@ const PersonRichSnippet = (): JSX.Element => {
   )
 }
 
-export default PersonRichSnippet
+export default PersonSnippet

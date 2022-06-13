@@ -1,5 +1,5 @@
 import * as React from "react"
-import SocialLinks from "../homepage/SocialLinks"
+import SocialLinks from "./homepage/SocialLinks"
 
 import "./Footer.css"
 
@@ -20,7 +20,7 @@ const Footer = (): JSX.Element => {
             CC BY 4.0
           </a>
         </div>
-        <div>
+        <div className={`pgp`}>
           <a href={`https://keybase.io/roman_hlushko`}>AB49 B91C C3E5 8E73</a>
         </div>
       </div>

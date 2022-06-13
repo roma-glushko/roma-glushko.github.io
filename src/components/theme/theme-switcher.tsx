@@ -5,7 +5,7 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 import "./theme-switcher.css"
 
-enum Themes {
+export enum Themes {
   DARK = `dark`,
   LIGHT = `light`,
 }

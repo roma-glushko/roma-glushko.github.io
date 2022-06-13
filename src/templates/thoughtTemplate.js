@@ -4,13 +4,12 @@ import ThoughtAuthor from "../components/thoughts/thought-author"
 import Thought from "../components/thoughts/thought"
 import ThoughtNavigation from "../components/thoughts/thought-navigation"
 import Layout from "../components/theme/layout"
-import Footer from "../components/theme/footer"
-import Seo from "../components/seo"
+import Footer from "../components/footer"
+import Seo from "../components/seo/seo"
 import NewsletterForm from "../components/blog/newsletter-form"
 import ShareBlock from "../components/thoughts/share-block"
-import BreadcrumbsSnippet from "../components/theme/breadcrumbs-snippet"
-import ReadingAnalytics from "../components/blog/reading-analytics"
-import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
+import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
+import ArticleRichSnippet from "../components/seo/article-snippet"
 
 import "./ThoughtView.css"
 
@@ -90,7 +89,6 @@ export default function Template({
           "life exploration",
         ]}
       />
-      <ReadingAnalytics contentType={`thought`} />
       <BreadcrumbsSnippet
         crumbs={[{ "/thoughts/": "Thoughts" }, { [path]: title }]}
       />

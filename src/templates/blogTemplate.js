@@ -4,16 +4,15 @@ import { graphql } from "gatsby"
 import loadable from "@loadable/component"
 
 import ViewPageHeader from "../components/theme/view-page-header"
-import MainNavigation from "../components/theme/main-navigation"
+import MainNavigation from "../components/main-navigation"
 import BlogPost from "../components/blog/blog-post"
 import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
-import Seo from "../components/seo"
+import Seo from "../components/seo/seo"
 import ShareBlock from "../components/thoughts/share-block"
-import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
-import ReadingAnalytics from "../components/blog/reading-analytics"
-import BreadcrumbsSnippet from "../components/theme/breadcrumbs-snippet"
-import Footer from "../components/theme/footer"
+import ArticleRichSnippet from "../components/seo/article-snippet"
+import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
+import Footer from "../components/footer"
 
 import MathJax from "../components/blog/mathjax"
 
@@ -22,7 +21,7 @@ import "./blog-view.css"
 const NewsletterForm = loadable(() =>
   import("../components/blog/newsletter-form")
 )
-const BlogComments = loadable(() => import("../components/blog/blog-comments"))
+const BlogComments = loadable(() => import("../components/blog/comments"))
 
 export default function Template({
   data,
@@ -103,10 +102,7 @@ export default function Template({
           "statistics",
         ]}
       />
-      <ReadingAnalytics contentType={`blog`} />
-      <BreadcrumbsSnippet
-        crumbs={[{ "/blog/": "Blog" }, { [path]: title }]}
-      />
+      <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }, { [path]: title }]} />
       {includeMath ? <MathJax /> : ""}
     </Layout>
   )

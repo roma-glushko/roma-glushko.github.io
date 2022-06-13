@@ -3,11 +3,12 @@ import PropTypes from "prop-types"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import ThemeSwitcher from "../theme/theme-switcher"
-import BlogContentNavigation from "./blog-content-navigation"
+import TableOfContent from "./table-of-content"
 
 import "./blog-post.css"
 import "../theme/content.css"
 import "./code-theme.css"
+import ReadingTracker, { ContentTypes } from "../analytics/reading-tracker"
 
 const BlogPost = (props) => {
   const {
@@ -57,15 +58,16 @@ const BlogPost = (props) => {
           ))}
         </ul>
       </header>
-      <div id="intro" className="blog-divider" />
-      <div className="content-wrapper">
-        <BlogContentNavigation />
-        <div
-          className="content blog-content"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
-        />
-      </div>
-      <div id="content-end" />
+      <div className="blog-divider" />
+      <ReadingTracker contentType={ContentTypes.BLOG}>
+        <div className="content-wrapper">
+          <TableOfContent />
+          <div
+            className="content blog-content"
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
+          />
+        </div>
+      </ReadingTracker>
     </article>
   )
 }

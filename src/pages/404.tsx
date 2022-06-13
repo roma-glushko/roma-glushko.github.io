@@ -1,10 +1,10 @@
 import * as React from "react"
 
 import Layout from "../components/theme/layout"
-import Seo from "../components/seo"
+import Seo from "../components/seo/seo"
 import NotFoundImage from "../components/404/404-image"
-import MainNavigation from "../components/theme/main-navigation"
-import BreadcrumbsSnippet from "../components/theme/breadcrumbs-snippet"
+import MainNavigation from "../components/main-navigation"
+import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 
 import "../components/404/404.css"

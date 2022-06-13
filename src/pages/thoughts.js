@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
-import Seo from "../components/seo"
-import MainNavigation from "../components/theme/main-navigation"
+import Seo from "../components/seo/seo"
+import MainNavigation from "../components/main-navigation"
 import ThoughtAuthor from "../components/thoughts/thought-author"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 import ThoughtTeaser from "../components/thoughts/thought-teaser"
-import BreadcrumbsSnippet from "../components/theme/breadcrumbs-snippet"
-import Footer from "../components/theme/footer"
+import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
+import Footer from "../components/footer"
 
 import "./thoughts.css"
 
@@ -100,7 +100,7 @@ export const pageQuery = graphql`
               childImageSharp {
                 gatsbyImageData(
                   layout: CONSTRAINED
-                  width: 690
+                  width: 700
                   placeholder: BLURRED
                 )
               }

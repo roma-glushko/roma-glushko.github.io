@@ -12,7 +12,7 @@ const CvHeader = ({ position }: Props): JSX.Element => {
     <div className="cv-header-wrapper">
       <div className="logo">
         <div itemProp="image" className="avatar">
-          <Logo />
+          <Logo width={150} />
         </div>
       </div>
       <hgroup>
