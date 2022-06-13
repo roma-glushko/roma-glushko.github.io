@@ -37,7 +37,9 @@ export default function Template({
         fullDate,
         keywords,
         includeMath,
-        cover: {childImageSharp: { gatsbyImageData }},
+        cover: {
+          childImageSharp: { gatsbyImageData },
+        },
         coverCredits,
         excerpt,
       },
@@ -129,7 +131,7 @@ export const pageQuery = graphql`
         excerpt
         cover {
           childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
         coverCredits

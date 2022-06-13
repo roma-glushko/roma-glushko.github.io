@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import "./main-navigation.css"
 
-export type Spaces = "homepage" | "blog" | "thoughts" | "lab" | "cv"
+export type Spaces = "homepage" | "blog" | "thoughts" | "lab" | "cv" | "404"
 
 interface Props {
   space: Spaces

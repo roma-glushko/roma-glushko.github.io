@@ -1,14 +1,26 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { useWebsiteMetadata } from "../hooks/website-metadata";
+
+interface Meta {
+  name?: string
+  property?: string
+  content: string
+}
+
+interface Props {
+  title: string
+  description: string | undefined
+  keywords: string[] | undefined
+  lang: string
+  meta: Meta[] | undefined
+  isUniqueTitle: boolean
+  className: string
+  ogType: string | undefined
+  imagePath: string
+  pagePath: string
+}
 
 const Seo = ({
   description,
@@ -16,48 +28,32 @@ const Seo = ({
   lang,
   meta = [],
   title,
-  isUniqueTitle,
+  isUniqueTitle = false,
   className,
   imagePath,
   pagePath,
-  ogType,
-}) => {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            siteUrl
-            title
-            description
-            author
-            keywords
-          }
-        }
-      }
-    `
-  )
+  ogType = "website",
+}: Props) => {
+  const siteMetadata = useWebsiteMetadata()
 
-  meta = meta || []
+  let metas: Meta[] = meta || []
 
-  const type = ogType || "website"
-  const metaDescription = description || siteMetadata.description
-  const metaKeywords = keywords || siteMetadata.keywords
-  const titleTemplate = isUniqueTitle
+  const metaDescription: string = description || siteMetadata.description
+  const metaKeywords: string[] = keywords || siteMetadata.keywords
+
+  const titleTemplate: string = isUniqueTitle
     ? `${title}`
     : `${title} by ${siteMetadata.title}`
 
   if (imagePath) {
-    meta.push({
+    metas.push({
       name: `image`,
       property: `og:image`,
       content: `${siteMetadata.siteUrl}${imagePath}`,
     })
   }
 
-  meta = meta.concat([
+  metas = metas.concat([
     {
       name: `description`,
       property: `og:description`,
@@ -75,10 +71,9 @@ const Seo = ({
       property: `og:title`,
       content: title,
     },
-
     {
       property: `og:type`,
-      content: type,
+      content: ogType,
     },
     {
       name: `twitter:card`,
@@ -99,7 +94,7 @@ const Seo = ({
   ])
 
   if (pagePath) {
-    meta.push({
+    metas.push({
       property: `og:url`,
       content: `${siteMetadata.siteUrl}${pagePath}`,
     })
@@ -113,7 +108,7 @@ const Seo = ({
       }}
       title={title}
       titleTemplate={titleTemplate}
-      meta={meta}
+      meta={metas}
     />
   )
 }

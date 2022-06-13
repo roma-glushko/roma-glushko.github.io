@@ -40,11 +40,14 @@ module.exports = async ({ actions, graphql, reporter }) => {
 
   const thoughts = result.data.allMarkdownRemark.edges
 
-  console.debug(`🚚 Loading thought posts.. (found ${thoughts.length} thoughts)`)
+  console.debug(
+    `🚚 Loading thought posts.. (found ${thoughts.length} thoughts)`
+  )
 
   thoughts.forEach(({ node }, index) => {
     const prevThought = index === 0 ? undefined : thoughts[index - 1].node
-    const nextThought = index === thoughts.length - 1 ? undefined : thoughts[index + 1].node
+    const nextThought =
+      index === thoughts.length - 1 ? undefined : thoughts[index + 1].node
 
     const path = node.frontmatter.path
 

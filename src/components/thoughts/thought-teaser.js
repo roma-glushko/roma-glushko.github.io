@@ -26,7 +26,10 @@ const ThoughtTeaser = (props) => {
           {publishedHumanDate}
         </time>
         <span> • </span>
-        <span className="thought-time2read">{timeToRead}{timeToRead > 1 ? "mins": "min"} read</span>
+        <span className="thought-time2read">
+          {timeToRead}
+          {timeToRead > 1 ? "mins" : "min"} read
+        </span>
       </div>
       <Link to={url}>
         <div className="cover-filter">

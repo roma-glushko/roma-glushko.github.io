@@ -75,19 +75,37 @@ class BlogListPage extends Component {
                 </span>
               </div>
             )}
-            {edges.map(({ node: {id, timeToRead, frontmatter: {title, path, humanDate, fullDate, excerpt, keywords, cover: {childImageSharp: {gatsbyImageData}}}, } }) => (
-              <BlogTeaser
-                key={id}
-                title={title}
-                url={path}
-                timeToRead={timeToRead}
-                publishedHumanDate={humanDate}
-                publishedFullDate={fullDate}
-                excerpt={excerpt}
-                cover={gatsbyImageData}
-                keywords={keywords}
-              />
-            ))}
+            {edges.map(
+              ({
+                node: {
+                  id,
+                  timeToRead,
+                  frontmatter: {
+                    title,
+                    path,
+                    humanDate,
+                    fullDate,
+                    excerpt,
+                    keywords,
+                    cover: {
+                      childImageSharp: { gatsbyImageData },
+                    },
+                  },
+                },
+              }) => (
+                <BlogTeaser
+                  key={id}
+                  title={title}
+                  url={path}
+                  timeToRead={timeToRead}
+                  publishedHumanDate={humanDate}
+                  publishedFullDate={fullDate}
+                  excerpt={excerpt}
+                  cover={gatsbyImageData}
+                  keywords={keywords}
+                />
+              )
+            )}
           </main>
           <div className="clearfix" />
         </div>
@@ -122,7 +140,11 @@ export const pageQuery = graphql`
             excerpt
             cover {
               childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED, width: 620, placeholder: BLURRED)
+                gatsbyImageData(
+                  layout: CONSTRAINED
+                  width: 620
+                  placeholder: BLURRED
+                )
               }
             }
           }

@@ -1,9 +1,9 @@
-import React from "react"
+import * as React from "react"
 import Logo from "../theme/logo"
 
 import "./thought-author.css"
 
-const ThoughtAuthor = () => {
+const ThoughtAuthor = (): JSX.Element => {
   return (
     <div className="thought-author-wrapper">
       <div className="logo">

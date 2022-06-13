@@ -43,7 +43,10 @@ const BlogPost = (props) => {
             {publishedHumanDate}
           </time>
           <span> • </span>
-          <span className="blog-time2read">{timeToRead}{timeToRead > 1 ? "mins": "min"} read</span>
+          <span className="blog-time2read">
+            {timeToRead}
+            {timeToRead > 1 ? "mins" : "min"} read
+          </span>
           <div className="theme-switcher">
             <ThemeSwitcher />
           </div>

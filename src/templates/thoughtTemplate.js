@@ -26,7 +26,9 @@ export default function Template({
         humanDate,
         fullDate,
         keywords,
-        cover: {childImageSharp: {gatsbyImageData}},
+        cover: {
+          childImageSharp: { gatsbyImageData },
+        },
         coverCredits,
       },
       html,

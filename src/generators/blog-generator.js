@@ -44,7 +44,8 @@ module.exports = async ({ actions, graphql, reporter }) => {
 
   blogPosts.forEach(({ node }, index) => {
     const prevThought = index === 0 ? undefined : blogPosts[index - 1].node
-    const nextThought = index === blogPosts.length - 1 ? undefined : blogPosts[index + 1].node
+    const nextThought =
+      index === blogPosts.length - 1 ? undefined : blogPosts[index + 1].node
 
     const path = node.frontmatter.path
 

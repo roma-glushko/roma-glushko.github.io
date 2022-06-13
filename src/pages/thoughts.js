@@ -60,7 +60,9 @@ class ThoughtListPage extends Component {
                 publishedHumanDate={thought.node.frontmatter.humanDate}
                 publishedFullDate={thought.node.frontmatter.fullDate}
                 excerpt={thought.node.excerpt}
-                cover={thought.node.frontmatter.cover.childImageSharp.gatsbyImageData}
+                cover={
+                  thought.node.frontmatter.cover.childImageSharp.gatsbyImageData
+                }
               />
             ))}
           </main>
@@ -97,9 +99,9 @@ export const pageQuery = graphql`
             cover {
               childImageSharp {
                 gatsbyImageData(
-                    layout: CONSTRAINED, 
-                    width: 690,
-                    placeholder: BLURRED
+                  layout: CONSTRAINED
+                  width: 690
+                  placeholder: BLURRED
                 )
               }
             }

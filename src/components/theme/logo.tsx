@@ -1,8 +1,7 @@
-import React from "react"
+import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
-
-const Logo = () => {
+const Logo = (): JSX.Element => {
   // TODO: parametrize and unify this component with Avatar one
   return (
     <StaticImage
