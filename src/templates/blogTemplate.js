@@ -14,9 +14,9 @@ import ArticleRichSnippet from "../components/seo/article-snippet"
 import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
 import Footer from "../components/footer"
 
-import MathJax from "../components/blog/mathjax"
-
+import "katex/dist/katex.min.css"
 import "./blog-view.css"
+
 
 const NewsletterForm = loadable(() =>
   import("../components/blog/newsletter-form")
@@ -103,7 +103,6 @@ export default function Template({
         ]}
       />
       <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }, { [path]: title }]} />
-      {includeMath ? <MathJax /> : ""}
     </Layout>
   )
 }

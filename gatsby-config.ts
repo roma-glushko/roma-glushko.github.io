@@ -137,6 +137,7 @@ const config: GatsbyConfig = {
               loading: "lazy", // "lazy" | "eager" | "auto"
             },
           },
+          `gatsby-remark-katex`,
           {
             resolve: "gatsby-remark-video",
             options: {

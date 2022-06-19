@@ -1,11 +1,7 @@
 {
-    "eslint.enable": false,
-    "files.associations": {
-        "*.js": "javascriptreact"
-    },
-    "cSpell.ignoreWords": [
-        "frontmatter",
-        "hlushko",
-        "magento"
-    ]
+  "eslint.enable": false,
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "cSpell.ignoreWords": ["frontmatter", "hlushko", "magento"]
 }

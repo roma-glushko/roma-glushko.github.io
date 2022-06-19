@@ -21,8 +21,6 @@ export default function HTML(props) {
     }
   }
 
-  console.log(props.headComponents)
-
   return (
     <html {...props.htmlAttributes}>
       <head>
