@@ -5,6 +5,16 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 import "./blog-teaser.css"
 
+const isNewArticle = (publishDate: string): boolean => {
+  const then = new Date(publishDate);
+  const now = new Date();
+
+  const msBetweenDates = Math.abs(then.getTime() - now.getTime());
+  const daysBetweenDates = msBetweenDates / (24 * 60 * 60 * 1000);
+
+  return daysBetweenDates < 30
+}
+
 const BlogTeaser = (props) => {
   const {
     title,
@@ -17,12 +27,15 @@ const BlogTeaser = (props) => {
     keywords,
   } = props
 
+  const isNew = isNewArticle(publishedFullDate)
+
   return (
     <article className="blog-item">
       <Link className="article-header" to={url}>
         <div className="cover-filter">
           <GatsbyImage className="cover" image={cover} alt={title} />
         </div>
+        {isNew ? <div className={`new-badge`}>new</div> : ""}
       </Link>
       <div className="article-details">
         <h2>
