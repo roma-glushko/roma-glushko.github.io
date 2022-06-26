@@ -1,8 +1,8 @@
 html.not-found-page,
 .not-found-page body,
-.not-found-page body>div,
-.not-found-page body>div>div,
-.not-found-page body>div>div>div {
+.not-found-page #___gatsby,
+.not-found-page #gatsby-focus-wrapper,
+.not-found-page #gatsby-focus-wrapper > div {
     height: 100%;
 }
 

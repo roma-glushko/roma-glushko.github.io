@@ -29,6 +29,11 @@ body.dark {
     display: inline-flex;
 }
 
+.pokemon .pokeinfo {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .pokemon .abilities ul,
 .pokemon .stats ul {
     list-style: none;
