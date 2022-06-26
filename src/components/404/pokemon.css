@@ -35,12 +35,6 @@ body.dark {
     flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
-    .pokemon .pokeinfo {
-        flex-flow: column
-    }
-}
-
 .pokemon .abilities ul,
 .pokemon .stats ul {
     list-style: none;
@@ -50,7 +44,7 @@ body.dark {
 .pokemon .stats ul li {
     display: grid;
     grid-template-areas: "key value";
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 2fr 1fr;
 }
 
 .pokemon .stats ul .key {
@@ -69,4 +63,19 @@ body.dark {
 .pokemon .stats .name,
 .pokemon .stats .type {
     text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+    .pokemon .pokeinfo {
+        flex-flow: column
+    }
+
+    .pokemon .stats ul li {
+        grid-template-columns: 2fr 2fr;
+    }
+
+    .pokemon .abilities li {
+        margin-bottom: 1rem;
+        cursor: pointer;
+    }
 }
