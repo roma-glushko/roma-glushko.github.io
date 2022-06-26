@@ -23,7 +23,7 @@ body.dark {
 }
 
 .pokemon .pokeball {
-    margin-top: 5rem;
+    margin-top: 2rem;
     background-color: var(--pokeballBgColor);
     border: 5px solid var(--bodyTextColor);
     border-radius: 50%;
