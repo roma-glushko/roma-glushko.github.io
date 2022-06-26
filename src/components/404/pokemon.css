@@ -23,6 +23,7 @@ body.dark {
 }
 
 .pokemon .pokeball {
+    margin-top: 5rem;
     background-color: var(--pokeballBgColor);
     border: 5px solid var(--bodyTextColor);
     border-radius: 50%;
@@ -32,6 +33,12 @@ body.dark {
 .pokemon .pokeinfo {
     display: flex;
     flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .pokemon .pokeinfo {
+        flex-flow: column
+    }
 }
 
 .pokemon .abilities ul,
