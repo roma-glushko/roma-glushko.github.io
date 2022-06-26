@@ -26,13 +26,13 @@ const MainNavigation = ({ space }: Props): JSX.Element => {
           </Link>
         </li>
         <li>
-          <Link to="/lab/" title="Go to my Lab">
-            Lab
+          <Link to="/thoughts/" title="Go to my Thoughts">
+            Thoughts
           </Link>
         </li>
         <li>
-          <Link to="/thoughts/" title="Go to my Thoughts">
-            Thoughts
+          <Link to="/lab/" title="Go to my Lab">
+            Lab
           </Link>
         </li>
         <li>
