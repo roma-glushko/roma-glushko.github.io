@@ -107,6 +107,7 @@ export const pageQuery = graphql`
         words
       }
       frontmatter {
+        id
         path
         humanDate: date(formatString: "MMM D, YYYY")
         fullDate: date(formatString: "YYYY-MM-DD")

@@ -66,7 +66,6 @@ const fetchPokemon = async (ID: number): Promise<PokemonData> => {
   return fetchJson<PokemonDataOut>(
     `https://pokeapi.co/api/v2/pokemon/${ID}`
   ).then(async (pokeData) => {
-
     return {
       name: pokeData.name,
       imageUrl: pokeData?.sprites?.other?.dream_world?.front_default,
@@ -116,27 +115,31 @@ const Pokemon = ({ children }: Props): JSX.Element => {
         <div className={`stats`}>
           <h3>Stats</h3>
           <ul>
-          <li key={`type`}>
-            <span className={`key name`}>Type:</span>
-            <span className={`value type`}>{types.join(" + ")}</span>
-          </li>
-          <li key={`weight`}>
-            <span className={`key name`}>Weight:</span>
-            <span className={`value`}>{weight}</span>
-          </li>
-          <li key={`height`}>
-            <span className={`key name`}>Height:</span><span className={`value`}>{height}</span>
-          </li>
-          <li key={`base_exp`}>
-            <span className={`key name`}>Base EXP:</span><span className={`value`}>{base_exp}</span>
-          </li>
-          {stats.map((stat: Stat) => (
-            <li key={stat.name}>
-              <span className={`key name ${stat.name.toLowerCase()}`}>{noDash(stat.name.replace("special", "sp."))}:</span>
-              <span className={`value`}>{stat.value}</span>
+            <li key={`type`}>
+              <span className={`key name`}>Type:</span>
+              <span className={`value type`}>{types.join(" + ")}</span>
             </li>
-          ))}
-        </ul>
+            <li key={`weight`}>
+              <span className={`key name`}>Weight:</span>
+              <span className={`value`}>{weight}</span>
+            </li>
+            <li key={`height`}>
+              <span className={`key name`}>Height:</span>
+              <span className={`value`}>{height}</span>
+            </li>
+            <li key={`base_exp`}>
+              <span className={`key name`}>Base EXP:</span>
+              <span className={`value`}>{base_exp}</span>
+            </li>
+            {stats.map((stat: Stat) => (
+              <li key={stat.name}>
+                <span className={`key name ${stat.name.toLowerCase()}`}>
+                  {noDash(stat.name.replace("special", "sp."))}:
+                </span>
+                <span className={`value`}>{stat.value}</span>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={`abilities`}>
           <h3>Abilities</h3>

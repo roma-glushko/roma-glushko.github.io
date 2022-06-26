@@ -60,9 +60,9 @@ const IndexPage = (): JSX.Element => {
         ) {
           edges {
             node {
-              id
               timeToRead
               frontmatter {
+                id
                 humanDate: date(formatString: "MMM D, YYYY")
                 fullDate: date(formatString: "YYYY-MM-DD")
                 path
@@ -169,9 +169,10 @@ const IndexPage = (): JSX.Element => {
               </p>
               <div className="recent-posts">
                 {recentPosts.edges.map(
-                  ({ node: { id, timeToRead, frontmatter } }) => (
+                  ({ node: { timeToRead, frontmatter } }) => (
                     <BlogTeaser
-                      key={id}
+                      key={frontmatter.id}
+                      id={frontmatter.id}
                       title={frontmatter.title}
                       url={frontmatter.path}
                       timeToRead={timeToRead}

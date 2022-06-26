@@ -1,4 +1,5 @@
 ---
+id: 62b87a6b15e35cd77d0d0df8
 path: "/blog/communicate-through-code/"
 date: "2022-05-27 13:06:00"
 published: true

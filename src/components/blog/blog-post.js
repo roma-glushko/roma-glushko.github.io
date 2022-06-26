@@ -4,14 +4,15 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 import ThemeSwitcher from "../theme/theme-switcher"
 import TableOfContent from "./table-of-content"
+import ReadingTracker, { ContentTypes } from "../analytics/reading-tracker"
 
 import "./blog-post.css"
 import "../theme/content.css"
 import "./code-theme.css"
-import ReadingTracker, { ContentTypes } from "../analytics/reading-tracker"
 
 const BlogPost = (props) => {
   const {
+    id,
     title,
     timeToRead,
     publishedHumanDate,
@@ -59,7 +60,7 @@ const BlogPost = (props) => {
         </ul>
       </header>
       <div className="blog-divider" />
-      <ReadingTracker contentType={ContentTypes.BLOG}>
+      <ReadingTracker id={id} contentType={ContentTypes.BLOG}>
         <div className="content-wrapper">
           <TableOfContent />
           <div
@@ -73,6 +74,7 @@ const BlogPost = (props) => {
 }
 
 BlogPost.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
   publishedHumanDate: PropTypes.string.isRequired,

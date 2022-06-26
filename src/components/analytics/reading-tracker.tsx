@@ -1,6 +1,7 @@
 import * as React from "react"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import { ReactNode, useEffect, useState } from "react"
+import useReadRepository, {ReadState, ReadStatuses} from "../../hooks/read-repository";
 
 export enum ContentTypes {
   BLOG = "blog",
@@ -9,6 +10,7 @@ export enum ContentTypes {
 }
 
 interface Props {
+  id: string
   contentType: ContentTypes
   children: ReactNode
 }
@@ -20,6 +22,9 @@ const ReadingTracker = (props: Props): JSX.Element => {
   const [readingStartedAt, setReadingStartedAt] = useState<number>(0)
   const [readingEnded, setReadingEnded] = useState<boolean>(false)
   const [readingEndedAt, setReadingEndedAt] = useState<number>(0)
+
+
+  const [readRepository, saveReadRepository] = useReadRepository(props.contentType)
 
   const trackReadingStart = (
     intersectedSections: IntersectionObserverEntry[]
@@ -51,39 +56,21 @@ const ReadingTracker = (props: Props): JSX.Element => {
 
     setReadingStarted(true)
     setReadingStartedAt(startedAt)
-  }
 
-  const trackReadingEnd = (
-    intersectedSections: IntersectionObserverEntry[]
-  ): void => {
-    const endSection: IntersectionObserverEntry = intersectedSections[0]
+    // mark content as in progress of reading
 
-    if (!endSection.isIntersecting || endSection.intersectionRatio <= 0) {
+    const readState: ReadState = readRepository[props.id] || {status: ReadStatuses.READING, changed_at: new Date()}
+
+    if (readState.status == ReadStatuses.FINISHED) {
+      // content was read fully once. Don't reset that status
       return
     }
 
-    if (readingEnded) {
-      // already tracked end of reading
-      return
-    }
+    readState.status = ReadStatuses.READING
+    readState.changed_at = new Date()
 
-    const endedAt: number = new Date().getTime()
-
-    setReadingEnded(true)
-    setReadingEndedAt(endedAt)
-
-    const secondsUntilEndedReading = Math.round(
-      (readingEndedAt - readingStartedAt) / 1000
-    )
-
-    window.requestAnimationFrame(() => {
-      trackCustomEvent({
-        category: "content",
-        action: "endReading",
-        label: contentType,
-        value: secondsUntilEndedReading,
-      })
-    })
+    readRepository[props.id] = readState
+    saveReadRepository(readRepository)
   }
 
   const trackReading = (sections: IntersectionObserverEntry[]): void => {
@@ -122,6 +109,65 @@ const ReadingTracker = (props: Props): JSX.Element => {
         value: secondsReading,
       })
     })
+
+    const readState: ReadState = readRepository[props.id] || {status: ReadStatuses.READING, changed_at: new Date()}
+
+    if (readState.status == ReadStatuses.FINISHED) {
+      // content was read fully once. Don't reset that status
+      return
+    }
+
+    readState.status = ReadStatuses.READING
+    readState.changed_at = new Date()
+
+    readRepository[props.id] = readState
+    saveReadRepository(readRepository)
+  }
+
+  const trackReadingEnd = (
+    intersectedSections: IntersectionObserverEntry[]
+  ): void => {
+    const endSection: IntersectionObserverEntry = intersectedSections[0]
+
+    if (!endSection.isIntersecting || endSection.intersectionRatio <= 0) {
+      return
+    }
+
+    if (readingEnded) {
+      // already tracked end of reading
+      return
+    }
+
+    const endedAt: number = new Date().getTime()
+
+    setReadingEnded(true)
+    setReadingEndedAt(endedAt)
+
+    const secondsUntilEndedReading = Math.round(
+      (readingEndedAt - readingStartedAt) / 1000
+    )
+
+    window.requestAnimationFrame(() => {
+      trackCustomEvent({
+        category: "content",
+        action: "endReading",
+        label: contentType,
+        value: secondsUntilEndedReading,
+      })
+    })
+
+    const readState: ReadState = readRepository[props.id]
+
+    if (readState && readState.status == ReadStatuses.FINISHED) {
+      // content was read fully once. Don't reset that status
+      return
+    }
+
+    readRepository[props.id] = {
+      status: ReadStatuses.FINISHED,
+      changed_at: new Date(),
+    }
+    saveReadRepository(readRepository)
   }
 
   useEffect(() => {

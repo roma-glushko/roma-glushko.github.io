@@ -78,9 +78,9 @@ class BlogListPage extends Component {
             {edges.map(
               ({
                 node: {
-                  id,
                   timeToRead,
                   frontmatter: {
+                    id,
                     title,
                     path,
                     humanDate,
@@ -94,6 +94,7 @@ class BlogListPage extends Component {
                 },
               }) => (
                 <BlogTeaser
+                  id={id}
                   key={id}
                   title={title}
                   url={path}
@@ -129,9 +130,9 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          id
           timeToRead
           frontmatter {
+            id
             humanDate: date(formatString: "MMM D, YYYY")
             fullDate: date(formatString: "YYYY-MM-DD")
             path

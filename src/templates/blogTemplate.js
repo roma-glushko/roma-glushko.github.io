@@ -29,12 +29,12 @@ export default function Template({
   const {
     markdownRemark: {
       frontmatter: {
+        id,
         path,
         title,
         humanDate,
         fullDate,
         keywords,
-        includeMath,
         cover: {
           childImageSharp: { gatsbyImageData },
         },
@@ -66,6 +66,7 @@ export default function Template({
       </div>
       <main>
         <BlogPost
+          id={id}
           title={title}
           timeToRead={timeToRead}
           publishedHumanDate={humanDate}
@@ -116,12 +117,12 @@ export const pageQuery = graphql`
         words
       }
       frontmatter {
+        id
         path
         humanDate: date(formatString: "MMM D, YYYY")
         fullDate: date(formatString: "YYYY-MM-DD")
         title
         keywords
-        includeMath
         excerpt
         cover {
           childImageSharp {

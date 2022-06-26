@@ -1,4 +1,5 @@
 ---
+id: 62b87a6b15e35cd77d0d0dfa
 path: "/blog/design-lru-cache/"
 date: "2021-06-16 20:00:00"
 published: true

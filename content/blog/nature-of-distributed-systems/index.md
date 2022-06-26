@@ -1,4 +1,5 @@
 ---
+id: 62b87b5115e35cd77d0d0e19
 path: "/blog/nature-of-distributed-systems/"
 date: "2021-07-20 09:00:00"
 published: true
