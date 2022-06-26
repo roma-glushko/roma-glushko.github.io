@@ -1,4 +1,5 @@
 ---
+id: 62b87a6b15e35cd77d0d0dfe
 path: "/blog/how-i-built-my-ml-workstation/"
 date: "2021-04-18 15:42:00"
 published: true

@@ -4,15 +4,21 @@ import PropTypes from "prop-types"
 export default function HTML(props) {
   if (process.env.NODE_ENV === "production") {
     for (const component of props.headComponents) {
-      if (component.type === "style") {
-        const index = props.headComponents.indexOf(component)
-        const link = (
-          <link rel="stylesheet" href={component.props["data-href"]} />
-        )
-        props.headComponents.splice(index, 1, link)
+      if (component.type !== "style") {
+        continue
       }
+
+      if (component.key && component.key.includes(`gatsby-image-style`)) {
+        // keep styles from gatsby-plugin-image
+        continue
+      }
+
+      const index = props.headComponents.indexOf(component)
+      const link = <link rel="stylesheet" href={component.props["data-href"]} />
+      props.headComponents.splice(index, 1, link)
     }
   }
+
   return (
     <html {...props.htmlAttributes}>
       <head>

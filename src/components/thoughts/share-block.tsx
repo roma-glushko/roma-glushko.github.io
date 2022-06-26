@@ -1,6 +1,5 @@
-import React from "react"
+import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faReddit } from "@fortawesome/free-brands-svg-icons/faReddit"
@@ -15,28 +14,21 @@ import {
   RedditShareButton,
   PocketShareButton,
 } from "react-share"
+
+import { useWebsiteMetadata } from "../../hooks/website-metadata"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 import "./share-block.css"
 
-const ShareBlock = ({ title, path, keywords }) => {
-  const {
-    site: {
-      siteMetadata: { siteUrl },
-    },
-  } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            siteUrl
-          }
-        }
-      }
-    `
-  )
+interface Props {
+  title: string
+  path: string
+  keywords: string[]
+}
 
-  const url = `${siteUrl}${path}`
+const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
+  const { siteUrl } = useWebsiteMetadata()
+  const url: string = `${siteUrl}${path}`
 
   return (
     <div className="social-share-wrapper">
@@ -127,11 +119,13 @@ const ShareBlock = ({ title, path, keywords }) => {
 }
 
 ShareBlock.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  keywords: PropTypes.arrayOf(PropTypes.string),
 }
 
 ShareBlock.defaultProps = {
-  tags: [],
+  keywords: [],
 }
 
 export default ShareBlock

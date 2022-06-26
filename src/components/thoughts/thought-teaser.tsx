@@ -1,11 +1,21 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 import "./thought-teaser.css"
 
-const ThoughtTeaser = (props) => {
+interface Props {
+  title: string
+  url: string
+  timeToRead: number
+  publishedHumanDate: string
+  publishedFullDate: string
+  excerpt: string
+  cover: IGatsbyImageData
+}
+
+const ThoughtTeaser = (props: Props) => {
   const {
     title,
     url,
@@ -26,7 +36,10 @@ const ThoughtTeaser = (props) => {
           {publishedHumanDate}
         </time>
         <span> • </span>
-        <span className="thought-time2read">{timeToRead}{timeToRead > 1 ? "mins": "min"} read</span>
+        <span className="thought-time2read">
+          {timeToRead}
+          {timeToRead > 1 ? "mins" : "min"} read
+        </span>
       </div>
       <Link to={url}>
         <div className="cover-filter">

@@ -2,8 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-import MainNavigation from "../theme/main-navigation"
+import MainNavigation from "../main-navigation"
 import ThemeSwitcher from "../theme/theme-switcher"
+import ReadingTracker, { ContentTypes } from "../analytics/reading-tracker"
 
 import "./thought.css"
 import "../theme/content.css"
@@ -42,18 +43,22 @@ const Thought = (props) => {
             {publishedHumanDate}
           </time>
           <span> • </span>
-          <span className="thought-time2read">{timeToRead}{timeToRead > 1 ? "mins": "min"} read</span>
+          <span className="thought-time2read">
+            {timeToRead}
+            {timeToRead > 1 ? "mins" : "min"} read
+          </span>
           <div className="theme-switcher">
             <ThemeSwitcher />
           </div>
         </div>
       </header>
-      <div id="intro" className="thought-divider" />
-      <div
-        className="content thought-content"
-        dangerouslySetInnerHTML={{ __html: contentHtml }}
-      />
-      <div id="content-end" />
+      <div className="thought-divider" />
+      <ReadingTracker contentType={ContentTypes.THOUGHT}>
+        <div
+          className="content thought-content"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
+      </ReadingTracker>
     </article>
   )
 }

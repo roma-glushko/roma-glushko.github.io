@@ -2,7 +2,7 @@ import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const ArticleRichSnippet = ({
+const ArticleSnippet = ({
   genre,
   articleSection,
   title,
@@ -66,4 +66,4 @@ const ArticleRichSnippet = ({
   )
 }
 
-export default ArticleRichSnippet
+export default ArticleSnippet

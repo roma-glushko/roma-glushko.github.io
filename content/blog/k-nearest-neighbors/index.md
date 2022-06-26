@@ -1,4 +1,5 @@
 ---
+id: 62b87b2215e35cd77d0d0e11
 path: "/blog/k-nearest-neighbors/"
 date: "2021-04-05 16:48:00"
 published: true

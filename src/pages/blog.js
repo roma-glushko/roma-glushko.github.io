@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/theme/layout"
-import Seo from "../components/seo"
+import Seo from "../components/seo/seo"
 import ViewPageHeader from "../components/theme/view-page-header"
-import MainNavigation from "../components/theme/main-navigation"
+import MainNavigation from "../components/main-navigation"
 import BlogTeaser from "../components/blog/blog-teaser"
 import ThemeSwitcher from "../components/theme/theme-switcher"
-import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
-import Footer from "../components/theme/footer"
+import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
+import Footer from "../components/footer"
 
 import "./blog.css"
 
@@ -75,24 +75,43 @@ class BlogListPage extends Component {
                 </span>
               </div>
             )}
-            {edges.map(({ node: {id, timeToRead, frontmatter: {title, path, humanDate, fullDate, excerpt, keywords, cover: {childImageSharp: {gatsbyImageData}}}, } }) => (
-              <BlogTeaser
-                key={id}
-                title={title}
-                url={path}
-                timeToRead={timeToRead}
-                publishedHumanDate={humanDate}
-                publishedFullDate={fullDate}
-                excerpt={excerpt}
-                cover={gatsbyImageData}
-                keywords={keywords}
-              />
-            ))}
+            {edges.map(
+              ({
+                node: {
+                  timeToRead,
+                  frontmatter: {
+                    id,
+                    title,
+                    path,
+                    humanDate,
+                    fullDate,
+                    excerpt,
+                    keywords,
+                    cover: {
+                      childImageSharp: { gatsbyImageData },
+                    },
+                  },
+                },
+              }) => (
+                <BlogTeaser
+                  id={id}
+                  key={id}
+                  title={title}
+                  url={path}
+                  timeToRead={timeToRead}
+                  publishedHumanDate={humanDate}
+                  publishedFullDate={fullDate}
+                  excerpt={excerpt}
+                  cover={gatsbyImageData}
+                  keywords={keywords}
+                />
+              )
+            )}
           </main>
           <div className="clearfix" />
         </div>
         <Footer />
-        <BreadcrumbsRichSnippet crumbs={[{ "/blog/": "Blog" }]} />
+        <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }]} />
       </Layout>
     )
   }
@@ -111,9 +130,9 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          id
           timeToRead
           frontmatter {
+            id
             humanDate: date(formatString: "MMM D, YYYY")
             fullDate: date(formatString: "YYYY-MM-DD")
             path
@@ -122,7 +141,11 @@ export const pageQuery = graphql`
             excerpt
             cover {
               childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED, width: 620, placeholder: BLURRED)
+                gatsbyImageData(
+                  layout: CONSTRAINED
+                  width: 620
+                  placeholder: BLURRED
+                )
               }
             }
           }

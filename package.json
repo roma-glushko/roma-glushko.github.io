@@ -13,7 +13,6 @@
         "@tensorflow/tfjs": "^3.18.0",
         "element-react": "^1.4.34",
         "gatsby": "^4.16.0",
-        "gatsby-image": "^3.11.0",
         "gatsby-plugin-canonical-urls": "^4.16.0",
         "gatsby-plugin-dark-mode": "^1.1.0",
         "gatsby-plugin-google-analytics": "^4.16.0",
@@ -35,7 +34,7 @@
         "gatsby-remark-external-links": "^0.0.4",
         "gatsby-remark-images": "^6.16.0",
         "gatsby-remark-images-native-lazy-load": "^1.0.0",
-        "gatsby-remark-mathjax": "^1.0.0",
+        "gatsby-remark-katex": "^6.16.0",
         "gatsby-remark-prismjs": "^6.16.0",
         "gatsby-remark-responsive-iframe": "^5.16.0",
         "gatsby-remark-video": "^1.2.5",
@@ -45,6 +44,7 @@
         "gatsby-transformer-remark": "^5.16.0",
         "gatsby-transformer-sharp": "^4.16.0",
         "gsap": "^3.10.4",
+        "katex": "^0.16.0",
         "prismjs": "^1.28.0",
         "prop-types": "^15.8.1",
         "react": "^18.1.0",
@@ -55,9 +55,15 @@
         "typewriter-effect": "^2.18.2"
     },
     "devDependencies": {
+        "@types/node": "^17.0.42",
+        "@types/react": "^18.0.12",
+        "@types/react-dom": "^18.0.5",
+        "@types/react-helmet": "^6.1.5",
+        "eslint": "^8.17.0",
         "gatsby-disable-404": "^0.2.1",
         "gh-pages": "^4.0.0",
-        "prettier": "^2.6.2"
+        "prettier": "^2.6.2",
+        "typescript": "^4.7.3"
     },
     "keywords": [
         "personal-blog",
@@ -67,12 +73,13 @@
     "license": "MIT",
     "scripts": {
         "deploy": "rm -rf .cache && rm -rf public && yarn run build && gh-pages -d public -b master",
-        "build": "GATSBY_ENV=production gatsby build --prefix-paths",
+        "build": "rm -rf .cache && rm -rf public && GATSBY_ENV=production gatsby build --prefix-paths",
         "develop": "GATSBY_ENV=development gatsby develop",
-        "cleanup": "rm -rf .cache && rm -rf public",
-        "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+        "cleanup": "rm -rf .cache && rm -rf public && gatsby clean",
+        "lint": "prettier --write \"**/*.{js,jsx,json,md,ts,tsx}\"",
         "start": "GATSBY_ENV=development npm run develop",
-        "serve": "gatsby serve"
+        "serve": "gatsby serve",
+        "typecheck": "tsc --noEmit"
     },
     "repository": {
         "type": "git",

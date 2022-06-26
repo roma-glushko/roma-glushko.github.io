@@ -1,14 +1,18 @@
-import React from "react"
+import * as React from "react"
 import Logo from "../theme/logo"
 
 import "./cv-header.css"
 
-const CvHeader = ({ position }) => {
+type Props = {
+  position: string
+}
+
+const CvHeader = ({ position }: Props): JSX.Element => {
   return (
     <div className="cv-header-wrapper">
       <div className="logo">
         <div itemProp="image" className="avatar">
-          <Logo />
+          <Logo width={150} />
         </div>
       </div>
       <hgroup>

@@ -1,12 +1,12 @@
 import React from "react"
 
 import Layout from "../../components/theme/layout"
-import Seo from "../../components/seo"
-import MainNavigation from "../../components/theme/main-navigation"
+import Seo from "../../components/seo/seo"
+import MainNavigation from "../../components/main-navigation"
 import CvHeader from "../../components/cv/cv-header"
 import ThemeSwitcher from "../../components/theme/theme-switcher"
-import SocialLinks from "../../components/homepage/social-links"
-import BreadcrumbsRichSnippet from "../../components/theme/breadcrumbs-rich-snippet"
+import SocialLinks from "../../components/homepage/SocialLinks"
+import BreadcrumbsSnippet from "../../components/seo/breadcrumbs-snippet"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import { Link } from "gatsby"
 
@@ -685,7 +685,7 @@ const MachineLearningEngineerCV = () => {
           </div>
         </div>
       </main>
-      <BreadcrumbsRichSnippet
+      <BreadcrumbsSnippet
         crumbs={[{ "/cv/machine-learning-engineer/": "ML/DL Engineer CV" }]}
       />
     </Layout>

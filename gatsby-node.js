@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
+// https://github.com/fshowalter/franksmovielog.com/blob/main/gatsby-node.ts
 
 const thoughtGenerator = require(`./src/generators/thought-generator`)
 const blogGenerator = require(`./src/generators/blog-generator`)

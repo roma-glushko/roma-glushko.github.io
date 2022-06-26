@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig } from "gatsby"
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `Roman Glushko`,
     description: `Hey 👋 My name is Roman and I'm a Machine Learning Engineer, Software Developer and Life Explorer 🧔🛠👨‍💻📚`,
@@ -22,8 +24,8 @@ module.exports = {
       gender: `Male`,
       jobTitle: `Machine Learning Engineer, Magento eCommerce Software Developer`,
       worksFor: {
-        name: "",
-        sameAs: "",
+        name: "DataRobot, Inc.",
+        sameAs: "https://www.datarobot.com/",
       },
       sameAs: [
         `https://twitter.com/roma_glushko`,
@@ -31,6 +33,7 @@ module.exports = {
         `https://www.linkedin.com/in/glushko-roman`,
         `https://www.kaggle.com/glushko`,
         `https://leetcode.com/roma-glushko/`,
+        `https://keybase.io/roman_hlushko`,
       ],
     },
   },
@@ -58,9 +61,17 @@ module.exports = {
         domains: ["https://utteranc.es", "https://www.google-analytics.com"],
       },
     },
-    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -126,7 +137,7 @@ module.exports = {
               loading: "lazy", // "lazy" | "eager" | "auto"
             },
           },
-          `gatsby-remark-mathjax`,
+          `gatsby-remark-katex`,
           {
             resolve: "gatsby-remark-video",
             options: {
@@ -152,7 +163,7 @@ module.exports = {
               urlOverrides: [
                 {
                   id: "youtube",
-                  embedURL: (videoId) =>
+                  embedURL: (videoId: string) =>
                     `https://www.youtube-nocookie.com/embed/${videoId}`,
                 },
               ],
@@ -271,6 +282,8 @@ module.exports = {
         ], // todo: handle all unpublished articles
       },
     },
-    "gatsby-plugin-webpack-bundle-analyser-v2",
+    //"gatsby-plugin-webpack-bundle-analyser-v2",
   ],
 }
+
+export default config

@@ -1,25 +1,25 @@
-import React from "react"
+import * as React from "react"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-const BreadcrumbsRichSnippet = ({ crumbs = [] }) => {
-  const {
-    site: {
-      siteMetadata: { siteUrl },
-    },
-  } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            siteUrl
-          }
-        }
-      }
-    `
-  )
+import { useWebsiteMetadata } from "../../hooks/website-metadata"
 
-  let crumbItems = [
+interface Breadcrumb {
+  "@type": string
+  position: number
+  name: string
+  item: string
+}
+
+type Crumb = Record<string, string>
+
+interface Props {
+  crumbs: Crumb[]
+}
+
+const BreadcrumbsSnippet = ({ crumbs = [] }: Props): JSX.Element => {
+  const { siteUrl } = useWebsiteMetadata()
+
+  const crumbItems: Breadcrumb[] = [
     {
       "@type": "ListItem",
       position: 1,
@@ -28,7 +28,7 @@ const BreadcrumbsRichSnippet = ({ crumbs = [] }) => {
     },
   ]
 
-  crumbs.forEach((crumbItem, idx) => {
+  crumbs.forEach((crumbItem: Crumb, idx: number) => {
     const [[path, title]] = Object.entries(crumbItem)
 
     crumbItems.push({
@@ -52,4 +52,4 @@ const BreadcrumbsRichSnippet = ({ crumbs = [] }) => {
   )
 }
 
-export default BreadcrumbsRichSnippet
+export default BreadcrumbsSnippet

@@ -11,7 +11,7 @@ const ViewPageHeader = ({ spaceTitle, spaceLink, isListing = false }) => {
       <div className="view-page-header-wrapper">
         <div className="logo-wrapper">
           <div className="logo">
-            <Logo />
+            <Logo width={150} />
           </div>
           <div className="name">
             <a href={spaceLink} title="back to blog">

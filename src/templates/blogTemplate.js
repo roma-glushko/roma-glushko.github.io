@@ -4,25 +4,23 @@ import { graphql } from "gatsby"
 import loadable from "@loadable/component"
 
 import ViewPageHeader from "../components/theme/view-page-header"
-import MainNavigation from "../components/theme/main-navigation"
+import MainNavigation from "../components/main-navigation"
 import BlogPost from "../components/blog/blog-post"
 import BlogNavigation from "../components/blog/blog-navigation"
 import Layout from "../components/theme/layout"
-import Seo from "../components/seo"
+import Seo from "../components/seo/seo"
 import ShareBlock from "../components/thoughts/share-block"
-import ArticleRichSnippet from "../components/thoughts/article-rich-snippet"
-import ReadingAnalytics from "../components/blog/reading-analytics"
-import BreadcrumbsRichSnippet from "../components/theme/breadcrumbs-rich-snippet"
-import Footer from "../components/theme/footer"
+import ArticleRichSnippet from "../components/seo/article-snippet"
+import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
+import Footer from "../components/footer"
 
-import MathJax from "../components/blog/mathjax"
-
+import "katex/dist/katex.min.css"
 import "./blog-view.css"
 
 const NewsletterForm = loadable(() =>
   import("../components/blog/newsletter-form")
 )
-const BlogComments = loadable(() => import("../components/blog/blog-comments"))
+const BlogComments = loadable(() => import("../components/blog/comments"))
 
 export default function Template({
   data,
@@ -31,13 +29,15 @@ export default function Template({
   const {
     markdownRemark: {
       frontmatter: {
+        id,
         path,
         title,
         humanDate,
         fullDate,
         keywords,
-        includeMath,
-        cover: {childImageSharp: { gatsbyImageData }},
+        cover: {
+          childImageSharp: { gatsbyImageData },
+        },
         coverCredits,
         excerpt,
       },
@@ -66,6 +66,7 @@ export default function Template({
       </div>
       <main>
         <BlogPost
+          id={id}
           title={title}
           timeToRead={timeToRead}
           publishedHumanDate={humanDate}
@@ -101,11 +102,7 @@ export default function Template({
           "statistics",
         ]}
       />
-      <ReadingAnalytics contentType={`blog`} />
-      <BreadcrumbsRichSnippet
-        crumbs={[{ "/blog/": "Blog" }, { [path]: title }]}
-      />
-      {includeMath ? <MathJax /> : ""}
+      <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }, { [path]: title }]} />
     </Layout>
   )
 }
@@ -120,16 +117,16 @@ export const pageQuery = graphql`
         words
       }
       frontmatter {
+        id
         path
         humanDate: date(formatString: "MMM D, YYYY")
         fullDate: date(formatString: "YYYY-MM-DD")
         title
         keywords
-        includeMath
         excerpt
         cover {
           childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
         coverCredits

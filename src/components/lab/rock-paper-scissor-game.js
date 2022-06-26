@@ -230,7 +230,7 @@ class RockPaperScissorGame extends React.Component {
 
     const prediction = model.predict(humanChoiceImage)
 
-    return  prediction.argMax(1).dataSync()[0]
+    return prediction.argMax(1).dataSync()[0]
   }
 
   // identify winner of this pair

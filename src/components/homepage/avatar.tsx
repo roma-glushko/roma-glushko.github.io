@@ -1,10 +1,13 @@
-import React from "react"
+import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-
-const Avatar = () => {
-  const { placeholderImage } = useStaticQuery(graphql`
+const Avatar = (): JSX.Element => {
+  const {
+    placeholderImage: {
+      childImageSharp: { gatsbyImageData },
+    },
+  } = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "homepage/photo3.jpg" }) {
         childImageSharp {
@@ -17,7 +20,7 @@ const Avatar = () => {
   return (
     <GatsbyImage
       className="logo-img"
-      image={placeholderImage.childImageSharp.gatsbyImageData}
+      image={gatsbyImageData}
       alt={`Roman Glushko - Machine Learning and Software Engineer, Life Explorer`}
     />
   )

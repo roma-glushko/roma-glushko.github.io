@@ -1,9 +1,15 @@
-import React from "react"
+import * as React from "react"
 import { Link } from "gatsby"
 
 import "./main-navigation.css"
 
-const MainNavigation = ({ space }) => {
+export type Spaces = "homepage" | "blog" | "thoughts" | "lab" | "cv" | "404"
+
+interface Props {
+  space: Spaces
+}
+
+const MainNavigation = ({ space }: Props): JSX.Element => {
   return (
     <nav className="main-navigation">
       <ul>
@@ -20,13 +26,13 @@ const MainNavigation = ({ space }) => {
           </Link>
         </li>
         <li>
-          <Link to="/lab/" title="Go to my Lab">
-            Lab
+          <Link to="/thoughts/" title="Go to my Thoughts">
+            Thoughts
           </Link>
         </li>
         <li>
-          <Link to="/thoughts/" title="Go to my Thoughts">
-            Thoughts
+          <Link to="/lab/" title="Go to my Lab">
+            Lab
           </Link>
         </li>
         <li>
