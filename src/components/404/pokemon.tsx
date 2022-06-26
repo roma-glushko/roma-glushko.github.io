@@ -132,7 +132,8 @@ const Pokemon = ({ children }: Props): JSX.Element => {
           </li>
           {stats.map((stat: Stat) => (
             <li key={stat.name}>
-              <span className={`key name ${stat.name.toLowerCase()}`}>{noDash(stat.name)}:</span><span className={`value`}>{stat.value}</span>
+              <span className={`key name ${stat.name.toLowerCase()}`}>{noDash(stat.name.replace("special", "sp."))}:</span>
+              <span className={`value`}>{stat.value}</span>
             </li>
           ))}
         </ul>
@@ -142,7 +143,7 @@ const Pokemon = ({ children }: Props): JSX.Element => {
           <ul>
             {abilities.map((ability: Ability) => (
               <li key={ability.name}>
-                <span className={`name`}>{noDash(ability.name)}</span>:{" "}
+                <span className={`name`}>{noDash(ability.name)}</span>
                 <span role={`img`} title={ability.description}>
                   ❓
                 </span>
