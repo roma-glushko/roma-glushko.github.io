@@ -4,7 +4,7 @@ import Logo from "../theme/logo"
 import "./cv-header.css"
 
 type Props = {
-    position: string
+  position: string
 }
 
 const CvHeader = ({ position }: Props): JSX.Element => {

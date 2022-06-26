@@ -1,7 +1,7 @@
 import * as React from "react"
 import Helmet from "react-helmet"
 
-import {useWebsiteMetadata} from "../../hooks/website-metadata";
+import { useWebsiteMetadata } from "../../hooks/website-metadata"
 
 interface Breadcrumb {
   "@type": string

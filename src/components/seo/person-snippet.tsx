@@ -1,8 +1,6 @@
 import * as React from "react"
 import Helmet from "react-helmet"
-import { usePersonMetadata } from "../../hooks/person-metadata";
-
-
+import { usePersonMetadata } from "../../hooks/person-metadata"
 
 const PersonSnippet = (): JSX.Element => {
   const metadata = usePersonMetadata()

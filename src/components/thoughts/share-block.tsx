@@ -15,15 +15,15 @@ import {
   PocketShareButton,
 } from "react-share"
 
-import { useWebsiteMetadata } from "../../hooks/website-metadata";
+import { useWebsiteMetadata } from "../../hooks/website-metadata"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 import "./share-block.css"
 
 interface Props {
-    title: string
-    path: string
-    keywords: string[]
+  title: string
+  path: string
+  keywords: string[]
 }
 
 const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
@@ -119,9 +119,9 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
 }
 
 ShareBlock.propTypes = {
-    title: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    keywords: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  keywords: PropTypes.arrayOf(PropTypes.string),
 }
 
 ShareBlock.defaultProps = {

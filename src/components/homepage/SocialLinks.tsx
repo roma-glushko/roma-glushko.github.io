@@ -23,14 +23,17 @@ export type IconSize =
   | "7x"
   | "8x"
   | "9x"
-  | "10x";
+  | "10x"
 
 type Props = {
-  iconSize: IconSize,
-  showPatreon: boolean,
+  iconSize: IconSize
+  showPatreon: boolean
 }
 
-const SocialLinks = ({ iconSize = "sm", showPatreon = true }: Props): JSX.Element => {
+const SocialLinks = ({
+  iconSize = "sm",
+  showPatreon = true,
+}: Props): JSX.Element => {
   return (
     <div className="social">
       <ul className="social-list">

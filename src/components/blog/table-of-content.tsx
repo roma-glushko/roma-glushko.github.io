@@ -1,10 +1,9 @@
 import * as React from "react"
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react"
 
 import "./table-of-content.css"
 
 type ContentSection = HTMLAnchorElement | HTMLHeadingElement
-
 
 const TableOfContent = (): JSX.Element => {
   const [activeSection, setActiveSection] = useState("")
@@ -20,7 +19,6 @@ const TableOfContent = (): JSX.Element => {
     })
   }
 
-
   useEffect(() => {
     if (typeof window === "undefined") {
       return
@@ -28,7 +26,9 @@ const TableOfContent = (): JSX.Element => {
 
     const observer = new IntersectionObserver(updateNavigation)
 
-    const introSection: HTMLAnchorElement[] = Array.from(document.querySelectorAll("#intro"))
+    const introSection: HTMLAnchorElement[] = Array.from(
+      document.querySelectorAll("#intro")
+    )
     const contentSections: HTMLHeadingElement[] = Array.from(
       document.querySelectorAll(".content h2[id]")
     )
@@ -43,23 +43,23 @@ const TableOfContent = (): JSX.Element => {
   }, [])
 
   return (
-      <div className="blog-content-nav-wrapper">
-        <ul className="blog-content-nav">
-          <h2>Content</h2>
-          <li className={activeSection === "intro" ? "active" : ""} key="intro">
-            <a href={"#intro"}>Intro</a>
+    <div className="blog-content-nav-wrapper">
+      <ul className="blog-content-nav">
+        <h2>Content</h2>
+        <li className={activeSection === "intro" ? "active" : ""} key="intro">
+          <a href={"#intro"}>Intro</a>
+        </li>
+        {contentSections.map((section: ContentSection) => (
+          <li
+            className={activeSection === section.id ? "active" : ""}
+            key={section.id}
+          >
+            <a href={`#${section.id}`}>{section.innerText}</a>
           </li>
-          {contentSections.map((section: ContentSection) => (
-            <li
-              className={activeSection === section.id ? "active" : ""}
-              key={section.id}
-            >
-              <a href={`#${section.id}`}>{section.innerText}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )
+        ))}
+      </ul>
+    </div>
+  )
 }
 
 export default TableOfContent

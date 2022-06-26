@@ -1,5 +1,5 @@
-import {graphql, useStaticQuery} from "gatsby";
-import {IGatsbyImageData} from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
 interface PersonMetadata {
   image: string | undefined
@@ -16,35 +16,36 @@ interface PersonMetadata {
 
 const usePersonMetadata = (): PersonMetadata => {
   const data = useStaticQuery<{
-    site: { siteMetadata: { personRichSnippet: PersonMetadata } },
-    personImage: {childImageSharp: { gatsbyImageData: IGatsbyImageData}}
+    site: { siteMetadata: { personRichSnippet: PersonMetadata } }
+    personImage: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
   }>(graphql`
     query {
-        site {
-          siteMetadata {
-            personRichSnippet {
-              alternateName
-              gender
-              jobTitle
+      site {
+        siteMetadata {
+          personRichSnippet {
+            alternateName
+            gender
+            jobTitle
+            name
+            sameAs
+            worksFor {
               name
               sameAs
-              worksFor {
-                name
-                sameAs
-              }
             }
           }
         }
-        personImage: file(relativePath: { eq: "homepage/photo3.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED, width: 300)
-          }
+      }
+      personImage: file(relativePath: { eq: "homepage/photo3.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(layout: CONSTRAINED, width: 300)
         }
       }
+    }
   `)
 
   const metadata: PersonMetadata = data.site.siteMetadata.personRichSnippet
-  metadata.image = data.personImage.childImageSharp.gatsbyImageData.images.fallback?.src
+  metadata.image =
+    data.personImage.childImageSharp.gatsbyImageData.images.fallback?.src
 
   return metadata
 }

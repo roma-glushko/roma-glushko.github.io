@@ -1,11 +1,11 @@
 import * as React from "react"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
-import {ReactNode, useEffect, useState} from "react";
+import { ReactNode, useEffect, useState } from "react"
 
 export enum ContentTypes {
   BLOG = "blog",
   THOUGHT = "thought",
-  LAB = "lab"
+  LAB = "lab",
 }
 
 interface Props {
@@ -13,15 +13,17 @@ interface Props {
   children: ReactNode
 }
 
-const ReadingTracker  = (props: Props): JSX.Element => {
-  const [contentType, ] = useState<string>(props.contentType)
-  const [intializedAt, ] = useState<number>(new Date().getTime())
+const ReadingTracker = (props: Props): JSX.Element => {
+  const [contentType] = useState<string>(props.contentType)
+  const [intializedAt] = useState<number>(new Date().getTime())
   const [readingStarted, setReadingStarted] = useState<boolean>(false)
   const [readingStartedAt, setReadingStartedAt] = useState<number>(0)
   const [readingEnded, setReadingEnded] = useState<boolean>(false)
   const [readingEndedAt, setReadingEndedAt] = useState<number>(0)
 
-  const trackReadingStart = (intersectedSections: IntersectionObserverEntry[]) => {
+  const trackReadingStart = (
+    intersectedSections: IntersectionObserverEntry[]
+  ) => {
     const section: IntersectionObserverEntry = intersectedSections[0]
 
     if (!section.isIntersecting || section.intersectionRatio <= 0) {
@@ -51,7 +53,9 @@ const ReadingTracker  = (props: Props): JSX.Element => {
     setReadingStartedAt(startedAt)
   }
 
-  const trackReadingEnd = (intersectedSections: IntersectionObserverEntry[]): void => {
+  const trackReadingEnd = (
+    intersectedSections: IntersectionObserverEntry[]
+  ): void => {
     const endSection: IntersectionObserverEntry = intersectedSections[0]
 
     if (!endSection.isIntersecting || endSection.intersectionRatio <= 0) {
@@ -132,7 +136,9 @@ const ReadingTracker  = (props: Props): JSX.Element => {
       document.querySelectorAll(`.content h2[id]`)
     )
 
-    const subSections: HTMLHeadingElement[] = Array.from(document.querySelectorAll(".content h3[id]"))
+    const subSections: HTMLHeadingElement[] = Array.from(
+      document.querySelectorAll(".content h3[id]")
+    )
     const allSections: HTMLElement[] = mainSections.concat(subSections)
 
     const readingStartObserver = new IntersectionObserver(trackReadingStart)
@@ -147,11 +153,13 @@ const ReadingTracker  = (props: Props): JSX.Element => {
     readingEndObserver.observe(articleEnd)
   }, [])
 
-  return <>
-    <div id="intro" />
-    {props.children}
-    <div id="content-end" />
-  </>
+  return (
+    <>
+      <div id="intro" />
+      {props.children}
+      <div id="content-end" />
+    </>
+  )
 }
 
 export default ReadingTracker

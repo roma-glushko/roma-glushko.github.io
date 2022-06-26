@@ -1,18 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import {GatsbyImage, IGatsbyImageData} from "gatsby-plugin-image"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 import "./thought-teaser.css"
 
 interface Props {
-    title: string
-    url: string
-    timeToRead: number
-    publishedHumanDate: string
-    publishedFullDate: string
-    excerpt: string
-    cover: IGatsbyImageData
+  title: string
+  url: string
+  timeToRead: number
+  publishedHumanDate: string
+  publishedFullDate: string
+  excerpt: string
+  cover: IGatsbyImageData
 }
 
 const ThoughtTeaser = (props: Props) => {

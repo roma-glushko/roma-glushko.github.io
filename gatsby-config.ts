@@ -67,8 +67,8 @@ const config: GatsbyConfig = {
         defaults: {
           formats: [`auto`, `webp`],
           placeholder: `blurred`,
-        }
-      }
+        },
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,

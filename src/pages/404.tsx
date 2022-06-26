@@ -8,6 +8,7 @@ import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
 import ThemeSwitcher from "../components/theme/theme-switcher"
 
 import "../components/404/404.css"
+import PokemonInfo from "../components/404/pokeapi"
 
 const NotFoundPage = (): JSX.Element => (
   <Layout>
@@ -23,6 +24,7 @@ const NotFoundPage = (): JSX.Element => (
     />
     <div className="container">
       <main className="row not-found-wrapper">
+        <PokemonInfo name={"slowpoke"} />
         <NotFoundImage />
         <div className="not-found-content">
           <h1>Not Found</h1>

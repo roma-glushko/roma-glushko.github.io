@@ -17,7 +17,6 @@ import Footer from "../components/footer"
 import "katex/dist/katex.min.css"
 import "./blog-view.css"
 
-
 const NewsletterForm = loadable(() =>
   import("../components/blog/newsletter-form")
 )

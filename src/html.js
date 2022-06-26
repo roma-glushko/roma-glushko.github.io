@@ -14,9 +14,7 @@ export default function HTML(props) {
       }
 
       const index = props.headComponents.indexOf(component)
-      const link = (
-        <link rel="stylesheet" href={component.props["data-href"]} />
-      )
+      const link = <link rel="stylesheet" href={component.props["data-href"]} />
       props.headComponents.splice(index, 1, link)
     }
   }

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import { useWebsiteMetadata } from "../../hooks/website-metadata";
+import { useWebsiteMetadata } from "../../hooks/website-metadata"
 
 interface Meta {
   name?: string

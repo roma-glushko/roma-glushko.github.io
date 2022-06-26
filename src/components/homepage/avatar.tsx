@@ -2,9 +2,12 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-
 const Avatar = (): JSX.Element => {
-  const { placeholderImage: {childImageSharp: {gatsbyImageData}} } = useStaticQuery(graphql`
+  const {
+    placeholderImage: {
+      childImageSharp: { gatsbyImageData },
+    },
+  } = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "homepage/photo3.jpg" }) {
         childImageSharp {

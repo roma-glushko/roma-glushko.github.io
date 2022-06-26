@@ -1,13 +1,13 @@
 import * as React from "react"
 import { useEffect, useRef } from "react"
-import { Themes } from "../theme/theme-switcher";
+import { Themes } from "../theme/theme-switcher"
 
 interface Props {
   theme: Themes
 }
 
 // https://www.vincentntang.com/installing-gatsbyjs-blog-comments/
-const Comments = ({theme}: Props) => {
+const Comments = ({ theme }: Props) => {
   const commentBox = useRef(null)
 
   useEffect(() => {
@@ -18,14 +18,17 @@ const Comments = ({theme}: Props) => {
     commentScript.async = true
 
     commentScript.setAttribute("label", `discussion💬`)
-    commentScript.setAttribute("repo", `roma-glushko/romaglushkocom-discussions`)
+    commentScript.setAttribute(
+      "repo",
+      `roma-glushko/romaglushkocom-discussions`
+    )
     commentScript.setAttribute("issue-term", `pathname`)
     commentScript.setAttribute("theme", `github-light`)
 
     commentBox.current.appendChild(commentScript)
   }, [commentBox])
 
-    return <div ref={commentBox} className="comment-box" />
+  return <div ref={commentBox} className="comment-box" />
 }
 
 export default Comments

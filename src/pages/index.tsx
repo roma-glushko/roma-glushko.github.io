@@ -17,7 +17,8 @@ import Footer from "../components/footer"
 
 import "./Index.css"
 
-const shuffleArray = (strings: string[]) => strings.sort(() => Math.random() - 0.5)
+const shuffleArray = (strings: string[]) =>
+  strings.sort(() => Math.random() - 0.5)
 
 const titles: string[] = shuffleArray([
   "Web Developer 🛠",

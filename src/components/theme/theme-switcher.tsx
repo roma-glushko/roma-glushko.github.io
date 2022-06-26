@@ -19,35 +19,37 @@ const ThemeSwitcher = (): JSX.Element => {
   const [darkMode, setDarkMode] = useState(false)
 
   return (
-      <ThemeToggler>
-        {({ theme, toggleTheme }: ThemeProps): JSX.Element => {
-          setDarkMode(theme === Themes.DARK)
+    <ThemeToggler>
+      {({ theme, toggleTheme }: ThemeProps): JSX.Element => {
+        setDarkMode(theme === Themes.DARK)
 
-          const switchTheme = (): void => {
-            const newState = !darkMode
+        const switchTheme = (): void => {
+          const newState = !darkMode
 
-            setDarkMode(newState)
-            toggleTheme(newState ? Themes.DARK : Themes.LIGHT)
-          }
+          setDarkMode(newState)
+          toggleTheme(newState ? Themes.DARK : Themes.LIGHT)
+        }
 
-          const classNames: string = "theme-switcher-toggler" + (darkMode ? " theme-switcher-toggler--checked" : "")
+        const classNames: string =
+          "theme-switcher-toggler" +
+          (darkMode ? " theme-switcher-toggler--checked" : "")
 
-          return (
-            <div className={classNames} onClick={switchTheme}>
-              <div className="theme-switcher-track" />
-              <div className="theme-switcher-thumb" />
+        return (
+          <div className={classNames} onClick={switchTheme}>
+            <div className="theme-switcher-track" />
+            <div className="theme-switcher-thumb" />
 
-              <input
-                className="theme-switcher-input"
-                type="checkbox"
-                checked={theme === Themes.DARK}
-                readOnly={true}
-                aria-label="Switch between Dark and Light modes"
-              />
-            </div>
-          )
-        }}
-      </ThemeToggler>
+            <input
+              className="theme-switcher-input"
+              type="checkbox"
+              checked={theme === Themes.DARK}
+              readOnly={true}
+              aria-label="Switch between Dark and Light modes"
+            />
+          </div>
+        )
+      }}
+    </ThemeToggler>
   )
 }
 
