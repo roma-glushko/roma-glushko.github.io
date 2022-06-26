@@ -1,0 +1,60 @@
+body {
+    --pokeballBgColor: var(--white);
+}
+
+body.dark {
+    --pokeballBgColor: var(--grey);
+}
+
+.pokemon img {
+    width: 200px;
+    height: 200px;
+}
+
+.pokemon .name {
+    text-transform: capitalize;
+    position: relative;
+}
+
+.pokemon .name .generation {
+    position: absolute;
+    font-size: 0.8rem;
+    padding-left: 5px;
+}
+
+.pokemon .pokeball {
+    background-color: var(--pokeballBgColor);
+    border: 5px solid var(--bodyTextColor);
+    border-radius: 50%;
+    display: inline-flex;
+}
+
+.pokemon .abilities ul,
+.pokemon .stats ul {
+    list-style: none;
+    text-align: left;
+}
+
+.pokemon .stats ul li {
+    display: grid;
+    grid-template-areas: "key value";
+    grid-template-columns: 2fr 1fr;
+}
+
+.pokemon .stats ul .key {
+    grid-area: key;
+}
+
+.pokemon .stats ul .name.hp {
+    text-transform: uppercase;
+}
+
+.pokemon .stats ul .value {
+    grid-area: value;
+}
+
+.pokemon .abilities .name,
+.pokemon .stats .name,
+.pokemon .stats .type {
+    text-transform: capitalize;
+}
