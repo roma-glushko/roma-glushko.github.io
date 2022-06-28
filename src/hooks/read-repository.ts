@@ -1,5 +1,5 @@
 import useLocalStorage from "./storage"
-import { ContentTypes } from "../components/analytics/reading-tracker";
+import { ContentTypes } from "../components/analytics/reading-tracker"
 
 export enum ReadStatuses {
   READING = 1,

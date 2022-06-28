@@ -6,17 +6,56 @@ body.dark {
     --pokeballBgColor: var(--grey);
 }
 
+.pokemon {
+    padding: 10px;
+}
+
+.pokemon.loading {
+    padding: 1rem;
+}
+
 .pokemon img {
     width: 200px;
     height: 200px;
 }
 
-.pokemon .name {
-    text-transform: capitalize;
-    position: relative;
+.pokemon .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.pokemon .name .generation {
+.pokemon .info .name {
+    text-transform: capitalize;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.pokemon .info .statuses {
+    margin-bottom: 1rem;
+}
+
+.pokemon .info .statuses span {
+    background-color: var(--grey);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: monospace;
+    margin-left: 5px;
+}
+
+.pokemon .info .description {
+    max-width: 500px;
+    padding: 10px
+}
+
+.pokemon .info .description:first-letter {
+    text-transform: uppercase;
+}
+
+.pokemon .info .name .generation {
     position: absolute;
     font-size: 0.8rem;
     padding-left: 5px;
@@ -33,20 +72,30 @@ body.dark {
 .pokemon .pokeinfo {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
+.pokemon .specie ul,
 .pokemon .abilities ul,
 .pokemon .stats ul {
     list-style: none;
     text-align: left;
+    padding-left: 0;
 }
 
+.pokemon .specie ul li,
 .pokemon .stats ul li {
     display: grid;
     grid-template-areas: "key value";
     grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
 }
 
+.pokemon .specie ul li {
+    grid-template-columns: 1fr 2fr;
+}
+
+.pokemon .specie ul .key,
 .pokemon .stats ul .key {
     grid-area: key;
 }
@@ -55,8 +104,10 @@ body.dark {
     text-transform: uppercase;
 }
 
+.pokemon .specie ul .value,
 .pokemon .stats ul .value {
     grid-area: value;
+    text-transform: capitalize;
 }
 
 .pokemon .abilities .name,
@@ -77,5 +128,13 @@ body.dark {
     .pokemon .abilities li {
         margin-bottom: 1rem;
         cursor: pointer;
+    }
+
+    .pokemon .stats,
+    .pokemon .abilities,
+    .pokemon .specie {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

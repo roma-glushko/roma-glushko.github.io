@@ -1,12 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Link} from "gatsby"
-import {GatsbyImage} from "gatsby-plugin-image"
+import { Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-import useReadRepository, {getStatusLabel, ReadStatuses} from "../../hooks/read-repository"
+import useReadRepository, {
+  getStatusLabel,
+  ReadStatuses,
+} from "../../hooks/read-repository"
 
 import "./blog-teaser.css"
-import {ContentTypes} from "../analytics/reading-tracker";
+import { ContentTypes } from "../analytics/reading-tracker"
 
 const isNewArticle = (publishDate: string): boolean => {
   const then = new Date(publishDate)
@@ -34,7 +37,8 @@ const BlogTeaser = (props) => {
   const [articleReadRepository, _] = useReadRepository(ContentTypes.BLOG)
   const readingState = articleReadRepository[id]
 
-  const isFinished: boolean = readingState && readingState.status == ReadStatuses.FINISHED
+  const isFinished: boolean =
+    readingState && readingState.status == ReadStatuses.FINISHED
   const isNew: boolean = isNewArticle(publishedFullDate)
 
   return (
@@ -70,7 +74,9 @@ const BlogTeaser = (props) => {
           {!isFinished ? (
             <>
               <span> • </span>
-              <span className={`unread-badge`}>{getStatusLabel(readingState?.status)}</span>
+              <span className={`unread-badge`}>
+                {getStatusLabel(readingState?.status)}
+              </span>
             </>
           ) : (
             ""

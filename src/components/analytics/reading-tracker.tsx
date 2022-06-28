@@ -1,7 +1,10 @@
 import * as React from "react"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import { ReactNode, useEffect, useState } from "react"
-import useReadRepository, {ReadState, ReadStatuses} from "../../hooks/read-repository";
+import useReadRepository, {
+  ReadState,
+  ReadStatuses,
+} from "../../hooks/read-repository"
 
 export enum ContentTypes {
   BLOG = "blog",
@@ -23,8 +26,9 @@ const ReadingTracker = (props: Props): JSX.Element => {
   const [readingEnded, setReadingEnded] = useState<boolean>(false)
   const [readingEndedAt, setReadingEndedAt] = useState<number>(0)
 
-
-  const [readRepository, saveReadRepository] = useReadRepository(props.contentType)
+  const [readRepository, saveReadRepository] = useReadRepository(
+    props.contentType
+  )
 
   const trackReadingStart = (
     intersectedSections: IntersectionObserverEntry[]
@@ -59,7 +63,10 @@ const ReadingTracker = (props: Props): JSX.Element => {
 
     // mark content as in progress of reading
 
-    const readState: ReadState = readRepository[props.id] || {status: ReadStatuses.READING, changed_at: new Date()}
+    const readState: ReadState = readRepository[props.id] || {
+      status: ReadStatuses.READING,
+      changed_at: new Date(),
+    }
 
     if (readState.status == ReadStatuses.FINISHED) {
       // content was read fully once. Don't reset that status
@@ -110,7 +117,10 @@ const ReadingTracker = (props: Props): JSX.Element => {
       })
     })
 
-    const readState: ReadState = readRepository[props.id] || {status: ReadStatuses.READING, changed_at: new Date()}
+    const readState: ReadState = readRepository[props.id] || {
+      status: ReadStatuses.READING,
+      changed_at: new Date(),
+    }
 
     if (readState.status == ReadStatuses.FINISHED) {
       // content was read fully once. Don't reset that status
