@@ -108,6 +108,7 @@ body.dark {
 .pokemon .stats ul .value {
     grid-area: value;
     text-transform: capitalize;
+    text-align: right;
 }
 
 .pokemon .abilities .name,
