@@ -46,7 +46,7 @@ export default Footer
 ```
 
 However, they were a bit limited.
-Since functions are stateless, but a lot of UI elements are actually stateful, pure function components lucked a way to
+Since functions are stateless, but a lot of UI elements are actually stateful, pure function components lacked a way to
 implement some local state.
 
 Another problem was that functional components were merely capable of just simple rendering of templates.
