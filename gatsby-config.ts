@@ -51,7 +51,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://www.romaglushko.com",
-        sitemap: "https://www.romaglushko.com/sitemap.xml",
+        sitemap: "https://www.romaglushko.com/sitemap/sitemap-index.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
