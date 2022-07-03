@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.romaglushko.com/sitemap.xml
+Sitemap: https://www.romaglushko.com/sitemap/sitemap-index.xml
 Host: https://www.romaglushko.com
