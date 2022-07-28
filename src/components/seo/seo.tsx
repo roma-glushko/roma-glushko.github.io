@@ -18,7 +18,7 @@ interface Props {
   isUniqueTitle: boolean
   className: string
   ogType: string | undefined
-  imagePath: string
+  imagePath: string | undefined
   pagePath: string
 }
 
@@ -30,7 +30,7 @@ const Seo = ({
   title,
   isUniqueTitle = false,
   className,
-  imagePath,
+  imagePath = undefined,
   pagePath,
   ogType = "website",
 }: Props) => {
@@ -44,6 +44,8 @@ const Seo = ({
   const titleTemplate: string = isUniqueTitle
     ? `${title}`
     : `${title} by ${siteMetadata.title}`
+
+  const socialCardImageUrl = `${siteMetadata.siteUrl}${imagePath || siteMetadata.socialImageUrl}`
 
   metas = metas.concat([
     {
@@ -83,18 +85,15 @@ const Seo = ({
       name: `twitter:description`,
       content: metaDescription,
     },
-  ])
-
-  if (imagePath) {
-    metas.push({
+    {
       name: `og:image`,
-      content: `${siteMetadata.siteUrl}${imagePath}`,
-    })
-    metas.push({
+      content: `${socialCardImageUrl}`,
+    },
+    {
       name: `twitter:image`,
-      content: `${siteMetadata.siteUrl}${imagePath}`,
-    })
-  }
+      content: `${socialCardImageUrl}`,
+    }
+  ])
 
   if (pagePath) {
     metas.push({

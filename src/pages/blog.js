@@ -15,7 +15,6 @@ class BlogListPage extends Component {
   render() {
     const {
       data: {
-        socialImage,
         allMarkdownRemark: { edges },
       },
     } = this.props
@@ -27,7 +26,6 @@ class BlogListPage extends Component {
           pagePath="/blog/"
           className="blog-list-page"
           description="Technical blog about machine learning, data science, math and software engineering"
-          imagePath={socialImage.publicURL}
           keywords={[
             "technical blog",
             "machine learning blog",
@@ -151,11 +149,6 @@ export const pageQuery = graphql`
           }
         }
       }
-    }
-    socialImage: file(
-      relativePath: { eq: "blog/roman-glushko-in-the-process-of-work.jpg" }
-    ) {
-      publicURL
     }
   }
 `

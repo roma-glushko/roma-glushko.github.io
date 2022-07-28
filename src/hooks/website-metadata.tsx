@@ -6,6 +6,7 @@ interface WebsiteMetadata {
   description: string
   author: string
   keywords: string[]
+  socialImageUrl: string
 }
 
 const useWebsiteMetadata = (): WebsiteMetadata => {
@@ -21,11 +22,16 @@ const useWebsiteMetadata = (): WebsiteMetadata => {
             keywords
           }
         }
+        socialImage: file(
+          relativePath: { eq: "blog/roman-glushko-in-the-process-of-work.jpg" }
+        ) {
+          publicURL
+        }
       }
     `
   )
 
-  return metadata.site.siteMetadata
+  return {...metadata.site.siteMetadata, socialImageUrl: metadata.socialImage.publicURL}
 }
 
 export { useWebsiteMetadata }
