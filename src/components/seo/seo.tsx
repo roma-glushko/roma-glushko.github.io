@@ -45,14 +45,6 @@ const Seo = ({
     ? `${title}`
     : `${title} by ${siteMetadata.title}`
 
-  if (imagePath) {
-    metas.push({
-      name: `image`,
-      property: `og:image`,
-      content: `${siteMetadata.siteUrl}${imagePath}`,
-    })
-  }
-
   metas = metas.concat([
     {
       name: `description`,
@@ -92,6 +84,17 @@ const Seo = ({
       content: metaDescription,
     },
   ])
+
+  if (imagePath) {
+    metas.push({
+      name: `og:image`,
+      content: `${siteMetadata.siteUrl}${imagePath}`,
+    })
+    metas.push({
+      name: `twitter:image`,
+      content: `${siteMetadata.siteUrl}${imagePath}`,
+    })
+  }
 
   if (pagePath) {
     metas.push({
