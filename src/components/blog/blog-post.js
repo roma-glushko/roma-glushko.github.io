@@ -35,6 +35,7 @@ const BlogPost = (props) => {
             />
           </div>
           <figcaption
+            data-nosnippet=""
             className="image-title"
             dangerouslySetInnerHTML={{ __html: coverCredits }}
           />
