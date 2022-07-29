@@ -25,6 +25,8 @@ const Comments = ({ theme }: Props) => {
     commentScript.setAttribute("issue-term", `pathname`)
     commentScript.setAttribute("theme", `github-light`)
 
+    commentScript.setAttribute("data-nosnippet", ``)
+
     commentBox.current.appendChild(commentScript)
   }, [commentBox])
 

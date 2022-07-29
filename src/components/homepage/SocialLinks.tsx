@@ -35,7 +35,7 @@ const SocialLinks = ({
   showPatreon = true,
 }: Props): JSX.Element => {
   return (
-    <div className="social">
+    <div data-nosnippet="" className="social">
       <ul className="social-list">
         <li className="social-item social-linkedin">
           <OutboundLink

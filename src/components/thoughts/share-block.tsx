@@ -31,7 +31,7 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
   const url: string = `${siteUrl}${path}`
 
   return (
-    <div className="social-share-wrapper">
+    <div data-nosnippet="" className="social-share-wrapper">
       <h3>Share Your Love</h3>
       <FacebookShareButton
         beforeOnClick={() =>

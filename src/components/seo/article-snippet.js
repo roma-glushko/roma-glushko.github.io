@@ -39,10 +39,12 @@ const ArticleSnippet = ({
     datePublished,
     dateModified: dateModified,
     inLanguage: "en-US",
-    isFamilyFriendly: "true",
+    isFamilyFriendly: true,
+    isAccessibleForFree: true,
     author: {
       "@type": "Person",
       name: "Roman Glushko",
+      url: siteUrl,
     },
     publisher: {
       "@type": "Organization",

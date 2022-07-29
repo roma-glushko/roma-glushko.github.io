@@ -40,7 +40,7 @@ const BlogPost = (props) => {
           />
         </figure>
         <h1>{title}</h1>
-        <div className="blog-details">
+        <div data-nosnippet="" className="blog-details">
           <time className="blog-createdat" dateTime={publishedFullDate}>
             {publishedHumanDate}
           </time>
@@ -53,7 +53,7 @@ const BlogPost = (props) => {
             <ThemeSwitcher />
           </div>
         </div>
-        <ul className="blog-tags">
+        <ul data-nosnippet="" className="blog-tags">
           {keywords.map((keyword) => (
             <li key={`tag-${keyword}`}>{keyword}</li>
           ))}

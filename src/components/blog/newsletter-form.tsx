@@ -4,7 +4,7 @@ import "./newsletter-form.css"
 
 const NewsletterForm = (): JSX.Element => {
   return (
-    <div className="newsletter-form">
+    <div data-nosnippet="" className="newsletter-form">
       <iframe
         src="https://romanglushko.substack.com/embed"
         loading="lazy"

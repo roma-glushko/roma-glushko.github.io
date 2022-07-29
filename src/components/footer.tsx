@@ -7,7 +7,7 @@ const Footer = (): JSX.Element => {
   const currentDate: Date = new Date()
 
   return (
-    <footer>
+    <footer data-nosnippet="">
       <div className="footer-wrapper">
         <SocialLinks showPatreon={true} iconSize={"2x"} />
         <div className="copyright">

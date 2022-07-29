@@ -38,7 +38,7 @@ const Thought = (props) => {
         </figure>
         <MainNavigation space={"thoughts"} />
         <h1>{title}</h1>
-        <div className="thought-details">
+        <div data-nosnippet="" className="thought-details">
           <time className="thought-createdat" dateTime={publishedFullDate}>
             {publishedHumanDate}
           </time>

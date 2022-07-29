@@ -27,6 +27,7 @@ body.dark {
     padding-right: 1.2rem;
     position: sticky;
     top: 1rem;
+    float: right;
 }
 
 @media (prefers-contrast: high) {
@@ -61,6 +62,7 @@ body.dark {
     .blog-content-nav-wrapper ul.blog-content-nav {
         color: var(--contentTextColor);
         font-size: 1.4rem;
+        float: none;
         letter-spacing: -0.003em;
         line-height: 1.6;
         margin-bottom: 1.2rem;

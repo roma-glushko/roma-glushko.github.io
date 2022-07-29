@@ -58,6 +58,7 @@ class BlogListPage extends Component {
             </div>
           </aside>
           <main
+            data-nosnippet=""
             className={`blog-list blog-grid ${!edges.length ? "no-posts" : ""}`}
           >
             {!edges.length && (

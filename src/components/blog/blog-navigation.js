@@ -11,7 +11,7 @@ const BlogNavigation = (props) => {
   } = props
 
   return (
-    <div className="blog-navigation-wrapper">
+    <div data-nosnippet="" className="blog-navigation-wrapper">
       <h3>Read Other Posts</h3>
       <nav className="blog-navigation">
         <div className="nav-links">

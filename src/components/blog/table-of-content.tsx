@@ -43,7 +43,7 @@ const TableOfContent = (): JSX.Element => {
   }, [])
 
   return (
-    <div className="blog-content-nav-wrapper">
+    <div data-nosnippet="" className="blog-content-nav-wrapper">
       <ul className="blog-content-nav">
         <h2>Content</h2>
         <li className={activeSection === "intro" ? "active" : ""} key="intro">
