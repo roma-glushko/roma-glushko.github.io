@@ -66,7 +66,7 @@ const config: GatsbyConfig = {
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          placeholder: `blurred`,
+          placeholder: `dominantColor`,  // blurred option adds a lot of inline images that blows up page size
         },
       },
     },
