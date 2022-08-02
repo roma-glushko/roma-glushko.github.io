@@ -28,7 +28,7 @@ body.dark {
     width: calc(33.3%);
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 820px) {
     .thoughts-wrapper .thought-sidebar {
         float: none;
         position: initial;
@@ -71,7 +71,7 @@ body.dark {
     }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 820px) {
     .thoughts-wrapper .thoughts-list {
         float: none;
         display: block;
@@ -81,7 +81,7 @@ body.dark {
     }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 820px) {
     .thought-sidebar .theme-switcher {
         margin-top: 1rem;
     }

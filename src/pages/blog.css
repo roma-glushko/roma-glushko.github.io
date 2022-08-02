@@ -56,6 +56,12 @@ body.dark {
     flex-wrap: wrap;
 }
 
+@media (max-width: 820px) {
+    .blog-grid {
+        justify-content: center;
+    }
+}
+
 .blog-grid.no-posts {
     justify-content: center;
 }
