@@ -2,7 +2,6 @@ import * as React from "react"
 
 import Layout from "../components/theme/layout"
 import Seo from "../components/seo/seo"
-import NotFoundImage from "../components/404/404-image"
 import MainNavigation from "../components/main-navigation"
 import BreadcrumbsSnippet from "../components/seo/breadcrumbs-snippet"
 import ThemeSwitcher from "../components/theme/theme-switcher"
@@ -24,7 +23,6 @@ const NotFoundPage = (): JSX.Element => (
     />
     <div className="container">
       <main className="row not-found-wrapper">
-        {/*<NotFoundImage />*/}
         <div className="not-found-content">
           <Pokemon>
             <h1>Not Found</h1>
