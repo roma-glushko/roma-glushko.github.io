@@ -48,6 +48,12 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: "gatsby-plugin-google-adsense",
+      options: {
+        publisherId: `ca-pub-5432076888930650`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://www.romaglushko.com",
