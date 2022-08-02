@@ -13,6 +13,7 @@
 .thought-author-wrapper .logo-img {
     width: 7rem;
     height: auto;
+    display: block;
     border-radius: 50%;
     transform: translate(5px, 5px);
     -ms-transform: translate(5px, 5px);
