@@ -1,6 +1,6 @@
 ---
 path: "/thoughts/promotion-paradoxes/"
-date: "2021-10-30 15:06:00"
+date: "2021-10-31 08:03:00"
 published: true
 title: "Promotion Paradoxes"
 cover: "./alessia-cocconi-zLIUdGeKxv0-unsplash.jpeg"
