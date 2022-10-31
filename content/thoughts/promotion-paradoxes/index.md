@@ -4,6 +4,7 @@ date: "2021-10-31 08:03:00"
 published: true
 title: "Promotion Paradoxes"
 cover: "./alessia-cocconi-zLIUdGeKxv0-unsplash.jpeg"
+coverCredits: Photo by <a href="https://unsplash.com/@alessia_cocconi">Alessia Cocconi</a> on <a href="https://unsplash.com/">Unsplash</a>
 keywords:
   - psychology
   - corporate life

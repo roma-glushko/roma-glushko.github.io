@@ -86,7 +86,8 @@ const Seo = ({
       content: metaDescription,
     },
     {
-      name: `og:image`,
+      name: `image`,
+      property: `og:image`,
       content: `${socialCardImageUrl}`,
     },
     {
