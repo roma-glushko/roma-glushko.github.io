@@ -10,7 +10,7 @@ keywords:
   - corporate life
 ---
 
-An integral part of organizations is their hierarchy. 
+Hierarchy is an integral part of any organization. 
 
 Gigantic companies like Google with thousands of employees around the world can have as many 
 as tens of positions in their product and engineering carrier trajectories.
