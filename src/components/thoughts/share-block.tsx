@@ -34,13 +34,19 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
     <div data-nosnippet="" className="social-share-wrapper">
       <h3>Share Your Love</h3>
       <FacebookShareButton
-        beforeOnClick={() =>
+        beforeOnClick={() => {
           trackCustomEvent({
             category: "social",
             action: "share",
             label: "facebook",
           })
-        }
+
+          typeof window !== "undefined" &&
+            window.gtag("event", "share", {
+              event_category: "social",
+              event_label: "facebook",
+            })
+        }}
         url={url}
         keywords={keywords}
         className="social-share-item facebook"
@@ -50,13 +56,19 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
         <FontAwesomeIcon icon={faFacebook} />
       </FacebookShareButton>
       <TwitterShareButton
-        beforeOnClick={() =>
+        beforeOnClick={() => {
           trackCustomEvent({
             category: "social",
             action: "share",
             label: "twitter",
           })
-        }
+
+          typeof window !== "undefined" &&
+            window.gtag("event", "share", {
+              event_category: "social",
+              event_label: "twitter",
+            })
+        }}
         url={url}
         className="social-share-item twitter"
         title={title}
@@ -66,13 +78,18 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
         <FontAwesomeIcon icon={faTwitter} />
       </TwitterShareButton>
       <LinkedinShareButton
-        beforeOnClick={() =>
+        beforeOnClick={() => {
           trackCustomEvent({
             category: "social",
             action: "share",
             label: "linkedin",
           })
-        }
+          typeof window !== "undefined" &&
+            window.gtag("event", "share", {
+              event_category: "social",
+              event_label: "linkedin",
+            })
+        }}
         url={url}
         className="social-share-item linkedin"
         aria-label="Share Via LinkedIn"
@@ -82,13 +99,18 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
         <FontAwesomeIcon icon={faLinkedinIn} />
       </LinkedinShareButton>
       <RedditShareButton
-        beforeOnClick={() =>
+        beforeOnClick={() => {
           trackCustomEvent({
             category: "social",
             action: "share",
             label: "reddit",
           })
-        }
+          typeof window !== "undefined" &&
+            window.gtag("event", "share", {
+              event_category: "social",
+              event_label: "reddit",
+            })
+        }}
         url={url}
         className="social-share-item reddit"
         title={title}
@@ -98,14 +120,21 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
         <FontAwesomeIcon icon={faReddit} />
       </RedditShareButton>
       <PocketShareButton
-        beforeOnClick={() =>
+        beforeOnClick={() => {
           trackCustomEvent({
             category: "social",
             action: "share",
             label: "pocket",
             value: url,
           })
-        }
+
+          typeof window !== "undefined" &&
+            window.gtag("event", "share", {
+              event_category: "social",
+              event_label: "pocket",
+              value: url,
+            })
+        }}
         url={url}
         className="social-share-item pocket"
         title={title}

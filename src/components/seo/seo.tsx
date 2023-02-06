@@ -45,7 +45,9 @@ const Seo = ({
     ? `${title}`
     : `${title} by ${siteMetadata.title}`
 
-  const socialCardImageUrl = `${siteMetadata.siteUrl}${imagePath || siteMetadata.socialImageUrl}`
+  const socialCardImageUrl = `${siteMetadata.siteUrl}${
+    imagePath || siteMetadata.socialImageUrl
+  }`
 
   metas = metas.concat([
     {
@@ -93,7 +95,7 @@ const Seo = ({
     {
       name: `twitter:image`,
       content: `${socialCardImageUrl}`,
-    }
+    },
   ])
 
   if (pagePath) {
