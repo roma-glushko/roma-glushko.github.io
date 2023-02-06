@@ -43,6 +43,13 @@ const MachineLearningEngineerCV = () => {
               action: "download",
               label: "machine-learning",
             })
+
+            typeof window !== "undefined" &&
+              window.gtag("event", "download", {
+                event_category: "cv",
+                event_label: "machine-learning",
+              })
+
             window.print()
           }}
           title="Download CV as a PDF file"
