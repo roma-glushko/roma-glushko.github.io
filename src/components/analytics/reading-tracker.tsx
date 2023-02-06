@@ -20,7 +20,7 @@ interface Props {
 
 const ReadingTracker = (props: Props): JSX.Element => {
   const [contentType] = useState<string>(props.contentType)
-  const [intializedAt] = useState<number>(new Date().getTime())
+  const [initializedAt] = useState<number>(new Date().getTime())
   const [readingStarted, setReadingStarted] = useState<boolean>(false)
   const [readingStartedAt, setReadingStartedAt] = useState<number>(0)
   const [readingEnded, setReadingEnded] = useState<boolean>(false)
@@ -46,7 +46,7 @@ const ReadingTracker = (props: Props): JSX.Element => {
 
     const startedAt: number = new Date().getTime()
     const secondsUntilStartedReading: number = Math.round(
-      (startedAt - intializedAt) / 1000
+      (startedAt - initializedAt) / 1000
     )
 
     window.requestAnimationFrame(() => {
@@ -56,6 +56,13 @@ const ReadingTracker = (props: Props): JSX.Element => {
         label: contentType,
         value: secondsUntilStartedReading,
       })
+
+      typeof window !== "undefined" &&
+        window.gtag("event", "startReading", {
+          event_category: "content",
+          event_label: contentType,
+          value: secondsUntilStartedReading,
+        })
     })
 
     setReadingStarted(true)
@@ -115,6 +122,13 @@ const ReadingTracker = (props: Props): JSX.Element => {
         label: contentType,
         value: secondsReading,
       })
+
+      typeof window !== "undefined" &&
+        window.gtag("event", "reading", {
+          event_category: "content",
+          event_label: contentType,
+          value: secondsReading,
+        })
     })
 
     const readState: ReadState = readRepository[props.id] || {
@@ -164,6 +178,13 @@ const ReadingTracker = (props: Props): JSX.Element => {
         label: contentType,
         value: secondsUntilEndedReading,
       })
+
+      typeof window !== "undefined" &&
+        window.gtag("event", "endReading", {
+          event_category: "content",
+          event_label: contentType,
+          value: secondsUntilEndedReading,
+        })
     })
 
     const readState: ReadState = readRepository[props.id]

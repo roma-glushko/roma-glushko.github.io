@@ -31,7 +31,10 @@ const useWebsiteMetadata = (): WebsiteMetadata => {
     `
   )
 
-  return {...metadata.site.siteMetadata, socialImageUrl: metadata.socialImage.publicURL}
+  return {
+    ...metadata.site.siteMetadata,
+    socialImageUrl: metadata.socialImage.publicURL,
+  }
 }
 
 export { useWebsiteMetadata }

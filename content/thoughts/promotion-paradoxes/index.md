@@ -10,9 +10,9 @@ keywords:
   - corporate life
 ---
 
-Hierarchy is an integral part of any organization. 
+Hierarchy is an integral part of any organization.
 
-Gigantic companies like Google with thousands of employees around the world can have as many 
+Gigantic companies like Google with thousands of employees around the world can have as many
 as tens of positions in their product and engineering carrier trajectories.
 That's a quite deep and bureaucratic ladder.
 
@@ -20,14 +20,14 @@ Much smaller local startups that barely employ a few folks have their own sort o
 
 Hierarchies are really everywhere.
 
-Imagine you hire new employees for positions that are at the very bottom of your ladder. 
+Imagine you hire new employees for positions that are at the very bottom of your ladder.
 The people work hard and do their job better and better over time. They are high performers.
-Then your business grows and new opportunities open up new positions at the organization. 
+Then your business grows and new opportunities open up new positions at the organization.
 Some old fellows may just quit. That happens, too.
 
 Now you have to fill gaps in your hierarchy to do the corresponding work. How would you do that?
 
-One of the natural choices is to pull some people from your high-performers pool and give them promotions. 
+One of the natural choices is to pull some people from your high-performers pool and give them promotions.
 You appreciate their effort, and you really want to reflect that. What could possibly go wrong?
 
 **Skills from the lower positions of corporate hierarchy don't often translate well into skills needed to do job at the higher level.**
@@ -36,29 +36,29 @@ You appreciate their effort, and you really want to reflect that. What could pos
 
 Let's say we would want to promote a great engineer to the engineering manager position. In the role of an individual contributor,
 one had all needed skills and mindset to solve given problems. However, that didn't necessarily mean that one had a great
-set of skills needed to manage people like empathy, the ability to delegate, give feedback, mentor and inspire people. 
+set of skills needed to manage people like empathy, the ability to delegate, give feedback, mentor and inspire people.
 Not to mention time and project management skills.
 
 It probably would take a couple of years for the person that performs as well as he was in the previous position.
 But let's not get too upset for our hero and see him in a few years.
 
-He would probably make it and become a great people manager. 
+He would probably make it and become a great people manager.
 His team would love him. His projects would be delivered in time and in great shape.
-Now he would be considered for another promotion. This time he would be a vice president of engineering. 
+Now he would be considered for another promotion. This time he would be a vice president of engineering.
 An extremely well-respected well-paid position at the company that he would surely accept.
 
-But what would we have on the new skill set requirements side? 
+But what would we have on the new skill set requirements side?
 The VP position would need more sales skills, public speaking, interactions with customers and product leadership.
 That's whole new dimensions and sets of skills to acquire!
 
-The skill set mismatch is a vastly overlooked thing during promotions from both employee and employer sides. 
-It leads to an interesting paradox. 
+The skill set mismatch is a vastly overlooked thing during promotions from both employee and employer sides.
+It leads to an interesting paradox.
 
-Given enough time and positions in the hierarchy, 
+Given enough time and positions in the hierarchy,
 employees tend to grow to a position when they are **incompetent enough** to stuck in that position for a while.
-They simply lack the needed skills and impact to do a good job and move up further. 
+They simply lack the needed skills and impact to do a good job and move up further.
 
-This is **the promotion plateau**, and it's not just a theoretical thing. 
+This is **the promotion plateau**, and it's not just a theoretical thing.
 For example, [engineers at Google report](https://www.quora.com/I-have-been-at-Google-for-7-years-and-still-an-L5-Is-this-above-average-Should-I-look-around-for-more-ambitious-projects-to-advance-my-career) that a plateau exists at L4/L5 of Google's hierarchy.
 
 Also, the Google's promotion committee does the right thing trying to find already qualified people (with needed skill sets) to give them promotions.
@@ -69,18 +69,18 @@ You end up in a situation when **your middle management is unqualified to do the
 The unqualified managers would be **deteriorating other's employees' growth and development at the company**, their understanding of the value their work brings and the high-level mission they serve.
 As you can imagine that's quite an expensive consequences.
 
-Even more interesting consequence of the promotion plateau is that at some point you may 
-find **almost whole organization hierarchy filled with people who are not qualified to do their jobs**. Boom💥 
+Even more interesting consequence of the promotion plateau is that at some point you may
+find **almost whole organization hierarchy filled with people who are not qualified to do their jobs**. Boom💥
 
-## Incompetence to Promote 
+## Incompetence to Promote
 
-While promotions of competent people don't sound like a big surprise, 
+While promotions of competent people don't sound like a big surprise,
 would you be in hurry promoting someone who was completely incompetent? Do you think this is never the case?
 
 Let me open your eyes: it does happen. This is another paradox we will review here.
 
-Incompetent people are sticks in the wheels of organization's main workflows that bring money. 
-They increase the burn rate. That's the problem. 
+Incompetent people are sticks in the wheels of organization's main workflows that bring money.
+They increase the burn rate. That's the problem.
 
 If numerous trainings did not help, and you don't want to let them go,
 there is another option that may sneak into your mind: **give them a promotion!**
@@ -88,16 +88,16 @@ there is another option that may sneak into your mind: **give them a promotion!*
 Yeah, promote them to positions that would effectively put them **out of the main workflows** and let others do their job effectively.
 Just don't tell when you are promoting: "I hope you will be better at yelling at people than at engineering" 😌
 
-Now at least you have a chance that at new titles incompetent people would perform better than at the old ones. 
+Now at least you have a chance that at new titles incompetent people would perform better than at the old ones.
 Hence, they could become more competent. But that's a distant dream.
 
 ## Double Incompetence
 
-Another good example of how incompetent employees can sneak into higher levels of the hierarchy 
+Another good example of how incompetent employees can sneak into higher levels of the hierarchy
 is when the organization hires even more incompetent people and now there is a need for someone to grow them all.
 
-That someone could be a great performer, a regular employee or even a mediocre one. 
-They get their promotions, and now they suddenly need to know 
+That someone could be a great performer, a regular employee or even a mediocre one.
+They get their promotions, and now they suddenly need to know
 how to effectively share their experience and other management skills.
 
 What would happen in that case?
@@ -106,7 +106,7 @@ What would happen in that case?
 
 ## Conclusions
 
-As a leader of your organization, you should realize that promoting people is more than changing their titles in Slack. 
+As a leader of your organization, you should realize that promoting people is more than changing their titles in Slack.
 There might be consequences and increase in the amount of incompetence that is associated with any change in your company hierarchy.
 
 In order to mitigate them, you should be consciousness of people's skills and experience when you promote.

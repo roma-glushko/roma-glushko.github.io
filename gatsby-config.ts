@@ -72,7 +72,7 @@ const config: GatsbyConfig = {
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          placeholder: `dominantColor`,  // blurred option adds a lot of inline images that blows up page size
+          placeholder: `dominantColor`, // blurred option adds a lot of inline images that blows up page size
         },
       },
     },
@@ -134,9 +134,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
-        trackingIds: [
-          "G-ET53Q3S3XF",
-        ],
+        trackingIds: ["G-ET53Q3S3XF"],
         gtagConfig: {
           // optimize_id: "OPT_CONTAINER_ID",
           anonymize_ip: true,

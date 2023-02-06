@@ -109,6 +109,12 @@ class RockPaperScissorGame extends React.Component {
       action: "startExperiment",
       label: "rock-paper-scissors",
     })
+
+    typeof window !== "undefined" &&
+      window.gtag("event", "startExperiment", {
+        event_category: "lab",
+        event_label: "rock-paper-scissors",
+      })
   }
 
   configureCanvas = (canvasElement) => {
@@ -204,6 +210,13 @@ class RockPaperScissorGame extends React.Component {
         label: "rock-paper-scissors",
         value: winner,
       })
+
+      typeof window !== "undefined" &&
+        window.gtag("event", "roundPlayed", {
+          event_category: "lab",
+          event_label: "rock-paper-scissors",
+          value: winner,
+        })
     })
   }
 
