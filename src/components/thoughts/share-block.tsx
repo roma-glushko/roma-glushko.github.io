@@ -42,6 +42,7 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
           })
 
           typeof window !== "undefined" &&
+            typeof window.gtag !== "undefined" &&
             window.gtag("event", "share", {
               event_category: "social",
               event_label: "facebook",
@@ -64,6 +65,7 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
           })
 
           typeof window !== "undefined" &&
+            typeof window.gtag !== "undefined" &&
             window.gtag("event", "share", {
               event_category: "social",
               event_label: "twitter",
@@ -85,6 +87,7 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
             label: "linkedin",
           })
           typeof window !== "undefined" &&
+            typeof window.gtag !== "undefined" &&
             window.gtag("event", "share", {
               event_category: "social",
               event_label: "linkedin",
@@ -106,6 +109,7 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
             label: "reddit",
           })
           typeof window !== "undefined" &&
+            typeof window.gtag !== "undefined" &&
             window.gtag("event", "share", {
               event_category: "social",
               event_label: "reddit",
@@ -129,6 +133,7 @@ const ShareBlock = ({ title, path, keywords }: Props): JSX.Element => {
           })
 
           typeof window !== "undefined" &&
+            typeof window.gtag !== "undefined" &&
             window.gtag("event", "share", {
               event_category: "social",
               event_label: "pocket",

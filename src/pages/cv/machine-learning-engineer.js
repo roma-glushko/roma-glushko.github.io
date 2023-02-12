@@ -45,6 +45,7 @@ const MachineLearningEngineerCV = () => {
             })
 
             typeof window !== "undefined" &&
+              typeof window.gtag !== "undefined" &&
               window.gtag("event", "download", {
                 event_category: "cv",
                 event_label: "machine-learning",

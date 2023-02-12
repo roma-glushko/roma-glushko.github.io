@@ -58,6 +58,7 @@ const ReadingTracker = (props: Props): JSX.Element => {
       })
 
       typeof window !== "undefined" &&
+        typeof window.gtag !== "undefined" &&
         window.gtag("event", "startReading", {
           event_category: "content",
           event_label: contentType,
@@ -124,6 +125,7 @@ const ReadingTracker = (props: Props): JSX.Element => {
       })
 
       typeof window !== "undefined" &&
+        typeof window.gtag !== "undefined" &&
         window.gtag("event", "reading", {
           event_category: "content",
           event_label: contentType,
@@ -180,6 +182,7 @@ const ReadingTracker = (props: Props): JSX.Element => {
       })
 
       typeof window !== "undefined" &&
+        typeof window.gtag !== "undefined" &&
         window.gtag("event", "endReading", {
           event_category: "content",
           event_label: contentType,

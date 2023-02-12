@@ -111,6 +111,7 @@ class RockPaperScissorGame extends React.Component {
     })
 
     typeof window !== "undefined" &&
+      typeof window.gtag !== "undefined" &&
       window.gtag("event", "startExperiment", {
         event_category: "lab",
         event_label: "rock-paper-scissors",
@@ -212,6 +213,7 @@ class RockPaperScissorGame extends React.Component {
       })
 
       typeof window !== "undefined" &&
+        typeof window.gtag !== "undefined" &&
         window.gtag("event", "roundPlayed", {
           event_category: "lab",
           event_label: "rock-paper-scissors",
