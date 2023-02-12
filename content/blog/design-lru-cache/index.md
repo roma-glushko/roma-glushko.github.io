@@ -221,11 +221,11 @@ class LRUCache:
 
 ```
 
-The `get()` and `put()` methods only rely on methods that run in constant time, so our implementation has **constant running time on average**. 
+The `get()` and `put()` methods only rely on methods that run in constant time, so our implementation has **constant running time on average**.
 Just like we have required earlier. In order to get here, we consume `O(2N)` memory to build a map and a linked list.
 
-This solution is common and can be implemented in any general purpose language. 
-Specifically speaking about Python, it provides `OrderedDict` data structure that helps to implement LRU cache in a much **more concise way**. 
+This solution is common and can be implemented in any general purpose language.
+Specifically speaking about Python, it provides `OrderedDict` data structure that helps to implement LRU cache in a much **more concise way**.
 Let's take a look:
 
 ```python
