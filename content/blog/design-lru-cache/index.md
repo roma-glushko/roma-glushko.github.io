@@ -39,23 +39,23 @@ Since we are trying to design a cache storage, pretty much every operation shoul
 
 ## Brainstorm Solutions
 
-When I think about cache, **dictionaries or hashtables** come to my mind.
+When I think about cache, **dictionaries or hashmaps** come to my mind.
 
-![Cache based on a hashtable](./img/cache-based-on-hashtable.svg "Cache based on a hashtable")
+![Cache based on a hashtable](./img/cache-based-on-hashtable.svg "Cache based on a hashmap")
 
-<div class="image-title">Cache based on a hashtable</div>
+<div class="image-title">Cache based on a hashmap</div>
 
-Hashtables allow to **read and write key-value pairs in constant time with high probability**.
+Hashmaps allow to **read and write key-value pairs in constant time with high probability**.
 
-The problem with dictionaries is that they usually don't guarantee order in which they manage keys. So we don't have a way to quickly remove least-recently-used items. We could introduce a notion of last-used timestamps for each item in the hashtable and update these timestamps during accessing the keys in `get()` method.
+The problem with dictionaries is that they usually don't guarantee order in which they manage keys. So we don't have a way to quickly remove least-recently-used items. We could introduce a notion of last-used timestamps for each item in the hashmap and update these timestamps during accessing the keys in `get()` method.
 
 ![Timestamps won't help us because of sequential search we need to do on the hashtable](./img/cache-based-on-hashtable-with-timestamps.svg "Cache as a hashtable")
 
-<div class="image-title">Timestamps won't help us because of sequential search we need to do on the hashtable</div>
+<div class="image-title">Timestamps won't help us because of sequential search we need to do on the hashmap</div>
 
 However, it would still **take us O(n) in order to find items to evict** by timestamps. It's too time-consuming to meet our requirements.
 
-Let's not get hung up on hashtables. The problem with tracking item usage can be solved with **linked lists**.
+Let's not get hung up on hashmaps. The problem with tracking item usage can be solved with **linked lists**.
 
 ![Cache based a linked list](./img/cache-based-on-linked-list.svg "Cache based a linked list")
 
@@ -65,7 +65,7 @@ With linked lists, we could **keep track of item usages in constant time**. We c
 
 Nevertheless, linked lists don't meet our requirements completely. It would **take us O(n) in order to find and retrieve item by key**. This is a sad complexity for cache storages.
 
-To sum up, hashtables luck the advantages of linked lists and linked lists luck advantages of hashtables. We find to **find a way to combine hashtables and linked lists** such that we meet our LRU cache requirements.
+To sum up, hashmaps luck the advantages of linked lists and linked lists luck advantages of hashmaps. We find to **find a way to combine hashmaps and linked lists** such that we meet our LRU cache requirements.
 
 ## Design Solution
 
@@ -73,7 +73,7 @@ After a little bit of thinking, it may click that we can **map our keys not to t
 
 ![LRU Cache Architecture](./img/lru-cache-architecture.svg "LRU Cache Architecture")
 
-<div class="image-title">LRU cache architecture based on combination of hashtable and linked list</div>
+<div class="image-title">LRU cache architecture based on combination of hashmap and linked list</div>
 
 ## Implement Solution
 
@@ -221,9 +221,12 @@ class LRUCache:
 
 ```
 
-The `get()` and `put()` methods only rely on methods that run in constant time, so our implementation has **constant running time on average**. Just like we have required earlier. In order to get here, we consume `O(2N)` memory to build a map and a linked list.
+The `get()` and `put()` methods only rely on methods that run in constant time, so our implementation has **constant running time on average**. 
+Just like we have required earlier. In order to get here, we consume `O(2N)` memory to build a map and a linked list.
 
-This solution is common and can be implemented in any general purpose language. Specifically speaking about Python, it provides `OrderedDict` data structure that helps to implement LRU cache in a much **more concise way**. Let's take a look:
+This solution is common and can be implemented in any general purpose language. 
+Specifically speaking about Python, it provides `OrderedDict` data structure that helps to implement LRU cache in a much **more concise way**. 
+Let's take a look:
 
 ```python
 from collections import OrderedDict
@@ -262,7 +265,16 @@ class LRUCache:
         self.cache_map[key] = value
 ```
 
-OrderedDict seems to be introduced specifically to implement [LRU cache](https://docs.python.org/3/library/collections.html#ordereddict-examples-and-recipes). We may expect that under the hood it has been implemented in a similar way to what we came up with since the runtime and memory usage are pretty the same for both versions.
+OrderedDict seems to be introduced specifically to implement [LRU cache](https://docs.python.org/3/library/collections.html#ordereddict-examples-and-recipes).
+
+<aside class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p class="admonition-body">
+        OrderedDict is not exactly the same as the dict class. 
+        Dict is fully implemented on the interpreter level. It does preserve the order of inserted keys, but doesn't expose the move_to_end() method.
+        OrderedDict is partially implemented on the Python level (as dict and a linked list), so it incurs some memory overhead.
+    </p>
+</aside>
 
 ## Summary
 

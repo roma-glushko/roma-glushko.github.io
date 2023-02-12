@@ -4,6 +4,17 @@
  * @author ocodia
  */
 
+body {
+    --admonitionBgColor: var(--white);
+    --admonitionColor: var(--black);
+}
+
+body.dark {
+    --admonitionBgColor: var(--midnight);
+    --admonitionColor: var(--white);
+}
+
+
  code[class*="language-"],
  pre[class*="language-"] {
      color: #f8f8f2;
@@ -142,10 +153,52 @@ pre[class*="language-"].line-numbers > code {
 	width: 3em; /* works for line-numbers below 1000 lines */
 	letter-spacing: -1px;
 	border-right: 1px solid #999;
-
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
 
+.admonition {
+    background-color: var(--admonitionBgColor);
+    border: 0.09rem solid #448aff;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem #0000000d,0 0 0.05rem #0000001a;
+    color: var(--admonitionColor);
+    display: flow-root;
+    margin: 1.5625em 0;
+    padding: 0 0.6rem;
+    page-break-inside: avoid;
+}
+
+.admonition .admonition-title {
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0 -0.6rem;
+    padding-bottom: 0.4rem;
+    padding-top: 0.4rem;
+    position: relative;
+}
+
+.admonition .admonition-title::before {
+    content: "";
+    height: 1rem;
+    left: 0.6rem;
+    position: absolute;
+    width: 1rem;
+}
+
+.admonition .admonition-body {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.admonition.note .admonition-title {
+    background-color: #448aff1a;
+}
+
+.admonition.note {
+    border-color: #448aff;
 }
