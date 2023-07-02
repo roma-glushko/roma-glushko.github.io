@@ -1,10 +1,13 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import MainNavigation from '../../components/MainNavigation.astro';
+import ThemeSwitcher from '../../components/ThemeSwitcher';
+import BlogHeader from '../../components/BlogHeader.astro';
+
+import "../../styles/blog.css";
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -34,8 +37,81 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-		<Header />
-		<main>
+		<div class="blog-listing-wrapper">
+			<aside class="blog-sidebar">
+			  <div class="blog-header">
+				<BlogHeader
+				  spaceTitle="Blog"
+				  spaceLink="/blog/"
+				  isListing={true}
+				/>
+				<MainNavigation space={"blog"} />
+			  </div>
+			  <div class="blog-intro">
+				Technical notes about machine learning, data science, math and
+				software engineering. Recording what I learn everyday.
+			  </div>
+			  <div class="misc">
+				<div class="theme-switcher">
+				  <ThemeSwitcher />
+				</div>
+			  </div>
+			</aside>
+			<main
+			  data-nosnippet=""
+			  class={`blog-list blog-grid ${!posts.length ? "no-posts" : ""}`}
+			>
+			  <!-- {!edges.length && (
+				<div class="no-posts-placeholder">
+				  Great posts will be here as soon as my muse comes back to me{" "}
+				  <span role="img" aria-label="magic will happen soon">
+					💫
+				  </span>{" "}
+				  <br />
+				  Come back soon{" "}
+				  <span aria-label="bye" role="img">
+					👋
+				  </span>
+				</div>
+			  )}
+			  {edges.map(
+				({
+				  node: {
+					timeToRead,
+					frontmatter: {
+					  id,
+					  title,
+					  path,
+					  humanDate,
+					  fullDate,
+					  excerpt,
+					  keywords,
+					  cover: {
+						childImageSharp: { gatsbyImageData },
+					  },
+					},
+				  },
+				}) => (
+				  <BlogTeaser
+					id={id}
+					key={id}
+					title={title}
+					url={path}
+					timeToRead={timeToRead}
+					publishedHumanDate={humanDate}
+					publishedFullDate={fullDate}
+					excerpt={excerpt}
+					cover={gatsbyImageData}
+					keywords={keywords}
+				  />
+				)
+			  )} -->
+			</main>
+			<div class="clearfix" />
+		  </div>
+		  <Footer />
+		  <!-- <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }]} /> -->
+		<!-- <main>
 			<section>
 				<ul>
 					{
@@ -48,7 +124,6 @@ const posts = (await getCollection('blog')).sort(
 					}
 				</ul>
 			</section>
-		</main>
-		<Footer />
+		</main> -->
 	</body>
 </html>

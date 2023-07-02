@@ -6,7 +6,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter"
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons/faLinkedinIn"
 import { faKaggle } from "@fortawesome/free-brands-svg-icons/faKaggle"
 import { faPatreon } from "@fortawesome/free-brands-svg-icons/faPatreon"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
+// import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 type IconSize =
   | "xs"
@@ -44,7 +44,7 @@ const { iconSize, showPatreon = true } = Astro.props
           <span>LinkedIn</span>
       </a>
       </li>
-      <li class="social-item social-github">
+      <!-- <li class="social-item social-github">
         <OutboundLink
           rel="me"
           itemProp="url"
@@ -124,7 +124,7 @@ const { iconSize, showPatreon = true } = Astro.props
         </li>
       ) : (
         ""
-      )}
+      )} -->
     </ul>
 </div>
 
