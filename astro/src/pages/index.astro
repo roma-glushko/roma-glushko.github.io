@@ -1,0 +1,123 @@
+---
+import HomeLayout from '../layouts/HomeLayout.astro';
+import Avatar from '../components/Avatar.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import MyTitles from '../components/MyTitles.astro';
+import MainNavigation from '../components/MainNavigation.astro';
+import ThemeSwitcher from '../components/ThemeSwitcher';
+
+import "../styles/index.css"
+---
+
+<HomeLayout 
+	title={"Roman Glushko - Machine Learning and Software Engineer, Life Explorer"}
+	bodyClass={"home-page-v2"}
+>
+	<div class="intro">
+		<div id="hero-header" class="hero-header homepage-sidebar">
+		<!-- <NNBackground /> -->
+		<figure class="hero-intro">
+			<div class="logo">
+			<div class="avatar">
+				<Avatar />
+			</div>
+			</div>
+			<h1 class="name">
+			<span class="first-name">Roman</span>{" "}
+			<span class="second-name">Glushko</span>
+			</h1>
+			<MyTitles>
+			<MainNavigation space={"homepage"} />
+			<SocialLinks showPatreon={true} iconSize={"sm"} />
+			<div class="theme-switcher">
+			<ThemeSwitcher client:visible />
+			</div>
+		</figure>
+		</div>
+	</div>
+	<div class="mylife">
+		<div>
+		<p class="hey">Hey,</p>
+		<p>
+			My name is Roman <span role="img">👋</span>
+		</p>
+		<p>
+			I'm a Machine Learning and Software Engineer, Science Geek and
+			Life Explorer.
+		</p>
+		</div>
+		<div>
+		<h2 class="activity-title">Learn & Share</h2>
+		<div>
+			<p>
+			I'm a lifetime learner interested in a broad variety of topics:
+			Machine and Deep Learning, Science-related Theory, Computer
+			Science, Software Engineering, Distributed System Design,
+			eCommerce and so on.
+			</p>
+			<p>
+			When I have spare time, I enjoy putting together my knowledge
+			about those topics and share with others.
+			</p>
+			<div class="recent-posts">
+			<!-- {recentPosts.edges.map(
+				({ node: { timeToRead, frontmatter } }) => (
+				<BlogTeaser
+					key={frontmatter.id}
+					id={frontmatter.id}
+					title={frontmatter.title}
+					url={frontmatter.path}
+					timeToRead={timeToRead}
+					publishedHumanDate={frontmatter.humanDate}
+					publishedFullDate={frontmatter.fullDate}
+					excerpt={frontmatter.excerpt}
+					cover={frontmatter.cover.childImageSharp.gatsbyImageData}
+					keywords={frontmatter.keywords}
+				/>
+				)
+			)} -->
+			</div>
+			<div class="all-button-wrapper">
+			<a class="read-all-button" href={"/blog/"}>
+				Read All Posts
+			</a>
+			</div>
+		</div>
+		</div>
+		<div>
+		<h2 class="activity-title">Think & Write</h2>
+		<div>
+			<p>
+			Another thing I like to do is to explore this world, think about
+			its components, their interconnections and finally capture my
+			observations and thoughts.
+			</p>
+			<p>
+			These thoughts are usually about self-development, management
+			and people perceptions and mindsets.
+			</p>
+			<div class="recent-thoughts">
+			<!-- {recentThoughts.edges.map(
+				({ node: { id, timeToRead, excerpt, frontmatter } }) => (
+				<ThoughtTeaser
+					key={id}
+					title={frontmatter.title}
+					url={frontmatter.path}
+					timeToRead={timeToRead}
+					publishedHumanDate={frontmatter.humanDate}
+					publishedFullDate={frontmatter.fullDate}
+					excerpt={excerpt}
+					cover={frontmatter.cover.childImageSharp.gatsbyImageData}
+				/>
+				)
+			)} -->
+			</div>
+			<div class="all-button-wrapper">
+			<a class="read-all-button" href={"/thoughts/"}>
+				Read All Thoughts
+			</a>
+			</div>
+		</div>
+		</div>
+	</div>
+</HomeLayout>

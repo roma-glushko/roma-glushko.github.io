@@ -1,0 +1,60 @@
+---
+export interface Props {
+	space: string;
+}
+
+const { space } = Astro.props
+---
+<style>
+  .main-navigation ul {
+      display: flex;
+      justify-content: center;
+      padding-left: 0;
+      text-align: center;
+  }
+  
+  .main-navigation ul li {
+      list-style: none;
+      text-transform: lowercase;
+  }
+  
+  .main-navigation ul li::before {
+      content: "•";
+      padding-left: 5px;
+      vertical-align: middle;
+  }
+  
+  .main-navigation ul:last-child::after {
+      content: "•";
+      line-height: 25px;
+      padding-left: 5px;
+      vertical-align: middle;
+  }
+  
+  .main-navigation ul li a {
+      padding-left: 5px;
+      vertical-align: middle;
+  }
+</style>
+
+<nav class="main-navigation">
+    <ul>
+      {space !== "homepage" && (
+        <li>
+          <a rel="home" href="/" title="Go Home">Home</a>
+        </li>
+      )}
+      <li>
+        <a href="/blog/" title="Go to my Technical Blog">Blog</a>
+      </li>
+      <li>
+        <a href="/thoughts/" title="Go to my Thoughts">Thoughts</a>
+      </li>
+      <li>
+        <a href="/lab/" title="Go to my Lab">Lab</a>
+      </li>
+      <li>
+        <a href="/cv/machine-learning-engineer/" title="Review My CVs">CV</a>
+      </li>
+    </ul>
+</nav>
