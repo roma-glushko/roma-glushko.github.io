@@ -8,6 +8,9 @@ import ThemeSwitcher from '../../components/ThemeSwitcher';
 import BlogHeader from '../../components/BlogHeader.astro';
 
 import "../../styles/blog.css";
+import path from 'path';
+import { title } from 'process';
+import PostTeaser from '../../components/PostTeaser.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -61,51 +64,32 @@ const posts = (await getCollection('blog')).sort(
 			  data-nosnippet=""
 			  class={`blog-list blog-grid ${!posts.length ? "no-posts" : ""}`}
 			>
-			  <!-- {!edges.length && (
+			  {!posts.length && (
 				<div class="no-posts-placeholder">
-				  Great posts will be here as soon as my muse comes back to me{" "}
+				  Great posts will be here as soon as my muse comes back to me &nbsp;
 				  <span role="img" aria-label="magic will happen soon">
 					💫
-				  </span>{" "}
+				  </span> &nbsp;
 				  <br />
-				  Come back soon{" "}
+				  Come back soon &nbsp;
 				  <span aria-label="bye" role="img">
 					👋
 				  </span>
 				</div>
 			  )}
-			  {edges.map(
-				({
-				  node: {
-					timeToRead,
-					frontmatter: {
-					  id,
-					  title,
-					  path,
-					  humanDate,
-					  fullDate,
-					  excerpt,
-					  keywords,
-					  cover: {
-						childImageSharp: { gatsbyImageData },
-					  },
-					},
-				  },
-				}) => (
-				  <BlogTeaser
-					id={id}
-					key={id}
-					title={title}
-					url={path}
-					timeToRead={timeToRead}
-					publishedHumanDate={humanDate}
-					publishedFullDate={fullDate}
-					excerpt={excerpt}
-					cover={gatsbyImageData}
-					keywords={keywords}
+			  {posts.map(
+				(post) => (
+				  <PostTeaser
+					id={post.slug}
+					title={post.data.title}
+					slug={post.slug}
+					excerpt={post.data.excerpt}
+					pubDate={post.data.pubDate}
+					cover={{}}
+					keywords={post.data.keywords}
 				  />
 				)
-			  )} -->
+			  )}
 			</main>
 			<div class="clearfix" />
 		  </div>

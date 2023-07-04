@@ -4,6 +4,7 @@ import Avatar from '../components/Avatar.astro';
 import MyTitles from '../components/MyTitles.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 import ThemeSwitcher from '../components/ThemeSwitcher';
+import NetworkBackground from '../components/home/NetworkBackground';
 import SocialLinks from '../components/SocialLinks.astro';
 
 import "../styles/index.css"
@@ -15,7 +16,7 @@ import "../styles/index.css"
 >
 	<div class="intro">
 		<div id="hero-header" class="hero-header homepage-sidebar">
-		<!-- <NNBackground /> -->
+		<!-- <NetworkBackground client:load /> -->
 		<figure class="hero-intro">
 			<div class="logo">
 			<div class="avatar">
@@ -26,7 +27,7 @@ import "../styles/index.css"
 				<span class="first-name">Roman</span>{" "}
 				<span class="second-name">Glushko</span>
 			</h1>
-			<MyTitles>
+			<MyTitles />
 			<MainNavigation space={"homepage"} />
 			<SocialLinks showPatreon={true} iconSize={"sm"} />
 			<div class="theme-switcher">
