@@ -8,36 +8,16 @@ import ThemeSwitcher from '../../components/ThemeSwitcher';
 import BlogHeader from '../../components/BlogHeader.astro';
 
 import "../../styles/blog.css";
-import path from 'path';
-import { title } from 'process';
 import PostTeaser from '../../components/PostTeaser.astro';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="blogpost-list-page">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			ul {
-				list-style-type: none;
-				padding: unset;
-			}
-			ul li {
-				display: flex;
-			}
-			ul li :global(time) {
-				flex: 0 0 130px;
-				font-style: italic;
-				color: #595959;
-			}
-			ul li a:visited {
-				color: #8e32dc;
-			}
-		</style>
 	</head>
 	<body>
 		<div class="blog-listing-wrapper">
@@ -85,7 +65,7 @@ const posts = (await getCollection('blog')).sort(
 					slug={post.slug}
 					excerpt={post.data.excerpt}
 					pubDate={post.data.pubDate}
-					cover={{}}
+					cover={post.data.cover}
 					keywords={post.data.keywords}
 				  />
 				)
@@ -95,19 +75,5 @@ const posts = (await getCollection('blog')).sort(
 		  </div>
 		  <Footer />
 		  <!-- <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }]} /> -->
-		<!-- <main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<FormattedDate date={post.data.pubDate} />
-								<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main> -->
 	</body>
 </html>

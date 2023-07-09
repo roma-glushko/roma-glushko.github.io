@@ -1,4 +1,5 @@
 ---
+import { Picture } from '@astrojs/image/components';
 import PostKeywords from "./blog/PostKeywords.astro"
 
 import ReadingStatusBadge from "./blog/ReadingStatusBadge"
@@ -19,35 +20,35 @@ export interface Props {
     keywords: string[];
 }
 
-const {id, title, excerpt, pubDate, keywords, slug} = Astro.props;
+const {id, title, excerpt, pubDate, keywords, slug, cover: {image}} = Astro.props;
 
 const postId = id || slug;
-const postURL = `/blog/${slug}`;
+const postURL = `/blog/${slug}/`;
 ---
 <article class="blog-item">
-    <a class="article-header" href={postURL}>
-      <div class="cover-filter">
-        <!-- <GatsbyImage class="cover" image={cover} alt={title} /> -->
-      </div>
-      <NewPostBadge publishDate={pubDate} client:only />
-    </a>
-    <div class="article-details">
-      <h2>
-        <a href={postURL}>{title}</a>
-      </h2>
-      <div class="blog-details">
-        <time class="blog-created-at" datetime={pubDate.toISOString()}>
-          {pubDate.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}
-        </time>
-        <!--
-        <span> • </span>
-        <span class={`blog-time2read`}>
-          {timeToRead}
-          {timeToRead > 1 ? `mins` : `min`} read
-        </span> -->
-        <ReadingStatusBadge contentId={postId} client:only />
-      </div>
-      <p class="blog-digest">{excerpt}</p>
-      <PostKeywords keywords={keywords} />
+  <a class="article-header" href={postURL}>
+    <div class="cover-filter">
+      {image && <Picture class="cover" loading="lazy" src={image} alt={title} widths={[1240, 620, 310, 155]} sizes="(min-width: 620px) 620px, 100vw" aspectRatio={"4:3"} formats={['avif', 'jpeg', 'webp']} />}
     </div>
+    <NewPostBadge publishDate={pubDate} client:only />
+  </a>
+  <div class="article-details">
+    <h2>
+      <a href={postURL}>{title}</a>
+    </h2>
+    <div class="blog-details">
+      <time class="blog-created-at" datetime={pubDate.toISOString()}>
+        {pubDate.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}
+      </time>
+      <!--
+      <span> • </span>
+      <span class={`blog-time2read`}>
+        {timeToRead}
+        {timeToRead > 1 ? `mins` : `min`} read
+      </span> -->
+      <ReadingStatusBadge contentId={postId} client:only />
+    </div>
+    <p class="blog-digest">{excerpt}</p>
+    <PostKeywords keywords={keywords} />
+  </div>
 </article>

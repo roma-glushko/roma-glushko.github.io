@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+
+import MainNavigation from '../components/MainNavigation.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import BlogContent from '../components/blog/BlogContent.astro';
+import BlogComments from '../components/blog/BlogComments';
+
+import "../styles/blogPost.css"
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, pubDate, keywords } = Astro.props;
+---
+
+<html lang="en" class="blogpost-view-page">
+	<head>
+		<BaseHead title={title} description={""} />
+	</head>
+	<body>
+		<!-- <Seo
+		title={`${title} - Blog`}
+		className="blogpost-view-page"
+		pagePath={path}
+		imagePath={gatsbyImageData.images.fallback.src}
+		ogType="article"
+		description={excerpt}
+		keywords={keywords}
+		meta={[]}
+		/> -->
+		<div class="blogpost-header">
+			<BlogHeader spaceTitle="Blog" spaceLink="/blog/" />
+			<MainNavigation space={"blog"} />
+		</div>
+		<main>
+			<BlogContent title={title} keywords={keywords}>
+				<slot />
+			</BlogContent>
+			<!-- 
+			<BlogPost
+				id={id}
+				title={title}
+				timeToRead={timeToRead}
+				publishedHumanDate={humanDate}
+				publishedFullDate={fullDate}
+				keywords={keywords}
+				cover={gatsbyImageData}
+				coverCredits={coverCredits}
+				contentHtml={html}
+			/> -->
+			<!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
+			<!-- <NewsletterForm /> -->
+			<BlogComments theme={"light"} client:visible />
+		</main>
+		<aside class="blogpost-sidebar">
+		<!-- <BlogNavigation prev={prevThought} next={nextThought} /> -->
+		</aside>
+		<Footer />
+		<!-- <ArticleRichSnippet
+		title={title}
+		path={path}
+		datePublished={fullDate}
+		dateModified={fullDate} // gitLogLatestDate
+		content={rawMarkdownBody}
+		wordCount={words}
+		keywords={keywords}
+		cover={gatsbyImageData}
+		articleSection={"Technical Blog"}
+		genre={[
+			"machine learning",
+			"software engineering",
+			"science",
+			"deep learning",
+			"statistics",
+		]}
+		/> -->
+		<!-- <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }, { [path]: title }]} /> -->
+	</body>
+</html>

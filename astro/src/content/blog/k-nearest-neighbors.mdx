@@ -2,11 +2,11 @@
 id: 62b87b2215e35cd77d0d0e11
 title: 'K-Nearest Neighbors 👨‍👩‍👧‍👦'
 excerpt: "Theoretical aspects of the KNN algorithm. Where it can be applied and when it fails."
-pubDate: 'May 04 2021'
+pubDate: 'Apr 05, 2021'
 keywords:
   - machine learning
-cover: 
-  image: './pexels-ollie-craig-6398503-min.jpg'
+cover:
+  image: /blog/k-nearest-neighbors/pexels-ollie-craig-6398503-min.jpg
   credits: Photo by <a href="https://www.pexels.com/@olliecraig1">Ollie Craig</a> from <a href="https://www.pexels.com/photo/roads-with-vehicles-near-buildings-and-autumn-trees-in-city-6398503/">Pexels</a>
 ---
 
@@ -18,7 +18,7 @@ KNN is instance-based learning algorithm. It doesn't make any assumption about d
 
 As old saying goes, you are who you surround yourself with. This idea even has mathematical interpretation. In N-dimensional space, points that are closer to each other are more similar, then ones that stand apart. This is the assumption that KNN algorithm makes. It tries to find K nearest known points or samples, also called "neighbors", to some unknown sample. Majority class of neighbors defines class of the unknown sample.
 
-![Nearest neighbors defines class of unknown sample](./img/k-nearest-neighbors.png "Nearest neighbors defines class of unknown sample")
+![Nearest neighbors defines class of unknown sample](/blog/k-nearest-neighbors/k-nearest-neighbors.png "Nearest neighbors defines class of unknown sample")
 
 <div class="image-title">Nearest neighbors defines class of unknown sample</div>
 
@@ -33,7 +33,7 @@ We need to somehow measure distance between samples in order to find closest (he
 - <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski Distance</a> - Generalization of Euclidean and Manhattan distances
 - scikit-learn supports <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric">other metrics</a> as well
 
-![Different distance metrics and their boundaries](./img/distance-metrics.png?22 "Different distance metrics and their boundaries")
+![Different distance metrics and their boundaries](/blog/k-nearest-neighbors/distance-metrics.png "Different distance metrics and their boundaries")
 
 <div class="image-title">Distance metrics and their boundaries in 2D</div>
 

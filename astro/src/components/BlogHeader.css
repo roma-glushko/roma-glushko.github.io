@@ -1,3 +1,13 @@
+body {
+    --headerTitleColor: var(--red);
+    --blogAvatarBorderColor: var(--grey);
+}
+
+body.dark {
+    --headerTitleColor: var(--pink);
+    --blogAvatarBorderColor: var(--grey);
+}
+
 .view-page-header-wrapper {
     display: flex;
     justify-content: center;
@@ -9,7 +19,7 @@
 }
 
 .view-page-header-wrapper .logo {
-    border: 2px solid var(--avatarBorderColor);
+    border: 2px solid var(--blogAvatarBorderColor);
     border-radius: 50%;
     height: 90px;
     user-select: none;
@@ -33,7 +43,7 @@
 }
 
 .view-page-header-wrapper .blog-title {
-    color: var(--thoughtsPageTitleColor);
+    color: var(--headerTitleColor);
     font-family: 'Dancing Script', cursive;
     font-size: 4rem;
     font-weight: bold;
@@ -62,5 +72,5 @@
 }
 
 .view-page-header-wrapper .blog-title a {
-    color: var(--thoughtsPageTitleColor);
+    color: var(--headerTitleColor);
 }

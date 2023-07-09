@@ -7,6 +7,19 @@ import partytown from "@astrojs/partytown";
 
 import rmMath from 'remark-math';
 import rhKatex from 'rehype-katex';
+import rhVideo from './src/markdown/videoRenderer.mjs';
+import rhLazyLoading from 'rehype-plugin-image-native-lazy-loading';
+
+const videoOptions = {
+  width: "100%",
+  height: "auto",
+  preload: "auto",
+  muted: true,
+  autoplay: true,
+  playsinline: true,
+  controls: true,
+  loop: true,
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,13 +27,17 @@ export default defineConfig({
   markdown: {
     drafts: true,
     remarkPlugins: [rmMath],
-    rehypePlugins: [rhKatex],
+    rehypePlugins: [
+      rhKatex,
+      rhLazyLoading,
+      [rhVideo, videoOptions],
+    ],
   },
   integrations: [
-    mdx(), 
-    sitemap(), 
-    react(), 
-    image(), 
+    mdx(),
+    sitemap(),
+    react(),
+    image(),
     partytown({
       config: {
         forward: ["dataLayer.push"],
