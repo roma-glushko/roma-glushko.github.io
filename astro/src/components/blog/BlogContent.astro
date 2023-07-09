@@ -5,7 +5,7 @@ import TableOfContent from "./TableOfContent";
 import "../../styles/content.css";
 import "../../styles/codeTheme.css";
 
-const {title, keywords} = Astro.props;
+const {title, keywords, timeToReadMin} = Astro.props;
 
 //dangerouslySetInnerHTML={{ __html: coverCredits }}
 
@@ -30,13 +30,12 @@ const {title, keywords} = Astro.props;
         <!-- <time class="blog-createdat" dateTime={publishedFullDate}>
           {publishedHumanDate}
         </time> -->
-        <!-- <span> • </span>
+        <span> • </span>
         <span class="blog-time2read">
-          {timeToRead}
-          {timeToRead > 1 ? "mins" : "min"} read
-        </span> -->
+          {timeToReadMin}
+        </span>
         <div class="theme-switcher">
-          <ThemeSwitcher />
+          <ThemeSwitcher client:load />
         </div>
       </div>
       <ul data-nosnippet="" class="blog-tags">

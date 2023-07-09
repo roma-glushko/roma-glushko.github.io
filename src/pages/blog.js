@@ -53,7 +53,7 @@ class BlogListPage extends Component {
             </div>
             <div className="misc">
               <div className="theme-switcher">
-                <ThemeSwitcher />
+                <ThemeSwitcher client:load />
               </div>
             </div>
           </aside>

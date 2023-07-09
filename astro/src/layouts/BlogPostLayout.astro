@@ -10,9 +10,10 @@ import BlogComments from '../components/blog/BlogComments';
 
 import "../styles/blogPost.css"
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & {timeToReadMin: string};
 
-const { title, pubDate, keywords } = Astro.props;
+const { title, pubDate, keywords, timeToReadMin } = Astro.props;
+
 ---
 
 <html lang="en" class="blogpost-view-page">
@@ -35,7 +36,7 @@ const { title, pubDate, keywords } = Astro.props;
 			<MainNavigation space={"blog"} />
 		</div>
 		<main>
-			<BlogContent title={title} keywords={keywords}>
+			<BlogContent title={title} keywords={keywords} timeToReadMin={timeToReadMin}>
 				<slot />
 			</BlogContent>
 			<!-- 

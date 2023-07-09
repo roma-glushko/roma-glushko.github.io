@@ -34,7 +34,7 @@ const NotFoundPage = (): JSX.Element => (
               At least you have found a pokemon:
             </p>
           </Pokemon>
-          <ThemeSwitcher />
+          <ThemeSwitcher client:load />
         </div>
       </main>
       <BreadcrumbsSnippet crumbs={[]} />

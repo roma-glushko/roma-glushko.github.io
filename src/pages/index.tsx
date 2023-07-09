@@ -138,7 +138,7 @@ const IndexPage = (): JSX.Element => {
               <MainNavigation space={"homepage"} />
               <SocialLinks showPatreon={true} iconSize="sm" />
               <div className="theme-switcher">
-                <ThemeSwitcher />
+                <ThemeSwitcher client:load />
               </div>
             </figure>
           </div>

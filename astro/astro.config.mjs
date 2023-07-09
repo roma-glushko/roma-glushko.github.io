@@ -6,6 +6,8 @@ import image from "@astrojs/image";
 import partytown from "@astrojs/partytown";
 
 import rmMath from 'remark-math';
+import rmReadingTime from './src/markdown/readingTime.mjs';
+
 import rhKatex from 'rehype-katex';
 import rhVideo from './src/markdown/videoRenderer.mjs';
 import rhLazyLoading from 'rehype-plugin-image-native-lazy-loading';
@@ -24,14 +26,18 @@ const videoOptions = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.romaglushko.com/',
+  trailingSlash: "always",
+  output: 'static',
   markdown: {
     drafts: true,
-    remarkPlugins: [rmMath],
+    syntaxHighlight: "prism",
+    remarkPlugins: [rmMath, rmReadingTime],
     rehypePlugins: [
       rhKatex,
       rhLazyLoading,
       [rhVideo, videoOptions],
     ],
+    extendDefaultPlugins: true,
   },
   integrations: [
     mdx(),

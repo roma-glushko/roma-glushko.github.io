@@ -48,7 +48,7 @@ const Thought = (props) => {
             {timeToRead > 1 ? "mins" : "min"} read
           </span>
           <div className="theme-switcher">
-            <ThemeSwitcher />
+            <ThemeSwitcher client:load />
           </div>
         </div>
       </header>

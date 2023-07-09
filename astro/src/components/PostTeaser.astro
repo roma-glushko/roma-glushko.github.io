@@ -9,18 +9,19 @@ import './PostTeaser.css'
 
 export interface Props {
 	id: string | undefined;
-    slug: string;
+  slug: string;
 	title: string;
 	excerpt: string;
-    pubDate: Date;
+  pubDate: Date;
 	cover: {
-        image: string | undefined,
-        credits: string | undefined,
-    },
-    keywords: string[];
+    image: string | undefined,
+    credits: string | undefined,
+  },
+  keywords: string[];
+  timeToRead: string;
 }
 
-const {id, title, excerpt, pubDate, keywords, slug, cover: {image}} = Astro.props;
+const {id, title, excerpt, pubDate, keywords, slug, cover: {image}, timeToRead} = Astro.props;
 
 const postId = id || slug;
 const postURL = `/blog/${slug}/`;
@@ -40,12 +41,10 @@ const postURL = `/blog/${slug}/`;
       <time class="blog-created-at" datetime={pubDate.toISOString()}>
         {pubDate.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}
       </time>
-      <!--
       <span> • </span>
       <span class={`blog-time2read`}>
         {timeToRead}
-        {timeToRead > 1 ? `mins` : `min`} read
-      </span> -->
+      </span>
       <ReadingStatusBadge contentId={postId} client:only />
     </div>
     <p class="blog-digest">{excerpt}</p>

@@ -58,7 +58,7 @@ const MachineLearningEngineerCV = () => {
         </div>
         <header>
           <div className="theme-switcher">
-            <ThemeSwitcher />
+            <ThemeSwitcher client:load />
           </div>
           <MainNavigation space={"cv"} />
           <CvHeader position={`eCommerce Magento Developer CV`} />

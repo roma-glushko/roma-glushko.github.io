@@ -13,6 +13,7 @@ import PostTeaser from '../../components/PostTeaser.astro';
 const posts = (await getCollection('blog')).sort(
 	(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
 ---
 <!DOCTYPE html>
 <html lang="en" class="blogpost-list-page">
@@ -36,7 +37,7 @@ const posts = (await getCollection('blog')).sort(
 			  </div>
 			  <div class="misc">
 				<div class="theme-switcher">
-				  <ThemeSwitcher />
+				  <ThemeSwitcher client:load />
 				</div>
 			  </div>
 			</aside>
@@ -66,6 +67,7 @@ const posts = (await getCollection('blog')).sort(
 					excerpt={post.data.excerpt}
 					pubDate={post.data.pubDate}
 					cover={post.data.cover}
+					timeToRead={"3 min read"}
 					keywords={post.data.keywords}
 				  />
 				)

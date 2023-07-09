@@ -13,8 +13,8 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content, frontmatters } = await post.render();
 ---
-<BlogPostLayout {...post.data}>
+<BlogPostLayout {...post.data} timeToReadMin={frontmatters.readingTimeMin}>
 	<Content />
 </BlogPostLayout>
