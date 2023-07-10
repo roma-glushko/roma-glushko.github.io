@@ -1,6 +1,6 @@
 ---
 path: "/thoughts/buy-opensource-build/"
-date: "2023-07-02 13:50:00"
+date: "2023-07-10 21:52:00"
 published: true
 title: "Buy, Open Source, Build"
 cover: "./frankie-lopez-Jd_7HTsjhLw-unsplash.jpg"
@@ -11,7 +11,7 @@ keywords:
 
 The amount of problems a modern business has to solve is overwhelming. 
 Those might be some existing problems specific to your domain, 
-problems created by changes in customer's expectations and behavior 
+problems created by changes in customers' expectations and behavior 
 or simply because advances in the technology space opened new ways of solving your problems.
 
 But how do you solve a specific problem? On the high level, there are three distinct strategies to pick from:
@@ -37,7 +37,7 @@ For example, a search functionality could be a sales driver for your store,
 but you may not be ready to put dollars into developing a full-fledged reliable search engine. 
 After all, you are selling products, so may consider manufacturing and delivery as your core business.
 
-Another example could be infrastructure. These days almost no one is trying to build their own data centers (apparently, except [Basecamp](https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0)). People go for buying some cloud capacities without a headache of thinking how to make it work efficiently and reliably. 
+Another example could be infrastructure. These days almost no one is trying to build their own data centers (apparently, except [Basecamp](https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0)). People go for buying some cloud capacities without the headache of thinking about how to make it work efficiently and reliably. 
 
 While thinking about buying a solution, consider the following angles:
 
@@ -49,15 +49,15 @@ While thinking about buying a solution, consider the following angles:
 <aside class="admonition note">
     <p class="admonition-title">Takeaway</p>
     <p class="admonition-body">
-    Buy XaaS if you want to solve problem that is not connected to your main business, and if you, of course, could afford it 😌
+    Buy XaaS if you want to solve a problem that is not connected to your primary business, and if you, of course, could afford it 😌
     </p>
 </aside>
 
 The buy strategy could be useful even if you are solving your core business problem. 
-It's **useful to create a quick proof of concept of your idea** with the following plans to build an own solution.
+It's **useful to create a quick proof of concept of your idea** with the following plans to build your own solution.
 
 For example, you could start selling with Shopify in minutes, 
-but you would be somewhat limited in the UX it provides, payment fees, time to innovate. That's okay if you are at the very beginning. In that state, idea validation is more important than the most optimal solution with upfront investments.
+but you would be somewhat limited in the UX it provides, payment fees, and time to innovate. That's okay if you are at the very beginning. In that state, idea validation is more important than the most optimal solution with upfront investments.
 
 ## Use Open Source
 
@@ -70,27 +70,27 @@ Yes, Matomo's codebase is open source. You can browse it, read, possibly modify 
 After running an instance of Matomo for some time you will discover that you also need to upgrade it to **bring security, quality and feature updates on**. 
 Not to mention all possible **troubleshooting** exercises if things go south. That's the maintenance routine at its worst and all of that is on you and your team. This is probably the reason why the majority of open source projects try to provide their cloud versions like [k6's cloud](https://k6.io/docs/cloud/), a hosted platform based on their open source load testing tool. 
 
-Additionally, when it comes to open source projects that you need to extend like [Adobe Magento](https://github.com/magento/magento2) or [Meta's PyTorch](https://github.com/pytorch/pytorch), **your team needs to have a relevant experience** or **spend some time to gain some** to be effective.
+Additionally, when it comes to open source projects that you need to extend like [Adobe Magento](https://github.com/magento/magento2) or [Meta's PyTorch](https://github.com/pytorch/pytorch), **your team needs to have relevant experience** or **spend some time to gain some** to be effective.
 
-The great thing about open source projects is that they **have already designed for you**, so you are not starting from scratch. 
+The great thing about open source projects is that they **have already been designed for you**, so you are not starting from scratch. 
 Sometimes it took top talents in the industry to design such projects that otherwise would not be feasible to hire to build a proprietary solution like that for every company that needed it.
 For example, [Kubernetes](https://github.com/kubernetes/kubernetes), an open source container deployment and orchestration platform, stemmed from Google's extensive experience of running complex systems in production reliably at the gigantic scale.
 
 Furthermore, a popular open source projects are already used by many companies, so they should be **battle-tested reasonably well**.
 
-**The ecosystem of extensions and tools** around the project could further reduce amount of work you need to do yourself, but it comes **at expense of configuring and maintaining that setup**. 
+**The ecosystem of extensions and tools** around the project could further reduce the amount of work you need to do yourself, but it comes **at the expense of configuring and maintaining that setup**. 
 Kubernetes, for instance, has hundreds of projects both under the [CNCF's umbrella](https://landscape.cncf.io/) and from random contributors that solve a range of problems, bridge functionality gaps and limitations of vanilla Kubernetes.
 
 **Robust vibrant community behind the project** will make sure the project is getting better in terms of new features, bug fixes and integrations while you are doing your business (although be sure to contribute back to the projects you have found vital).
 
 **Hiring people could be much easier** if you are using well-known projects and tooling. Try to find someone who could do machine learning in Haskell. Brr.
 
-Finally, just like the buy strategy, open source could serve as **a basis for your core business and help you to start and move really fast**. Further on, you could collect the needed background to replace it by an in-house solution being confident you know what you need from it.
+Finally, just like the buy strategy, open source could serve as **a basis for your core business and help you to start and move really fast**. Further on, you could collect the needed background to replace it with an in-house solution being confident you know what you need from it.
 
 <aside class="admonition note">
     <p class="admonition-title">Takeaway</p>
     <p class="admonition-body">
-    Go with open source solutions if you have all needed competency to utilize them, and they have a potential to serve you a long time down the road.
+    Go with open source solutions if you have all needed competency to utilize them, and they have the potential to serve you a long time down the road.
     </p>
 </aside>
 
@@ -107,23 +107,23 @@ To sum up, if you feel like OSS is what you need you should consider the followi
 On the other end of the spectrum, we have got the build strategy. 
 
 If **the problem is from a space of your main business, then it's a great indication you may want to build it yourself**.
-The reason is you will have a much better flexibility around making the solution look the way that would give you a competitive advantage on the market.
+The reason is you will have much better flexibility around making the solution look the way that would give you a competitive advantage on the market.
 You will be able to rethink currently available solutions against customer needs and tailor something that is more appropriate or even done in a new way.
 Maybe you just have a wild scale problem or a weird context that doesn't permit a general purpose XaaS to fit well.
 
-For example, in the case of [DataRobot](https://datarobot.com/), it makes sense for us to invest into anything that would advance our AutoML platform and expand that idea to new emerging markets. It wouldn't make much sense for us to rebuild our deployment tools as it's far from our main competency.
+For example, in the case of [DataRobot](https://datarobot.com/), it makes sense for us to invest in anything that would advance our AutoML platform and expand that idea to new emerging markets. It wouldn't make much sense for us to rebuild our deployment tools as it's far from our main competency.
 
-One way or another, it will **require you a decent amount of resources to complete, some product research and solid engineering team to design and implement it right**. 
-Not to mention all disadvantages from the open source strategy like **hosting, upgrades, scaling**. Those are on you, but you are pretty much in **a full control of that all looks like** since you are designing it.
+One way or another, it will **require you a decent amount of resources to complete, some product research and a solid engineering team to design and implement it right**. 
+Not to mention all disadvantages of the open source strategy like **hosting, upgrades, and scaling**. Those are on you, but you are pretty much in **full control of what it looks like** since you are designing it.
 
 **The build strategy has the biggest scope** among the rest, this is why it's recommended to go with it only when you have solid reasons to cross out the first two strategies.
 
 Interestingly, engineering-minded people tend to think about the build strategy first and pick it to follow frequently. 
 That might be explained by the "when you have a hammer, everything else looks like a nail" saying and that's really a tricky path.
 You may end up on your **own technical island** where you have custom exotic tooling, no one else uses or has experience working with, with limited support, usability, reliability, etc. 
-Effectively, you would be unconnected from the rest of "civilization" that uses established industry standards.
+Effectively, you would be unconnected from the rest of the "civilization" that uses established industry standards.
 They are not going to get better or adapt to your growing needs overnight unless you invest a good amount of time into it. 
-Now imagine having such projects in some critical flows of the company, and you will know how come that some companies stagnate.
+Now imagine having such projects in some critical flows of the company, and you will know how come some companies stagnate.
 
 <aside class="admonition note">
     <p class="admonition-title">Takeaway</p>
@@ -141,7 +141,7 @@ Such testing could bring important validation for the idea and shape your long-t
 
 ## Conclusions
 
-Start solving your problem with the quickest and easiest way possible like buying XaaS or leveraging OSS, obtain more information and 
+Start solving your problem in quickest and easiest way possible like buying XaaS or leveraging OSS, obtain more information and 
 context about your problem space and only then allow yourself to move with more involved strategies like rebuilding it yourself. 
 
 Our world has never moved forward faster, so by the time you would come to more time-consuming solution, 
