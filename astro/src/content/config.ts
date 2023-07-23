@@ -17,6 +17,7 @@ const blog = defineCollection({
 		cover: z.object({
 			image: z.string(),
 			cover: z.string().optional(),
+			aspectRatio: z.string().optional().transform(str => str ? str: "4:3"),
 		}),
 	}),
 });

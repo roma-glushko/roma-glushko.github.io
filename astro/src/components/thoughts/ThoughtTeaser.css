@@ -42,3 +42,11 @@ body.dark {
     font-weight: 600;
     text-transform: uppercase;
 }
+
+.thought-item .cover-filter img {
+    height: 100%;
+    width: 100%;
+    transition: opacity .25s linear;
+    transform: translateZ(0);
+    vertical-align: top;
+}

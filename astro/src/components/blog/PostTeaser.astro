@@ -17,12 +17,13 @@ export interface Props {
 	cover: {
     image: string | undefined,
     credits: string | undefined,
+    aspectRatio: string,
   },
   keywords: string[];
   timeToRead: string;
 }
 
-const {id, title, excerpt, pubDate, keywords, slug, cover: {image}, timeToRead} = Astro.props;
+const {id, title, excerpt, pubDate, keywords, slug, cover: {image, aspectRatio}, timeToRead} = Astro.props;
 
 const postId = id || slug;
 const postURL = `/blog/${slug}/`;
@@ -30,7 +31,18 @@ const postURL = `/blog/${slug}/`;
 <article class="blog-item">
   <a class="article-header" href={postURL}>
     <div class="cover-filter">
-      {image && <Picture class="cover" loading="lazy" src={image} alt={title} widths={[1240, 620, 310, 155]} sizes="(min-width: 620px) 620px, 100vw" aspectRatio={"4:3"} formats={['avif', 'jpeg', 'webp']} />}
+      {image && 
+        <div class="cover">
+          <Picture 
+            loading="lazy" 
+            src={image} 
+            alt={title} 
+            widths={[1240, 620, 310, 155]} 
+            aspectRatio={aspectRatio} 
+            formats={['avif', 'jpeg', 'webp']} 
+          />
+        </div>
+        }
     </div>
     <NewPostBadge publishDate={pubDate} client:only />
   </a>

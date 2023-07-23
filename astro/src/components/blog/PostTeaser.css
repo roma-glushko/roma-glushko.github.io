@@ -90,3 +90,10 @@ body.dark {
     font-size: 0.8rem;
     justify-content: start;
 }
+
+.blog-item .cover img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: top;
+}

@@ -77,9 +77,6 @@ body.dark {
     padding: 10px;
 }
 
-.blog-grid .blog-item .cover {
-    height: 200px;
-}
 
 @media screen and (max-width: 992px) {
     .blog-grid .blog-item {
@@ -92,7 +89,7 @@ body.dark {
         flex: 100%;
         flex-direction: column;
     }
-    .blog-grid .blog-item .cover {
+    .blog-grid .blog-item .cover img {
         height: auto;
     }
 }
