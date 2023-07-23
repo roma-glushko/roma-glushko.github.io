@@ -1,0 +1,19 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+export interface Props {
+	title: string;
+	description: string;
+	bodyClass: string;
+}
+
+const { title, description, bodyClass } = Astro.props
+---
+<html lang="en" class={bodyClass}>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <slot /> <!-- your content is injected here -->
+  </body>
+</html>
