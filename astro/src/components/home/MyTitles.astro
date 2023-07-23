@@ -1,0 +1,35 @@
+---
+import ReactRotatingText from "react-rotating-text";
+
+const shuffleArray = (strings: string[]) => strings.sort(() => Math.random() - 0.5)
+
+const titles: string[] = shuffleArray([
+  "Web Developer 🛠",
+  "Golang Enthusiast 🐹",
+  "Dude with a beard 🦁",
+  "ML Engineer 🔬",
+  "Passive Traveler 🏕",
+  "Open Source Contributor 👨‍👩‍👧‍👦",
+  "Matzah and Hamantashen Fan ✡️",
+  "5x Magento Certified 🏅",
+  "Problem Solver 🧠",
+  "Torah Follower 🕎",
+  "eCommerce Specialist 🛒",
+  "Tea Guy 🍵",
+  "Pythonista 🐍",
+  "Idea Generator 💡",
+  "Scooter Driver 🛴",
+  "Software Engineer 👨‍💻",
+  "Life Explorer 🧗‍♂️",
+  "Science Learner 🚀",
+  "Rookie Hacker 🔐",
+  "Lifelong Student 📚",
+  "AI Evangelist 🔮",
+  "Hobby Blogger ✍️",
+  "Shabbat Enjoyer 🍇",
+])
+---
+
+<div class="title">
+    <ReactRotatingText client:load items={titles} />
+</div>

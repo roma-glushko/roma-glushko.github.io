@@ -1,0 +1,54 @@
+---
+import ThemeSwitcher from "../ThemeSwitcher";
+import TableOfContent from "./TableOfContent";
+
+import "../../styles/content.css";
+import "../../styles/codeTheme.css";
+
+const {title, keywords, timeToReadMin} = Astro.props;
+
+---
+<article class="blog-wrapper">
+    <header>
+      <figure class="cover">
+        <div class="cover-filter">
+          <!-- <GatsbyImage
+            class="cover cover-image"
+            image={cover}
+            alt={title}
+          /> -->
+        </div>
+        <figcaption
+          data-nosnippet=""
+          class="image-title"
+        />
+      </figure>
+      <h1>{title}</h1>
+      <div data-nosnippet="" class="blog-details">
+        <!-- <time class="blog-createdat" dateTime={publishedFullDate}>
+          {publishedHumanDate}
+        </time> -->
+        <span> • </span>
+        <span class="blog-time2read">
+          {timeToReadMin}
+        </span>
+        <div class="theme-switcher">
+          <ThemeSwitcher client:load />
+        </div>
+      </div>
+      <ul data-nosnippet="" class="blog-tags">
+        {keywords.map((keyword: string) => (
+          <li>{keyword}</li>
+        ))}
+      </ul>
+    </header>
+    <div class="blog-divider" />
+    <!-- <ReadingTracker id={id} contentType={ContentTypes.BLOG}> -->
+      <div class="content-wrapper">
+        <TableOfContent client:load />
+        <div class="content blog-content">
+            <slot />
+        </div>
+      </div>
+    <!-- </ReadingTracker> -->
+</article>

@@ -1,0 +1,52 @@
+---
+import { Picture } from '@astrojs/image/components';
+import PostKeywords from "./PostKeywords.astro"
+
+import ReadingStatusBadge from "./ReadingStatusBadge"
+import NewPostBadge from "./NewPostBadge"
+import Date from "../Date.astro"
+
+import './PostTeaser.css'
+
+export interface Props {
+	id: string | undefined;
+  slug: string;
+	title: string;
+	excerpt: string;
+  pubDate: Date;
+	cover: {
+    image: string | undefined,
+    credits: string | undefined,
+  },
+  keywords: string[];
+  timeToRead: string;
+}
+
+const {id, title, excerpt, pubDate, keywords, slug, cover: {image}, timeToRead} = Astro.props;
+
+const postId = id || slug;
+const postURL = `/blog/${slug}/`;
+---
+<article class="blog-item">
+  <a class="article-header" href={postURL}>
+    <div class="cover-filter">
+      {image && <Picture class="cover" loading="lazy" src={image} alt={title} widths={[1240, 620, 310, 155]} sizes="(min-width: 620px) 620px, 100vw" aspectRatio={"4:3"} formats={['avif', 'jpeg', 'webp']} />}
+    </div>
+    <NewPostBadge publishDate={pubDate} client:only />
+  </a>
+  <div class="article-details">
+    <h2>
+      <a href={postURL}>{title}</a>
+    </h2>
+    <div class="blog-details">
+      <Date date={pubDate} />
+      <span> • </span>
+      <span class={`blog-time2read`}>
+        {timeToRead}
+      </span>
+      <ReadingStatusBadge contentId={postId} client:only />
+    </div>
+    <p class="blog-digest">{excerpt}</p>
+    <PostKeywords keywords={keywords} />
+  </div>
+</article>

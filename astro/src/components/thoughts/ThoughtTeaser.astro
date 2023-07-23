@@ -1,0 +1,42 @@
+---
+import { Picture } from '@astrojs/image/components';
+import Date from "../Date.astro"
+
+import "./ThoughtTeaser.css"
+
+export interface Props {
+    slug: string;
+    title: string;
+    excerpt: string;
+    pubDate: Date;
+    cover: {
+        image: string | undefined,
+        credits: string | undefined,
+    },
+    keywords: string[];
+    timeToRead: string;
+}
+
+const {slug, title, pubDate, cover: {image, credits}} = Astro.props;
+const thoughtURL = `/thoughts/${slug}/`;
+---
+<article class="thought-item">
+    <h2>
+        <a href={thoughtURL}>{title}</Link>
+    </h2>
+    <div class="thought-details">
+        <Date date={pubDate} />
+        <span> • </span>
+        <!-- <span class="thought-time2read">
+        {timeToRead}
+        {timeToRead > 1 ? "mins" : "min"} read
+        </span> -->
+    </div>
+    <a href={thoughtURL}>
+        <div class="cover-filter">
+            <!-- <GatsbyImage class="cover" image={cover} alt={title} /> -->
+            {image && <Picture class="cover" loading="lazy" src={image} alt={title} widths={[1240, 620, 310, 155]} sizes="(min-width: 620px) 620px, 100vw" aspectRatio={"4:3"} formats={['avif', 'jpeg', 'webp']} />}
+        </div>
+    </a>
+    <!-- <p class="thought-digest">{excerpt}</p> -->
+</article>

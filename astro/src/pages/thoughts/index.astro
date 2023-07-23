@@ -1,0 +1,49 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+
+import BaseHead from '../../components/BaseHead.astro';
+import MainNavigation from '../../components/MainNavigation.astro';
+import ThoughtHeader from '../../components/thoughts/ThoughtHeader.astro';
+import ThoughtAuthor from '../../components/thoughts/ThoughtAuthor.astro';
+import ThoughtTeaser from '../../components/thoughts/ThoughtTeaser.astro';
+import ThemeSwitcher from '../../components/ThemeSwitcher';
+import Footer from '../../components/Footer.astro';
+
+import '../../styles/thoughts.css';
+
+const thoughts = (await getCollection('thoughts')).sort(
+	(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+<!DOCTYPE html>
+<html lang="en" class="thoughts-list-page">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+        <div class="thoughts-wrapper">
+            <ThoughtHeader listing={true} />
+            <aside class="thought-sidebar">
+              <ThoughtAuthor />
+              <MainNavigation space={"thoughts"} />
+              <div class="theme-switcher">
+                <ThemeSwitcher client:load />
+              </div>
+            </aside>
+            <main class="thoughts-list">
+              {thoughts.map((thought) => (
+                <ThoughtTeaser
+                    title={thought.data.title}
+                    slug={thought.slug}
+                    pubDate={thought.data.pubDate}
+                    cover={thought.data.cover}
+                />
+              ))}
+            </main>
+            <div class="clearfix" />
+          </div>
+          <Footer />
+          <!-- <BreadcrumbsSnippet crumbs={[{ "/thoughts/": "Thoughts" }]} /> -->
+	</body>
+</html>

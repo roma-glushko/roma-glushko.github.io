@@ -1,0 +1,208 @@
+---
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope"
+import { faGithubAlt } from "@fortawesome/free-brands-svg-icons/faGithubAlt"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter"
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons/faLinkedinIn"
+import { faKaggle } from "@fortawesome/free-brands-svg-icons/faKaggle"
+import { faPatreon } from "@fortawesome/free-brands-svg-icons/faPatreon"
+// import { OutboundLink } from "gatsby-plugin-google-analytics"
+
+type IconSize =
+  | "xs"
+  | "lg"
+  | "sm"
+  | "1x"
+  | "2x"
+  | "3x"
+  | "4x"
+  | "5x"
+  | "6x"
+  | "7x"
+  | "8x"
+  | "9x"
+  | "10x";
+
+export interface Props {
+	iconSize: IconSize;
+  showPatreon: boolean;
+}
+
+const { iconSize, showPatreon = true } = Astro.props
+---
+<div data-nosnippet="" class="social">
+    <ul class="social-list">
+      <li class="social-item social-linkedin">
+        <a
+          rel="me"
+          item-prop="url"
+          href="https://www.linkedin.com/in/glushko-roman"
+          title="Roman Glushko on LinkedIn"
+          target="blank"
+        >
+          <FontAwesomeIcon icon={faLinkedinIn} size={iconSize} />
+          <span>LinkedIn</span>
+      </a>
+      </li>
+      <li class="social-item social-github">
+        <a
+          rel="me"
+          item-prop="url"
+          href="https://github.com/roma-glushko"
+          title="Roman Glushko on Github"
+          target="blank"
+        >
+          <FontAwesomeIcon icon={faGithubAlt} size={iconSize} />
+          <span>GitHub</span>
+        </a>
+      </li>
+      <li class="social-item social-email">
+        <a
+          item-prop="email"
+          href="mailto:roman.glushko.m@gmail.com"
+          title="Roman Glushko's Email"
+        >
+          <FontAwesomeIcon icon={faEnvelope} size={iconSize} />
+          <span>Email</span>
+        </a>
+      </li>
+      <li class="social-item social-kaggle">
+        <a
+          rel="me"
+          item-prop="url"
+          href="https://www.kaggle.com/glushko"
+          title="Roman Glushko on Kaggle"
+          target="blank"
+        >
+          <FontAwesomeIcon icon={faKaggle} size={iconSize} />
+          <span>Kaggle</span>
+        </a>
+      </li>
+      <li class="social-item social-twitter">
+        <a
+          rel="me"
+          item-prop="url"
+          href="https://twitter.com/roma_glushko"
+          title="Roman Glushko on Twitter"
+          target="blank"
+        >
+          <FontAwesomeIcon icon={faTwitter} size={iconSize} />
+          <span>Twitter</span>
+        </a>
+      </li>
+      {showPatreon ? (
+        <li class="social-item social-patreon">
+          <a
+            rel="me"
+            item-prop="url"
+            href="https://www.patreon.com/roma_glushko"
+            title="Support Me on Patreon"
+            target="blank"
+          >
+            <FontAwesomeIcon icon={faPatreon} size={iconSize} />
+            <span>Patreon</span>
+          </a>
+        </li>
+      ) : (
+        ""
+      )}
+      <!-- <li class="social-item social-github">
+        <OutboundLink
+          rel="me"
+          itemProp="url"
+          eventCategory="social"
+          eventAction="click"
+          eventLabel="github"
+          href="https://github.com/roma-glushko"
+          title="Roman Glushko on Github"
+          target="blank"
+        >
+          <FontAwesomeIcon icon={faGithubAlt} size={iconSize} />
+          <span>GitHub</span>
+      </a>
+      </li>
+      <li class="social-item social-email">
+        <OutboundLink
+          itemProp="email"
+          eventCategory="social"
+          eventAction="click"
+          eventLabel="email"
+          href="mailto:roman.glushko.m@gmail.com"
+          title="Roman Glushko's Email"
+          client:visible
+        >
+          <FontAwesomeIcon icon={faEnvelope} size={iconSize} />
+          <span>Email</span>
+        </OutboundLink>
+      </li>
+      <li class="social-item social-kaggle">
+        <OutboundLink
+          rel="me"
+          itemProp="url"
+          eventCategory="social"
+          eventAction="click"
+          eventLabel="kaggle"
+          href="https://www.kaggle.com/glushko"
+          title="Roman Glushko on Kaggle"
+          target="blank"
+          client:visible
+        >
+          <FontAwesomeIcon icon={faKaggle} size={iconSize} />
+          <span>Kaggle</span>
+        </OutboundLink>
+      </li>
+      <li class="social-item social-twitter">
+        <OutboundLink
+          rel="me"
+          itemProp="url"
+          eventCategory="social"
+          eventAction="click"
+          eventLabel="twitter"
+          href="https://twitter.com/roma_glushko"
+          title="Roman Glushko on Twitter"
+          target="blank"
+          client:visible
+        >
+          <FontAwesomeIcon icon={faTwitter} size={iconSize} />
+          <span>Twitter</span>
+        </OutboundLink>
+      </li>
+      {showPatreon ? (
+        <li class="social-item social-patreon">
+          <OutboundLink
+            rel="me"
+            itemProp="url"
+            eventCategory="social"
+            eventAction="click"
+            eventLabel="patreon"
+            href="https://www.patreon.com/roma_glushko"
+            title="Support my content on Patreon"
+            target="blank"
+            client:visible
+          >
+            <FontAwesomeIcon icon={faPatreon} size={iconSize} />
+            <span>Patreon</span>
+          </OutboundLink>
+        </li>
+      ) : (
+        ""
+      )} -->
+    </ul>
+</div>
+
+<style>
+.social .social-list {
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social .social-list a span {
+    display: none;
+}
+</style>
