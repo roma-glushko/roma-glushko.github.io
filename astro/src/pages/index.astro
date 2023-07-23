@@ -1,4 +1,6 @@
 ---
+import { getCollection } from 'astro:content';
+
 import HomeLayout from '../layouts/HomeLayout.astro';
 import Avatar from '../components/Avatar.astro';
 import MyTitles from '../components/home/MyTitles.astro';
@@ -8,6 +10,20 @@ import NetworkBackground from '../components/home/NetworkBackground';
 import SocialLinks from '../components/SocialLinks.astro';
 
 import "../styles/index.css"
+import PostTeaser from '@components/blog/PostTeaser.astro';
+import ThoughtTeaser from '@components/thoughts/ThoughtTeaser.astro';
+
+const recentPosts = (await getCollection('blog'))
+	.sort(
+		(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	)
+	.slice(0, 3)
+
+const recentThoughts = (await getCollection('thoughts'))
+	.sort(
+		(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	)
+	.slice(0, 3)
 ---
 
 <HomeLayout 
@@ -61,22 +77,18 @@ import "../styles/index.css"
 			about those topics and share with others.
 			</p>
 			<div class="recent-posts">
-			<!-- {recentPosts.edges.map(
-				({ node: { timeToRead, frontmatter } }) => (
-				<BlogTeaser
-					key={frontmatter.id}
-					id={frontmatter.id}
-					title={frontmatter.title}
-					url={frontmatter.path}
-					timeToRead={timeToRead}
-					publishedHumanDate={frontmatter.humanDate}
-					publishedFullDate={frontmatter.fullDate}
-					excerpt={frontmatter.excerpt}
-					cover={frontmatter.cover.childImageSharp.gatsbyImageData}
-					keywords={frontmatter.keywords}
-				/>
-				)
-			)} -->
+			{recentPosts.map((post) => (
+				<PostTeaser
+					id={post.slug}
+					title={post.data.title}
+					slug={post.slug}
+					excerpt={post.data.excerpt}
+					pubDate={post.data.pubDate}
+					cover={post.data.cover}
+					timeToRead={"3 min read"}
+					keywords={post.data.keywords}
+				  />
+			))}
 			</div>
 			<div class="all-button-wrapper">
 			<a class="read-all-button" href={"/blog/"}>
@@ -98,20 +110,14 @@ import "../styles/index.css"
 			and people perceptions and mindsets.
 			</p>
 			<div class="recent-thoughts">
-			<!-- {recentThoughts.edges.map(
-				({ node: { id, timeToRead, excerpt, frontmatter } }) => (
+			{recentThoughts.map((thought) => (
 				<ThoughtTeaser
-					key={id}
-					title={frontmatter.title}
-					url={frontmatter.path}
-					timeToRead={timeToRead}
-					publishedHumanDate={frontmatter.humanDate}
-					publishedFullDate={frontmatter.fullDate}
-					excerpt={excerpt}
-					cover={frontmatter.cover.childImageSharp.gatsbyImageData}
+					title={thought.data.title}
+					slug={thought.slug}
+					pubDate={thought.data.pubDate}
+					cover={thought.data.cover}
 				/>
-				)
-			)} -->
+			))}
 			</div>
 			<div class="all-button-wrapper">
 			<a class="read-all-button" href={"/thoughts/"}>

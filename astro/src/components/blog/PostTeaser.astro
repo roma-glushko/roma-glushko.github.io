@@ -4,6 +4,7 @@ import PostKeywords from "./PostKeywords.astro"
 
 import ReadingStatusBadge from "./ReadingStatusBadge"
 import NewPostBadge from "./NewPostBadge"
+import Date from "../Date.astro"
 
 import './PostTeaser.css'
 
@@ -38,9 +39,7 @@ const postURL = `/blog/${slug}/`;
       <a href={postURL}>{title}</a>
     </h2>
     <div class="blog-details">
-      <time class="blog-created-at" datetime={pubDate.toISOString()}>
-        {pubDate.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}
-      </time>
+      <Date date={pubDate} />
       <span> • </span>
       <span class={`blog-time2read`}>
         {timeToRead}

@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 
 import BaseHead from '../../components/BaseHead.astro';
 import MainNavigation from '../../components/MainNavigation.astro';
+import ThoughtHeader from '../../components/thoughts/ThoughtHeader.astro';
 import ThoughtAuthor from '../../components/thoughts/ThoughtAuthor.astro';
 import ThoughtTeaser from '../../components/thoughts/ThoughtTeaser.astro';
 import ThemeSwitcher from '../../components/ThemeSwitcher';
@@ -22,7 +23,7 @@ const thoughts = (await getCollection('thoughts')).sort(
 	</head>
 	<body>
         <div class="thoughts-wrapper">
-            <h1 class="thoughts-title">Thoughts</h1>
+            <ThoughtHeader listing={true} />
             <aside class="thought-sidebar">
               <ThoughtAuthor />
               <MainNavigation space={"thoughts"} />

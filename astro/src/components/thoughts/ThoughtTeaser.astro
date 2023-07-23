@@ -1,5 +1,8 @@
 ---
-import './ThoughtTeaser.css'
+import { Picture } from '@astrojs/image/components';
+import Date from "../Date.astro"
+
+import "./ThoughtTeaser.css"
 
 export interface Props {
     slug: string;
@@ -22,9 +25,7 @@ const thoughtURL = `/thoughts/${slug}/`;
         <a href={thoughtURL}>{title}</Link>
     </h2>
     <div class="thought-details">
-        <time class="thought-createdat" datetime={pubDate.toISOString()}>
-            {pubDate.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}
-        </time>
+        <Date date={pubDate} />
         <span> • </span>
         <!-- <span class="thought-time2read">
         {timeToRead}
@@ -34,6 +35,7 @@ const thoughtURL = `/thoughts/${slug}/`;
     <a href={thoughtURL}>
         <div class="cover-filter">
             <!-- <GatsbyImage class="cover" image={cover} alt={title} /> -->
+            {image && <Picture class="cover" loading="lazy" src={image} alt={title} widths={[1240, 620, 310, 155]} sizes="(min-width: 620px) 620px, 100vw" aspectRatio={"4:3"} formats={['avif', 'jpeg', 'webp']} />}
         </div>
     </a>
     <!-- <p class="thought-digest">{excerpt}</p> -->

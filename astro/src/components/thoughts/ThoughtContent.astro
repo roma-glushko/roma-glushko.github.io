@@ -1,0 +1,46 @@
+---
+import Date from "../Date.astro"
+import MainNavigation from '@components/MainNavigation.astro';
+import ThemeSwitcher from '@components/ThemeSwitcher';
+
+import "./ThoughtContent.css"
+import "../../styles/content.css";
+
+const {title, pubDate, keywords, timeToReadMin} = Astro.props;
+---
+<article class="thought-wrapper">
+    <header>
+        <figure class="cover">
+            <div class="cover-filter">
+                <!-- <GatsbyImage
+                class="cover cover-image"
+                image={cover}
+                alt={title}
+                /> -->
+            </div>
+            <!-- <figcaption
+                class="image-title"
+                dangerouslySetInnerHTML={{ __html: coverCredits }}
+            /> -->
+        </figure>
+        <MainNavigation space={"thoughts"} />
+        <h1>{title}</h1>
+        <div data-nosnippet="" class="thought-details">
+            <Date date={pubDate} />
+            <span> • </span>
+            <!-- <span class="thought-time2read">
+                {timeToRead}
+                {timeToRead > 1 ? "mins" : "min"} read
+            </span> -->
+            <div class="theme-switcher">
+                <ThemeSwitcher client:load />
+            </div>
+        </div>
+    </header>
+    <div class="thought-divider" />
+    <!-- <ReadingTracker contentType={ContentTypes.THOUGHT}> -->
+        <div class="content thought-content">
+            <slot />
+        </div>
+    <!-- </ReadingTracker> -->
+</article>

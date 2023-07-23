@@ -9,6 +9,7 @@ import BlogContent from '../components/blog/BlogContent.astro';
 import BlogComments from '../components/blog/BlogComments';
 
 import "../styles/blogPost.css"
+import { Themes } from '@components/ThemeSwitcher';
 
 type Props = CollectionEntry<'blog'>['data'] & {timeToReadMin: string};
 
@@ -53,7 +54,7 @@ const { title, pubDate, keywords, timeToReadMin } = Astro.props;
 			/> -->
 			<!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
 			<!-- <NewsletterForm /> -->
-			<BlogComments theme={"light"} client:visible />
+			<BlogComments theme={Themes.LIGHT} client:visible />
 		</main>
 		<aside class="blogpost-sidebar">
 		<!-- <BlogNavigation prev={prevThought} next={nextThought} /> -->
