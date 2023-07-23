@@ -44,6 +44,68 @@ const { iconSize, showPatreon = true } = Astro.props
           <span>LinkedIn</span>
       </a>
       </li>
+      <li class="social-item social-github">
+        <a
+          rel="me"
+          item-prop="url"
+          href="https://github.com/roma-glushko"
+          title="Roman Glushko on Github"
+          target="blank"
+        >
+          <FontAwesomeIcon icon={faGithubAlt} size={iconSize} />
+          <span>GitHub</span>
+        </a>
+      </li>
+      <li class="social-item social-email">
+        <a
+          item-prop="email"
+          href="mailto:roman.glushko.m@gmail.com"
+          title="Roman Glushko's Email"
+        >
+          <FontAwesomeIcon icon={faEnvelope} size={iconSize} />
+          <span>Email</span>
+        </a>
+      </li>
+      <li class="social-item social-kaggle">
+        <a
+          rel="me"
+          item-prop="url"
+          href="https://www.kaggle.com/glushko"
+          title="Roman Glushko on Kaggle"
+          target="blank"
+        >
+          <FontAwesomeIcon icon={faKaggle} size={iconSize} />
+          <span>Kaggle</span>
+        </a>
+      </li>
+      <li class="social-item social-twitter">
+        <a
+          rel="me"
+          item-prop="url"
+          href="https://twitter.com/roma_glushko"
+          title="Roman Glushko on Twitter"
+          target="blank"
+        >
+          <FontAwesomeIcon icon={faTwitter} size={iconSize} />
+          <span>Twitter</span>
+        </a>
+      </li>
+      {showPatreon ? (
+        <li class="social-item social-patreon">
+          <a
+            rel="me"
+            item-prop="url"
+            href="https://www.patreon.com/roma_glushko"
+            title="Support Me on Patreon"
+            target="blank"
+          >
+            <FontAwesomeIcon icon={faPatreon} size={iconSize} />
+            <span>Patreon</span>
+          </a>
+        </li>
+      ) : (
+        ""
+      )}
       <!-- <li class="social-item social-github">
         <OutboundLink
           rel="me"

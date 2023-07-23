@@ -21,4 +21,24 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+
+const thoughts = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		keywords: z.array(z.string()),
+		pubDate: z
+			.string()
+			.or(z.date())
+			.transform((val) => new Date(val)),
+		updateDate: z
+			.string()
+			.optional()
+			.transform((str) => (str ? new Date(str) : undefined)),
+		cover: z.object({
+			image: z.string(),
+			credits: z.string().optional(),
+		}),
+	})
+})
+
+export const collections = { blog, thoughts };

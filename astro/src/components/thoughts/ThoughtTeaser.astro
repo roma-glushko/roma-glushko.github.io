@@ -1,0 +1,40 @@
+---
+import './ThoughtTeaser.css'
+
+export interface Props {
+    slug: string;
+    title: string;
+    excerpt: string;
+    pubDate: Date;
+    cover: {
+        image: string | undefined,
+        credits: string | undefined,
+    },
+    keywords: string[];
+    timeToRead: string;
+}
+
+const {slug, title, pubDate, cover: {image, credits}} = Astro.props;
+const thoughtURL = `/thoughts/${slug}/`;
+---
+<article class="thought-item">
+    <h2>
+        <a href={thoughtURL}>{title}</Link>
+    </h2>
+    <div class="thought-details">
+        <time class="thought-createdat" datetime={pubDate.toISOString()}>
+            {pubDate.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}
+        </time>
+        <span> • </span>
+        <!-- <span class="thought-time2read">
+        {timeToRead}
+        {timeToRead > 1 ? "mins" : "min"} read
+        </span> -->
+    </div>
+    <a href={thoughtURL}>
+        <div class="cover-filter">
+            <!-- <GatsbyImage class="cover" image={cover} alt={title} /> -->
+        </div>
+    </a>
+    <!-- <p class="thought-digest">{excerpt}</p> -->
+</article>
