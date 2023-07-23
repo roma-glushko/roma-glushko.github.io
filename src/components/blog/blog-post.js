@@ -51,7 +51,7 @@ const BlogPost = (props) => {
             {timeToRead > 1 ? "mins" : "min"} read
           </span>
           <div className="theme-switcher">
-            <ThemeSwitcher client:load />
+            <ThemeSwitcher />
           </div>
         </div>
         <ul data-nosnippet="" className="blog-tags">

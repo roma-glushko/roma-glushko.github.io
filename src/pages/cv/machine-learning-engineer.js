@@ -59,7 +59,7 @@ const MachineLearningEngineerCV = () => {
         </div>
         <header>
           <div className="theme-switcher">
-            <ThemeSwitcher client:load />
+            <ThemeSwitcher />
           </div>
           <MainNavigation space={"cv"} />
           <CvHeader position={`ML/DL Engineer CV`} />

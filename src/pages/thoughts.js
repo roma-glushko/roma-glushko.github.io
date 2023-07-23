@@ -47,7 +47,7 @@ class ThoughtListPage extends Component {
             <ThoughtAuthor />
             <MainNavigation space={"thoughts"} />
             <div className="theme-switcher">
-              <ThemeSwitcher client:load />
+              <ThemeSwitcher />
             </div>
           </aside>
           <main className="thoughts-list">
