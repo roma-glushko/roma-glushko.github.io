@@ -34,10 +34,7 @@ const thoughts = (await getCollection('thoughts')).sort(
             <main class="thoughts-list">
               {thoughts.map((thought) => (
                 <ThoughtTeaser
-                    title={thought.data.title}
-                    slug={thought.slug}
-                    pubDate={thought.data.pubDate}
-                    cover={thought.data.cover}
+                    thought={thought}
                 />
               ))}
             </main>

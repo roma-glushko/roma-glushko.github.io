@@ -1,29 +1,23 @@
 ---
-import { Picture } from '@astrojs/image/components';
-import PostKeywords from "./PostKeywords.astro"
+import type { CollectionEntry } from 'astro:content';
 
-import ReadingStatusBadge from "./ReadingStatusBadge"
-import NewPostBadge from "./NewPostBadge"
-import Date from "../Date.astro"
+import { Picture } from '@astrojs/image/components';
+import PostKeywords from "@components/blog/PostKeywords.astro"
+
+import ReadingStatusBadge from "@components/blog/ReadingStatusBadge"
+import NewPostBadge from "@components/blog/NewPostBadge"
+import Date from "@components/Date.astro"
 
 import './PostTeaser.css'
 
 export interface Props {
-	id: string | undefined;
-  slug: string;
-	title: string;
-	excerpt: string;
-  pubDate: Date;
-	cover: {
-    image: string | undefined,
-    credits: string | undefined,
-    aspectRatio: string,
-  },
-  keywords: string[];
-  timeToRead: string;
+  post: CollectionEntry<'blog'>
 }
 
-const {id, title, excerpt, pubDate, keywords, slug, cover: {image, aspectRatio}, timeToRead} = Astro.props;
+const {post} = Astro.props;
+const {id, title, excerpt, pubDate, keywords, cover: {image, aspectRatio}} = post.data;
+const {remarkPluginFrontmatter: {timeToReadMin}} = (await post.render())
+const slug = post.slug
 
 const postId = id || slug;
 const postURL = `/blog/${slug}/`;
@@ -54,7 +48,7 @@ const postURL = `/blog/${slug}/`;
       <Date date={pubDate} />
       <span> • </span>
       <span class={`blog-time2read`}>
-        {timeToRead}
+        {timeToReadMin}
       </span>
       <ReadingStatusBadge contentId={postId} client:only />
     </div>

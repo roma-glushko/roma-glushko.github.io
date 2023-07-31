@@ -28,10 +28,9 @@ const {title, pubDate, keywords, timeToReadMin} = Astro.props;
         <div data-nosnippet="" class="thought-details">
             <Date date={pubDate} />
             <span> • </span>
-            <!-- <span class="thought-time2read">
-                {timeToRead}
-                {timeToRead > 1 ? "mins" : "min"} read
-            </span> -->
+            <span class="thought-time2read">
+                {timeToReadMin}
+            </span>
             <div class="theme-switcher">
                 <ThemeSwitcher client:load />
             </div>

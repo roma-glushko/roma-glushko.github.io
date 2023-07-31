@@ -1,23 +1,20 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 import { Picture } from '@astrojs/image/components';
 import Date from "../Date.astro"
 
 import "./ThoughtTeaser.css"
 
 export interface Props {
-    slug: string;
-    title: string;
-    excerpt: string;
-    pubDate: Date;
-    cover: {
-        image: string | undefined,
-        credits: string | undefined,
-    },
-    keywords: string[];
-    timeToRead: string;
+    thought: CollectionEntry<'thoughts'>
 }
 
-const {slug, title, pubDate, cover: {image, credits}} = Astro.props;
+const {thought} = Astro.props
+const {title, pubDate, cover: {image, credits}} = thought.data;
+const {remarkPluginFrontmatter: {timeToReadMin}} = await thought.render()
+const slug = thought.slug;
+
 const thoughtURL = `/thoughts/${slug}/`;
 ---
 <article class="thought-item">
@@ -27,10 +24,9 @@ const thoughtURL = `/thoughts/${slug}/`;
     <div class="thought-details">
         <Date date={pubDate} />
         <span> • </span>
-        <!-- <span class="thought-time2read">
-        {timeToRead}
-        {timeToRead > 1 ? "mins" : "min"} read
-        </span> -->
+        <span class="thought-time2read">
+            {timeToReadMin}
+        </span>
     </div>
     <a href={thoughtURL}>
         <div class="cover-filter">

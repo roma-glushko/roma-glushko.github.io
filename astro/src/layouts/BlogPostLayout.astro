@@ -37,7 +37,7 @@ const { title, pubDate, keywords, timeToReadMin } = Astro.props;
 			<MainNavigation space={"blog"} />
 		</div>
 		<main>
-			<BlogContent title={title} keywords={keywords} timeToReadMin={timeToReadMin}>
+			<BlogContent title={title} pubDate={pubDate} keywords={keywords} timeToReadMin={timeToReadMin}>
 				<slot />
 			</BlogContent>
 			<!-- 

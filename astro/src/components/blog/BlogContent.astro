@@ -1,11 +1,12 @@
 ---
-import ThemeSwitcher from "../ThemeSwitcher";
+import Date from "@components/Date.astro"
+import ThemeSwitcher from "@components/ThemeSwitcher";
 import TableOfContent from "./TableOfContent";
 
 import "../../styles/content.css";
 import "../../styles/codeTheme.css";
 
-const {title, keywords, timeToReadMin} = Astro.props;
+const {title, pubDate, keywords, timeToReadMin} = Astro.props;
 
 ---
 <article class="blog-wrapper">
@@ -25,9 +26,7 @@ const {title, keywords, timeToReadMin} = Astro.props;
       </figure>
       <h1>{title}</h1>
       <div data-nosnippet="" class="blog-details">
-        <!-- <time class="blog-createdat" dateTime={publishedFullDate}>
-          {publishedHumanDate}
-        </time> -->
+        <Date date={pubDate} />
         <span> • </span>
         <span class="blog-time2read">
           {timeToReadMin}

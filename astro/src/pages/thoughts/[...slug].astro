@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'thoughts'>;
 
 const post = Astro.props;
-const { Content, frontmatters } = await post.render();
+const { Content, remarkPluginFrontmatter: {timeToReadMin} } = await post.render();
 ---
 <!DOCTYPE html>
 <html lang="en" class="thought-view-page">
@@ -37,6 +37,7 @@ const { Content, frontmatters } = await post.render();
               title={post.data.title}
               pubDate={post.data.pubDate}
               cover={post.data.cover}
+              timeToReadMin={timeToReadMin}
             >
                 <Content />
             </ThoughtContent>

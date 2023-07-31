@@ -78,16 +78,7 @@ const recentThoughts = (await getCollection('thoughts'))
 			</p>
 			<div class="recent-posts">
 			{recentPosts.map((post) => (
-				<PostTeaser
-					id={post.slug}
-					title={post.data.title}
-					slug={post.slug}
-					excerpt={post.data.excerpt}
-					pubDate={post.data.pubDate}
-					cover={post.data.cover}
-					timeToRead={"3 min read"}
-					keywords={post.data.keywords}
-				  />
+				<PostTeaser post={post} />
 			))}
 			</div>
 			<div class="all-button-wrapper">
@@ -111,12 +102,7 @@ const recentThoughts = (await getCollection('thoughts'))
 			</p>
 			<div class="recent-thoughts">
 			{recentThoughts.map((thought) => (
-				<ThoughtTeaser
-					title={thought.data.title}
-					slug={thought.slug}
-					pubDate={thought.data.pubDate}
-					cover={thought.data.cover}
-				/>
+				<ThoughtTeaser thought={thought} />
 			))}
 			</div>
 			<div class="all-button-wrapper">

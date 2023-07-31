@@ -44,7 +44,7 @@ body.dark {
 }
 
 .thought-item .cover-filter img {
-    height: 100%;
+    height: 500px;
     width: 100%;
     transition: opacity .25s linear;
     transform: translateZ(0);
