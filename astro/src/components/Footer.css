@@ -59,6 +59,13 @@ footer .social-list .social-item {
     margin: 0.5rem;
 }
 
+footer .social-list .social-item svg {
+    background-color: var(--footerBgColor);
+    height: 1em;
+    font-size: 2em;
+    display: block;
+}
+
 .copyright {
     font-size: 1.1rem;
     margin: 2rem auto 0;

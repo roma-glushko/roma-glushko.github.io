@@ -193,11 +193,10 @@ body.dark {
     font-size: 1.3rem;
 }
 
-.homepagev2 .recent-thoughts .thought-item .cover,
-.homepagev2 .recent-thoughts .thought-item .cover-filter {
-    max-height: 200px;
+.homepagev2 .recent-thoughts .thought-item .cover img {
+    height: 200px;
+    object-fit: cover;
 }
-
 
 
 @media screen and (max-width: 980px) {

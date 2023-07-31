@@ -8,6 +8,8 @@ import { faKaggle } from "@fortawesome/free-brands-svg-icons/faKaggle"
 import { faPatreon } from "@fortawesome/free-brands-svg-icons/faPatreon"
 // import { OutboundLink } from "gatsby-plugin-google-analytics"
 
+import './SocialLinks.css'
+
 type IconSize =
   | "xs"
   | "lg"
@@ -189,20 +191,3 @@ const { iconSize, showPatreon = true } = Astro.props
       )} -->
     </ul>
 </div>
-
-<style>
-.social .social-list {
-    display: flex;
-    flex-flow: row wrap;
-    flex-grow: 0;
-    flex-shrink: 0;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.social .social-list a span {
-    display: none;
-}
-</style>
