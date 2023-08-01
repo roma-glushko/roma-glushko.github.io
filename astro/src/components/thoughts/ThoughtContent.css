@@ -57,12 +57,10 @@ body.dark {
 }
 
 .thought-wrapper .cover .cover-image {
-    left: 50%;
-    margin-left: -50vw;
-    overflow: hidden;
-    position: relative;
-    max-height: 600px;
+    height: 600px;
+    object-fit: cover;
     width: 100vw;
+    vertical-align: top;
 }
 
 .thought-wrapper .cover .image-title {

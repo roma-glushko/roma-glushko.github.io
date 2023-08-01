@@ -1,4 +1,6 @@
 ---
+import { Picture } from '@astrojs/image/components';
+
 import Date from "@components/Date.astro"
 import ThemeSwitcher from "@components/ThemeSwitcher";
 import TableOfContent from "./TableOfContent";
@@ -6,22 +8,29 @@ import TableOfContent from "./TableOfContent";
 import "../../styles/content.css";
 import "../../styles/codeTheme.css";
 
-const {title, pubDate, keywords, timeToReadMin} = Astro.props;
+const {title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeToReadMin} = Astro.props;
 
 ---
 <article class="blog-wrapper">
     <header>
       <figure class="cover">
         <div class="cover-filter">
-          <!-- <GatsbyImage
-            class="cover cover-image"
-            image={cover}
-            alt={title}
-          /> -->
+          {image && 
+            <Picture 
+              class="cover cover-image"
+              loading="lazy" 
+              src={image} 
+              alt={title} 
+              widths={[1240, 620, 310, 155]} 
+              aspectRatio={aspectRatio} 
+              formats={['avif', 'jpeg', 'webp']} 
+            />
+          }
         </div>
         <figcaption
           data-nosnippet=""
           class="image-title"
+          set:html={credits}
         />
       </figure>
       <h1>{title}</h1>

@@ -1,4 +1,6 @@
 ---
+import { Picture } from '@astrojs/image/components';
+
 import Date from "../Date.astro"
 import MainNavigation from '@components/MainNavigation.astro';
 import ThemeSwitcher from '@components/ThemeSwitcher';
@@ -6,22 +8,28 @@ import ThemeSwitcher from '@components/ThemeSwitcher';
 import "./ThoughtContent.css"
 import "../../styles/content.css";
 
-const {title, pubDate, keywords, timeToReadMin} = Astro.props;
+const {title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeToReadMin} = Astro.props;
 ---
 <article class="thought-wrapper">
     <header>
         <figure class="cover">
             <div class="cover-filter">
-                <!-- <GatsbyImage
-                class="cover cover-image"
-                image={cover}
-                alt={title}
-                /> -->
+                {image && 
+                    <Picture 
+                        class="cover cover-image"
+                        loading="lazy" 
+                        src={image} 
+                        alt={title} 
+                        widths={[1240, 620, 310, 155]} 
+                        aspectRatio={aspectRatio} 
+                        formats={['avif', 'jpeg', 'webp']} 
+                    />
+                }
             </div>
-            <!-- <figcaption
+            <figcaption
                 class="image-title"
-                dangerouslySetInnerHTML={{ __html: coverCredits }}
-            /> -->
+                set:html={credits}
+            />
         </figure>
         <MainNavigation space={"thoughts"} />
         <h1>{title}</h1>

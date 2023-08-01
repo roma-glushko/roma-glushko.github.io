@@ -16,8 +16,8 @@ const blog = defineCollection({
 			.transform((str) => (str ? new Date(str) : undefined)),
 		cover: z.object({
 			image: z.string(),
-			cover: z.string().optional(),
-			aspectRatio: z.string().optional().transform(str => str ? str: "4:3"),
+			credits: z.string().optional(),
+			aspectRatio: z.string().optional().transform(str => str ? str: "3:2"),
 		}),
 	}),
 });
@@ -38,6 +38,7 @@ const thoughts = defineCollection({
 		cover: z.object({
 			image: z.string(),
 			credits: z.string().optional(),
+			aspectRatio: z.string().optional().transform(str => str ? str: "3:2"),
 		}),
 	})
 })

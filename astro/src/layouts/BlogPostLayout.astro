@@ -13,8 +13,7 @@ import { Themes } from '@components/ThemeSwitcher';
 
 type Props = CollectionEntry<'blog'>['data'] & {timeToReadMin: string};
 
-const { title, pubDate, keywords, timeToReadMin } = Astro.props;
-
+const { title, pubDate, keywords, cover, timeToReadMin } = Astro.props;
 ---
 
 <html lang="en" class="blogpost-view-page">
@@ -37,21 +36,9 @@ const { title, pubDate, keywords, timeToReadMin } = Astro.props;
 			<MainNavigation space={"blog"} />
 		</div>
 		<main>
-			<BlogContent title={title} pubDate={pubDate} keywords={keywords} timeToReadMin={timeToReadMin}>
+			<BlogContent title={title} pubDate={pubDate} keywords={keywords} cover={cover} timeToReadMin={timeToReadMin}>
 				<slot />
 			</BlogContent>
-			<!-- 
-			<BlogPost
-				id={id}
-				title={title}
-				timeToRead={timeToRead}
-				publishedHumanDate={humanDate}
-				publishedFullDate={fullDate}
-				keywords={keywords}
-				cover={gatsbyImageData}
-				coverCredits={coverCredits}
-				contentHtml={html}
-			/> -->
 			<!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
 			<!-- <NewsletterForm /> -->
 			<BlogComments theme={Themes.LIGHT} client:visible />

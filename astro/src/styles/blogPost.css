@@ -161,7 +161,10 @@ body.dark {
 }
 
 .blog-wrapper .cover .cover-image {
-    max-height: 600px;
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: top;
 }
 
 .blog-wrapper .cover .image-title {
