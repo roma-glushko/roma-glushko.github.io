@@ -26,7 +26,7 @@ const videoOptions = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.romaglushko.com/',
-  trailingSlash: "always",
+  // trailingSlash: "always",
   output: 'static',
   markdown: {
     drafts: true,

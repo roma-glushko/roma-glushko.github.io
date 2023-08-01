@@ -1,4 +1,6 @@
 ---
+import siteMetadata from "../data/siteMetadata"
+
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import AnalyticsLoader from "./analytics/AnalyticsLoader.astro"
 
@@ -7,42 +9,52 @@ import "../styles/general.css"
 
 export interface Props {
 	title: string;
-	description: string;
+	description?: string;
 	image?: string;
+	ogType?: string;
+	keywords?: string[];
+	isUniqueTitle?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
----
+const { title, description, keywords, ogType = 'website', image = '/placeholder-social.jpg', isUniqueTitle = false } = Astro.props;
 
-<!-- Global Metadata -->
+const metaDescription: string = description || siteMetadata.description
+const metaKeywords: string[] = keywords || siteMetadata.keywords
+const metaTitle: string = isUniqueTitle
+    ? `${title}`
+    : `${title} by ${siteMetadata.title}`
+
+const metaImage = new URL(image, Astro.url)
+---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-<!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>{metaTitle}</title>
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta name="title" content={metaTitle} />
+<meta name="description" content={metaDescription} />
+<meta name="keywords" content={metaKeywords.join(',')} />
+<meta name="author" content={siteMetadata.author} />
+<meta name="image" property="og:image" content={metaImage} />
+
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={metaImage} />
 
-<!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
+<meta property="twitter:creator" content={siteMetadata.twitterAuthor} />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={metaTitle} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={metaImage} />
 
 <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@300;400;700&family=Ledger:wght@300;400;700&display=swap" />
 <AnalyticsLoader />

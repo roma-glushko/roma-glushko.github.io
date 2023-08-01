@@ -1,71 +1,54 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
+
 import MainNavigation from '@components/MainNavigation.astro';
 import ThemeSwitcher from '@components/ThemeSwitcher';
 import BlogHeader from '@components/BlogHeader.astro';
 import PostTeaser from '@components/blog/PostTeaser.astro';
-import BaseHead from '@components/BaseHead.astro';
-import Footer from '@components/Footer.astro';
+import BlogLayout from '@layouts/BlogLayout.astro';
 
 import "../../styles/blog.css";
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
 ---
-<!DOCTYPE html>
-<html lang="en" class="blogpost-list-page">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<div class="blog-listing-wrapper">
-			<aside class="blog-sidebar">
-			  <div class="blog-header">
-				<BlogHeader
-				  spaceTitle="Blog"
-				  spaceLink="/blog/"
-				  isListing={true}
-				/>
-				<MainNavigation space={"blog"} />
-			  </div>
-			  <div class="blog-intro">
-				Technical notes about machine learning, data science, math and
-				software engineering. Recording what I learn everyday.
-			  </div>
-			  <div class="misc">
-				<div class="theme-switcher">
-				  <ThemeSwitcher client:load />
-				</div>
-			  </div>
-			</aside>
-			<main
-			  data-nosnippet=""
-			  class={`blog-list blog-grid ${!posts.length ? "no-posts" : ""}`}
-			>
-			  {!posts.length && (
-				<div class="no-posts-placeholder">
-				  Great posts will be here as soon as my muse comes back to me &nbsp;
-				  <span role="img" aria-label="magic will happen soon">
-					💫
-				  </span> &nbsp;
-				  <br />
-				  Come back soon &nbsp;
-				  <span aria-label="bye" role="img">
-					👋
-				  </span>
-				</div>
-			  )}
-			  {posts.map(
-				(post) => (
-				  <PostTeaser post={post} />
-				)
-			  )}
-			</main>
-			<div class="clearfix" />
-		</div>
-		<Footer />
-		<!-- <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }]} /> -->
-	</body>
-</html>
+<BlogLayout
+	title={"Blog"}
+	description={"Technical blog about software engineering, machine learning, and data science"}
+	keywords={[
+		"technical blog",
+		"software engineering blog",
+		"machine learning blog",
+		"math",
+		"engineering",
+		"data science",
+		"roman glushko blog",
+		"roma glushko blog",
+	]}
+>
+		<main
+		  data-nosnippet=""
+		  class={`blog-list blog-grid ${!posts.length ? "no-posts" : ""}`}
+		>
+		  {!posts.length && (
+			<div class="no-posts-placeholder">
+			  Great posts will be here as soon as my muse comes back to me &nbsp;
+			  <span role="img" aria-label="magic will happen soon">
+				💫
+			  </span> &nbsp;
+			  <br />
+			  Come back soon &nbsp;
+			  <span aria-label="bye" role="img">
+				👋
+			  </span>
+			</div>
+		  )}
+		  {posts.map(
+			(post) => (
+			  <PostTeaser post={post} />
+			)
+		  )}
+		</main>
+</BlogLayout>

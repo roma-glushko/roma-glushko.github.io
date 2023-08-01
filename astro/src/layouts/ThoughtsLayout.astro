@@ -1,0 +1,44 @@
+---
+import Footer from '@components/Footer.astro';
+import BaseHead from '../components/BaseHead.astro';
+import ThemeSwitcher from '@components/ThemeSwitcher';
+import MainNavigation from '@components/MainNavigation.astro';
+import ThoughtHeader from '@components/thoughts/ThoughtHeader.astro';
+import ThoughtAuthor from '@components/thoughts/ThoughtAuthor.astro';
+
+export interface Props {
+	title: string;
+	description: string;
+	keywords: string[];
+	image: string;
+}
+
+const { title, description, keywords, image } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en" class="thoughts-list-page">
+	<head>
+		<BaseHead 
+			title={title} 
+			description={description} 
+			keywords={keywords} 
+			image={image}
+		/>
+	</head>
+	<body>
+        <div class="thoughts-wrapper">
+            <ThoughtHeader listing={true} />
+            <aside class="thought-sidebar">
+              <ThoughtAuthor />
+              <MainNavigation space={"thoughts"} />
+              <div class="theme-switcher">
+                <ThemeSwitcher client:load />
+              </div>
+            </aside>
+			<slot />
+			<div class="clearfix" />
+		</div>
+		<Footer />
+		<!-- <BreadcrumbsSnippet crumbs={[{ "/thoughts/": "Thoughts" }]} /> -->
+  </body>
+</html>

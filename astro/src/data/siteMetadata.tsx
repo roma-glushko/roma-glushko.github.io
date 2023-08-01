@@ -1,4 +1,4 @@
-export const siteMetadata = {
+const siteMetadata = {
     title: `Roman Glushko`,
     description: `Hey 👋 My name is Roman and I'm a Machine Learning Engineer, Software Developer and Life Explorer 🧔🛠👨‍💻📚`,
     keywords: [
@@ -13,24 +13,9 @@ export const siteMetadata = {
       "open source",
       "web development",
     ],
-    author: `@roma_glushko`,
+    author: `Roman Glushko`,
+    twitterAuthor: `@roma_glushko`,
     siteUrl: `https://www.romaglushko.com`,
-    personRichSnippet: {
-      name: `Roman Glushko`,
-      alternateName: `Roman Hlushko`,
-      gender: `Male`,
-      jobTitle: `Machine Learning Engineer, Magento eCommerce Software Developer`,
-      worksFor: {
-        name: "DataRobot, Inc.",
-        sameAs: "https://www.datarobot.com/",
-      },
-      sameAs: [
-        `https://twitter.com/roma_glushko`,
-        `https://github.com/roma-glushko`,
-        `https://www.linkedin.com/in/glushko-roman`,
-        `https://www.kaggle.com/glushko`,
-        `https://leetcode.com/roma-glushko/`,
-        `https://keybase.io/roman_hlushko`,
-      ],
-    },
 };
+
+export default siteMetadata;

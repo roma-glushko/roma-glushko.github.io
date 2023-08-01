@@ -1,15 +1,14 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from "../../components/Footer.astro";
 import ThoughtAuthor from "../../components/thoughts/ThoughtAuthor.astro";
 import ThoughtContent from '../../components/thoughts/ThoughtContent.astro';
+import ThoughtHeader from '../../components/thoughts/ThoughtHeader.astro';
 
 import '../../styles/thoughtView.css'
-import { Fragment } from 'react';
-import ThoughtHeader from '../../components/thoughts/ThoughtHeader.astro';
+import ThoughtPostLayout from '@layouts/ThoughtPostLayout.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('thoughts');
@@ -24,51 +23,24 @@ type Props = CollectionEntry<'thoughts'>;
 
 const post = Astro.props;
 const { Content, remarkPluginFrontmatter: {timeToReadMin} } = await post.render();
+const {title, pubDate, excerpt, keywords, cover} = post.data
 ---
-<!DOCTYPE html>
-<html lang="en" class="thought-view-page">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-        <ThoughtHeader listing={false} />
-        <main>
-            <ThoughtContent
-              title={post.data.title}
-              pubDate={post.data.pubDate}
-              cover={post.data.cover}
-              timeToReadMin={timeToReadMin}
-            >
-                <Content />
-            </ThoughtContent>
-            <!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
-            <!-- <NewsletterForm /> -->
-        </main>
-        <aside class="thought-sidebar">
-            <ThoughtAuthor />
-            <!-- <ThoughtNavigation prev={prevThought} next={nextThought} /> -->
-        </aside>
-        <Footer />
-          <!-- <ArticleRichSnippet
-            title={title}
-            path={path}
-            datePublished={fullDate}
-            dateModified={fullDate} // gitLogLatestDate
-            content={rawMarkdownBody}
-            wordCount={words}
-            keywords={keywords}
-            cover={gatsbyImageData}
-            articleSection={"Thoughts"}
-            genre={[
-              "self-improvement",
-              "management",
-              "thoughts",
-              "life experience",
-              "life exploration",
-            ]}
-          /> -->
-          <!-- <BreadcrumbsSnippet
-            crumbs={[{ "/thoughts/": "Thoughts" }, { [path]: title }]}
-          /> -->
-    </body>
-</html>
+<ThoughtPostLayout
+  title={`${title}`}
+  description={excerpt}
+  keywords={keywords}
+  image={cover.image}
+>
+  <main>
+    <ThoughtContent
+      title={title}
+      pubDate={pubDate}
+      cover={cover}
+      timeToReadMin={timeToReadMin}
+    >
+        <Content />
+    </ThoughtContent>
+    <!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
+    <!-- <NewsletterForm /> -->
+  </main>
+</ThoughtPostLayout>

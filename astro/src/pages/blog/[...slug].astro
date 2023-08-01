@@ -1,6 +1,9 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { Themes } from '@components/ThemeSwitcher';
+import BlogComments from '@components/blog/BlogComments';
+import BlogContent from '@components/blog/BlogContent.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -15,7 +18,15 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content, remarkPluginFrontmatter: {timeToReadMin} } = await post.render();
+const {title, excerpt, pubDate, keywords, cover} = post.data
 ---
-<BlogPostLayout {...post.data} timeToReadMin={timeToReadMin}>
-	<Content />
+<BlogPostLayout title={title} description={excerpt} keywords={keywords} image={cover.image}>
+	<main>
+		<BlogContent title={title} pubDate={pubDate} keywords={keywords} cover={cover} timeToReadMin={timeToReadMin}>
+			<Content />
+		</BlogContent>
+		<!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
+		<!-- <NewsletterForm /> -->
+		<BlogComments theme={Themes.LIGHT} client:visible />
+	</main>
 </BlogPostLayout>
