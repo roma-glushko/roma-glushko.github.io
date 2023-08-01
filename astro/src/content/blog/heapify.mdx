@@ -26,7 +26,7 @@ Well, then we would reinvent ~~bicycle~~ the priority queue.
 
 The heap can be represented as an array or a list that is visualized as a nearly complete binary tree:
 
-![Max Heap](./img/max-heap.png "Max Heap")
+![Max Heap](/blog/heapify/max-heap.png "Max Heap")
 
 <div class="image-title">Max Heap</div>
 
@@ -65,7 +65,7 @@ We start moving from right to left, from the bottom to the top of the heap. For 
 
 However, this switching of the nodes may create a new violation on the levels below. So we need to perform the same procedure again for a node that became a child.
 
-`video: title: "Building a heap": ./img/heapify.mp4`
+`video: title: "Building a heap": /blog/heapify/heapify.mp4`
 
 <div class="image-title">Max Heapifying</div>
 
@@ -134,7 +134,7 @@ Another useful method to have is adding a new item to the heap. In this case, it
 
 Since the max heap property had stayed true before we add the new item, it's sufficient for us to check only parent nodes as we know that all child nodes should be less or equal to the parent value.
 
-`video: title: "Insert a new item to the heap": ./img/insert-a-new-item-to-the-heap.mp4`
+`video: title: "Insert a new item to the heap": /blog/heapify/insert-a-new-item-to-the-heap.mp4`
 
 <div class="image-title">Insert a new item to the heap</div>
 
@@ -177,7 +177,7 @@ That's not all. The extraction would remove the element from the heap and we can
 
 Like before, the safest way is to **replace the hole with the last leaf node** (not to change the heap property in other branches of the heap). The last item is just handy to use, but it's not necessarily the next needed candidate to be at the top of the heap. To make sure, we need to run the `heapify()` method which recursively fixes all violations.
 
-`video: title: "Extract the max element from the heap": ./img/extract-max-element-from-the-heap.mp4`
+`video: title: "Extract the max element from the heap": /blog/heapify/extract-max-element-from-the-heap.mp4`
 
 <div class="image-title">Extract the max element from the heap</div>
 
@@ -207,7 +207,7 @@ Now we have all components to implement one of the most frequent applications of
 
 Heap sort is just the extraction of `n` elements from the heap.
 
-`video: title: "Heap Sort In Action": ./img/heap-sort.mp4`
+`video: title: "Heap Sort In Action": /blog/heapify/heap-sort.mp4`
 
 <div class="image-title">Heap Sort In Action</div>
 
