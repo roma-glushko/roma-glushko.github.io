@@ -1,10 +1,13 @@
 ---
 import Footer from '@components/Footer.astro';
-import BaseHead from '../components/BaseHead.astro';
+import BaseHead from '@components/BaseHead.astro';
 import ThemeSwitcher from '@components/ThemeSwitcher';
 import MainNavigation from '@components/MainNavigation.astro';
 import ThoughtHeader from '@components/thoughts/ThoughtHeader.astro';
 import ThoughtAuthor from '@components/thoughts/ThoughtAuthor.astro';
+
+import "@styles/theme.css"
+import "@styles/general.css"
 
 export interface Props {
 	title: string;

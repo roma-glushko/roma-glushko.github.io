@@ -1,12 +1,12 @@
 ---
 import { Picture } from '@astrojs/image/components';
 
-import Date from "../Date.astro"
+import Date from "@components/Date.astro"
 import MainNavigation from '@components/MainNavigation.astro';
 import ThemeSwitcher from '@components/ThemeSwitcher';
 
 import "./ThoughtContent.css"
-import "../../styles/content.css";
+import "@styles/content.css";
 
 const {title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeToReadMin} = Astro.props;
 ---
