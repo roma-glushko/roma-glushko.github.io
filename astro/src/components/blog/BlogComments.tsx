@@ -1,14 +1,14 @@
 import * as React from "react"
 import { useEffect, useRef } from "react"
-import { Themes } from "../ThemeSwitcher"
+import { useStore } from "@nanostores/react"
 
-interface Props {
-  theme: Themes
-}
+import { Themes } from "@components/ThemeSwitcher"
+import { themeStore } from "src/stores/theme"
 
 // https://www.vincentntang.com/installing-gatsbyjs-blog-comments/
-const Comments = ({ theme }: Props) => {
+const Comments = () => {
   const commentBox = useRef(null)
+  const $theme = useStore(themeStore)
 
   useEffect(() => {
     const commentScript: HTMLScriptElement = document.createElement("script")
@@ -23,12 +23,13 @@ const Comments = ({ theme }: Props) => {
       `roma-glushko/romaglushkocom-discussions`
     )
     commentScript.setAttribute("issue-term", `pathname`)
-    commentScript.setAttribute("theme", `github-light`)
+    commentScript.setAttribute("theme", themeStore.get() == Themes.LIGHT ? `github-light` : `github-dark`)
 
     commentScript.setAttribute("data-nosnippet", ``)
-
+    
+    commentBox.current.innerHTML = ""
     commentBox.current.appendChild(commentScript)
-  }, [commentBox])
+  }, [$theme])
 
   return <div ref={commentBox} className="comment-box" />
 }
