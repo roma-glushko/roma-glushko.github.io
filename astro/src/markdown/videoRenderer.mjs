@@ -1,18 +1,6 @@
 // inspired by https://github.com/nullhook/gatsby-remark-video/blob/master/index.js
 import { visit } from 'unist-util-visit';
 
-// export type VideoOptions = {
-//     width: number | string;
-//     height: number | string;
-//     title: string | undefined;
-//     preload: string | undefined;
-//     muted: string | undefined;
-//     autoplay: boolean;
-//     playsinline: boolean;
-//     controls: boolean;
-//     loop: boolean;
-// }
-
 const matchRegExp = new RegExp(
     // Look for a "video" and then possibly ':' and then a space
     `video:?\\s` +
@@ -46,27 +34,49 @@ const renderVideoTag = (url, options) => {
 	`;
 };
 
+const getVideoProperties = (url, options) => {
+    return {
+        src: url,
+        width: options.width,
+        height: options.height,
+        preload: options.preload,
+        preload: options.preload,
+        muted: options.muted,
+        title: options.title,
+        autoplay: options.autoplay,
+        playsinline: options.playsinline,
+        controls: options.controls,
+        loop: options.loop,
+    }
+}
+
 const RehypeVideo = (options) => {
     const visitor = (node) => {
-        const {value} = node;
+        if (node.tagName !== "code") return;
+        if (node.children.length != 1) return;
+
+        const { value } = node.children[0];
         const matches = value.match(matchRegExp);
 
         if (matches) {
+            console.log(matches)
+
             const title = matches[1]; // May be null
             const url = matches[2].trim();
-
-            node.type = 'html';
-            node.value = renderVideoTag(url, {
+            
+            node.tagName = 'video'
+            node.properties = getVideoProperties(url, {
                 ...options,
                 title: title || url
-            });
+            })
+            node.children = []
         }
     }
 
-    return (tree) => {
-        visit(tree, 'inlineCode', visitor);
+    return (root) => {
+        visit(root, 'element', visitor);
 
-        return tree
+        return root
     }
 }
 

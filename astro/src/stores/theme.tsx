@@ -1,4 +1,4 @@
-import { Themes } from '@components/ThemeSwitcher';
+import type { Themes } from '@components/ThemeSwitcher';
 import { persistentAtom } from '@nanostores/persistent'
 
 
