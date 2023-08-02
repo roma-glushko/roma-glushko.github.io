@@ -59,8 +59,6 @@ const RehypeVideo = (options) => {
         const matches = value.match(matchRegExp);
 
         if (matches) {
-            console.log(matches)
-
             const title = matches[1]; // May be null
             const url = matches[2].trim();
             
