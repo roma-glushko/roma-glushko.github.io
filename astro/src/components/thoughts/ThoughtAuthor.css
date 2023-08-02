@@ -27,7 +27,7 @@
 }
 
 .thought-author-wrapper .thought-section-descr {
+    max-width: 350px;
     font-size: 0.9rem;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 auto;
 }
