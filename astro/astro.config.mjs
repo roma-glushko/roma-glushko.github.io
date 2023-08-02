@@ -28,6 +28,7 @@ export default defineConfig({
   site: 'https://www.romaglushko.com/',
   // trailingSlash: "always",
   output: 'static',
+  compressHTML: true,
   markdown: {
     drafts: true,
     syntaxHighlight: "prism",

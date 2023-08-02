@@ -1,17 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
 
-import HomeLayout from '../layouts/HomeLayout.astro';
-import Avatar from '../components/Avatar.astro';
-import MyTitles from '../components/home/MyTitles.astro';
-import MainNavigation from '../components/MainNavigation.astro';
-import ThemeSwitcher from '../components/ThemeSwitcher';
-import NetworkBackground from '../components/home/NetworkBackground';
-import SocialLinks from '../components/SocialLinks.astro';
-
-import "../styles/index.css"
+import HomeLayout from '@layouts/HomeLayout.astro';
+import Avatar from '@components/Avatar.astro';
+import MyTitles from '@components/home/MyTitles.astro';
+import MainNavigation from '@components/MainNavigation.astro';
+import ThemeSwitcher from '@components/ThemeSwitcher';
+import NetworkBackground from '@components/home/NetworkBackground';
+import SocialLinks from '@components/SocialLinks.astro';
 import PostTeaser from '@components/blog/PostTeaser.astro';
 import ThoughtTeaser from '@components/thoughts/ThoughtTeaser.astro';
+
+import "@styles/index.css"
 
 const recentPosts = (await getCollection('blog'))
 	.sort(
@@ -32,12 +32,12 @@ const recentThoughts = (await getCollection('thoughts'))
 >
 	<div class="intro">
 		<div id="hero-header" class="hero-header homepage-sidebar">
-		<!-- <NetworkBackground client:load /> -->
+		<NetworkBackground client:only />
 		<figure class="hero-intro">
 			<div class="logo">
-			<div class="avatar">
-				<Avatar />
-			</div>
+				<div class="avatar">
+					<Avatar />
+				</div>
 			</div>
 			<h1 class="name">
 				<span class="first-name">Roman</span>{" "}

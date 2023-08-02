@@ -1,6 +1,6 @@
 const siteMetadata = {
     title: `Roman Glushko`,
-    description: `Hey 👋 My name is Roman and I'm a Machine Learning Engineer, Software Developer and Life Explorer 🧔🛠👨‍💻📚`,
+    description: `Hey 👋 My name is Roman and I'm a Machine Learning and Software Engineer, Life Explorer 🧔🛠👨‍💻📚`,
     keywords: [
       "Roman Glushko",
       "Roma Glushko",
@@ -9,7 +9,6 @@ const siteMetadata = {
       "machine learning",
       "deep learning",
       "magento",
-      "eCommerce",
       "open source",
       "web development",
     ],

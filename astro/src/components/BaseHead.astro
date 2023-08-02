@@ -43,6 +43,9 @@ const metaImage = new URL(image, Astro.url)
 <meta name="author" content={siteMetadata.author} />
 <meta name="image" property="og:image" content={metaImage} />
 
+<meta name="robots" content="index, follow" />
+
+<meta property="og:site_name" content={siteMetadata.title} />
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={metaTitle} />

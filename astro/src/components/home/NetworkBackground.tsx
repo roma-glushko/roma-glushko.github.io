@@ -1,23 +1,47 @@
-import React from "react"
+import React, {useEffect} from "react"
+
+import { useStore } from "@nanostores/react"
+
 import { TweenLite, Circ } from "gsap/all"
 import "gsap/CSSPlugin"
 
-import "./NNBackground.css"
+import { themeStore } from "src/stores/theme"
+import { Themes } from "@components/ThemeSwitcher"
+
+import "./NetworkBackground.css"
 
 // Bright Theme - rgba(31, 43, 49) || 95, 99, 106
 // Dark Theme - rgba(228, 232, 240)
 
+interface ColorSchema {
+  circleColor: string;
+  lineColor: string;
+}
+
+interface Point {
+  x: number;
+  y: number;
+  originX: number;
+  originY: number;
+  active: number;
+  circle?: Circle;
+  closest: Point[];
+}
+
 class Circle {
-  constructor(ctx, pos, rad, color) {
+  constructor(ctx, pos, rad: number, color: string, active: number) {
     this.drawCtx = ctx
     this.pos = pos || null
     this.radius = rad || null
     this.color = color || null
+    this.active = active || null
   }
 
-  draw = function () {
-    if (!this.active) return
-
+  draw = () => {
+    if (!this.active) {
+      return
+    }
+    
     this.drawCtx.beginPath()
     this.drawCtx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false)
     this.drawCtx.fillStyle = this.color.replace("{alpha}", this.active)
@@ -26,15 +50,31 @@ class Circle {
 }
 
 // Util
-const getDistance = (p1, p2) => {
+const getDistance = (p1: Point, p2: Point): number =>  {
   return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)
 }
 
-class NNBackground extends React.Component {
-  componentDidMount() {
-    const { theme } = this.props
-    console.log(theme)
-    const colors = this.getColorsByTheme(theme)
+const getColorsByTheme = (theme: Themes): ColorSchema => {
+  if (theme === Themes.DARK) {
+    return {
+      circleColor: `rgba(228, 232, 240, {alpha})`,
+      lineColor: `rgba(228, 232, 240, {alpha})`,
+    }
+  }
+
+  return {
+    circleColor: `rgba(95, 99, 106, {alpha})`,
+    lineColor: `rgba(95, 99, 106, {alpha})`,
+  }
+}
+
+const NetworkBackground = (): JSX.Element => {
+  const canvasID: string = "neural-network-background"
+  const $theme = useStore(themeStore)
+  const followCursor: boolean = false;
+
+  useEffect(() => {
+    const colors = getColorsByTheme(themeStore.get())
 
     ;(function () {
       const pointSize = 3
@@ -42,7 +82,7 @@ class NNBackground extends React.Component {
       const kNeighbors = 6
 
       // https://codepen.io/MarcoGuglielmelli/pen/lLCxy
-      const largeHeader = document.getElementById("hero-header")
+      const largeHeader: HTMLDivElement = document.getElementById("hero-header") as HTMLDivElement
 
       let width = largeHeader.offsetWidth
       let height = largeHeader.offsetHeight
@@ -52,13 +92,14 @@ class NNBackground extends React.Component {
         y: height * 0.4,
       }
 
-      const canvas = document.getElementById("neural-network-background")
+      const canvas: HTMLCanvasElement = document.getElementById(canvasID) as HTMLCanvasElement
+
       canvas.width = width
       canvas.height = height
 
-      const ctx = canvas.getContext("2d")
+      const ctx: CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D
 
-      let points = []
+      let points: Point[] = []
 
       const initHeader = () => {
         // create points
@@ -75,6 +116,8 @@ class NNBackground extends React.Component {
               originX: px,
               y: py,
               originY: py,
+              active: 0,
+              closest: [],
             })
           }
         }
@@ -121,29 +164,29 @@ class NNBackground extends React.Component {
             ctx,
             points[i],
             pointSize + Math.random() * pointSize,
-            colors["circleColor"]
+            colors.circleColor,
+            0,
           )
         }
       }
 
       // Event handling
       const addListeners = () => {
-        if (!("ontouchstart" in window)) {
+        if (followCursor && !("ontouchstart" in window)) {
           largeHeader.addEventListener("mousemove", mouseMove)
         }
 
         window.addEventListener("resize", resize)
       }
 
-      const mouseMove = (e) => {
-        if (canvas !== e.path[0]) {
+      const mouseMove = (e: MouseEvent) => {
+        if (canvas !== e.target) {
           // track only mouse movements on the canvas element.
           // Otherwise, coordinates would be related to small children elements
           return
         }
 
-        let posx = 0,
-          posy = 0
+        let posx = 0, posy = 0
 
         let rect = e.target.getBoundingClientRect()
 
@@ -190,14 +233,14 @@ class NNBackground extends React.Component {
             points[i].circle.active = 0
           }
 
-          drawLines(points[i], colors["lineColor"])
-          points[i].circle.draw()
+          drawLines(points[i], colors.lineColor)
+          points[i].circle?.draw()
         }
 
         requestAnimationFrame(animate)
       }
 
-      const shiftPoint = (p) => {
+      const shiftPoint = (p: Point) => {
         TweenLite.to(p, 1 + 1 * Math.random(), {
           x: p.originX - 50 + Math.random() * 100,
           y: p.originY - 50 + Math.random() * 100,
@@ -209,7 +252,7 @@ class NNBackground extends React.Component {
       }
 
       // Canvas manipulation
-      const drawLines = (p, lineColor) => {
+      const drawLines = (p: Point, lineColor: string) => {
         if (!p.active) return
 
         for (var i in p.closest) {
@@ -226,25 +269,9 @@ class NNBackground extends React.Component {
       initAnimation()
       addListeners()
     })()
-  }
+  }, [$theme]);
 
-  getColorsByTheme(theme) {
-    if (theme === "dark") {
-      return {
-        circleColor: `rgba(228, 232, 240, {alpha})`,
-        lineColor: `rgba(228, 232, 240, {alpha})`,
-      }
-    }
-
-    return {
-      circleColor: `rgba(95, 99, 106, {alpha})`,
-      lineColor: `rgba(95, 99, 106, {alpha})`,
-    }
-  }
-
-  render() {
-    return <canvas id="neural-network-background"></canvas>
-  }
+  return <canvas id={canvasID}></canvas>
 }
 
-export default NNBackground
+export default NetworkBackground

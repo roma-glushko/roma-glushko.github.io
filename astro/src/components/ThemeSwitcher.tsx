@@ -1,5 +1,7 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
+import { useStore } from "@nanostores/react"
+import { themeStore } from "../stores/theme"
 
 import "./ThemeSwitcher.css"
 
@@ -15,38 +17,37 @@ interface ThemeProps {
 
 const ThemeSwitcher = (): JSX.Element => {
   const [mounted, setMounted] = useState(false)
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? Themes.LIGHT)
+  const $theme = useStore(themeStore);
 
   const switchTheme = () => {
-    console.log("theme: ", theme)
-    setTheme(theme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT);
+    themeStore.set($theme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT);
   };
 
   useEffect(() => {
     setMounted(true)
-
-    if (theme === Themes.DARK) {
-      document.body.classList.add(Themes.DARK);
-    } else {
-      document.body.classList.remove(Themes.DARK);
-    }
-
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  });
 
   if (!mounted) {
     return <></>
   }
 
+  themeStore.subscribe(theme => {
+    if (theme === Themes.DARK) {
+      document.body.classList.add(Themes.DARK);
+    } else {
+      document.body.classList.remove(Themes.DARK);
+    }
+  })
+
   return (
-    <div className={"theme-switcher-toggler" + (theme === Themes.DARK ? " theme-switcher-toggler--checked" : "")} onClick={switchTheme}>
+    <div className={"theme-switcher-toggler" + ($theme === Themes.DARK ? " theme-switcher-toggler--checked" : "")} onClick={switchTheme}>
       <div className="theme-switcher-track" />
       <div className="theme-switcher-thumb" />
 
       <input
         className="theme-switcher-input"
         type="checkbox"
-        checked={theme === Themes.DARK}
+        checked={$theme === Themes.DARK}
         readOnly={true}
         aria-label="Switch between dark and light themes"
       />
