@@ -30,6 +30,7 @@
     "nanostores": "^0.9.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-rotating-text": "^1.4.1",
     "reading-time": "^1.5.0",
     "rehype-katex": "^6.0.3",
     "rehype-plugin-image-native-lazy-loading": "^1.2.0",
