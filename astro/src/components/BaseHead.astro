@@ -49,14 +49,14 @@ const metaImage = new URL(image, Astro.url)
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={metaTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={metaImage} />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:creator" content={siteMetadata.twitterAuthor} />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={metaTitle} />
-<meta property="twitter:description" content={description} />
+<meta property="twitter:description" content={metaDescription} />
 <meta property="twitter:image" content={metaImage} />
 
 <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@300;400;700&family=Ledger:wght@300;400;700&display=swap" />

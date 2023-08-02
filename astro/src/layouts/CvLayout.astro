@@ -1,0 +1,69 @@
+---
+import BaseHead from "@components/BaseHead.astro";
+import MainNavigation from "@components/MainNavigation.astro";
+import CVHeader from "@components/cv/CVHeader.astro";
+import SocialLinks from "@components/SocialLinks.astro";
+import ThemeSwitcher from "@components/ThemeSwitcher";
+
+import "@styles/theme.css"
+import "@styles/general.css"
+import "@styles/cv.css"
+
+const { title, description, position, keywords } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en" class="cv-view-page">
+<head>
+    <BaseHead 
+        title={title} 
+        description={description} 
+        keywords={keywords} 
+        ogType={`website`}
+        image={`/blog/roman-glushko-in-the-process-of-work.jpg`}
+    />
+</head>
+<body>
+    <main
+        itemscope
+        itemtype="http://schema.org/Person"
+        class="cv cv-machine-learning-engineer"
+    >
+        <div
+            class="pdf-badge"
+            onClick={() => {
+            // trackCustomEvent({
+            //     category: "cv",
+            //     action: "download",
+            //     label: "machine-learning",
+            // })
+
+            // typeof window !== "undefined" &&
+            //     typeof window.gtag !== "undefined" &&
+            //     window.gtag("event", "download", {
+            //     event_category: "cv",
+            //     event_label: "machine-learning",
+            //     })
+
+            // window.print()
+            }}
+            title="Download CV as a PDF file"
+        >
+            <a>pdf</a>
+        </div>
+        <header>
+            <div class="theme-switcher">
+                <ThemeSwitcher client:only />
+            </div>
+            <MainNavigation space={"cv"} />
+            <CVHeader position={position} />
+            <SocialLinks showPatreon={false} />
+        </header>
+        <div class="cv-content">
+            <slot />
+        </div>
+    </main>
+    <!-- <BreadcrumbsSnippet
+    crumbs={[{ "/cv/machine-learning-engineer/": "ML/DL Engineer CV" }]}
+    /> -->
+</body>
+</html>
