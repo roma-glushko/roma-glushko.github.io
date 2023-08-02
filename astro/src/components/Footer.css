@@ -1,10 +1,10 @@
-body {
+html {
     --footerIconColor: var(--blackLigher);
     --footerBgColor: var(--grey);
     --copyrightColor: var(--midnightDarker);
 }
 
-body.dark {
+html.dark {
     --footerIconColor: var(--white);
     --footerBgColor: var(--midnightDarker);
     --copyrightColor: var(--grey);

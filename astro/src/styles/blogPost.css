@@ -2,11 +2,11 @@
 ** Blog Post Page
 **/
 
-body {
+html {
     --thoughtQuoteColor: var(--red);
 }
 
-body.dark {
+html.dark {
     --thoughtQuoteColor: var(--pink);
 }
 
@@ -89,13 +89,13 @@ body.dark {
 
 /** Theme variables **/
 
-body {
+html {
     --blogHeaderColor: var(--red);
     --blogTagColor: gray;
     --imageTitleColor: gray;
 }
 
-body.dark {
+html.dark {
     --blogHeaderColor: var(--pink);
     --blogTagColor: var(--grey);
     --imageTitleColor: #8b949e;

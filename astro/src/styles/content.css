@@ -1,13 +1,13 @@
 /** Remark Styling **/
 
-body {
+html {
     --backquoteBorderColor: var(--red);
     --imageTitleColor: gray;
     --inlineCodeColor: var(--black);
     --inlineCodeBgColor: var(--grey);
 }
 
-body.dark {
+html.dark {
     --backquoteBorderColor: var(--pink);
     --imageTitleColor: #8b949e;
     --inlineCodeColor: var(--white);

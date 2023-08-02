@@ -4,12 +4,12 @@
  * @author ocodia
  */
 
- body {
+ html {
     --admonitionBgColor: var(--white);
     --admonitionColor: var(--black);
 }
 
-body.dark {
+html.dark {
     --admonitionBgColor: var(--midnight);
     --admonitionColor: var(--white);
 }

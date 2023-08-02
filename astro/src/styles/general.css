@@ -1,6 +1,6 @@
 /** Theme variables **/
 
-body {
+html {
     --bodyBackgroundColor: var(--white);
     --bodyTextColor: var(--black);
     --linkColor: var(--black);
@@ -9,7 +9,7 @@ body {
     --thoughtCoverBlendMode: lighten;
 }
 
-body.dark {
+html.dark {
     --bodyBackgroundColor: var(--midnight);
     --bodyTextColor: var(--white);
     --linkColor: var(--white);
@@ -81,7 +81,7 @@ a:hover {
     user-select: none;
 }
 
-body.dark .cover-filter {
+html.dark .cover-filter {
     -webkit-filter: brightness(0.5);
     filter: brightness(0.5);
 }

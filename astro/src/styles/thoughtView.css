@@ -2,11 +2,11 @@
 ** Thought View Page
 **/
 
-body {
+html {
     --thoughtQuoteColor: var(--red);
 }
 
-body.dark {
+html.dark {
     --thoughtQuoteColor: var(--pink);
 }
 

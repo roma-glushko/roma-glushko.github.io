@@ -1,11 +1,11 @@
 /** Theme variables **/
 
-body {
+html {
     --contentTextColor: var(--black);
     --contentNavColor: gray;
 }
 
-body.dark {
+html.dark {
     --contentTextColor: var(--white);
     --contentNavColor: #8b949e;
 }

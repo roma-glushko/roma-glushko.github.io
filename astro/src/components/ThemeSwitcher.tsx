@@ -33,9 +33,9 @@ const ThemeSwitcher = (): JSX.Element => {
 
   themeStore.subscribe(theme => {
     if (theme === Themes.DARK) {
-      document.body.classList.add(Themes.DARK);
+      document.documentElement.classList.add(Themes.DARK);
     } else {
-      document.body.classList.remove(Themes.DARK);
+      document.documentElement.classList.remove(Themes.DARK);
     }
   })
 

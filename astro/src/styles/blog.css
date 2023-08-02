@@ -1,10 +1,10 @@
 /** Theme variables **/
 
-body {
+html {
     --thoughtsPageTitleColor: var(--red);
 }
 
-body.dark {
+html.dark {
     --thoughtsPageTitleColor: var(--pink);
 }
 

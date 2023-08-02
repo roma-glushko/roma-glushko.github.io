@@ -1,6 +1,6 @@
 /** Theme variables **/
 
-body {
+html {
     --socialBackgroundColor: var(--white);
     --activityTitleColor: var(--red);
     --allPostsButtonColor: var(--black);
@@ -12,7 +12,7 @@ body {
     --socialLinkBorderHoverColor: var(--red);
 }
 
-body.dark {
+html.dark {
     --socialBackgroundColor: var(--midnight);
     --activityTitleColor: var(--pink);
     --allPostsButtonColor: var(--grey);

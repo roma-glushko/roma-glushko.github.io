@@ -1,11 +1,11 @@
 /** Theme variables **/
 
-body {
+html {
     --themeSwitcherTrackBackgroundColor: var(--grey);
     --themeSwitcherThumbBackgroundColor: var(--white);
 }
 
-body.dark {
+html.dark {
     --themeSwitcherTrackBackgroundColor: var(--midnightDarker);
     --themeSwitcherThumbBackgroundColor: var(--grey);
 }

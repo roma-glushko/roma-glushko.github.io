@@ -1,6 +1,6 @@
 /** Theme variables **/
 
-body {
+html {
     --thoughtTeaserHeaderLinkColor: var(--red);
 
     --thoughtNewBadgeColor: var(--white);
@@ -8,7 +8,7 @@ body {
     --thoughtReadBadgeBgColor: var(--regentGray);
 }
 
-body.dark {
+html.dark {
     --thoughtTeaserHeaderLinkColor: var(--pink);
 
     --thoughtNewBadgeColor: var(--midnight);

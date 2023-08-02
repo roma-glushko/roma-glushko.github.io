@@ -1,9 +1,9 @@
-body {
+html {
     --headerTitleColor: var(--red);
     --blogAvatarBorderColor: var(--grey);
 }
 
-body.dark {
+html.dark {
     --headerTitleColor: var(--pink);
     --blogAvatarBorderColor: var(--grey);
 }

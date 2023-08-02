@@ -1,8 +1,8 @@
-body {
+html {
     --socialShareBorderHoverColor: var(--red);
 }
 
-body.dark {
+html.dark {
     --socialShareBorderHoverColor: var(--pink);
 }
 

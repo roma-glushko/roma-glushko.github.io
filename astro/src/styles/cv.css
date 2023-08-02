@@ -1,10 +1,10 @@
-body {
+html {
     --nameColor: var(--red);
     --pdfBadgeColor: var(--brownDarker);
     --pdfBadgeHoverColor: var(--red);
 }
 
-body.dark {
+html.dark {
     --nameColor: var(--pink);
     --pdfBadgeColor: var(--midnightDarker);
     --pdfBadgeHoverColor: var(--pink);
@@ -186,7 +186,7 @@ body.dark {
 }
 
 @media print {
-    body.dark {
+    html.dark {
         --nameColor: var(--red);
         --pdfBadgeColor: var(--brownDarker);
         --pdfBadgeHoverColor: var(--red);

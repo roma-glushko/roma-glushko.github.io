@@ -1,11 +1,11 @@
 /** Theme variables **/
 
-body {
+html {
     --thoughtHeaderColor: var(--red);
     --imageTitleColor: gray;
 }
 
-body.dark {
+html.dark {
     --thoughtHeaderColor: var(--pink);
     --imageTitleColor: #8b949e;
 }

@@ -1,9 +1,9 @@
-body {
+html {
     --pokeballBgColor: var(--white);
     --pokeBadgeBgColor: var(--grey);
 }
 
-body.dark {
+html.dark {
     --pokeballBgColor: var(--grey);
     --pokeBadgeBgColor: var(--blackLigher);
 }
