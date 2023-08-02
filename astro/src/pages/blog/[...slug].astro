@@ -1,25 +1,40 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 import BlogPostLayout from '@layouts/BlogPostLayout.astro';
-import { Themes } from '@components/ThemeSwitcher';
 import BlogComments from '@components/blog/BlogComments';
 import BlogContent from '@components/blog/BlogContent.astro';
+import BlogNavigation from '@components/blog/BlogNavigation.astro';
+import { getBlogPosts } from 'src/content/collections';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const posts = await getBlogPosts();
+	const postCount = posts.length
 	
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+	return posts.map((post, idx) => {
+		const prevPost = (idx - 1) >= 0 ? posts[idx - 1] : undefined
+		const nextPost = (idx + 1) < postCount ? posts[idx + 1] : undefined
+
+		return {
+			params: { slug: post.slug },
+			props: {
+				"prev": prevPost,
+				"current": post,
+				"next": nextPost,
+			},
+		}
+	});
 }
 
-type Props = CollectionEntry<'blog'>;
+export interface Props {
+	prev?: CollectionEntry<'blog'>;
+	current: CollectionEntry<'blog'>;
+	next?: CollectionEntry<'blog'>;
+}
 
-const post = Astro.props;
-const { Content, remarkPluginFrontmatter: {timeToReadMin} } = await post.render();
-const {title, excerpt, pubDate, keywords, cover} = post.data
+const {prev, current, next} = Astro.props;
+const { Content, remarkPluginFrontmatter: { timeToReadMin } } = await current.render();
+const {title, excerpt, pubDate, keywords, cover} = current.data
 ---
 <BlogPostLayout title={title} description={excerpt} keywords={keywords} image={cover.image}>
 	<main>
@@ -28,6 +43,9 @@ const {title, excerpt, pubDate, keywords, cover} = post.data
 		</BlogContent>
 		<!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
 		<!-- <NewsletterForm /> -->
-		<BlogComments theme={Themes.LIGHT} client:visible />
+		<BlogComments client:visible />
+		<aside class="blogpost-sidebar">
+			<BlogNavigation prev={prev} next={next} />
+		</aside>
 	</main>
 </BlogPostLayout>

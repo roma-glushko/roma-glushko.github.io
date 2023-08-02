@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getBlogPosts, getThoughts } from 'src/content/collections';
 
 import HomeLayout from '@layouts/HomeLayout.astro';
 import Avatar from '@components/Avatar.astro';
@@ -13,17 +13,8 @@ import ThoughtTeaser from '@components/thoughts/ThoughtTeaser.astro';
 
 import "@styles/index.css"
 
-const recentPosts = (await getCollection('blog'))
-	.sort(
-		(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-	)
-	.slice(0, 3)
-
-const recentThoughts = (await getCollection('thoughts'))
-	.sort(
-		(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-	)
-	.slice(0, 3)
+const recentPosts = (await getBlogPosts()).slice(0, 3)
+const recentThoughts = (await getThoughts()).slice(0, 3)
 ---
 
 <HomeLayout 

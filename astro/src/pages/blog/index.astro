@@ -1,18 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { getBlogPosts } from 'src/content/collections';
 
-import MainNavigation from '@components/MainNavigation.astro';
-import ThemeSwitcher from '@components/ThemeSwitcher';
-import BlogHeader from '@components/BlogHeader.astro';
 import PostTeaser from '@components/blog/PostTeaser.astro';
 import BlogLayout from '@layouts/BlogLayout.astro';
 
 import "../../styles/blog.css";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-
+const posts = await getBlogPosts()
 ---
 <BlogLayout
 	title={"Blog"}

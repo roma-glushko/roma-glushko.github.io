@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-
 import { Picture } from '@astrojs/image/components';
-import PostKeywords from "@components/blog/PostKeywords.astro"
 
+import { getBlogUrl } from 'src/content/routing';
+import PostKeywords from "@components/blog/PostKeywords.astro"
 import ReadingStatusBadge from "@components/blog/ReadingStatusBadge"
 import NewPostBadge from "@components/blog/NewPostBadge"
 import Date from "@components/Date.astro"
@@ -20,7 +20,7 @@ const {remarkPluginFrontmatter: {timeToReadMin}} = (await post.render())
 const slug = post.slug
 
 const postId = id || slug;
-const postURL = `/blog/${slug}/`;
+const postURL = getBlogUrl(slug)
 ---
 <article class="blog-item">
   <a class="article-header" href={postURL}>
@@ -51,7 +51,7 @@ const postURL = `/blog/${slug}/`;
       <span class={`blog-time2read`}>
         {timeToReadMin}
       </span>
-      <ReadingStatusBadge contentId={postId} client:only />
+      <ReadingStatusBadge contentID={postId} client:only />
     </div>
     <p class="blog-digest">{excerpt}</p>
     <PostKeywords keywords={keywords} />

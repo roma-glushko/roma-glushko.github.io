@@ -1,14 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-
 import ThoughtsLayout from '@layouts/ThoughtsLayout.astro';
 import ThoughtTeaser from '../../components/thoughts/ThoughtTeaser.astro';
 
 import '../../styles/thoughts.css';
+import { getThoughts } from 'src/content/collections';
 
-const thoughts = (await getCollection('thoughts')).sort(
-	(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const thoughts = await getThoughts()
 ---
 <ThoughtsLayout 
   title={"Thoughts"} 
