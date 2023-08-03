@@ -1,9 +1,10 @@
 ---
-import ThoughtsLayout from '@layouts/ThoughtsLayout.astro';
-import ThoughtTeaser from '../../components/thoughts/ThoughtTeaser.astro';
-
-import '../../styles/thoughts.css';
 import { getThoughts } from 'src/content/collections';
+
+import ThoughtsLayout from '@layouts/ThoughtsLayout.astro';
+import ThoughtTeaser from '@components/thoughts/ThoughtTeaser.astro';
+
+import '@styles/thoughts.css';
 
 const thoughts = await getThoughts()
 ---
