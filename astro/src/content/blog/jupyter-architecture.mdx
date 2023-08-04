@@ -12,4 +12,274 @@ cover:
     credits: Photo by <a href="https://www.pexels.com/photo/saturnus-12491661/" target="_blank" rel="noopener">ZCH</a>
 ---
 
+[Jupyter Notebooks](https://jupyter.org/) are a well-know part of the scintific toolkit. They help to execute code interactively and make it easy to plot diagrams as well as to show other kinds of graphics, forumals, etc. At this moment, it have gone beyond that and you can also have different controls (e.g. input boxes, sliders, file uploaders, so on), fully interactive charts (e.g. Plotly), or even your custom output types.
+That's extremely useful in areas that highly lean on data analysis like natural or data science. 
 
+[TODO: Insert Jupyter Lab Screenshot with some fancy plotly output]
+
+That basically made it popular. It is so popular that nowadays every major cloud providers have offerings that includes hosted Jupyter Notebooks connected to their computational resources like Google Colab, AWS SageMaker Notebooks, etc.
+
+In this article, we are going to discover how core Jupyter architecture and some interesting implementation details. 
+Since, Jupyter universe is expanding along with Jupyter's popularity, we will focus just on the bare core components:
+
+- Jupyter Kernels (using [IPyKernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) as an example)
+- Jupyter Notebook and Jupyter Lab
+
+## Notebook File
+
+What you have seen in the Jupyter UI is stored a notebook file with the `ipynb` extension. The notebook file is a JSON file with a [well-defined structure](http://ipython.org/ipython-doc/3/notebook/nbformat.html) like this:
+
+```json {4-21,23-42}
+{
+ "nbformat": 4,
+ "nbformat_minor": 5,
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.3"
+  }
+ },
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "bbc4a98a-5d22-4d84-ab16-526e7dab0984",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hey dudes 👋\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Hey dudes 👋\")"
+   ]
+  },
+ ],
+}
+```
+
+The notebook file has versioning via `nbformat.nbformat_minor{:.token}` attributes. 
+
+The main part of the document is the `cells` array. It actually contains source code and the corresponding output of all cells in the notebook. 
+Hence, the notebook is like a snapshot of what you have done in the Jupyter UI. You can save it and share with other people like a report without a need to rerun all the stuff to fully read it.
+
+The notebook format also contains extensible points in a form of `metadata` properties on the whole notebook, cell, and output levels. It's a simple key-value maps where other plugins could store additional information if needed.
+
+## Jupyter Kernels
+
+The heart of the Jupyter's architecture is in its kernel functionality. Jupyter kernel does all heavy lifting associtated with: 
+
+We have already mentioned some of the kernel functions briefly, but now let's outline them all:
+
+- code execution and resulting output/error propagation. This includes code that normally prompt users to type something in shell's stdin (like [Python's input() function](https://docs.python.org/3/library/functions.html#input))
+- code completion at a given cursor position
+- code inspection 
+- code debugging
+- kernel interruption on long code executions
+- execution history retrival
+- some more functions around kernel's information
+
+While this is a complete set of kenrnel actions, in reality some kernels may not not support of the functionality. 
+For example, R kernel is lacking support of [the kernel interruption](https://github.com/IRkernel/IRkernel/issues/727) and some other things.
+
+On the very basic level, Jupyter Kernel is a Unix process that binds five ports and allows to be controlled by sending messages there. 
+The ports are binded to `channels` and all communication between the kernel and external world happens asynchoniously via message exchange throught the channels.
+
+### Jupyter Kernel Protocol
+
+![Jupyter Kernel Overview](/blog/jupyter-architecture/jupyter-kernel-overview.png "Jupyter Kernel Overview")
+<div class="image-title">Jupyter Kernel Overview</div>
+
+The ports are connected to [ZMQ sockets](https://zguide.zeromq.org/docs/chapter2/) that implement either REQ/REP or PUB/SUB messaging patterns depending on the channel type.
+
+Jupyter Kernels heavily use ZMQ primities and messaging patterns which impacted the way the kernel protocol was designed.
+
+For example, The request-reply (e.g. REQ/REP) pattern implies that the client sends a request message that contains an action (e.g. execute code, complete code, retrieve history, etc) and then waits for corresponding reply message from the kernel. 
+It's essentially an async version of RPC calls.
+
+Here is a list of channels the kernel exposes:
+
+- `shell` (REQ/REP) - a main action request/reply channel for code execution, inspection, completion, execution status, messages, etc.
+- `iopub` (PUB/SUB) - a main broadcast channel that relays kernel status, execution output streams messages, etc.
+- `control` (REQ/REP) - a system "privillaged" channel to signal kernel shutdown, resume debugged code, interrupt code execution
+- `stdin` (REQ/REP) - a channel for user prompt request/reply messages
+- `heartbeat` - Another system channel that for ping-pong-like health checks 
+
+Jupyter has several separate REQ/REP channels to buffer incoming messages differently, so important messages like the kernel shutdown don't have to wait until all previous messages were executed to take effect.
+
+### Typical Workflow
+
+To see how the above channels play together, let's review the code execution workflow.
+
+When you type something like ```print(hey)``` in a notebook cell and execute the cell, this is what happens.
+
+![The Code Execution Workflow](/blog/jupyter-architecture/jupyter-kernel-exec-flow.png "The Code Execution Workflow")
+<div class="image-title">The Code Execution Workflow</div>
+
+First off, we need to request a code exectution via the `shell` channel by sending a message like this:
+
+```json {5, 11-18}
+{
+  "header":{
+    "msg_id":"71266d1336a9481e90f85dcfe86c5079",
+    "version":"5.2",
+    "msg_type":"execute_request",
+    "date":"2023-08-03T13:47:27.791Z",
+    "username":"roma",
+    "session":"f8d6d29d3ddd4c5bbd5f72cc1b0e87bd",
+  },
+  "metadata":{},
+  "content":{
+    "code":"print(\"hey\")",
+    "silent":false,
+    "store_history":true,
+    "user_expressions":{},
+    "allow_stdin":true,
+    "stop_on_error":true
+  },
+  "buffers":[],
+  "parent_header":{},
+}
+```
+
+In this message, the `header.msg_type` indicates the target action in the `[action]_request` format. 
+The `content` field contains action's details like the exact code to execute.
+Since, this message inits a new code execution workflow, its header's data is going to be attached to all related messages triggered by the workflow.
+
+The execute_request triggers a bunch of followup messages and most of them are sent via the `iopub` channel including the actual output of the executed cell:
+
+```json {5, 10-17, 21-24}
+{
+  "header": {
+    "msg_id": "c80bed83-d8a85fd21dc416c2831b634a_55711_96", 
+    "version": "5.3",
+    "msg_type": "stream", 
+    "date": "2023-08-03T13:47:27.799887Z",
+    "username": "roma", 
+    "session": "c80bed83-d8a85fd21dc416c2831b634a",
+  }, 
+  "parent_header": {
+    "msg_id": "71266d1336a9481e90f85dcfe86c5079",
+    "version": "5.2",
+    "msg_type": "execute_request",
+    "date": "2023-08-03T13:47:27.791000Z", 
+    "username": "roma", 
+    "session": "f8d6d29d3ddd4c5bbd5f72cc1b0e87bd",
+  },
+  "msg_id": "c80bed83-d8a85fd21dc416c2831b634a_55711_96", 
+  "msg_type": "stream", 
+  "metadata": {}, 
+  "content": {
+    "name": "stdout", 
+    "text": "hey\n"
+  }, 
+  "buffers": []
+}
+```
+
+The `parent_header` holds all information from the initial request message's header. This way both messages are linked. 
+The `stream` message type essentially means execution output stream and contains the output itself in the `content.text` field.
+
+Besides this message, we receive a few more regarding the kernel status and an sign that kernel is about to execute our code (which is useful if you execute a hell lot of cells).
+
+Finally, the `execute_reply` message comes on the `shell` channel back holding just some summary:
+
+```json {6, 16-21}
+{
+  "header": {
+    // ...
+  }, 
+  "msg_id": "c80bed83-d8a85fd21dc416c2831b634a_55711_107", 
+  "msg_type": "execute_reply", 
+  "parent_header": {
+    // ...
+  }, 
+  "metadata": {
+    "started": "2023-08-03T14:27:53.081090Z", 
+    "dependencies_met": true, 
+    "engine": "858ec48a-a485-41b0-a998-8c878945a732", 
+    "status": "ok"
+  }, 
+  "content": {
+    "status": "ok", 
+    "execution_count": 10, 
+    "user_expressions": {}, 
+    "payload": []
+  }, 
+  "buffers": []
+}
+```
+
+If an error happened during the execution, the workflow would be the same, but we would receive an `error` message instead of the stream:
+
+```json {13-19}
+{
+  "header": {
+    // ...
+    "msg_type": "error", 
+    // ...
+  }, 
+  "msg_id": "c80bed83-d8a85fd21dc416c2831b634a_55711_101", 
+  "msg_type": "error", 
+  "parent_header": {
+    // ...
+  }, 
+  "metadata": {}, 
+  "content": {
+    "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m", 
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)", 
+      "Cell \u001b[0;32mIn[9], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[43mmy_age\u001b[49m)\n", 
+      "\u001b[0;31mNameError\u001b[0m: name 'hey' is not defined"
+    ], 
+    "ename": "NameError", 
+    "evalue": "name 'hey' is not defined"
+  }, 
+  "buffers": [], 
+}
+```
+
+Alright, enough about message joggling. Let's zoom out a bit and see how some of the kernel actions were implemented.
+
+### Code Execution
+
+Thinking about Jupyter's central functionality which is code exection, we are really getting back to the project's roots. 
+[Back then in 2011](https://en.wikipedia.org/wiki/Project_Jupyter), the pure core of Python's kernel was released as the IPython project, an interactive Python's REPL with ✨magic. 
+Then three years later, IPython was refactored to be used not only in the terminal but also in alternative UI like [Qt-](https://qtconsole.readthedocs.io/en/stable/) or web-based UI which became the main UI. 
+At that time, IPython was absorbed as a part of the bigger notebook idea.
+
+As of late, a decade later the IPython's interactive shell is still a part of the Python's kernel. 
+In fact the `shell` channel that is a gateway for all sorts of code executions in Jupyter is probably named after the interactive shell.
+
+![The Code Execution Stages](/blog/jupyter-architecture/jupyter-code-execution-stages.png "The Code Execution Stages")
+<div class="image-title">The Code Execution Stages</div>
+
+When the `execute_request` message gets into the kernel, it triggers a complex execution pipeline that we could divide into a few stages:
+
+- Raw Code Transformation
+- Code Compilation & AST Transformation
+- Code Execution
+
+Storing the execution in the history
+
+## References
+
+- [[Jupyter] Client Docs](https://jupyter-client.readthedocs.io/en/latest/messaging.html)
+- [[Wiki] Project Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter)
