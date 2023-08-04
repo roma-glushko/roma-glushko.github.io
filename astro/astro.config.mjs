@@ -68,7 +68,4 @@ export default defineConfig({
     }),
     sitemap({changefreq: 'daily', lastmod: new Date()}),
   ],
-  experimental: {
-    viewTransitions: true,
-  }
 });
