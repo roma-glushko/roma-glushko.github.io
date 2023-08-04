@@ -53,18 +53,18 @@ const getVideoProperties = (url, options) => {
 const RehypeVideo = (options) => {
     const visitor = (node) => {
         if (node.tagName !== "code") return;
-        if (node.children.length != 1) return;
+        if (node.children.length !== 1) return;
 
         const { value } = node.children[0];
 
-        if (value == undefined) return; 
+        if (value === undefined) return;
 
         const matches = value.match(matchRegExp);
 
         if (matches) {
             const title = matches[1]; // May be null
             const url = matches[2].trim();
-            
+
             node.tagName = 'video'
             node.properties = getVideoProperties(url, {
                 ...options,

@@ -14,8 +14,13 @@ html.dark pre[data-theme='dark'], html.dark code[data-theme='dark'] {
     display: grid;
 }
 
-html.dark pre[data-theme='dark'] [data-highlighted-line] {
-    background: #c8c8ff1a;
+pre[data-theme='light'] [data-highlighted-line] {
+    background: #c8c8ff21;
+    border-left-color: #60a5fa;
+}
+
+pre[data-theme='dark'] [data-highlighted-line] {
+    background: #c8c8ff21;
     border-left-color: #60a5fa;
 }
 
@@ -25,6 +30,7 @@ code {
 
 [data-line] {
     border-left-width: 2px;
+    border-left-style: solid;
     border-left-color: #0000;
     padding-left: 1.5rem;
     padding-right: 1.5rem;

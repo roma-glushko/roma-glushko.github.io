@@ -4,11 +4,13 @@ import sitemap from '@astrojs/sitemap';
 import react from "@astrojs/react";
 import image from "@astrojs/image";
 import partytown from "@astrojs/partytown";
+import prefetch from "@astrojs/prefetch";
 
 import moonlightTheme from "./src/data/moonlight-ii.json" assert { type: "json" };
 
 import rmMath from 'remark-math';
 import rmReadingTime from './src/markdown/readingTime.mjs';
+import rmUnwrapImages from "remark-unwrap-images";
 
 import rhKatex from 'rehype-katex';
 import rhVideo from './src/markdown/videoRenderer.mjs';
@@ -31,13 +33,12 @@ const videoOptions = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.romaglushko.com/',
-  // trailingSlash: "always",
   output: 'static',
   compressHTML: true,
   markdown: {
     drafts: true,
     syntaxHighlight: false,
-    remarkPlugins: [rmMath, rmReadingTime],
+    remarkPlugins: [rmMath, rmReadingTime, rmUnwrapImages],
     rehypePlugins: [
       [
         rehypePrettyCode, // https://rehype-pretty-code.netlify.app/
@@ -61,6 +62,7 @@ export default defineConfig({
     image(),
     mdx(),
     react(),
+    prefetch(),
     partytown({
       config: {
         forward: ["dataLayer.push"],
