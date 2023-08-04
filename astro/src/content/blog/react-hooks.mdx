@@ -148,7 +148,7 @@ export default class PokemonInfo extends Component<Props, State> {
 Essentially, we have introduced a local state and fetched its value from some API.
 
 This component also depends on the external `name` property, so we wanted to update the component output in case that value changes.
-To achieve that, we needed to implement both `componentDidMount` and `componentDidUpdate`. In order not to duplicate logic (because those methods would be almost the same), we additionally created the `fetchData()` method.
+To achieve that, we needed to implement both `componentDidMount{:.entity.name.function}` and `componentDidUpdate{:.entity.name.function}`. In order not to duplicate logic (because those methods would be almost the same), we additionally created the `fetchData(){:.entity.name.function}` method.
 
 Despite me using TypeScript here, it took us quite a bit of space and chars to code that piece.
 Class-based components were not as concise as we would like them to be.
@@ -234,7 +234,7 @@ export const PokemonInfo = (props: Props) => {
 
 What has changed?
 
-With hooks, our refactored the `PokemonInfo` component consists of three parts now:
+With hooks, our refactored the `PokemonInfo{:.entity.name}` component consists of three parts now:
 
 - state setup
 - side effect setup
@@ -242,7 +242,7 @@ With hooks, our refactored the `PokemonInfo` component consists of three parts n
 
 You will see that a lot of hook-powered components look more-less the same way.
 
-The state looks like a local variable and only the `useState()` function
+The state looks like a local variable and only the `useState(){:.entity.name.function}` function
 makes it "persisted" magically across function's reruns/rerenders.
 
 The lifecycle methods that spread effects across multiple functions
@@ -250,12 +250,12 @@ have been squeezed into one effect function that may have dependencies on a stat
 
 Finally, the rendering part remains as simple and clear as it had been in the pure function components before.
 
-Overall these changes have made the `PokemonInfo` component cleaner and its structure is now more predictable and standard.
+Overall these changes have made the `PokemonInfo{:.entity.name}` component cleaner and its structure is now more predictable and standard.
 That's a great sign that our component and [its intent](/blog/communicate-through-code/) are going to be well understood by other engineers.
 
 ## Declarative vs Imperative
 
-It's not a coincidence I paid your attention to the new `PokemonInfo` structure.
+It's not a coincidence I paid your attention to the new `PokemonInfo{:.entity.name}` structure.
 If you compare it to the previous one, you may find out that it became more declarative.
 Previously, it was us who was deliberately changing the internal state, invoking it in the right lifecycle event.
 Essentially, we were telling React how to do things for us.

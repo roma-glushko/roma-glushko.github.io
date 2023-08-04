@@ -24,6 +24,18 @@ pre[data-theme='dark'] [data-highlighted-line] {
     border-left-color: #60a5fa;
 }
 
+span[data-rehype-pretty-code-fragment] code[data-theme='light'] {
+    display: inline-block;
+}
+
+html.dark span[data-rehype-pretty-code-fragment] code[data-theme='dark'] {
+    display: inline-block;
+}
+
+html.dark span[data-rehype-pretty-code-fragment] code[data-theme='light'] {
+    display: none;
+}
+
 code {
     counter-reset: line;
 }

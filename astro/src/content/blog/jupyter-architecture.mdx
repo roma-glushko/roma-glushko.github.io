@@ -75,12 +75,12 @@ What you have seen in the Jupyter UI is stored a notebook file with the `ipynb` 
 }
 ```
 
-The notebook file has versioning via `nbformat.nbformat_minor{:.token}` attributes. 
+The notebook file has versioning via `nbformat.nbformat_minor{:.entity.name.function}` attributes. 
 
 The main part of the document is the `cells` array. It actually contains source code and the corresponding output of all cells in the notebook. 
 Hence, the notebook is like a snapshot of what you have done in the Jupyter UI. You can save it and share with other people like a report without a need to rerun all the stuff to fully read it.
 
-The notebook format also contains extensible points in a form of `metadata` properties on the whole notebook, cell, and output levels. It's a simple key-value maps where other plugins could store additional information if needed.
+The notebook format also contains extensible points in a form of `metadata{:.entity.name.function}` properties on the whole notebook, cell, and output levels. It's a simple key-value maps where other plugins could store additional information if needed.
 
 ## Jupyter Kernels
 
@@ -128,7 +128,7 @@ Jupyter has several separate REQ/REP channels to buffer incoming messages differ
 
 To see how the above channels play together, let's review the code execution workflow.
 
-When you type something like ```print(hey)``` in a notebook cell and execute the cell, this is what happens.
+When you type something like `print(hey){:python}` in a notebook cell and execute the cell, this is what happens.
 
 ![The Code Execution Workflow](/blog/jupyter-architecture/jupyter-kernel-exec-flow.png "The Code Execution Workflow")
 <div class="image-title">The Code Execution Workflow</div>

@@ -72,9 +72,9 @@ def remove_duplicates(clean_tokens: list):
 
 Try to read this function a few times. What are your impressions?
 
-- the function is called `remove_duplicates()` but it seems to omit only non-alpha-numerical values, not duplicated values
-- what values are inside `tok[0]` and `tok[2]` items? How many items are there in each `tok` array?
-- what's the meaning of `tok[2]` sum for each `tok[0]`?
+- the function is called `remove_duplicates(){:.entity.name.function}` but it seems to omit only non-alpha-numerical values, not duplicated values
+- what values are inside `tok[0]{:python}` and `tok[2]{:python}` items? How many items are there in each `tok{:python}` array?
+- what's the meaning of `tok[2]{:python}` sum for each `tok[0]{:python}`?
 
 I can say without doubts that this piece of code is complex and it's hard to understand. However, this piece is not about launching a SpaceX shuttle (hopefully). It does something very simple, but what exactly it does was highly obscured by a poor choice of language expressions. This is what **accidental complexity** really means.
 
@@ -108,7 +108,7 @@ Let's review a few examples.
 
 ### Types and Collections
 
-Python has many data types and a good part of them are covered by syntax sugar to make them easier to use. Remaining data types can be found in the `collections` package.
+Python has many data types and a good part of them are covered by syntax sugar to make them easier to use. Remaining data types can be found in the `collections{:python}` package.
 
 #### Mutable and Unmutable
 
@@ -141,7 +141,7 @@ for lang in langs:
 
 Lists and sets have their **immutable** counterparts which are **tuples** and **frozen sets**. Tuples and frozen sets cannot be modified after creation. They can be used to say that it doesn't make sense to change them because they represent constants or some well-defined structure where each item has a special meaning like a database row.
 
-Python goes even further and lets you name each item in the tuples via the `NamedTuple` class:
+Python goes even further and lets you name each item in the tuples via the `NamedTuple{:python}` class:
 
 ```python
 from typing import NamedTuple
@@ -183,9 +183,9 @@ for lang, mascot in lang_mascots.items():
 # golang -> 🐹
 ```
 
-Even though dicts have [become ordered recently (remembers order of adding keys)](https://stackoverflow.com/questions/39980323/are-dictionaries-ordered-in-python-3-6), you may still want to consider them unordered and use a whole another `OrderedDict` class as a means of emphasizing that you need key ordering.
+Even though dicts have [become ordered recently (remembers order of adding keys)](https://stackoverflow.com/questions/39980323/are-dictionaries-ordered-in-python-3-6), you may still want to consider them unordered and use a whole another `OrderedDict{:python}` class as a means of emphasizing that you need key ordering.
 
-You can be even more specific if your values are the same type. The `defaultdict` class will help you to automatically init all non-existing keys:
+You can be even more specific if your values are the same type. The `defaultdict{:python}` class will help you to automatically init all non-existing keys:
 
 ```python
 from collections import defaultdict
@@ -359,7 +359,7 @@ with suppress(ImportError):
     import pandas
 ```
 
-It's also useful to know about `assert` and `AssertionError`s. Usually, you will see assert expression is being used in tests, but that's not the only use. `assert`'s may be also used to [dump some assumptions about the code that has to be true](https://realpython.com/python-assert-statement/) in the 95% of the cases but which may still be violated accidentally during the refactoring or other code adjustments. So having such sanity checks could reduce the ripple effect of the error and help to find the cause quicker:
+It's also useful to know about `assert{:python}` and `AssertionError{:python}`s. Usually, you will see assert expression is being used in tests, but that's not the only use. `assert{:python}`'s may be also used to [dump some assumptions about the code that has to be true](https://realpython.com/python-assert-statement/) in the 95% of the cases but which may still be violated accidentally during the refactoring or other code adjustments. So having such sanity checks could reduce the ripple effect of the error and help to find the cause quicker:
 
 ```python
 def get_discount(price: float) -> float:
@@ -368,7 +368,7 @@ def get_discount(price: float) -> float:
     return price * 0.005
 ```
 
-In order to let `assert`'s work, you should not catch any `AssertionError` and let them fail as soon as possible in your development flow.
+In order to let `assert{:python}`'s work, you should not catch any `AssertionError{:python}` and let them fail as soon as possible in your development flow.
 
 ### Decorators
 
@@ -409,8 +409,8 @@ def sample_task():
 To give you a better idea of how decorators are used in the wild, let's go through just a few very common problems that can be solved with decorators:
 
 - register a new item in some registry. Let's say, you want to give an elegant way to extend a list webapp routes that you don't know beforehand. The example above illustrates the "register" pattern you can use to achieve that. Many Python web frameworks use decorators for that purpose like [Flask](https://flask.palletsprojects.com/en/1.0.x/tutorial/layout/), [Bottle](https://bottlepy.org/docs/dev/), [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/) and others. Another example is [Python's Socket.io client](https://python-socketio.readthedocs.io/en/latest/intro.html#client-examples) which uses decorators to register handlers to some events. Yet another example is [Celery](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#application) which uses decorators to register their tasks.
-- do caching of some function results without modifying the function code. The built-in `functools` package contains `lru_cache` decorator that can be used to cache the output of any function.
-- add some markers to the function for the following processing. Tensorflow, for example, has a [`do_not_generate_docs()`](https://github.com/tensorflow/tensorflow/blob/299cb76dd913e7bb0349a13c1165459dac4ea81e/tensorflow/tools/docs/doc_controls.py#L46) decorator that marks functions that should not be exposed in its documentation.
+- do caching of some function results without modifying the function code. The built-in `functools{:python}` package contains `lru_cache{:python}` decorator that can be used to cache the output of any function.
+- add some markers to the function for the following processing. Tensorflow, for example, has a [`do_not_generate_docs(){:python}`](https://github.com/tensorflow/tensorflow/blob/299cb76dd913e7bb0349a13c1165459dac4ea81e/tensorflow/tools/docs/doc_controls.py#L46) decorator that marks functions that should not be exposed in its documentation.
 - mark route as one that requires authorization. [Django](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/#the-staff-member-required-decorator) and many Flask extensions use decorators to mark webapp routes as ones that require authorization.
 - parametrize a test function. [Pytest](https://docs.pytest.org/en/6.2.x/example/parametrize.html) uses decorators heavily and one of the use cases is to pass a few test cases to the same test function.
 - MANY more...
@@ -513,7 +513,7 @@ def search_books(keywords: str, page: int = 1, count: int = 10) -> List[Book]:
     return response.json()
 ```
 
-It's not clear why `search_books()` method doesn't use `somelib.client` for the search request and it falls back to low level `requests` calls. This question will be raised many times. In order to make this piece of code better, we should have left a comment explaining the astonishing part:
+It's not clear why `search_books(){:python}` method doesn't use `somelib.client{:python}` for the search request and it falls back to low level `requests` calls. This question will be raised many times. In order to make this piece of code better, we should have left a comment explaining the astonishing part:
 
 ```python
 def search_books(keywords: str, page: int = 1, count: int = 10) -> List[Book]:
