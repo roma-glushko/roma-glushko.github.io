@@ -56,6 +56,9 @@ const RehypeVideo = (options) => {
         if (node.children.length != 1) return;
 
         const { value } = node.children[0];
+
+        if (value == undefined) return; 
+
         const matches = value.match(matchRegExp);
 
         if (matches) {

@@ -43,7 +43,7 @@ const thoughts = defineCollection({
 	})
 })
 
-const cvs = defineCollection({
+const cv = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
@@ -52,4 +52,4 @@ const cvs = defineCollection({
 	})
 })
 
-export const collections = { blog, thoughts, cvs };
+export const collections = { blog, thoughts, cv };

@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 import siteMetadata from "../data/siteMetadata"
 
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
@@ -82,3 +84,4 @@ const metaImage = new URL(image, Astro.url)
 </script>
 
 <AnalyticsLoader />
+<ViewTransitions />

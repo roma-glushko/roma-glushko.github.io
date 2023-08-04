@@ -33,8 +33,11 @@
     "react-dom": "^18.0.0",
     "react-rotating-text": "^1.4.1",
     "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^6.1.1",
     "rehype-katex": "^6.0.3",
     "rehype-plugin-image-native-lazy-loading": "^1.2.0",
+    "rehype-pretty-code": "^0.10.0",
+    "rehype-slug": "^5.1.0",
     "remark-math": "^5.1.1",
     "unist-util-visit": "^5.0.0"
   },
