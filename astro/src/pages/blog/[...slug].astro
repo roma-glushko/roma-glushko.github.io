@@ -8,6 +8,7 @@ import BlogNavigation from '@components/blog/BlogNavigation.astro';
 import { getBlogPosts } from 'src/content/collections';
 import BreadcrumbSnippet from '@components/BreadcrumbSnippet.astro';
 import { getBlogUrl } from 'src/content/routing';
+import ArticleSnippet from '@components/ArticleSnippet.astro';
 
 export async function getStaticPaths() {
 	const posts = await getBlogPosts();
@@ -38,6 +39,7 @@ const {prev, current, next} = Astro.props;
 const { Content, remarkPluginFrontmatter: { timeToReadMin } } = await current.render();
 const {title, excerpt, pubDate, keywords, cover} = current.data
 const slug = current.slug
+const blogUrlPath = getBlogUrl(slug)
 ---
 <BlogPostLayout title={title} description={excerpt} keywords={keywords} image={cover.image}>
 	<main>
@@ -50,5 +52,20 @@ const slug = current.slug
 			<BlogNavigation prev={prev} next={next} />
 		</aside>
 	</main>
-	<BreadcrumbSnippet crumbs={[{ "/blog/": "Blog" }, { [getBlogUrl(slug)]: title }]} />
+	<BreadcrumbSnippet crumbs={[{ "/blog/": "Blog" }, { [blogUrlPath]: title }]} />
+	<ArticleSnippet
+		title={title}
+		path={blogUrlPath}
+		pubDate={pubDate}
+		keywords={keywords}
+		image={cover.image}
+		articleSection={"Technical Blog"}
+		genres={[
+			"machine learning",
+			"software engineering",
+			"science",
+			"deep learning",
+			"statistics",
+		]}
+	/>
 </BlogPostLayout>

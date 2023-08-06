@@ -1,15 +1,17 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
+import { CollectionEntry } from 'astro:content';
 
 import ThoughtContent from '@components/thoughts/ThoughtContent.astro';
 import ThoughtPostLayout from '@layouts/ThoughtPostLayout.astro';
 
-import '../../styles/thoughtView.css'
 import BreadcrumbSnippet from '@components/BreadcrumbSnippet.astro';
-import { getBlogUrl } from 'src/content/routing';
+import { getThoughtUrl } from 'src/content/routing';
 import { getThoughts } from 'src/content/collections';
 import ThoughtAuthor from '@components/thoughts/ThoughtAuthor.astro';
 import ThoughtNavigation from '@components/thoughts/ThoughtNavigation.astro';
+import ArticleSnippet from '@components/ArticleSnippet.astro';
+
+import '@styles/thoughtView.css'
 
 export async function getStaticPaths() {
 	const posts = await getThoughts();
@@ -31,15 +33,16 @@ export async function getStaticPaths() {
 }
 
 export interface Props {
-	prev?: CollectionEntry<'blog'>;
-	current: CollectionEntry<'blog'>;
-	next?: CollectionEntry<'blog'>;
+	prev?: CollectionEntry<'thoughts'>;
+	current: CollectionEntry<'thoughts'>;
+	next?: CollectionEntry<'thoughts'>;
 }
 
 const {prev, current, next} = Astro.props;
 const { Content, remarkPluginFrontmatter: { timeToReadMin } } = await current.render();
 const {title, excerpt, pubDate, keywords, cover} = current.data
 const slug = current.slug
+const thoughtUrlPath = getThoughtUrl(slug)
 ---
 <ThoughtPostLayout
   title={`${title}`}
@@ -57,11 +60,25 @@ const slug = current.slug
         <Content />
     </ThoughtContent>
     <!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
-    <!-- <NewsletterForm /> -->
   </main>
   <aside class="thought-sidebar">
     <ThoughtAuthor />
     <ThoughtNavigation prev={prev} next={next} />
   </aside>
-  <BreadcrumbSnippet crumbs={[{ "/thoughts/": "Thoughts" }, { [getBlogUrl(slug)]: title }]} />
+  <BreadcrumbSnippet crumbs={[{ "/thoughts/": "Thoughts" }, { [thoughtUrlPath]: title }]} />
+  <ArticleSnippet
+		title={title}
+		path={thoughtUrlPath}
+		pubDate={pubDate}
+		keywords={keywords}
+		image={cover.image}
+		articleSection={"Thoughts"}
+		genres={[
+      "self-improvement",
+      "management",
+      "thoughts",
+      "life experience",
+      "life exploration",
+    ]}
+	/>
 </ThoughtPostLayout>
