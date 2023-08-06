@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import ThoughtContent from '@components/thoughts/ThoughtContent.astro';
 import ThoughtPostLayout from '@layouts/ThoughtPostLayout.astro';
 
-// import BreadcrumbSnippet from '@components/BreadcrumbSnippet.astro';
+import CrumbsSnippet from '@components/CrumbSnippet.astro';
 import { getThoughtUrl } from 'src/content/routing';
 import { getThoughts } from 'src/content/collections';
 import ThoughtAuthor from '@components/thoughts/ThoughtAuthor.astro';
@@ -65,7 +65,7 @@ const thoughtUrlPath = getThoughtUrl(slug)
     <ThoughtAuthor />
     <ThoughtNavigation prev={prev} next={next} />
   </aside>
-  <!-- <BreadcrumbSnippet crumbs={[{ "/thoughts/": "Thoughts" }, { [thoughtUrlPath]: title }]} /> -->
+  <CrumbsSnippet crumbs={[{ "/thoughts/": "Thoughts" }, { [thoughtUrlPath]: title }]} />
   <ArticleSnippet
 		title={title}
 		path={thoughtUrlPath}

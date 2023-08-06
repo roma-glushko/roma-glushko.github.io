@@ -7,7 +7,7 @@ import BlogContent from '@components/blog/BlogContent.astro';
 import BlogNavigation from '@components/blog/BlogNavigation.astro';
 import { getBlogPosts } from 'src/content/collections';
 import { getBlogUrl } from 'src/content/routing';
-// import BreadcrumbSnippet from '@components/BreadcrumbSnippet.astro';
+import CrumbsSnippet from '@components/CrumbSnippet.astro';
 import ArticleSnippet from '@components/ArticleSnippet.astro';
 
 export async function getStaticPaths() {
@@ -52,7 +52,7 @@ const blogUrlPath = getBlogUrl(slug)
 			<BlogNavigation prev={prev} next={next} />
 		</aside>
 	</main>
-	<!-- <BreadcrumbSnippet crumbs={[{ "/blog/": "Blog" }, { [blogUrlPath]: title }]} /> -->
+	<CrumbsSnippet crumbs={[{ "/blog/": "Blog" }, { [blogUrlPath]: title }]} />
 	<ArticleSnippet
 		title={title}
 		path={blogUrlPath}

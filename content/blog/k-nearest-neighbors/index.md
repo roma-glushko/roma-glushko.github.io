@@ -86,7 +86,7 @@ Though normalization changes values of features, it doesn't change feature distr
 
 We assume that similar samples are close in the N-dimensional feature space. Is this always a case?
 
-Turned out that with growing number of dimensions (or features), number of samples should grow exponentially in order to keep the same density of sample points in the space. High-dimensional space contains far more actual space between points than our intuition may suggest.
+Turned out that with growing number of dimensions (or features), number of samples should grow exponentially in order to keep the same density of sample points in the space. [High-dimensional space contains far more actual space between points than our intuition may suggest](/blog/curse-of-dimensionality).
 
 This may lead to a situation when distance to neighbors across all feature axis are just slightly bigger than average distance between points. In sparse high-dimensional feature space we are loosing our notion of nearest points.
 
