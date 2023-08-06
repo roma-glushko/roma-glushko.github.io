@@ -146,3 +146,8 @@ html.dark {
 .content table tr:not(:last-of-type) td {
     border-bottom: 1px solid grey;
 }
+
+.content .autolink-header{
+    vertical-align: middle;
+    margin-left: 3px;
+}

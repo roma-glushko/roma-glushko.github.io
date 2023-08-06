@@ -1,9 +1,9 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Footer from '@components/Footer.astro';
 
-import MainNavigation from '../components/MainNavigation.astro';
-import BlogHeader from '../components/BlogHeader.astro';
+import MainNavigation from '@components/MainNavigation.astro';
+import BlogHeader from '@components/BlogHeader.astro';
 
 import "@styles/theme.css"
 import "@styles/general.css"
@@ -54,6 +54,5 @@ const { title, description, keywords, image } = Astro.props;
 			"statistics",
 		]}
 		/> -->
-		<!-- <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }, { [path]: title }]} /> -->
 	</body>
 </html>

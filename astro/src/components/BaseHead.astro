@@ -14,11 +14,12 @@ export interface Props {
 	ogType?: string;
 	keywords?: string[];
 	isUniqueTitle?: boolean;
+	robotsDirective?:string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, keywords, ogType = 'website', image = '/placeholder-social.jpg', isUniqueTitle = false } = Astro.props;
+const { title, description, keywords, ogType = 'website', image = '/placeholder-social.jpg', isUniqueTitle = false, robotsDirective="index, follow" } = Astro.props;
 
 const metaDescription: string = description || siteMetadata.description
 const metaKeywords: string[] = keywords || siteMetadata.keywords
@@ -43,7 +44,7 @@ const metaImage = new URL(image, Astro.url)
 <meta name="author" content={siteMetadata.author} />
 <meta name="image" property="og:image" content={metaImage} />
 
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={robotsDirective} />
 
 <meta property="og:site_name" content={siteMetadata.title} />
 <meta property="og:type" content={ogType} />

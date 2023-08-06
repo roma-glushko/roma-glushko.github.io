@@ -15,7 +15,7 @@ const { title, description, bodyClass } = Astro.props
 <!DOCTYPE html>
 <html lang="en" class={bodyClass}>
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} robotsDirective="noindex,nofollow" />
   </head>
   <body>
     <slot /> <!-- your content is injected here -->

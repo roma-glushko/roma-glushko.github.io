@@ -6,6 +6,8 @@ import BlogComments from '@components/blog/BlogComments';
 import BlogContent from '@components/blog/BlogContent.astro';
 import BlogNavigation from '@components/blog/BlogNavigation.astro';
 import { getBlogPosts } from 'src/content/collections';
+import BreadcrumbSnippet from '@components/BreadcrumbSnippet.astro';
+import { getBlogUrl } from 'src/content/routing';
 
 export async function getStaticPaths() {
 	const posts = await getBlogPosts();
@@ -35,6 +37,7 @@ export interface Props {
 const {prev, current, next} = Astro.props;
 const { Content, remarkPluginFrontmatter: { timeToReadMin } } = await current.render();
 const {title, excerpt, pubDate, keywords, cover} = current.data
+const slug = current.slug
 ---
 <BlogPostLayout title={title} description={excerpt} keywords={keywords} image={cover.image}>
 	<main>
@@ -47,4 +50,5 @@ const {title, excerpt, pubDate, keywords, cover} = current.data
 			<BlogNavigation prev={prev} next={next} />
 		</aside>
 	</main>
+	<BreadcrumbSnippet crumbs={[{ "/blog/": "Blog" }, { [getBlogUrl(slug)]: title }]} />
 </BlogPostLayout>

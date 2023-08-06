@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import ThemeSwitcher from '@components/ThemeSwitcher';
 import MainNavigation from '@components/MainNavigation.astro';
 import BlogHeader from '@components/BlogHeader.astro';
+import BreadcrumbSnippet from '@components/BreadcrumbSnippet.astro';
 
 import "@styles/theme.css"
 import "@styles/general.css"
@@ -51,6 +52,6 @@ const { title, description, keywords } = Astro.props;
 		</div>
 		<div class="clearfix" />
 		<Footer />
-		<!-- <BreadcrumbsSnippet crumbs={[{ "/blog/": "Blog" }]} /> -->
+		<BreadcrumbSnippet crumbs={[{ "/blog/": "Blog" }]} />
 	</body>
 </html>
