@@ -86,8 +86,6 @@ const fetchSpecieInfo = async (ID: number): Promise<Specie> => {
   return await fetchJson<SpecieOut>(
     `https://pokeapi.co/api/v2/pokemon-species/${ID}/`
   ).then((specieData: SpecieOut) => {
-    console.log(specieData)
-
     const engEntries: FlavorTextEntry[] = specieData.flavor_text_entries.filter(
       (entry) => entry.language.name === "en"
     )
