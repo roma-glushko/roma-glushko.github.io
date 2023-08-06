@@ -10,6 +10,8 @@ cover:
     image: /blog/how-i-built-my-ml-workstation/machine-learning-workstation.jpg
     aspectRatio: "620:827"
 ---
+import { YouTube } from 'astro-embed';
+
 Kaggle Kernels and Google Colab are great.
 
 `video: title: "Drop the mic": https://media.giphy.com/media/UmBdALbYTmCJ2/giphy.mp4`
@@ -196,7 +198,6 @@ Also, I was able to buy only 750W version of EVGA G2. My estimated wattage is 42
 The situation with GPU was much more complicated. It was the beginning of the GPU shortage (end of 2020 - beginning of 2021) when GPU prices skyrocketed twice or sometimes three times. In that time, Bitcoin jumped to almost $60k as well as other factors that impacted the supply chain and increased GPU demand (mostly, global COVID-19 lockdown).
 
 ![GPU Price Dynamics: end of 2020 - beginning of 2021](/blog/how-i-built-my-ml-workstation/gpu-price-dynamics.png "GPU Price Dynamics: end of 2020 - beginning of 2021")
-
 <div class="image-title">GPU Price Dynamics: end of 2020 - beginning of 2021. Wild time</div>
 
 I had been closely watching for price updates for like 3 months. The situation was not really changing. Well, it got even worse while I was waiting.
@@ -205,8 +206,7 @@ Considering Tim's advice and crazy GPU prices, I was shooting for RTX 3070. RTX 
 
 There turned out to be a lot of vendors that produce RTX 3070 cards.
 
-`youtube: [Difference between graphic card vendors](https://www.youtube.com/embed/N3lfXsa08CY)`
-
+<YouTube id="https://www.youtube.com/embed/N3lfXsa08CY" />
 <div class="image-title">Difference between graphic card vendors</div>
 
 Basically, the main differences are in:
@@ -235,13 +235,11 @@ Now it's time to get our hands dirty!
 The motherboard is a central component. So I started unboxing it.
 
 ![MSI X470 Gaming Max Unboxing](/blog/how-i-built-my-ml-workstation/msi-x470-gaming-max-unboxing.jpg "MSI X470 Gaming Max Unboxing")
-
 <div class="image-title">Motherboard Unboxing</div>
 
 It has lots of ports which we are going to use further in this section.
 
 ![MotherBoard](/blog/how-i-built-my-ml-workstation/msi-x470-gamin-plus-detailed-view.jpg "MotherBoard")
-
 <div class="image-title">Motherboard. Detailed View</div>
 
 The MoBo instruction is useful when you install components. Definitely take a look at it!
@@ -251,19 +249,16 @@ The MoBo instruction is useful when you install components. Definitely take a lo
 Now let's unbox a CPU. The CPU box contained a CPU chip itself and a basic CPU cooler which actually holds most of the space in the box.
 
 ![AMD Ryzen 5 3600 Unboxing](/blog/how-i-built-my-ml-workstation/amd-ryzen-5-3600-unboxing.jpg "AMD Ryzen 5 3600 Unboxing")
-
 <div class="image-title">CPU Unboxing</div>
 
 We are going to install the CPU into the special CPU socket on the MoBo. It has AM4 format in my setup.
 
 ![AM4 CPU Socket](/blog/how-i-built-my-ml-workstation/am4-cpu-socket.jpg "AM4 CPU Socket")
-
 <div class="image-title">CPU Socket</div>
 
 Be super careful with CPU pins. They are very fragile. Notice that there is also a little golden arrow on one of the edges.
 
 ![AM4 CPU Socket](/blog/how-i-built-my-ml-workstation/cpu-pins.jpg "CPU Pins")
-
 <div class="image-title">CPU Pins</div>
 
 It's there to guide you on how to connect your CPU. There is **only one way** pins can be installed into the socket. It's when the golden arrow banded edge is in the bottom left corner of the CPU retention plate.
@@ -271,7 +266,6 @@ It's there to guide you on how to connect your CPU. There is **only one way** pi
 Push a retention lever down and outward to release the CPU retention plate and put your CPU in the mentioned way.
 
 ![Installed CPU AM4](/blog/how-i-built-my-ml-workstation/installed-cpu-am4.jpg "Installed CPU AM4")
-
 <div class="image-title">Installed CPU</div>
 
 Push the retention lever back to firmly install your CPU chip.
@@ -281,13 +275,11 @@ Push the retention lever back to firmly install your CPU chip.
 NVMe SSDs are much smaller than their SATA friends. It's just a one little plane that sits in the box.
 
 ![Samsung 970 EVO NVMe M.2 SSD Unboxing](/blog/how-i-built-my-ml-workstation/samsung-970-evo-m.2-unboxing.jpg "Samsung 970 EVO M.2 SSD Unboxing")
-
 <div class="image-title">M.2 SSD Unboxing</div>
 
 To connect this kind of SSDs, you need to use the M.2 socket. My MoBo has two of them. Each of them is supplied with a pair of a screw and a mounting screw. The MoBo has a few mounting posts for SSDs of different lengths.
 
 ![NVMe SSD Installation. M.2 Screw](/blog/how-i-built-my-ml-workstation/ssd-m.2-installation.jpg "NVMe SSD Installation. M.2 Screw")
-
 <div class="image-title">NVMe SSD Installation. M.2 Screw</div>
 
 Just pick a mounting post that corresponds to your SSD size, install there a mounting screw and fix the SSD with the remaining screw.
@@ -297,13 +289,11 @@ Just pick a mounting post that corresponds to your SSD size, install there a mou
 RAM planks are easy to install as well.
 
 ![G.Skill Ripjaws V Series 32Gb Unboxing](/blog/how-i-built-my-ml-workstation/g.skill-ripjaws-v-series-32gb-unboxing.jpg "G.Skill Ripjaws V Series 32Gb Unboxing")
-
 <div class="image-title">RAM Unboxing</div>
 
 Unlock your RAM slots and align your RAM plank with the slot. There is **also only one way** the plank can be firmly installed.
 
 ![RAM Installation](/blog/how-i-built-my-ml-workstation/ram-installation.jpg "RAM Installation")
-
 <div class="image-title">RAM Installation</div>
 
 Notice that your MoBo instruction may specify recommended positions for different number of RAMs. Follow those recommendations!
@@ -315,25 +305,21 @@ People suggest **avoiding to apply power** to the CPU before installing its cool
 My cooler is designed to work with both Intel and AMD CPUs. So the cooler box actually contains much more screws and other details than I needed in this particular build. This is the reason why its back panel has such a bizarre form.
 
 ![Cooler Unboxing](/blog/how-i-built-my-ml-workstation/cooler-master-hyper-212-black-unboxing.jpg "Cooler Unboxing")
-
 <div class="image-title">Cooler Unboxing</div>
 
 The first step to install the cooler is to uninstall the stock back panel.
 
 ![Uninstalling Stock CPU Back Panel](/blog/how-i-built-my-ml-workstation/uninstalling-cpu-backpanel.jpg "Uninstalling Stock CPU Back Panel")
-
 <div class="image-title">Uninstalling Stock CPU Back Panel</div>
 
 This back panel is going to be replaced by another one provided with your custom cooler. In my case, I had to assemble a back panel in AMD-compatible way.
 
 ![Cooler Master Backplate](/blog/how-i-built-my-ml-workstation/cpu-cooler-backplate.jpg "Cooler Master Backplate")
-
 <div class="image-title">Cooler Backplate</div>
 
 Flip your board around and match screws from your new back panel with the motherboard.
 
 ![Cooler Master Backplate Installed](/blog/how-i-built-my-ml-workstation/cpu-cooler-backplate-installed.jpg "Cooler Master Backplate Installed")
-
 <div class="image-title">Cooler Backplate Installed</div>
 
 To finalize the back panel installation, you need to install mounting screws on which the actual cooling system would be joined.
@@ -342,8 +328,7 @@ Next, you could assemble the cooler system. It's typically needed to attach cool
 
 One of the final steps, before you can attach your cooler, is thermal paste installation. I used the "pee" method explained in the video below.
 
-`youtube: [How to use thermal paste?](https://www.youtube.com/embed/-hNgFNH7zhQ)`
-
+<YouTube id="https://www.youtube.com/embed/-hNgFNH7zhQ" />
 <div class="image-title">How to use thermal paste?</div>
 
 When using thermal gel, you need to cover the CPU chip area as much as possible to allow better removal of CPU heat. Bubbles of airs that could pop up during this procedure could make cooling less effective.
@@ -359,29 +344,24 @@ Finally, you can connect the cooler power cable to the nearest port on the MoBo 
 A PSU box includes a power unit module and various cables.
 
 ![EVGA G2 750W Power Supply Unboxing](/blog/how-i-built-my-ml-workstation/evga-g2-750w-power-supply.jpg "EVGA G2 750W Power Supply Unboxing")
-
 <div class="image-title">Power Supply Unboxing</div>
 
 A computer case is just a metal box with two removable panels on the opposite sides of the box.
 
 ![NZXT H500 Computer Case](/blog/how-i-built-my-ml-workstation/nzxt-h500-pc-case.jpg "NZXT H500 Computer Case")
-
 <div class="image-title">Computer case without glass panel</div>
 
 On the top side of the box, you can see the front panel of the case. You can have a few more ports there as well as power buttons.
 
 ![NZXT H500 Front Panel](/blog/how-i-built-my-ml-workstation/nzxt-h500-front-panel.jpg "NZXT H500 Front Panel")
-
 <div class="image-title">Computer case front panel</div>
 
 First of all, install the main I/O ports cover that comes with your motherboard into your computer case. Surprisingly, it's important to make sure that all little latches on the sides of the cover are fully installed and visible on the flip side. Otherwise, they may prevent you from screwing your motherboard down.
 
 ![I/O Port Cover Latches](/blog/how-i-built-my-ml-workstation/io-cover-latches.jpg "I/O Port Cover Latches")
-
 <div class="image-title">Three little metal latches on the top side of I/O port cover. You should see them on the all of the sides</div>
 
 ![Main I/O ports](/blog/how-i-built-my-ml-workstation/pc-io-ports.jpg "Main I/O ports")
-
 <div class="image-title">Main I/O ports</div>
 
 Then, you can try to screw down your motherboard to the case mounting positions.
@@ -396,14 +376,12 @@ Next, there are three cables you need to connect in order to power your system:
 
 It's straightforward how to connect CPU and motherboard power cables. However, it may be challenging to connect front panel cables for the first time. The following video was helpful in my case:
 
-`youtube: [How to connect the front panel power into JFP port?](https://www.youtube.com/embed/9--Nbg2qKUA)`
-
+<YouTube id="https://www.youtube.com/embed/9--Nbg2qKUA" />
 <div class="image-title">How to connect the front panel power into JFP port?</div>
 
 There may be still a few remaining cables to connect to the MoBo. In my case, I had USB, audio and Type-C power cables. The first two I was able to connect while the last one required an adapter since my MoBo doesn't have Type-C ports. So I kept it disconnected. By the way, PCPartsPicker can warn you about such an issue in advance.
 
 ![Motherboard installed into the computer case](/blog/how-i-built-my-ml-workstation/pc-motherboard-installed.jpg "Motherboard installed into the computer case")
-
 <div class="image-title">Motherboard installed into the computer case</div>
 
 Additionally, you may need to connect coolers which come with your computer case.
@@ -461,8 +439,7 @@ Onother symptoms I want to review is **your PC turns on but shuts down after sho
 
 The following video shows the process of troubleshooting in action:
 
-`youtube: [How to diagnose faulty PC components?](https://www.youtube.com/embed/QP6pAPctqbk)`
-
+<YouTube id="https://www.youtube.com/embed/QP6pAPctqbk" />
 <div class="image-title">How to diagnose faulty PC components?</div>
 
 Also, your motherboard may have debug LEDs which indicate what components in the system are not found. In this case, you need to double check that signalled components are getting power and installed correctly.
@@ -470,13 +447,11 @@ Also, your motherboard may have debug LEDs which indicate what components in the
 Finally, after some time you will be able to see a video signal on your screen and system that is looking for a bootable device.
 
 ![PC Boot](/blog/how-i-built-my-ml-workstation/pc-boot.jpg "PC Boot")
-
 <div class="image-title">PC Boot and back side of the case with cable management sections</div>
 
 It's a good time to mount your PSU and take advantage of the cable management system that your computer case provides.
 
 ![EVGA G2 750W Installed](/blog/how-i-built-my-ml-workstation/evga-g2-750w-installed.jpg "EVGA G2 750W Installed")
-
 <div class="image-title">Mounted PSU</div>
 
 ## Software Installation

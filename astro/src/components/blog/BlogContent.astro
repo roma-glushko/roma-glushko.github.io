@@ -4,6 +4,7 @@ import { Picture } from '@astrojs/image/components';
 import Date from "@components/Date.astro"
 import ThemeSwitcher from "@components/ThemeSwitcher";
 import TableOfContent from "./TableOfContent";
+import PostKeywords from '@components/blog/PostKeywords.astro';
 
 import "@styles/content.css";
 import "@styles/code.css";
@@ -44,11 +45,7 @@ const {title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeToRea
           <ThemeSwitcher client:load />
         </div>
       </div>
-      <ul data-nosnippet="" class="blog-tags">
-        {keywords.map((keyword: string) => (
-          <li>{keyword}</li>
-        ))}
-      </ul>
+      <PostKeywords keywords={keywords} />
     </header>
     <div class="blog-divider" />
     <!-- <ReadingTracker id={id} contentType={ContentTypes.BLOG}> -->
