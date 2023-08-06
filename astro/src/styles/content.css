@@ -119,3 +119,30 @@ html.dark {
     text-shadow: none;
     opacity: 0.9;
 }
+
+.content table {
+    border-spacing: 0;
+}
+
+.content table thead th {
+    border-bottom: 2px solid black;
+    text-align: left;
+    padding: 15px 10px;
+}
+
+.content table tr td {
+    border-bottom: 2px solid black;
+}
+
+.content table td {
+    vertical-align: top;
+    padding: 15px 10px;
+}
+
+.content table td:not(:last-of-type) {
+    border-right: 1px dotted grey;
+}
+
+.content table tr:not(:last-of-type) td {
+    border-bottom: 1px solid grey;
+}
