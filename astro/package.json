@@ -40,7 +40,6 @@
     "rehype-pretty-code": "^0.10.0",
     "rehype-slug": "^5.1.0",
     "remark-math": "^5.1.1",
-    "remark-unwrap-images": "^3.0.1",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {}

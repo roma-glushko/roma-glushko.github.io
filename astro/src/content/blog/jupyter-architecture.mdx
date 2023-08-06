@@ -128,7 +128,7 @@ Jupyter has several separate REQ/REP channels to buffer incoming messages differ
 
 To see how the above channels play together, let's review the code execution workflow.
 
-When you type something like `print(hey){:python}` in a notebook cell and execute the cell, this is what happens.
+When you type something like `print("hey"){:python}` in a notebook cell and execute the cell, this is what happens.
 
 ![The Code Execution Workflow](/blog/jupyter-architecture/jupyter-kernel-exec-flow.png "The Code Execution Workflow")
 <div class="image-title">The Code Execution Workflow</div>
@@ -163,7 +163,7 @@ In this message, the `header.msg_type` indicates the target action in the `[acti
 The `content` field contains action's details like the exact code to execute.
 Since, this message inits a new code execution workflow, its header's data is going to be attached to all related messages triggered by the workflow.
 
-The execute_request triggers a bunch of followup messages and most of them are sent via the `iopub` channel including the actual output of the executed cell:
+The `execute_request` triggers a bunch of followup messages and most of them are sent via the `iopub` channel including the actual output of the executed cell:
 
 ```json {5, 10-17, 21-24}
 {
@@ -227,7 +227,7 @@ Finally, the `execute_reply` message comes on the `shell` channel back holding j
 }
 ```
 
-If an error happened during the execution, the workflow would be the same, but we would receive an `error` message instead of the stream:
+If an error happened during the execution, the workflow would be the same, but we would receive an `error` message instead of the `stream`:
 
 ```json {13-19}
 {

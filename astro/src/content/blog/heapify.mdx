@@ -27,7 +27,6 @@ Well, then we would reinvent ~~bicycle~~ the priority queue.
 The heap can be represented as an array or a list that is visualized as a nearly complete binary tree:
 
 ![Max Heap](/blog/heapify/max-heap.png "Max Heap")
-
 <div class="image-title">Max Heap</div>
 
 Since it's a binary tree, **all parent nodes** have **at max 2 children**. The binary tree is filled level by level from top to bottom, from left incomplete parent nodes (with none or one child) to right ones.
@@ -55,7 +54,7 @@ To explain how all of this can be useful, we are going to implement the main hea
 
 ## Heap Building
 
-There is going to be a custom `PriorityQueue` class which takes an arbitrary array of integers, makes a heap from it and sustains the heap property during all operations.
+There is going to be a custom `PriorityQueue{:.entity.name}` class which takes an arbitrary array of integers, makes a heap from it and sustains the heap property during all operations.
 
 The first thing we need to do is to build a max heap from an unsorted array. We can already visualize the array as a heap, but it would **luck the max heap property**.
 
@@ -135,7 +134,6 @@ Another useful method to have is adding a new item to the heap. In this case, it
 Since the max heap property had stayed true before we add the new item, it's sufficient for us to check only parent nodes as we know that all child nodes should be less or equal to the parent value.
 
 `video: title: "Insert a new item to the heap": /blog/heapify/insert-a-new-item-to-the-heap.mp4`
-
 <div class="image-title">Insert a new item to the heap</div>
 
 Now we can take a look at the implementation:
@@ -171,14 +169,13 @@ The complexity of heap inserting algorithm is $\Theta(log(n))$ since at each int
 
 ## Extracting The Max Element
 
-The key method of the heap is extracting the max element. Because of the heap property, the max element should always stay that the top of the heap. So it's as simple as call `self.items[0]` to get it.
+The key method of the heap is extracting the max element. Because of the heap property, the max element should always stay that the top of the heap. So it's as simple as call `self.items[0]{:python}` to get it.
 
 That's not all. The extraction would remove the element from the heap and we can not just leave it with a "hole". Instead, we need to put the next max element there.
 
-Like before, the safest way is to **replace the hole with the last leaf node** (not to change the heap property in other branches of the heap). The last item is just handy to use, but it's not necessarily the next needed candidate to be at the top of the heap. To make sure, we need to run the `heapify()` method which recursively fixes all violations.
+Like before, the safest way is to **replace the hole with the last leaf node** (not to change the heap property in other branches of the heap). The last item is just handy to use, but it's not necessarily the next needed candidate to be at the top of the heap. To make sure, we need to run the `heapify(){:python}` method which recursively fixes all violations.
 
 `video: title: "Extract the max element from the heap": /blog/heapify/extract-max-element-from-the-heap.mp4`
-
 <div class="image-title">Extract the max element from the heap</div>
 
 The implementation is straightforward:
@@ -244,9 +241,9 @@ def sort(self) -> List[int]:
     return self.items
 ```
 
-In this approach, we use the root node offset trick that helps us to change the position of the root node and move from the left to right sorting the `self.items` array. The `root_idx` param is just tweaks the child calculation formula for that.
+In this approach, we use the root node offset trick that helps us to change the position of the root node and move from the left to right sorting the `self.items{:python}` array. The `root_idx{:python}` param is just tweaks the child calculation formula for that.
 
-The cost of being in-place solution is breaking the heap property in `self.items` array. I would prefer the first version of the heap sort in order to avoid such a mutations to `self.items` array.
+The cost of being in-place solution is breaking the heap property in `self.items{:python}` array. I would prefer the first version of the heap sort in order to avoid such a mutations to `self.items{:python}` array.
 
 ## Applications
 

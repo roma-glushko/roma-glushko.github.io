@@ -1,14 +1,12 @@
 /** Remark Styling **/
 
 html {
-    --backquoteBorderColor: var(--red);
     --imageTitleColor: gray;
     --inlineCodeColor: var(--black);
     --inlineCodeBgColor: var(--grey);
 }
 
 html.dark {
-    --backquoteBorderColor: var(--pink);
     --imageTitleColor: #8b949e;
     --inlineCodeColor: var(--white);
     --inlineCodeBgColor: var(--regentGray);
@@ -27,6 +25,12 @@ html.dark {
 
 .content h2:first-of-type {
     margin-top: 0;
+}
+
+.content > p:first-of-type::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: 1.5rem;
 }
 
 .content,
@@ -56,10 +60,6 @@ html.dark {
     margin-top: 2rem;
 }
 
-.content p::first-letter {
-    padding-left: 1.5rem;
-}
-
 .content ul {
     padding: 0;
 }
@@ -76,27 +76,12 @@ html.dark {
 .content ul li,
 .content ol li {
     margin-left: 30px;
-    margin-top: 0.80em;
-}
-
-.content blockquote {
-    box-shadow: var(--backquoteBorderColor) 3px 0px 0px 0px inset;
-    font-size: 1.3rem;
-    font-style: italic;
-    line-height: 1.7;
-    margin-left: -20px;
-    padding-left: 20px;
+    margin-top: 0.50em;
 }
 
 @media (max-width: 1200px) {
     .content h2 .anchor {
         display: none
-    }
-}
-
-@media (max-width: 575px) {
-    .content blockquote {
-        margin: 0.5rem;
     }
 }
 

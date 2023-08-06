@@ -10,7 +10,6 @@ import moonlightTheme from "./src/data/moonlight-ii.json" assert { type: "json" 
 
 import rmMath from 'remark-math';
 import rmReadingTime from './src/markdown/readingTime.mjs';
-import rmUnwrapImages from "remark-unwrap-images";
 
 import rhKatex from 'rehype-katex';
 import rhVideo from './src/markdown/videoRenderer.mjs';
@@ -38,7 +37,7 @@ export default defineConfig({
   markdown: {
     drafts: true,
     syntaxHighlight: false,
-    remarkPlugins: [rmMath, rmReadingTime, rmUnwrapImages],
+    remarkPlugins: [rmMath, rmReadingTime],
     rehypePlugins: [
       [
         rehypePrettyCode, // https://rehype-pretty-code.netlify.app/
