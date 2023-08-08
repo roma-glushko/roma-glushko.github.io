@@ -1,8 +1,8 @@
-body {
+html {
     --gameOverlayBackgroundColor: var(--white);
 }
 
-body.dark {
+html.dark {
     --gameOverlayBackgroundColor: var(--midnight);
     --gameOverlayBorderColor: var(--grey);
 }
@@ -39,7 +39,7 @@ body.dark {
     padding: 2rem;
 }
 
-body.dark .overlay-message {
+html.dark .overlay-message {
     border: 1px solid var(--gameOverlayBorderColor);
 }
 

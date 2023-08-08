@@ -2,6 +2,8 @@
 import { CollectionEntry, getCollection } from 'astro:content';
 
 import ProjectLayout from '@layouts/ProjectLayout.astro';
+import { ContentTypes } from '@components/hooks/readRepository';
+import ReadingTracker from '@components/reading/ReadingTracker';
 
 import "@styles/content.css"
 
@@ -21,13 +23,14 @@ type Props = CollectionEntry<'projects'>;
 const project = Astro.props;
 const { Content } = await project.render();
 const { title, description, keywords } = project.data
+const slug = project.slug
 ---
 <ProjectLayout
 	title={title}
 	description={description}
 	keywords={keywords}
 >
-	<!-- <ReadingTracker contentType={ContentTypes.LAB}> -->
-	<Content />
-	<!-- </ReadingTracker> -->
+	<ReadingTracker id={slug} contentType={ContentTypes.LAB}>
+		<Content />
+	</ReadingTracker>
 </ProjectLayout>
