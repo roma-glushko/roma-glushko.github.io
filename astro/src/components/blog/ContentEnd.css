@@ -1,0 +1,9 @@
+.content-end {
+    user-select: none;
+    text-align: center;
+    margin: 3rem
+}
+
+.content-end span {
+    margin-right: 1rem;
+}

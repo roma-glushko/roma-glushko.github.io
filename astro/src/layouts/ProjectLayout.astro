@@ -1,0 +1,57 @@
+---
+import BaseHead from '@components/BaseHead.astro';
+
+import MainNavigation from '@components/MainNavigation.astro';
+import NetworkBackground from '@components/home/NetworkBackground';
+import ContentEnd from '@components/blog/ContentEnd.astro';
+import Footer from '@components/Footer.astro';
+
+import "@styles/theme.css"
+import "@styles/general.css"
+import "@styles/project.css"
+
+export interface Props {
+	title: string;
+	description: string;
+	keywords: string[];
+	image: string;
+}
+
+const { title, description, keywords } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en" class="project-view-page">
+	<head>
+		<BaseHead 
+			title={`${title} - Projects`} 
+			description={description} 
+			keywords={keywords} 
+			ogType={`article`}
+			image={""}
+		/>
+	</head>
+	<body>
+		<header class="projects-header">
+			<!-- <ViewPageHeader spaceTitle="Projects" spaceLink="/projects/" /> -->
+			<MainNavigation space={"projects"} />
+		</header>
+		<div id="hero-header" class="project-header">
+			<!-- <ThemeToggler> -->
+			<!-- {({ theme }) => <NNBackground theme={theme} />} -->
+			<!-- </ThemeToggler> -->
+			<NetworkBackground client:only />
+			<h1 class="title">
+				{title}
+				<br />
+				<span class="project-category">computer vision</span>
+			</h1>
+		</div>
+		<main class="project-wrapper">
+			<div class="content">
+				<slot />
+				<ContentEnd />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

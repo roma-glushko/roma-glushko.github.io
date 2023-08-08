@@ -9,6 +9,8 @@ import { getBlogPosts } from 'src/content/collections';
 import { getBlogUrl } from 'src/content/routing';
 import CrumbsSnippet from '@components/CrumbSnippet.astro';
 import ArticleSnippet from '@components/ArticleSnippet.astro';
+import ShareBlock from '@components/blog/ShareBlock';
+import ContentEnd from '@components/blog/ContentEnd.astro';
 
 export async function getStaticPaths() {
 	const posts = await getBlogPosts();
@@ -45,8 +47,9 @@ const blogUrlPath = getBlogUrl(slug)
 	<main>
 		<BlogContent title={title} pubDate={pubDate} keywords={keywords} cover={cover} timeToReadMin={timeToReadMin}>
 			<Content />
+			<ContentEnd />
+			<ShareBlock title={title} path={blogUrlPath} keywords={keywords} client:only />
 		</BlogContent>
-		<!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
 		<BlogComments client:visible />
 		<aside class="blogpost-sidebar">
 			<BlogNavigation prev={prev} next={next} />

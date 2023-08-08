@@ -258,7 +258,7 @@ If an error happened during the execution, the workflow would be the same, but w
 
 Alright, enough about message joggling. Let's zoom out a bit and see how some of the kernel actions were implemented.
 
-### Code Execution
+## Code Execution
 
 Thinking about Jupyter's central functionality which is code exection, we are really getting back to the project's roots. 
 [Back then in 2011](https://en.wikipedia.org/wiki/Project_Jupyter), the pure core of Python's kernel was released as the IPython project, an interactive Python's REPL with ✨magic. 
@@ -273,13 +273,118 @@ In fact the `shell` channel that is a gateway for all sorts of code executions i
 
 When the `execute_request` message gets into the kernel, it triggers a complex execution pipeline that we could divide into a few stages:
 
-- Raw Code Transformation
+- [Raw Code Transformation](#raw-code-transformation--magic-commands)
 - Code Compilation & AST Transformation
-- Code Execution
+- [Code Execution](#eval--user-namespace)
 
-Storing the execution in the history
+### Raw Code Transformation & Magic Commands
+
+Cell code is not just a pure Python/R/Julia/etc code, it also could contain some magic directives that Jupyter borrowed from Matematica. 
+The magic commands look like `%save` (aka line magic) or `%%sh` (aka cell magic). There is also a way to run a shell command via `!ls -lah`.
+Apperently, those special commands are not supported by the default interpreters, so Jupyter gets to transform the raw code to make them executable.
+
+To transform the magic commands into executable code, Jupyter simply replaces unsupported syntax by legitimit calls to the interactive shell methods:
+
+| Magic Command | Transformation                                         |
+|---------------|--------------------------------------------------------|
+| `%save`       | ` get_ipython().run_line_magic("save", ...){:python} ` |
+| `%%sh`        | ` get_ipython().run_cell_magic("sh", ...){:python} `   |
+| `!ls -ls`     | ` get_ipython().system("ls -ls"){:python} `            |
+| `??`          | ` get_ipython().show_usage(){:python} `                |
+
+`get_ipython(){:python}` is nothing else but the reference to the interactive shell and its public API via [user namespace setup](#eval--user-namespace).
+
+Another transformation Jupyter does is on the AST level. Jupyter compiles the cell code into an AST tree (basically, using the [codeop.Compiler](https://docs.python.org/3/library/codeop.html#codeop.Compile)) and then run AST transformers against it. This is a plug in point to further transform or reject the given code.
+
+### Eval & User Namespace
+
+Finally, the code is ready for execution. 
+
+Jupyter leverages built-in [eval()](https://docs.python.org/3/library/functions.html#eval) and [exec()](https://docs.python.org/3/library/functions.html#exec) functions for that. 
+They provide a way to setup, isolate or restrict the scope in which user code is going to be executed. Jupyter calls it user namespace.
+
+The user namespace consists of two types: local and global one. Jupyter cares about both of them, however, by default, they are the same. Theoretically, they could be different in some sort of embedded environments.
+
+Jupyter creates a new Python module in which the code is going to be executed and then defines the user namespace which is essentially a `dict{:python}` with all references available to the user code:
+
+```python {8-11, 21} caption="Pseudo Code of User Namespace Usage"
+import builtins as builtin_mod
+import types
+
+
+builtin_mod.__dict__['__IPYTHON__'] = True
+# ...
+
+user_module = types.ModuleType(
+  "__main__",
+  doc="Automatically created module for IPython interactive environment"
+)
+
+# setup references
+user_module.__dict__['get_ipython'] = self.get_ipython
+# ...
+# http://mail.python.org/pipermail/python-dev/2001-April/014068.html
+user_module.__dict__.setdefault('__builtin__', builtin_mod)
+user_module.__dict__.setdefault('__builtins__', builtin_mod)
+
+# user_module.__dict__ is the user namespace
+eval("print(hey)", globals=user_module.__dict__, locals=user_module.__dict__)
+```
+
+At the user namespace creation time, the interactive shell configures bare minimal references including a reference to itself in a form of the `get_ipython()` function.
+
+The shell also adds references to `__builtin__` and `__builtins__` modules. 
+These references lead to `builtins` imported and modified by the shell (e.g. the `__IPYTHON__{:python}` flag is added which is a good way to find out if you are being executed in a jupyter kernel).
+It's worth pointing out that the kernel also modifies [input()](https://docs.python.org/3/library/functions.html#input) and [getpass()](https://docs.python.org/3/library/getpass.html#getpass.getpass) functions, but more about that in the following sections.
+
+Ultimately, a clean user namespace looks like this:
+
+```python
+{
+  '__name__': '__main__',
+  '__doc__': 'Automatically created module for IPython interactive environment',
+  '__package__': None,
+  '__loader__': None,
+  '__spec__': None,
+  '__builtin__': <module 'builtins' (built-in)>,
+  '__builtins__': <module 'builtins' (built-in)>,
+  '_ih': ['', 'locals()'],
+  '_oh': {},
+  '_dh': [PosixPath('/Users/roman/Projects/etc/jupyter-architecture')],
+  'In': ['', 'locals()'],
+  'Out': {},
+  'get_ipython': <bound method InteractiveShell.get_ipython of <ipykernel.zmqshell.ZMQInteractiveShell object at 0x112bb5190>>,
+  'exit': <IPython.core.autocall.ZMQExitAutocall at 0x112bb96d0>,
+  'quit': <IPython.core.autocall.ZMQExitAutocall at 0x112bb96d0>,
+  'open': <function io.open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)>,
+  '_': '',
+  '__': '',
+  '___': '',
+  '_i': '',
+  '_ii': '',
+  '_iii': '',
+  '_i1': 'locals()'
+}
+```
+
+Finally, the code and its output may be stored in the kernel history. 
+The kernel tracks the last N executions and store related information in the SQLite database to simplify retriaval.
+
+## Code Completion & Inspection
+
+The user namespace is useful during code completion and inspection.
+
+## Debugging
+
+TBU
+
+## Virtual Inputs
+
+TBU
 
 ## References
 
 - [[Jupyter] Client Docs](https://jupyter-client.readthedocs.io/en/latest/messaging.html)
 - [[Wiki] Project Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter)
+- [[Python] Execution model](https://docs.python.org/3/reference/executionmodel.html)
+- [[Github] DebugPy - DAP for Python](https://github.com/microsoft/debugpy)

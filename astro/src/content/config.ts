@@ -52,4 +52,13 @@ const cv = defineCollection({
 	})
 })
 
-export const collections = { blog, thoughts, cv };
+const projects = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		content: z.enum(['standalone', 'teaser']).optional().transform(content => content ?? "teaser"),
+		keywords: z.array(z.string()),
+	})
+})
+
+export const collections = { blog, thoughts, cv, projects };

@@ -4,7 +4,7 @@ const {keywords} = Astro.props;
 
 <ul class="blog-tags">
     {keywords.map((keyword: string) => (
-      <li>{keyword}</li>
+        <li>{keyword}</li>
     ))}
 </ul>
 
@@ -24,7 +24,7 @@ ul.blog-tags {
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
-    padding: 0;
+    /* padding: 0; */
     text-align: center;
 }
 
@@ -36,5 +36,7 @@ ul.blog-tags li {
     margin-right: 5px;
     margin-bottom: 5px;
     white-space: nowrap;
+    padding: 0.2em 0.5em;
+    font-size: 90%;
 }
 </style>

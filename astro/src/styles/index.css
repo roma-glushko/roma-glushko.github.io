@@ -170,7 +170,7 @@ html.dark {
 }
 
 .homepagev2 .social-list .social-item {
-    background-color: var(--socialBackgroundColor);
+    background-color: transparent;
     pointer-events: all;
 }
 

@@ -28,6 +28,7 @@ html.dark {
     position: sticky;
     top: 1rem;
     float: right;
+    user-select: none;
 }
 
 @media (prefers-contrast: high) {

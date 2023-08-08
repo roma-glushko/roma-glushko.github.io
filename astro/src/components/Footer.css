@@ -60,7 +60,7 @@ footer .social-list .social-item {
 }
 
 footer .social-list .social-item svg {
-    background-color: var(--footerBgColor);
+    background-color: transparent;
     height: 1em;
     font-size: 2em;
     display: block;

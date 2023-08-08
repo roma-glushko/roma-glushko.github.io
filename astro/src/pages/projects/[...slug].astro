@@ -1,0 +1,33 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content';
+
+import ProjectLayout from '@layouts/ProjectLayout.astro';
+
+import "@styles/content.css"
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects')
+	
+	const standaloneProjects = projects.filter(project => project.data.content === "standalone");
+
+	return standaloneProjects.map(project => ({
+		params: { slug: project.slug },
+		props: project,
+	}));
+}
+
+type Props = CollectionEntry<'projects'>;
+
+const project = Astro.props;
+const { Content } = await project.render();
+const { title, description, keywords } = project.data
+---
+<ProjectLayout
+	title={title}
+	description={description}
+	keywords={keywords}
+>
+	<!-- <ReadingTracker contentType={ContentTypes.LAB}> -->
+	<Content />
+	<!-- </ReadingTracker> -->
+</ProjectLayout>

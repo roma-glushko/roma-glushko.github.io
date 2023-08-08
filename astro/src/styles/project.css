@@ -1,0 +1,89 @@
+html {
+    --expCatColor: var(--black);
+    --expCatBackgroundColor: var(--white);
+}
+
+html.dark {
+    --expCatColor: var(--white);
+    --expCatBackgroundColor: var(--midnight);
+}
+
+.project-header {
+    background-size: cover;
+    background-position: center center;
+    height: 40rem;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    z-index: 1;
+}
+
+.project-header canvas {
+    height: 100%;
+    width: 100%;
+}
+
+.project-header h1.title {
+    position: absolute;
+    pointer-events: none;
+    font-size: 4rem;
+    line-height: 1.2;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+}
+
+.project-header .title .highlight {
+    color: var(--thoughtsPageTitleColor)
+}
+
+.project-header .title .subscript {
+    font-size: 3rem;
+    position: relative;
+}
+
+.project-header .title .after {
+    font-size: 3rem;
+}
+
+.project-wrapper {
+    padding: 10px;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.project-view-page .project-header{
+    height: 30rem;
+}
+
+.project-view-page .project-header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.project-view-page .project-category {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: var(--expCatBackgroundColor);
+    border: 1px solid #dcdfe6;
+    color: var(--expCatColor);
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+}

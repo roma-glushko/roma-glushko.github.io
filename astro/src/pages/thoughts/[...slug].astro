@@ -12,6 +12,8 @@ import ThoughtNavigation from '@components/thoughts/ThoughtNavigation.astro';
 import ArticleSnippet from '@components/ArticleSnippet.astro';
 
 import '@styles/thoughtView.css'
+import ShareBlock from '@components/blog/ShareBlock';
+import ContentEnd from '@components/blog/ContentEnd.astro';
 
 export async function getStaticPaths() {
 	const posts = await getThoughts();
@@ -57,9 +59,10 @@ const thoughtUrlPath = getThoughtUrl(slug)
       cover={cover}
       timeToReadMin={timeToReadMin}
     >
-        <Content />
+      <Content />
+      <ContentEnd />
+      <ShareBlock title={title} path={thoughtUrlPath} keywords={keywords} client:only />
     </ThoughtContent>
-    <!-- <ShareBlock title={title} path={path} tags={keywords} /> -->
   </main>
   <aside class="thought-sidebar">
     <ThoughtAuthor />
