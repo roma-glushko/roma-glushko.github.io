@@ -3,7 +3,7 @@ import useLocalStorage from "./storage"
 export enum ContentTypes {
   BLOG = "blog",
   THOUGHT = "thought",
-  LAB = "lab",
+  PROJECT = "project",
 }
 
 export enum ReadStatuses {
