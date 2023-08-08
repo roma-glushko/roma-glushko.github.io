@@ -37,9 +37,7 @@ const recentThoughts = (await getThoughts()).slice(0, 3)
 			<MyTitles />
 			<MainNavigation space={"homepage"} />
 			<SocialLinks showPatreon={true} iconSize={"sm"} />
-			<div class="theme-switcher">
-				<ThemeSwitcher client:load />
-			</div>
+			<ThemeSwitcher client:load />
 		</figure>
 		</div>
 	</div>

@@ -39,13 +39,13 @@ export interface Props {
 
 const {prev, current, next} = Astro.props;
 const { Content, remarkPluginFrontmatter: { timeToReadMin } } = await current.render();
-const {title, excerpt, pubDate, keywords, cover} = current.data
+const {id, title, excerpt, pubDate, keywords, cover} = current.data
 const slug = current.slug
 const blogUrlPath = getBlogUrl(slug)
 ---
 <BlogPostLayout title={title} description={excerpt} keywords={keywords} image={cover.image}>
 	<main>
-		<BlogContent title={title} pubDate={pubDate} keywords={keywords} cover={cover} timeToReadMin={timeToReadMin}>
+		<BlogContent id={id || slug} title={title} pubDate={pubDate} keywords={keywords} cover={cover} timeToReadMin={timeToReadMin}>
 			<Content />
 			<ContentEnd />
 			<ShareBlock title={title} path={blogUrlPath} keywords={keywords} client:only />

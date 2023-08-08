@@ -47,13 +47,14 @@ const slug = current.slug
 const thoughtUrlPath = getThoughtUrl(slug)
 ---
 <ThoughtPostLayout
-  title={`${title}`}
+  title={title}
   description={excerpt}
   keywords={keywords}
   image={cover.image}
 >
   <main>
     <ThoughtContent
+      id={slug}
       title={title}
       pubDate={pubDate}
       cover={cover}

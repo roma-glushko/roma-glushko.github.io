@@ -33,11 +33,9 @@ const { title, description, keywords, image } = Astro.props;
         <div class="thoughts-wrapper">
             <ThoughtHeader listing={true} />
             <aside class="thought-sidebar">
-              <ThoughtAuthor />
-              <MainNavigation space={"thoughts"} />
-              <div class="theme-switcher">
-                <ThemeSwitcher client:load />
-              </div>
+				<ThoughtAuthor />
+				<MainNavigation space={"thoughts"} />
+				<ThemeSwitcher client:load />
             </aside>
 			<slot />
 			<div class="clearfix" />

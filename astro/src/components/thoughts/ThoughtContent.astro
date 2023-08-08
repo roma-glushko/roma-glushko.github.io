@@ -7,8 +7,10 @@ import ThemeSwitcher from '@components/ThemeSwitcher';
 
 import "@styles/content.css";
 import "./ThoughtContent.css"
+import { ContentTypes } from '@components/hooks/readRepository';
+import ReadingTracker from '@components/reading/ReadingTracker';
 
-const {title, pubDate, cover: {image, credits, aspectRatio}, timeToReadMin} = Astro.props;
+const {id, title, pubDate, cover: {image, credits, aspectRatio}, timeToReadMin} = Astro.props;
 ---
 <article class="thought-wrapper">
     <header>
@@ -39,15 +41,13 @@ const {title, pubDate, cover: {image, credits, aspectRatio}, timeToReadMin} = As
             <span class="thought-time2read">
                 {timeToReadMin}
             </span>
-            <div class="theme-switcher">
-                <ThemeSwitcher client:load />
-            </div>
+            <ThemeSwitcher client:load />
         </div>
     </header>
     <div class="thought-divider" />
-    <!-- <ReadingTracker contentType={ContentTypes.THOUGHT}> -->
+    <ReadingTracker id={id} contentType={ContentTypes.THOUGHT}>
         <div class="content thought-content">
             <slot />
         </div>
-    <!-- </ReadingTracker> -->
+    </ReadingTracker>
 </article>

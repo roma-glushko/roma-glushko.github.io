@@ -5,11 +5,13 @@ import Date from "@components/Date.astro"
 import ThemeSwitcher from "@components/ThemeSwitcher";
 import TableOfContent from "./TableOfContent";
 import PostKeywords from '@components/blog/PostKeywords.astro';
+import ReadingTracker from '@components/reading/ReadingTracker';
+import { ContentTypes } from '@components/hooks/readRepository';
 
 import "@styles/content.css";
 import "@styles/code.css";
 
-const {title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeToReadMin} = Astro.props;
+const {id, title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeToReadMin} = Astro.props;
 ---
 <article class="blog-wrapper">
     <header>
@@ -40,19 +42,17 @@ const {title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeToRea
         <span class="blog-time2read">
           {timeToReadMin}
         </span>
-        <div class="theme-switcher">
-          <ThemeSwitcher client:load />
-        </div>
+        <ThemeSwitcher client:load />
       </div>
       <PostKeywords keywords={keywords} />
     </header>
     <div class="blog-divider" />
-    <!-- <ReadingTracker id={id} contentType={ContentTypes.BLOG}> -->
+    <ReadingTracker id={id} contentType={ContentTypes.BLOG}>
       <div class="content-wrapper">
         <TableOfContent client:load />
         <div class="content blog-content">
             <slot />
         </div>
       </div>
-    <!-- </ReadingTracker> -->
+    </ReadingTracker>
 </article>

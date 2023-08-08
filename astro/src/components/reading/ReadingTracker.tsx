@@ -1,5 +1,5 @@
 import * as React from "react"
-import { trackCustomEvent } from "gatsby-plugin-google-analytics"
+// import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import { ReactNode, useEffect, useState } from "react"
 import useReadRepository, {
   ReadState,
@@ -45,12 +45,12 @@ const ReadingTracker = (props: Props): JSX.Element => {
     )
 
     window.requestAnimationFrame(() => {
-      trackCustomEvent({
-        category: "content",
-        action: "startReading",
-        label: contentType,
-        value: secondsUntilStartedReading,
-      })
+      // trackCustomEvent({
+      //   category: "content",
+      //   action: "startReading",
+      //   label: contentType,
+      //   value: secondsUntilStartedReading,
+      // })
 
       typeof window !== "undefined" &&
         typeof window.gtag !== "undefined" &&
@@ -112,12 +112,12 @@ const ReadingTracker = (props: Props): JSX.Element => {
         (spentTimeReading - readingStartedAt) / 1000
       )
 
-      trackCustomEvent({
-        category: "content",
-        action: "reading",
-        label: contentType,
-        value: secondsReading,
-      })
+      // trackCustomEvent({
+      //   category: "content",
+      //   action: "reading",
+      //   label: contentType,
+      //   value: secondsReading,
+      // })
 
       typeof window !== "undefined" &&
         typeof window.gtag !== "undefined" &&
@@ -169,12 +169,12 @@ const ReadingTracker = (props: Props): JSX.Element => {
     )
 
     window.requestAnimationFrame(() => {
-      trackCustomEvent({
-        category: "content",
-        action: "endReading",
-        label: contentType,
-        value: secondsUntilEndedReading,
-      })
+      // trackCustomEvent({
+      //   category: "content",
+      //   action: "endReading",
+      //   label: contentType,
+      //   value: secondsUntilEndedReading,
+      // })
 
       typeof window !== "undefined" &&
         typeof window.gtag !== "undefined" &&
@@ -204,8 +204,8 @@ const ReadingTracker = (props: Props): JSX.Element => {
       return
     }
 
-    const articleStart: HTMLElement = document.getElementById("intro")
-    const articleEnd: HTMLElement = document.getElementById("content-end")
+    const articleStart: HTMLElement = document.getElementById("intro") as HTMLElement
+    const articleEnd: HTMLElement = document.getElementById("content-end") as HTMLElement
 
     const mainSections: HTMLHeadingElement[] = Array.from(
       document.querySelectorAll(`.content h2[id]`)

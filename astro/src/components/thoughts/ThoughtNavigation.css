@@ -1,11 +1,11 @@
 /** Theme variables **/
 
-body {
+html {
     --thoughtNavigationLinkColor: var(--red);
     --allThoughtsNavigationLinkColor: var(--black);
 }
 
-body.dark {
+html.dark {
     --thoughtNavigationLinkColor: var(--pink);
     --allThoughtsNavigationLinkColor: var(--white);
 }

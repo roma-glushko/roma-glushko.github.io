@@ -5,6 +5,7 @@ import CVHeader from "@components/cv/CVHeader.astro";
 import DownloadBadge from "@components/cv/DownloadBadge.astro";
 import SocialLinks from "@components/SocialLinks.astro";
 import ThemeSwitcher from "@components/ThemeSwitcher";
+import CrumbSnippet from "@components/CrumbSnippet.astro";
 
 import "@styles/theme.css"
 import "@styles/general.css"
@@ -31,9 +32,7 @@ const { title, description, position, keywords } = Astro.props;
     >
         <DownloadBadge />
         <header>
-            <div class="theme-switcher">
-                <ThemeSwitcher client:only />
-            </div>
+            <ThemeSwitcher client:only />
             <MainNavigation space={"cv"} />
             <CVHeader position={position} />
             <SocialLinks showPatreon={false} />
@@ -42,8 +41,6 @@ const { title, description, position, keywords } = Astro.props;
             <slot />
         </div>
     </main>
-    <!-- <BreadcrumbsSnippet
-    crumbs={[{ "/cv/machine-learning-engineer/": "ML/DL Engineer CV" }]}
-    /> -->
+    <CrumbSnippet crumbs={[{ "/cv/machine-learning-engineer/": "ML/DL Engineer CV" }]} />
 </body>
 </html>

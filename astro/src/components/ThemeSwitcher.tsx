@@ -40,17 +40,19 @@ const ThemeSwitcher = (): JSX.Element => {
   })
 
   return (
-    <div className={"theme-switcher-toggler" + ($theme === Themes.DARK ? " theme-switcher-toggler--checked" : "")} onClick={switchTheme}>
-      <div className="theme-switcher-track" />
-      <div className="theme-switcher-thumb" />
+    <div className="theme-switcher">
+      <div className={"theme-switcher-toggler" + ($theme === Themes.DARK ? " theme-switcher-toggler--checked" : "")} onClick={switchTheme}>
+        <div className="theme-switcher-track" />
+        <div className="theme-switcher-thumb" />
 
-      <input
-        className="theme-switcher-input"
-        type="checkbox"
-        checked={$theme === Themes.DARK}
-        readOnly={true}
-        aria-label="Switch between dark and light themes"
-      />
+        <input
+          className="theme-switcher-input"
+          type="checkbox"
+          checked={$theme === Themes.DARK}
+          readOnly={true}
+          aria-label="Switch between dark and light themes"
+        />
+      </div>
     </div>
   )
 }

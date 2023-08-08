@@ -12,3 +12,7 @@
 .social .social-list a span {
     display: none;
 }
+
+.social .social-list svg {
+    height: 1em;
+}
