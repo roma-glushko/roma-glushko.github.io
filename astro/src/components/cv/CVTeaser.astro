@@ -1,0 +1,16 @@
+---
+export interface Props {
+    position: string;
+    excerpt: string;
+}
+
+const {position, excerpt} = Astro.props;
+---
+<div class="resume-wrapper">
+    <a href="">
+        <article class="resume">
+            <h2>{position}</h2>
+            <p>{excerpt}</p>
+        </article>
+    </a>
+</div>

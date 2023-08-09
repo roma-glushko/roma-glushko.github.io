@@ -39,13 +39,14 @@ pre[data-theme='dark'] [data-highlighted-line] {
     border-left-color: var(--codeHighlightBorderColor);
 }
 
-
 span[data-rehype-pretty-code-fragment] code[data-theme='light'] {
     display: inline-block;
+    font-size: 90%;
 }
 
 html.dark span[data-rehype-pretty-code-fragment] code[data-theme='dark'] {
     display: inline-block;
+    font-size: 90%;
 }
 
 html.dark span[data-rehype-pretty-code-fragment] code[data-theme='light'] {

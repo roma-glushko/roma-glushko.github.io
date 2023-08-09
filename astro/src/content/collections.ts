@@ -13,3 +13,10 @@ export const getThoughts = async () => {
             (a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
         )
 }
+
+export const getResumes = async () => {
+    return (await getCollection('cv'))
+        .sort(
+            (a, b) =>  b.data.order.valueOf() - a.data.order.valueOf()
+        )
+}

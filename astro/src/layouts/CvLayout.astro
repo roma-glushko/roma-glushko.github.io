@@ -25,22 +25,25 @@ const { title, description, position, keywords } = Astro.props;
     />
 </head>
 <body>
-    <main
+    <div
         itemscope
         itemtype="http://schema.org/Person"
         class="cv cv-machine-learning-engineer"
     >
         <DownloadBadge />
         <header>
-            <ThemeSwitcher client:only />
-            <MainNavigation space={"cv"} />
             <CVHeader position={position} />
+            <MainNavigation space={"cv"} />
             <SocialLinks showPatreon={false} />
+            <ThemeSwitcher client:only />
         </header>
-        <div class="cv-content">
+        <main class="cv-content">
             <slot />
-        </div>
-    </main>
-    <CrumbSnippet crumbs={[{ "/cv/machine-learning-engineer/": "ML/DL Engineer CV" }]} />
+        </main>
+    </div>
+    <CrumbSnippet crumbs={[
+        { "/cv/": "Roman Glushko's CV" },
+        { "/cv/machine-learning-engineer/": "ML/DL Engineer CV" },
+    ]} />
 </body>
 </html>

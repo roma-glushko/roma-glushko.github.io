@@ -73,10 +73,18 @@ html.dark {
     font-size: 1.5rem;
 }
 
-
 .cv-content {
     display: grid;
     grid-template-columns: 30% 1fr;
+    margin-top: 1rem;
+}
+
+.cv-content p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.cv-content ul {
     margin-top: 1rem;
 }
 
@@ -132,6 +140,7 @@ html.dark {
 .cv .jobs .job-description,
 .cv .projects .project-description {
     margin-bottom: 0.8rem;
+    padding-left: 1rem;
 }
 
 .cv .projects .project-details li,

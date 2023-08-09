@@ -1,0 +1,44 @@
+---
+import BaseHead from "@components/BaseHead.astro";
+import MainNavigation from "@components/MainNavigation.astro";
+import ThemeSwitcher from "@components/ThemeSwitcher";
+import CrumbSnippet from "@components/CrumbSnippet.astro";
+import BlogHeader from "@components/BlogHeader.astro";
+import Footer from "@components/Footer.astro";
+
+import "@styles/theme.css"
+import "@styles/general.css"
+import "@styles/blog.css";
+
+const { title, description, intro, keywords } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en" class="blogpost-list-page">
+<head>
+    <BaseHead 
+        title={title} 
+        description={description} 
+        keywords={keywords} 
+        ogType={`website`}
+        image={`/blog/roman-glushko-in-the-process-of-work.jpg`}
+    />
+</head>
+<body>
+    <div class="blog-listing-wrapper">
+        <aside class="blog-sidebar">
+            <div class="blog-header">
+                <BlogHeader spaceTitle="Resumes" spaceLink="/cv/" />
+                <MainNavigation space={"cv"} />
+            </div>
+            <div class="blog-intro">{intro}</div>
+            <div class="misc">
+                <ThemeSwitcher client:only />
+            </div>
+        </aside>
+    </div>
+    <slot />
+    <div class="clearfix" />
+    <Footer />
+    <CrumbSnippet crumbs={[{ "/cv/": "Roman Glushko's Resumes" }]} />
+</body>
+</html>

@@ -47,13 +47,18 @@ const blogUrlPath = getBlogUrl(slug)
 	<main>
 		<BlogContent id={id || slug} title={title} pubDate={pubDate} keywords={keywords} cover={cover} timeToReadMin={timeToReadMin}>
 			<Content />
-			<ContentEnd />
-			<ShareBlock title={title} path={blogUrlPath} keywords={keywords} client:only />
 		</BlogContent>
-		<BlogComments client:visible />
+		<div class="sidebar-wrapper">
+			<div></div>
+			<div>
+				<ContentEnd />
+				<ShareBlock title={title} path={blogUrlPath} keywords={keywords} client:only />
+			</div>
+		</div>
 		<aside class="blogpost-sidebar">
 			<BlogNavigation prev={prev} next={next} />
 		</aside>
+		<BlogComments client:visible />
 	</main>
 	<CrumbsSnippet crumbs={[{ "/blog/": "Blog" }, { [blogUrlPath]: title }]} />
 	<ArticleSnippet

@@ -1,0 +1,9 @@
+.resumes {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.resumes .resume-list {
+    max-width: 50rem;   
+}

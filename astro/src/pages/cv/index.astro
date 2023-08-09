@@ -1,4 +1,27 @@
 ---
----
+import { getResumes } from 'src/content/collections';
 
-TBU
+import CvListLayout from "@layouts/CvListLayout.astro";
+import CVTeaser from "@components/cv/CVTeaser.astro";
+
+import "@styles/cvList.css";
+
+const resumes = await getResumes()
+---
+<CvListLayout 
+    title={"Roman Glushko's Resumes"}
+    intro={"TBU"}
+    description={""} 
+    keywords={[]}
+>
+    <main
+    data-nosnippet=""
+    class={`resumes ${!resumes.length ? "no-posts" : ""}`}
+    >
+        <div class="resume-list">
+            {resumes && resumes.map((resume) => (
+                <CVTeaser slug={resume.slug} excerpt={resume.data.excerpt} position={resume.data.position} />
+            ))}
+        </div>
+    </main>
+</CvListLayout>

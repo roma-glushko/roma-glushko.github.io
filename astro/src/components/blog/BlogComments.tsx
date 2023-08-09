@@ -5,6 +5,8 @@ import { useStore } from "@nanostores/react"
 import { Themes } from "@components/ThemeSwitcher"
 import { themeStore } from "src/stores/theme"
 
+import "./BlogComments.css";
+
 // https://www.vincentntang.com/installing-gatsbyjs-blog-comments/
 const Comments = () => {
   const commentBox = useRef(null)

@@ -208,8 +208,21 @@ ul.blog-tags li {
     padding: 1rem;
 }
 
+.sidebar-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 43rem 1fr;
+    margin: auto 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
 @media (max-width: 1200px) {
     .blog-wrapper .content-wrapper {
+        display: block;
+    }
+
+    .sidebar-wrapper {
         display: block;
     }
 }

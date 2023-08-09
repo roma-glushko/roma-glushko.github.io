@@ -47,18 +47,11 @@ const cv = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
+		excerpt: z.string(),
+		order: z.number(),
 		position: z.string(),
 		keywords: z.array(z.string()),
 	})
 })
 
-const projects = defineCollection({
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		content: z.enum(['standalone', 'teaser']).optional().transform(content => content ?? "teaser"),
-		keywords: z.array(z.string()),
-	})
-})
-
-export const collections = { blog, thoughts, cv, projects };
+export const collections = { blog, thoughts, cv };

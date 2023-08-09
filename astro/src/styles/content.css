@@ -45,6 +45,10 @@ html.dark {
     text-align: justify;
 }
 
+.content {
+    margin-bottom: 0;
+}
+
 .content p:has(img) {
     margin-bottom: 0;
 }
@@ -125,6 +129,7 @@ html.dark {
 
 .content table {
     border-spacing: 0;
+    word-break: break-all;
 }
 
 .content table thead th {
@@ -166,4 +171,8 @@ html.dark {
 .content .autolink-header{
     vertical-align: middle;
     margin-left: 3px;
+}
+
+.content ul:last-child {
+    margin-bottom: 0;
 }
