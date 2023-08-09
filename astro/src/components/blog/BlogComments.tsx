@@ -14,21 +14,25 @@ const Comments = () => {
 
   useEffect(() => {
     const commentScript: HTMLScriptElement = document.createElement("script")
-
-    commentScript.src = `https://utteranc.es/client.js`
+    
     commentScript.crossOrigin = `anonymous`
     commentScript.async = true
-
-    commentScript.setAttribute("label", `discussion💬`)
-    commentScript.setAttribute(
-      "repo",
-      `roma-glushko/romaglushkocom-discussions`
-    )
-    commentScript.setAttribute("issue-term", `pathname`)
-    commentScript.setAttribute("theme", themeStore.get() == Themes.LIGHT ? `github-light` : `github-dark`)
-
-    commentScript.setAttribute("data-nosnippet", ``)
     
+    commentScript.src = `https://giscus.app/client.js`
+
+    commentScript.setAttribute("data-repo", `roma-glushko/romaglushkocom-discussions`)
+    commentScript.setAttribute("data-repo-id", `MDEwOlJlcG9zaXRvcnkzNTQ5MDgzMzA=`)
+    commentScript.setAttribute("data-category", `General`)
+    commentScript.setAttribute("data-category-id", `DIC_kwDOFSd4qs4CYfEY`)
+    commentScript.setAttribute("data-mapping", `title`)
+    commentScript.setAttribute("data-strict", `1`)
+    commentScript.setAttribute("data-reactions-enabled", `1`)
+    commentScript.setAttribute("data-emit-metadata", `0`)
+    commentScript.setAttribute("data-input-position", `top`)
+    commentScript.setAttribute("data-theme", themeStore.get() == Themes.LIGHT ? `light` : `dark_dimmed`)
+    commentScript.setAttribute("data-lang", `en`)
+    commentScript.setAttribute("data-loading", `lazy`)
+
     commentBox.current.innerHTML = ""
     commentBox.current.appendChild(commentScript)
   }, [$theme])
