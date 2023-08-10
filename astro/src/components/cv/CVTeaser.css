@@ -10,25 +10,17 @@ html.dark {
     --cvItemHighlightBgColor: var(--white);
 }
 
-.resume-list {
-    max-width: 50rem;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
-    gap: 2rem;
-    line-height: 1.4;
-}
-
-.resume-list .resume-item {
+.resume-item {
     color: var(--cvItemColor);
     border: 3px solid var(--cvItemColor);
     border-radius: 0.3rem;
 }
 
-.resume-list a.resume-item article {
+a.resume-item article {
     padding: 2rem;
 }
 
-.resume-list a.resume-item {
+a.resume-item {
     transition: 0.15s;
     transition-delay: 0s;
     transition-duration: 0.2s;
@@ -36,13 +28,7 @@ html.dark {
     transition-timing-function: ease;
 }
 
-.resume-list a.resume-item:hover {
+a.resume-item:hover {
     color: var(--cvItemHighlightColor);
     background-color: var(--cvItemHighlightBgColor);
-}
-
-@media (max-width: 768px) {
-    .resume-list {
-        display: block;
-    }
 }

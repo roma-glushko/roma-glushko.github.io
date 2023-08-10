@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 
 import { useStore } from "@nanostores/react"
 
@@ -68,19 +68,22 @@ const getColorsByTheme = (theme: Themes): ColorSchema => {
   }
 }
 
+const POINT_SIZE = 3
+const POINT_DENSITY = 20
+const K_NEIGHBORS = 6
+
 const NetworkBackground = (): JSX.Element => {
   const canvasID: string = "neural-network-background"
-  const $theme = useStore(themeStore)
   const followCursor: boolean = false;
+
+  const $theme = useStore(themeStore)
+  const [canvasWidth, setCanvasWidth] = useState<number>(0)
+  const [pointDensity, setPointDensity] = useState<number>(POINT_DENSITY)
 
   useEffect(() => {
     const colors = getColorsByTheme(themeStore.get())
 
     ;(function () {
-      const pointSize = 3
-      const pointDensity = 20
-      const kNeighbors = 6
-
       // https://codepen.io/MarcoGuglielmelli/pen/lLCxy
       const largeHeader: HTMLDivElement = document.getElementById("hero-header") as HTMLDivElement
 
@@ -136,7 +139,7 @@ const NetworkBackground = (): JSX.Element => {
 
             var placed = false
 
-            for (var k = 0; k < kNeighbors; k++) {
+            for (var k = 0; k < K_NEIGHBORS; k++) {
               if (placed) continue
 
               if (closest[k] === undefined) {
@@ -145,7 +148,7 @@ const NetworkBackground = (): JSX.Element => {
               }
             }
 
-            for (var k = 0; k < kNeighbors; k++) {
+            for (var k = 0; k < K_NEIGHBORS; k++) {
               if (placed) continue
 
               if (getDistance(p1, p2) < getDistance(p1, closest[k])) {
@@ -163,7 +166,7 @@ const NetworkBackground = (): JSX.Element => {
           points[i].circle = new Circle(
             ctx,
             points[i],
-            pointSize + Math.random() * pointSize,
+            POINT_SIZE + Math.random() * POINT_SIZE,
             colors.circleColor,
             0,
           )
@@ -203,6 +206,14 @@ const NetworkBackground = (): JSX.Element => {
 
         canvas.width = width
         canvas.height = height
+
+        if (width < 768) {
+          setPointDensity(10);
+        } else {
+          setPointDensity(POINT_DENSITY)
+        }
+
+        setCanvasWidth(width)
       }
 
       // animation
@@ -269,7 +280,7 @@ const NetworkBackground = (): JSX.Element => {
       initAnimation()
       addListeners()
     })()
-  }, [$theme]);
+  }, [$theme, canvasWidth]);
 
   return <canvas id={canvasID}></canvas>
 }

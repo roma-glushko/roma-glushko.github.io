@@ -1,0 +1,54 @@
+---
+interface Project {
+    title: string;
+    description: string;
+    skills?: string[];
+}
+
+export interface Props {
+    projects: Project[];
+    otherProjects?: Project[];
+}
+
+const {projects, otherProjects} = Astro.props;
+---
+<section class="projects">
+    <h2 class="notop-margin">
+        <span>Projects</span>
+    </h2>
+    <ul>
+        {projects && projects.map(project => (
+            <li class="project">
+                <h3>{project.title}</h3>
+                <div class="project-description" set:html={project.description}></div>
+                {project.skills && <ul class="project-details">
+                    <li>
+                        <strong>Experience: </strong> {project.skills.join(", ")}
+                    </li>
+                </ul>}
+            </li>
+        ))}
+    </ul>
+    <div class="other-projects">
+        <input type="checkbox" id="other-projects-switcher" />
+        <label for="other-projects-switcher">
+            <a>..click to show/hide other projects</a>
+        </label>
+        <ul class="other-projects-list">
+            {otherProjects && otherProjects.map(project => (
+                <li class="project">
+                    <h3>{project.title}</h3>
+                    <div class="project-description" set:html={project.description}></div>
+                    {project.skills && <ul class="project-details">
+                        <li>
+                            <strong>Experience: </strong> {project.skills.join(", ")}
+                        </li>
+                    </ul>}
+                </li>
+            ))}
+        </ul>
+    </div>
+    <span class="other-projects-link">
+        Other projects can be found on <a target="_blank" rel="noopener" href="https://github.com/roma-glushko?tab=repositories">GitHub</a> and <a target="_blank" rel="noopener" href="https://www.kaggle.com/glushko/code">Kaggle</a>
+    </span>
+</section>

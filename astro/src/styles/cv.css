@@ -1,13 +1,9 @@
 html {
     --nameColor: var(--red);
-    --pdfBadgeColor: var(--brownDarker);
-    --pdfBadgeHoverColor: var(--red);
 }
 
 html.dark {
     --nameColor: var(--pink);
-    --pdfBadgeColor: var(--midnightDarker);
-    --pdfBadgeHoverColor: var(--pink);
 }
 
 .cv {
@@ -17,42 +13,12 @@ html.dark {
     margin-right: auto;
 }
 
-.cv .pdf-badge {
-    border-width: 50px;
-    border-style: solid;
-    border-color: var(--pdfBadgeColor) var(--pdfBadgeColor) transparent transparent;
-    position: fixed;
-    top:0;
-    right:0;
-    width:0;
-    height:0;
-    cursor: pointer;
-}
-
 .cv .cv-name {
     color: var(--nameColor);
 }
 
 .cv ul {
     padding-left: 1.5rem;
-}
-
-.cv .pdf-badge:hover {
-    border-color: var(--pdfBadgeHoverColor) var(--pdfBadgeHoverColor) transparent transparent;
-}
-
-.cv .pdf-badge a {
-    color: white;
-    font-weight: bold;
-    height: 100%;
-    left: 1rem;
-    position: absolute;
-    top: -2.3rem;
-    transform: rotate(45deg);
-    text-transform: uppercase;
-    text-decoration: none;
-    user-select: none;
-    width: 100%;
 }
 
 .cv a {
@@ -104,6 +70,10 @@ html.dark {
     overflow: hidden;
     text-align: center;
     z-index: 1;
+}
+
+.cv-content section h3 {
+    margin-bottom: 0.5rem;
 }
 
 .cv-content section h2 span {
@@ -197,8 +167,6 @@ html.dark {
 @media print {
     html.dark {
         --nameColor: var(--red);
-        --pdfBadgeColor: var(--brownDarker);
-        --pdfBadgeHoverColor: var(--red);
         --bodyBackgroundColor: var(--white);
         --bodyTextColor: var(--black);
         --linkColor: var(--black);

@@ -1,0 +1,39 @@
+---
+interface Job {
+    title: string;
+    company: string;
+    location: string;
+    period: string;
+    description: string;
+    skills: string[];
+}
+
+export interface Props {
+    jobs: Job[];
+}
+
+const {jobs} = Astro.props;
+---
+<section class="jobs">
+    <h2>
+        <span>Work Experience</span>
+    </h2>
+    <ul>
+        {jobs && jobs.map(job => (
+            <li
+                itemscope
+                itemtype="http://schema.org/Organization"
+                class="job"
+            >
+                <strong itemprop="jobTitle">{job.title}</strong>, <span itemprop="name">{job.company}</span>; {job.period}
+                <br />
+                <div class="job-description" set:html={job.description}></div>
+                {job.skills && <ul class="project-details">
+                    <li>
+                        <strong>Experience: </strong> {job.skills.join(", ")}
+                    </li>
+                </ul>}
+            </li>
+        ))}
+    </ul>
+</section>
