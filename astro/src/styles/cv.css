@@ -101,19 +101,16 @@ html.dark {
     margin-top: 0;
 }
 
-.cv .projects .project .project-details,
 .cv .jobs .project-details,
 .cv .certifications .certification {
     list-style-type: "★";
 }
 
-.cv .jobs .job-description,
-.cv .projects .project-description {
+.cv .jobs .job-description {
     margin-bottom: 0.8rem;
     padding-left: 1rem;
 }
 
-.cv .projects .project-details li,
 .cv .open-source-projects li,
 .cv .certifications li,
 .cv .skills li,
@@ -142,10 +139,6 @@ html.dark {
     cursor: pointer;
 }
 
-.cv .projects .other-projects input[type="checkbox"]:checked ~ .other-projects-list {
-    display: block;
-}
-
 .cv .open-source-projects .other-projects input[type="checkbox"]:checked ~ .other-projects-list {
     display: block;
 }
@@ -157,10 +150,6 @@ html.dark {
 
     .cv-content section h2 {
         font-size: 1.5rem;
-    }
-
-    .cv .pdf-badge {
-        display: none;
     }
 }
 
