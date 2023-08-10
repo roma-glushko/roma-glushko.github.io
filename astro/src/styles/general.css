@@ -51,23 +51,6 @@ a:hover {
     color: var(--linkHoverColor);
 }
 
-.avatar {
-    border: 2px solid var(--avatarBorderColor);
-    border-radius: 50%;
-    height: 170px;
-    margin: 0 auto;
-    user-select: none;
-    width: 170px;
-}
-
-.logo-img {
-    display: block;
-    border-radius: 50%;
-    width: 10rem;
-    height: auto;
-    transform: translate(5px, 5px);
-}
-
 .clearfix {
     clear: both;
 }

@@ -14,10 +14,8 @@ const resumes = await getResumes()
     description={""} 
     keywords={[]}
 >
-    <main
-    data-nosnippet=""
-    class={`resumes ${!resumes.length ? "no-posts" : ""}`}
-    >
+    <main data-nosnippet="" class={`resumes`}>
+        <p>Over alsmost a decade, I have collected diverse expirience that I have </p>
         <div class="resume-list">
             {resumes && resumes.map((resume) => (
                 <CVTeaser slug={resume.slug} excerpt={resume.data.excerpt} position={resume.data.position} />

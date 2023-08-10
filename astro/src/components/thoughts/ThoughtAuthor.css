@@ -3,21 +3,12 @@
 }
 
 .thought-author-wrapper .avatar {
-    margin: 0 auto;
-    border-radius: 50%;
     width: 122px;
     height: 122px;
-    border: 2px solid var(--avatarBorderColor);
 }
 
-.thought-author-wrapper .logo-img {
+.thought-author-wrapper .avatar .logo-img {
     width: 7rem;
-    height: auto;
-    display: block;
-    border-radius: 50%;
-    transform: translate(5px, 5px);
-    -ms-transform: translate(5px, 5px);
-    -webkit-transform: translate(5px, 5px);
 }
 
 .thought-author-wrapper .name {

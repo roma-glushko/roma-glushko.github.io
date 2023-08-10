@@ -5,3 +5,7 @@ export const getBlogUrl = (slug: string): string => {
 export const getThoughtUrl = (slug: string): string => {
     return `/thoughts/${slug}/`;
 }
+
+export const getCVUrl = (slug: string): string => {
+    return `/cv/${slug}/`;
+}

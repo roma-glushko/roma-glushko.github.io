@@ -18,21 +18,13 @@ html.dark {
     display: flex;
 }
 
-.view-page-header-wrapper .logo {
-    border: 2px solid var(--blogAvatarBorderColor);
-    border-radius: 50%;
+.view-page-header-wrapper .avatar {
     height: 90px;
-    user-select: none;
     width: 90px;
 }
 
-.view-page-header-wrapper .logo-img {
+.view-page-header-wrapper .avatar .logo-img {
     width: 5rem;
-    height: auto;
-    border-radius: 50%;
-    transform: translate(5px, 5px);
-    -ms-transform: translate(5px, 5px);
-    -webkit-transform: translate(5px, 5px);
 }
 
 .view-page-header-wrapper .name {
@@ -59,14 +51,17 @@ html.dark {
         line-height: 3rem;
         padding-left: 1rem;
     }
+    
     .view-page-header-wrapper .name {
         font-size: 1.5rem;
     }
+
     .view-page-header-wrapper .logo {
         width: 90px;
         height: 90px;
     }
-    .view-page-header-wrapper .logo-img {
+
+    .view-page-header-wrapper .avatar .logo-img {
         width: 5rem;
     }
 }

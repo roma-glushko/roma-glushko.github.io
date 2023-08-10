@@ -1,13 +1,18 @@
 ---
 import { Picture } from '@astrojs/image/components';
 import avatarImg from '../assets/homepage/photo3.jpg';
----
 
-<Picture 
-    class="logo-img"
-    src={avatarImg} 
-    widths={[150]} 
-    aspectRatio={1}
-    formats={['avif', 'webp']} 
-    alt={`Roman Glushko - Machine Learning and Software Engineer, Life Explorer`} 
-/>
+import "./Avatar.css"
+
+const {itemprop} = Astro.props;
+---
+<div class="avatar" itemprop={itemprop}>
+    <Picture 
+        class="logo-img"
+        src={avatarImg} 
+        widths={[150]} 
+        aspectRatio={1}
+        formats={['avif', 'webp']} 
+        alt={`Roman Glushko - Machine Learning and Software Engineer, Life Explorer`} 
+    />
+</div>

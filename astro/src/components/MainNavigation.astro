@@ -9,11 +9,9 @@ const { space } = Astro.props
 ---
 <nav class="main-navigation">
   <ul>
-    {space !== "homepage" && (
-      <li>
-        <a href="/" title="Go Home" rel="home">Home</a>
-      </li>
-    )}
+    <li>
+      <a href="/" title="Go Home" rel="home">Home</a>
+    </li>
     <li>
       <a href="/blog/" title="Go to My Technical Blog">Blog</a>
     </li>
@@ -21,7 +19,7 @@ const { space } = Astro.props
       <a href="/thoughts/" title="Go to My Thoughts">Thoughts</a>
     </li>
     <li>
-      <a href="/cv/machine-learning-engineer/" title="Review My Resumes">CV</a>
+      <a href="/cv/" title="Review My Resumes">CV</a>
     </li>
   </ul>
 </nav>
