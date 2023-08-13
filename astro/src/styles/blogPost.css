@@ -104,7 +104,7 @@ html.dark {
 
 /** Thought Styling **/
 
-.blog-wrapper header {
+.blog-wrapper > header {
     max-width: 43rem;
     margin: auto;
     padding: 1rem;
