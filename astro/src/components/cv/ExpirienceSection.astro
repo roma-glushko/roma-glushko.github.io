@@ -4,7 +4,9 @@ interface Job {
     company: string;
     location: string;
     period: string;
-    description: string;
+    description?: string;
+    highlights?: string[];
+    final_words?: string;
     skills: string[];
 }
 
@@ -27,7 +29,11 @@ const {jobs} = Astro.props;
             >
                 <strong itemprop="jobTitle">{job.title}</strong>, <span itemprop="name">{job.company}</span>; {job.period}
                 <br />
-                <div class="job-description" set:html={job.description}></div>
+                {job.description && <div class="job-description" set:html={job.description}></div>}
+                {job.highlights && <ul>
+                    {job.highlights.map(highlight => <li set:html={highlight}></li>)}
+                </ul>}
+                {job.final_words && <div class="job-description" set:html={job.final_words}></div>}
                 {job.skills && <ul class="project-details">
                     <li>
                         <strong>Experience: </strong> {job.skills.join(", ")}

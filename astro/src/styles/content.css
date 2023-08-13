@@ -5,6 +5,9 @@ html {
     --inlineCodeColor: var(--black);
     --inlineCodeBgColor: var(--grey);
     --tableMainBorderColor: var(--black);
+
+    --refGreen: green;
+    --refBlue: cornflowerblue;
 }
 
 html.dark {
@@ -12,6 +15,9 @@ html.dark {
     --inlineCodeColor: var(--white);
     --inlineCodeBgColor: var(--regentGray);
     --tableMainBorderColor: var(--white);
+
+    --refGreen: lightgreen;
+    --refBlue: deepskyblue;
 }
 
 .content h2,
@@ -175,4 +181,14 @@ html.dark {
 
 .content ul:last-child {
     margin-bottom: 0;
+}
+
+/* Reference diagram components in text by color */
+
+.content span.green {
+    color: var(--refGreen);
+}
+
+.content span.blue {
+    color: var(--refBlue);
 }

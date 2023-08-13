@@ -77,7 +77,7 @@ What you have seen in the Jupyter UI is stored a notebook file with the `ipynb` 
 
 The notebook file has versioning via `nbformat.nbformat_minor{:.entity.name.function}` attributes. 
 
-The main part of the document is the `cells` array. It actually contains source code and the corresponding output of all cells in the notebook. 
+The main part of the document is the `cells{:.entity.name.function}` array. It actually contains source code and the corresponding output of all cells in the notebook. 
 Hence, the notebook is like a snapshot of what you have done in the Jupyter UI. You can save it and share with other people like a report without a need to rerun all the stuff to fully read it.
 
 The notebook format also contains extensible points in a form of `metadata{:.entity.name.function}` properties on the whole notebook, cell, and output levels. It's a simple key-value maps where other plugins could store additional information if needed.
@@ -100,7 +100,7 @@ While this is a complete set of kenrnel actions, in reality some kernels may not
 For example, R kernel is lacking support of [the kernel interruption](https://github.com/IRkernel/IRkernel/issues/727) and some other things.
 
 On the very basic level, Jupyter Kernel is a Unix process that binds five ports and allows to be controlled by sending messages there. 
-The ports are binded to `channels` and all communication between the kernel and external world happens asynchoniously via message exchange throught the channels.
+The ports are binded to <span class="blue">channels</span> and all communication between the kernel and external world happens asynchoniously via message exchange throught the channels.
 
 ### Jupyter Kernel Protocol
 
@@ -116,11 +116,11 @@ It's essentially an async version of RPC calls.
 
 Here is a list of channels the kernel exposes:
 
-- `shell` (REQ/REP) - a main action request/reply channel for code execution, inspection, completion, execution status, messages, etc.
-- `iopub` (PUB/SUB) - a main broadcast channel that relays kernel status, execution output streams messages, etc.
-- `control` (REQ/REP) - a system "privillaged" channel to signal kernel shutdown, resume debugged code, interrupt code execution
-- `stdin` (REQ/REP) - a channel for user prompt request/reply messages
-- `heartbeat` - Another system channel that for ping-pong-like health checks 
+- <span class="blue">shell</span> (REQ/REP) - a main action request/reply channel for code execution, inspection, completion, execution status, messages, etc.
+- <span class="blue">iopub</span> (PUB/SUB) - a main broadcast channel that relays kernel status, execution output streams messages, etc.
+- <span class="blue">control</span> (REQ/REP) - a system "privillaged" channel to signal kernel shutdown, resume debugged code, interrupt code execution
+- <span class="blue">stdin</span> (REQ/REP) - a channel for user prompt request/reply messages
+- <span class="blue">heartbeat</span> - Another system channel that for ping-pong-like health checks 
 
 Jupyter has several separate REQ/REP channels to buffer incoming messages differently, so important messages like the kernel shutdown don't have to wait until all previous messages were executed to take effect.
 
@@ -133,7 +133,7 @@ When you type something like `print("hey"){:python}` in a notebook cell and exec
 ![The Code Execution Workflow](/blog/jupyter-architecture/jupyter-kernel-exec-flow.png "The Code Execution Workflow")
 <div class="image-title">The Code Execution Workflow</div>
 
-First off, we need to request a code exectution via the `shell` channel by sending a message like this:
+First off, we need to request a code exectution via the <span class="blue">shell</span> channel by sending a message like this:
 
 ```json {5, 11-18}
 {
@@ -163,7 +163,7 @@ In this message, the `header.msg_type` indicates the target action in the `[acti
 The `content` field contains action's details like the exact code to execute.
 Since, this message inits a new code execution workflow, its header's data is going to be attached to all related messages triggered by the workflow.
 
-The `execute_request` triggers a bunch of followup messages and most of them are sent via the `iopub` channel including the actual output of the executed cell:
+The `execute_request` triggers a bunch of followup messages and most of them are sent via the <span class="blue">iopub</span> channel including the actual output of the executed cell:
 
 ```json {5, 10-17, 21-24}
 {
@@ -199,7 +199,7 @@ The `stream` message type essentially means execution output stream and contains
 
 Besides this message, we receive a few more regarding the kernel status and an sign that kernel is about to execute our code (which is useful if you execute a hell lot of cells).
 
-Finally, the `execute_reply` message comes on the `shell` channel back holding just some summary:
+Finally, the `execute_reply` message comes on the <span class="blue">shell</span> channel back holding just some summary:
 
 ```json {6, 16-21}
 {
@@ -266,7 +266,7 @@ Then three years later, IPython was refactored to be used not only in the termin
 At that time, IPython was absorbed as a part of the bigger notebook idea.
 
 As of late, a decade later the IPython's interactive shell is still a part of the Python's kernel. 
-In fact the `shell` channel that is a gateway for all sorts of code executions in Jupyter is probably named after the interactive shell.
+In fact the <span class="blue">shell</span> channel that is a gateway for all sorts of code executions in Jupyter is probably named after the interactive shell.
 
 ![The Code Execution Stages](/blog/jupyter-architecture/jupyter-code-execution-stages.png "The Code Execution Stages")
 <div class="image-title">The Code Execution Stages</div>
@@ -376,7 +376,54 @@ The user namespace is useful during code completion and inspection.
 
 ## Debugging
 
-TBU
+The jupyter kernel supports debugging of the cell code. 
+In Python's case, the corresponding kernel employs [debugpy library](https://github.com/microsoft/debugpy) to perform actual code debugging. 
+DebugPy is an implementation of [Microsoft's Debug Adapter Protocol (or DAP)](https://microsoft.github.io/debug-adapter-protocol/overview) and Jupyter embeds it into its protocol.
+
+We could casually dive the whole debugging workflow into tree phases:
+
+- initialization of the debugger
+- breakpoint setup
+- code exectution with breakpoints
+
+![The Debug Workflow](/blog/jupyter-architecture/jupyter-kernel-debug-flow.png "The Debug Workflow")
+<div class="image-title">The Debug Workflow</div>
+
+### Debug Protocol
+
+In all debug messages, the message format slightly deviates from the reviewed Jupyter convention. All messages still have `debug_request`/`debug_reply` types, but they are universal for all debugger commands. 
+The actual command is represented in the `content.command` property (e.g. instead of having `debug_inspect_variables_request` as the message type, for example). 
+For example:
+
+```json {5}
+{
+  // ...
+  "content": {
+    "type": "request",
+    "command": "inspectVariables"
+  }
+}
+```
+
+The difference could be explained by practical considerations. To incorporate dozens of new DAP's commands, Jupyter would need to represent all of them as new request/reply types. Debugging is just one of the features Jupyter provides, so it didn't make sense to blow off the existing protocol with all of the requests DAP supports.
+
+We will refer to these commands as `debug_request.{command_name}{:.entity.name.function}` further.
+
+### The initialization of the debugger
+
+The client activates all debugging flows by sending a `debug_request.initialize{:.entity.name.function}` message to the `control` channel.
+The initialization part activates debugpy right in the interactive shell (it's in <span class="green">the main thread</span>, by the way) by executing the following code:
+
+```python {3}
+import debugpy
+
+debugpy.listen("127.0.0.1", {debugpy channel port}) 
+```
+
+Jupyter bindes one more port for the `debugpy` (REQ/REP) channel which is another bi-directional ZMQ stream that serves as a communication medium between the jupyter kernel and debugpy.
+
+Once `debugpy` is listening to the <span class="blue">debugpy</span> channel, the client then sends the `debug_request.attach{:.entity.name.function}` command to finalize the initialization phase.
+
 
 ## Virtual Inputs
 
@@ -388,3 +435,4 @@ TBU
 - [[Wiki] Project Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter)
 - [[Python] Execution model](https://docs.python.org/3/reference/executionmodel.html)
 - [[Github] DebugPy - DAP for Python](https://github.com/microsoft/debugpy)
+- [[Microsoft] Debug Adapter Protocol - Ovreview](https://microsoft.github.io/debug-adapter-protocol/overview)

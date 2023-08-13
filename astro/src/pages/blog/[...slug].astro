@@ -10,6 +10,7 @@ import { getBlogUrl } from 'src/content/routing';
 import CrumbsSnippet from '@components/CrumbSnippet.astro';
 import ArticleSnippet from '@components/ArticleSnippet.astro';
 import ShareBlock from '@components/blog/ShareBlock';
+import ImageZoomer from '@components/blog/ImageZoomer.tsx';
 import ContentEnd from '@components/blog/ContentEnd.astro';
 
 export async function getStaticPaths() {
@@ -60,6 +61,7 @@ const blogUrlPath = getBlogUrl(slug)
 		</aside>
 		<BlogComments client:visible />
 	</main>
+	<ImageZoomer client:load />
 	<CrumbsSnippet crumbs={[{ "/blog/": "Blog" }, { [blogUrlPath]: title }]} />
 	<ArticleSnippet
 		title={title}

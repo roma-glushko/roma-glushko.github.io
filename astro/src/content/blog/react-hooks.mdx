@@ -56,7 +56,7 @@ On the other hand, there were class-based components.
 Class-based components were capable of storing some local states and running different logic on different lifecycle events.
 So they seemed like a way to go. However, class components were quite verbose. Just take a look at the following example:
 
-```tsx
+```tsx {42-50, 52-63}
 import React, { Component } from "react"
 
 interface PokemonData {

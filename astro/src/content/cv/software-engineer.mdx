@@ -10,5 +10,109 @@ keywords:
     - software cv
     - software resume
 ---
+import ProfileSection from "@components/cv/ProfileSection.astro"
+import ProjectsSection from "@components/cv/ProjectsSection.astro"
+import ExpirienceSection from "@components/cv/ExpirienceSection.astro"
+import OpenSourceSection from "@components/cv/OpenSourceSection.astro"
+import ManagementSection from "@components/cv/ManagementSection.astro"
+import CertificationSection from "@components/cv/CertificationSection.astro"
+import EducationSection from "@components/cv/EducationSection.astro"
+import SkillsSection from "@components/cv/SkillsSection.astro"
+import HobbySection from "@components/cv/HobbySection.astro"
 
-Software CV
+<div className="cv-content-column additional-column">
+    <ProfileSection
+        items={[
+            "Aspiring <strong>problem solver</strong> & Software and ML engineer",
+            "<strong>7+ years</strong> of experience in <strong>software engineering</strong>",
+            "<strong>5+ years</strong> of experience in eCommerce domain",
+            "<strong>3+ years</strong> of experience in <strong>technical management of scrum teams</strong>",
+            "Expertise in a broad variety of technical, business, management topics",
+            "Constant, quick & curious learner",
+            "Positive attitudes",
+        ]}
+    /> 
+
+    <SkillsSection
+        skills={[
+            {
+                title: "Experience",
+                items: [
+                    "tabular data processing",
+                    "image processing",
+                    "classification", 
+                    "regression", 
+                    "time series forecasting", 
+                    "image object detection", 
+                    "data analysis",
+                ],
+            },
+            {
+                title: "Languages",
+                items: [
+                    "Python", 
+                    "Golang", 
+                    "WebDev Stack (JS/ReactJS/TypeScript & HTML5 & CSS3)",
+                ],
+            },
+            {
+                title: "ML Frameworks",
+                items: [
+                    "PyTorch", 
+                    "XGBoost", 
+                    "Keras", 
+                    "Scikit-Learn",
+                    "HuggingFace",
+                    "langchain",
+                ],
+            },
+            {
+                title: "MLOps",
+                items: [
+                    "Kubernetes",
+                ]
+            },
+            {
+                title: "DataViz & Processing",
+                items: [
+                    "Pandas",
+                    "Seaborn", 
+                    "Plotly", 
+                ]
+            }
+        ]}
+    />
+
+    <EducationSection 
+        educations={[
+            {
+                title: "Machine Learning Nanodegree",
+                institution: "self-paced",
+                period: "2020-2021",
+            },
+            {
+                title: "M.S. Computer Engineering",
+                institution: "Khmelnytskyi National University",
+                location: "Ukraine",
+                period: "2018",
+            },
+        ]}
+    />
+</div>
+
+<div class="cv-content-column main-column">
+    <ManagementSection
+        items={[
+            "Hold a full-time <strong>technical leader position</strong> for 3.5 years (5-15 people teams incl. SEs, QA, PM, DevOps) + seasonal leading of serveral internal projects and initialives",
+            "Write <a target='_blank' rel='noopener' href='https://www.romaglushko.com/blog/'>technical blog posts</a> and <a target='_blank' rel='noopener' href='https://www.romaglushko.com/thoughts/'>thoughts about management</a>. Organized technical & business <a target='_blank' rel='noopener' href='https://www.atwix.com/magento/atwix-magenews-jun-2020/'>newsletter</a> (led for 2 years).",
+        ]}
+    />
+    <HobbySection hobbies={[
+        "Scooter Driving",
+        "Self-Improvement",
+        "Reading",
+        "<a rel='me' target='_blank' rel='noopener' href='https://www.romaglushko.com/blog/'>Blogging</a>",
+        "<a target='_blank' href='https://github.com/roma-glushko'>Open Source</a>",
+        "Judaism (don't work on Saturdays)"
+    ]} />
+</div>
