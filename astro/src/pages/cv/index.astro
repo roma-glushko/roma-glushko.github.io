@@ -1,6 +1,8 @@
 ---
 import { getResumes } from 'src/content/collections';
 
+import personMetadata from '@data/personMetadata';
+
 import CvListLayout from "@layouts/CvListLayout.astro";
 import CVTeaser from "@components/cv/CVTeaser.astro";
 
@@ -15,11 +17,12 @@ const resumes = await getResumes()
     keywords={[]}
 >
     <main class={`resumes`}>
-        <p>Over alsmost a decade, I have collected diverse expirience that I have </p>
+        <p>I have divided almost a decade of my expirience into the following role-specific resumes for your convinience:</p>
         <div class="resume-list">
             {resumes && resumes.map((resume) => (
                 <CVTeaser slug={resume.slug} excerpt={resume.data.excerpt} position={resume.data.position} />
             ))}
         </div>
+        <p>Have not found what you were looking for? Free free to connect with me in <a href={personMetadata.linkedinUrl} target="_blank">LinkedIn</a>.</p>
     </main>
 </CvListLayout>

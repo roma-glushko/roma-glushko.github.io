@@ -14,6 +14,11 @@
     line-height: 1.4;
 }
 
+.resumes p {
+    font-size: 1.1rem;
+    max-width: 40rem;
+}
+
 @media (max-width: 768px) {
     .resume-list {
         grid-template-columns: 1fr;
