@@ -32,6 +32,10 @@ html.dark {
     color: #60a5fa;
 }
 
+.note.info a:hover {
+    color: dodgerblue;
+}
+
 .note.warn {
     background-color: var(--warnBackgroundColor);
     border-color: hsl(30deg, 100%, 50%);

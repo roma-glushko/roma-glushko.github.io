@@ -1,16 +1,18 @@
 ---
 id: 62b87b5115e35cd77d0d0e1c
-pubDate: "Aug 9, 2023"
-title: "Jupyter Architecture"
+pubDate: "Aug 13, 2023"
+title: "Jupyter Kernel Architecture"
 draft: true
-excerpt: "TBU"
+excerpt: "How Jupyter executes, inspects, completes and debug code"
 keywords:
   - open source
   - architecture
+  - jupyter
 cover:
     image: /blog/jupyter-architecture/pexels-zch-12491661-min.jpeg
     credits: Photo by <a href="https://www.pexels.com/photo/saturnus-12491661/" target="_blank" rel="noopener">ZCH</a>
 ---
+import Note from '@components/content/Note.tsx'
 
 [Jupyter Notebooks](https://jupyter.org/) are a well-know part of the scintific toolkit. They help to execute code interactively and make it easy to plot diagrams as well as to show other kinds of graphics, forumals, etc. At this moment, it have gone beyond that and you can also have different controls (e.g. input boxes, sliders, file uploaders, so on), fully interactive charts (e.g. Plotly), or even your custom output types.
 That's extremely useful in areas that highly lean on data analysis like natural or data science. 
@@ -20,10 +22,8 @@ That's extremely useful in areas that highly lean on data analysis like natural 
 That basically made it popular. It is so popular that nowadays every major cloud providers have offerings that includes hosted Jupyter Notebooks connected to their computational resources like Google Colab, AWS SageMaker Notebooks, etc.
 
 In this article, we are going to discover how core Jupyter architecture and some interesting implementation details. 
-Since, Jupyter universe is expanding along with Jupyter's popularity, we will focus just on the bare core components:
 
-- Jupyter Kernels (using [IPyKernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) as an example)
-- Jupyter Notebook and Jupyter Lab
+Since Jupyter universe is expanding along with Jupyter's popularity, in this post we will start reviewing it from the bare core component which is Jupyter Kernel (using [IPyKernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) as an example).
 
 ## Notebook File
 
@@ -368,11 +368,11 @@ Ultimately, a clean user namespace looks like this:
 ```
 
 Finally, the code and its output may be stored in the kernel history. 
-The kernel tracks the last N executions and store related information in the SQLite database to simplify retriaval.
+The kernel tracks the last N executions and store related information in [a SQLite database](https://www.sqlite.org/index.html) to simplify retriaval.
 
 ## Code Completion & Inspection
 
-The user namespace is useful during code completion and inspection.
+The user namespace is also useful during code completion and inspection.
 
 ## Debugging
 
@@ -395,8 +395,12 @@ In all debug messages, the message format slightly deviates from the reviewed Ju
 The actual command is represented in the `content.command` property (e.g. instead of having `debug_inspect_variables_request` as the message type, for example). 
 For example:
 
-```json {5}
+```json {4, 9}
 {
+  "header":{
+    // ...
+    "msg_type":"debug_request",
+  },
   // ...
   "content": {
     "type": "request",
@@ -420,14 +424,84 @@ import debugpy
 debugpy.listen("127.0.0.1", {debugpy channel port}) 
 ```
 
-Jupyter bindes one more port for the `debugpy` (REQ/REP) channel which is another bi-directional ZMQ stream that serves as a communication medium between the jupyter kernel and debugpy.
+Jupyter bindes one more port for the <span class="blue">debugpy</span> (REQ/REP) channel which is another bi-directional ZMQ stream that serves as a communication medium between the jupyter kernel and `debugpy`.
 
 Once `debugpy` is listening to the <span class="blue">debugpy</span> channel, the client then sends the `debug_request.attach{:.entity.name.function}` command to finalize the initialization phase.
 
+The client could also send a `debug_request.debugInfo{:.entity.name.function}` message to get the current state of the debugger like:
+
+- is debugger started?
+- a list of breakpoints
+- stopped threads
+
+This is useful to restore the state of the UI after refreshing the page.
+
+### Configure breakpoints
+
+`debugpy` is not going to change the execution workflow unless we set some breakpoints.
+
+In most languages, there are source files that could be directly executed, so DAP's breakpoint API works on the source file path level. 
+However, Jupyter notebooks are just storing executable cell code in the notebook file, but the file itself could not be executed directly by kernel's language interpreter like Python.
+That's why Jupyter got to dump cell code into a file that `debugpy` could futher work with.
+
+For that, the breakpoint flow starts with a special `debug_request.dumpCell` request that stores the cell's source code as a temporary file and retrieves its path in the reply.
+
+<Note title={`Avoid Collisions`} type={`info`}>
+  Each cell source code is saved a file with a unique name on the filesystem. 
+  To generare the file name, Jupyter doesn't use the default hash functions like `md5(){:python}`, for instance, but they introduced an implementation of [murmur2](https://en.wikipedia.org/wiki/MurmurHash) that has a better protection from collisions.
+</Note>
+
+Then, the cell source file is referenced in the `debug_request.setBreakpoints{:.entity.name.function}` message along with breakpoint position. This is how the breakpoint gets registered on the `debugpy` end.
+
+### Code Debugging
+
+Now the most riveting part. 
+
+When we send another `execution_request{:.entity.name.function}` message for a cell with breakpoints, Jupyter starts [executing it as usual](#code-execution) util it gets a `stopped` debug event.
+
+The `stopped` event holds information about reason of stopping (e.g. hitting a `breakpoint`) and the ID of thread that debugger has interrupted.
+
+At the point, we could request more content by sending:
+
+- `debug_request.stackTrace{:.entity.name.function}` to get the current stack trace where we have stopped
+- `debug_request.scopes{:.entity.name.function}` to get IDs of `global` and `local` scopes
+- `debug_request.variables{:.entity.name.function}` to get the list of variables and their content by the scope ID
+
+debugpy really stops the thread. Since the code execution happens in <span class="green">the main kernel thread</span>, Jupyter runs processing of the control channel's messages in <span class="green">a separate control thread</span>. 
+Otherwise, the kernel would hang up forever.
+
+To keep executing the notebook, we could send a various of debug commands like `next{:.entity.name.function}`, `continue{:.entity.name.function}` and so on which is the same set of commands we see when debugging some code in a regular IDE. The code execution will go on until the next `stopped` event.
+
+Finally, we could stop the debugger by sending `debug_request.disconnect{:.entity.name.function}` command.
 
 ## Virtual Inputs
 
-TBU
+Yet another interesting workflow is input handling. Normally, when the interpreter sees calls to `input(){:python}` or `getpass(){:python}` functions, it prompts the user to input something using the keyboard in runtime. This is not possible in the Jupyter kernel's case, since code execution is abstracted away.
+
+To cope with this problem, Jupyter simply replaces (or monkey patch) implementations of the functions by own ones before executing any user's code. Jupyter is already controls [the content](#code-execution) of `builtins` module which is important to achieve that.
+
+The new functions just send a request message to the <span class="blue">stdin</span> channel and waits for the reply with the corresponding user input. After that, code execution goes as it would.
+
+![The Stdin Workflow](/blog/jupyter-architecture/jupyter-input-stdin-flow.png "The Stdin Workflow")
+<div class="image-title">The Stdin Workflow</div>
+
+This is how Jupyter implements virtual keyboard.
+
+## Jupyter Client and Gateway
+
+That was a review of Jupyter kernel and how it works. 
+
+You may notice that usage of ZMQ and binding five channels could mean a lot of implementation details exposed by most of potential Jupyter kernel consumers. That's why Jupyter provides [a client library](https://jupyter-client.readthedocs.io/) that further simplifies spawning and usage of Jupyter kernels.
+
+Furthermore, some people manage and use Jupyter kernels via [Jupyter Kernle Gateway](https://jupyter-kernel-gateway.readthedocs.io/en/latest/getting-started.html) that expose kernels via HTTP/Websocket API which is more convinient and popular than the ZMQ protocol. 
+This is also a way to access Jupyter kernels in a headless way. Although, this gateway is only capable of spawning local instances of kernels.
+
+## Final Words
+
+In this article, we have briefly reviewed all major architectural and implementation specifics of Jupyter kernels.
+
+The Jupyter kernel is a heart of the Jupyter stack, but it's only one compontent out of many Jupyter projects (e.g. Jupyter Server, JupyterLab, JupyterHub, Jupyter Enterprice Gateway).
+I hope to get to reviewing others in the followup articles.
 
 ## References
 
