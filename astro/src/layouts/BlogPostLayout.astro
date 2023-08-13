@@ -4,6 +4,7 @@ import Footer from '@components/Footer.astro';
 
 import MainNavigation from '@components/MainNavigation.astro';
 import BlogHeader from '@components/BlogHeader.astro';
+import ConsoleBanner from '@components/ConsoleBanner';
 
 import "@styles/theme.css"
 import "@styles/general.css"
@@ -37,5 +38,6 @@ const { title, description, keywords, image } = Astro.props;
 		</div>
 		<slot />
 		<Footer />
+		<ConsoleBanner client:only />
 	</body>
 </html>

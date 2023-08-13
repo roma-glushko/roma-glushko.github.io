@@ -10,6 +10,9 @@ const personMetadata = {
         name: "DataRobot, Inc.",
         sameAs: "https://www.datarobot.com/",
     },
+    linkedinUrl: `https://www.linkedin.com/in/glushko-roma`,
+    twitterUrl: `https://twitter.com/roma_glushko`,
+    githubUrl: `https://github.com/roma-glushko`,
     sameAs: [
         `https://twitter.com/roma_glushko`,
         `https://github.com/roma-glushko`,

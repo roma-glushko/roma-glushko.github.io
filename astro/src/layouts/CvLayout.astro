@@ -10,6 +10,7 @@ import CrumbSnippet from "@components/CrumbSnippet.astro";
 import "@styles/theme.css"
 import "@styles/general.css"
 import "@styles/cv.css"
+import ConsoleBanner from "@components/ConsoleBanner";
 
 const { title, description, position, keywords } = Astro.props;
 ---
@@ -45,5 +46,6 @@ const { title, description, position, keywords } = Astro.props;
         { "/cv/": "Roman Glushko's CV" },
         { "/cv/machine-learning-engineer/": "ML/DL Engineer CV" },
     ]} />
+    <ConsoleBanner client:only />
 </body>
 </html>

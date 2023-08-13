@@ -2,9 +2,7 @@
 import BaseHead from '@components/BaseHead.astro';
 import Footer from '@components/Footer.astro';
 
-import ThoughtAuthor from '@components/thoughts/ThoughtAuthor.astro';
 import ThoughtHeader from '@components/thoughts/ThoughtHeader.astro';
-import ThoughtNavigation from '@components/thoughts/ThoughtNavigation.astro';
 
 import "@styles/theme.css"
 import "@styles/general.css"
@@ -34,23 +32,5 @@ const { title, description, keywords, image } = Astro.props;
     <ThoughtHeader listing={false} />
 		<slot />
     <Footer />
-    <!-- <ArticleRichSnippet
-      title={title}
-      path={path}
-      datePublished={fullDate}
-      dateModified={fullDate} // gitLogLatestDate
-      content={rawMarkdownBody}
-      wordCount={words}
-      keywords={keywords}
-      cover={gatsbyImageData}
-      articleSection={"Thoughts"}
-      genre={[
-        "self-improvement",
-        "management",
-        "thoughts",
-        "life experience",
-        "life exploration",
-      ]}
-    /> -->
   </body>
 </html>

@@ -3,6 +3,7 @@ import BaseHead from '@components/BaseHead.astro';
 
 import "@styles/theme.css"
 import "@styles/general.css"
+import ConsoleBanner from '@components/ConsoleBanner';
 
 export interface Props {
 	title: string;
@@ -19,5 +20,6 @@ const { title, description, bodyClass } = Astro.props
   </head>
   <body>
     <slot />
+    <ConsoleBanner client:only />
   </body>
 </html>

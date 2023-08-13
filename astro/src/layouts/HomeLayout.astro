@@ -6,6 +6,7 @@ import PersonSnippet from '@components/home/PersonSnippet.astro';
 
 import "@styles/theme.css"
 import "@styles/general.css"
+import ConsoleBanner from '@components/ConsoleBanner';
 
 export interface Props {
 	title: string;
@@ -25,5 +26,6 @@ const { title, bodyClass } = Astro.props
       <Footer />
     </main>
     <PersonSnippet />
+    <ConsoleBanner client:only />
   </body>
 </html>

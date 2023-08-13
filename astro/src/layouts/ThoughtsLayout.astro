@@ -9,6 +9,7 @@ import CrumbsSnippet from '@components/CrumbSnippet.astro';
 
 import "@styles/theme.css"
 import "@styles/general.css"
+import ConsoleBanner from '@components/ConsoleBanner';
 
 export interface Props {
 	title: string;
@@ -42,5 +43,6 @@ const { title, description, keywords, image } = Astro.props;
 		</div>
 		<Footer />
 		<CrumbsSnippet crumbs={[{ "/thoughts/": "Thoughts" }]} />
+		<ConsoleBanner client:only />
   </body>
 </html>
