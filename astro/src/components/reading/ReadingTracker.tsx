@@ -23,8 +23,6 @@ const ReadingTracker = (props: Props): JSX.Element => {
 
   const [readRepository, saveReadRepository] = useReadRepository(props.contentType)
 
-  console.log(readRepository)
-
   const trackReadingStart = (
     intersectedSections: IntersectionObserverEntry[]
   ) => {
