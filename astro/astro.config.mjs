@@ -87,7 +87,9 @@ export default defineConfig({
   },
   integrations: [
     image(),
-    mdx(),
+    mdx({
+      drafts: true,
+    }),
     react(),
     prefetch(),
     partytown({

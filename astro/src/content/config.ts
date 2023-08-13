@@ -6,7 +6,7 @@ const blog = defineCollection({
 		title: z.string(),
 		excerpt: z.string(),
 		keywords: z.array(z.string()),
-		draft: z.boolean().optional().transform(() => false),
+		draft: z.boolean().optional().transform((draft) => draft === undefined ? false : draft),
 		pubDate: z
 			.string()
 			.or(z.date())
@@ -28,7 +28,7 @@ const thoughts = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		keywords: z.array(z.string()),
-		draft: z.boolean().optional().transform(() => false),
+		draft: z.boolean().optional().transform((draft) => draft === undefined ? false : draft),
 		pubDate: z
 			.string()
 			.or(z.date())
@@ -48,7 +48,7 @@ const thoughts = defineCollection({
 const cv = defineCollection({
 	schema: z.object({
 		title: z.string(),
-		draft: z.boolean().optional().transform(() => false),
+		draft: z.boolean().optional().transform((draft) => draft === undefined ? false : draft),
 		description: z.string(),
 		excerpt: z.string(),
 		order: z.number(),
