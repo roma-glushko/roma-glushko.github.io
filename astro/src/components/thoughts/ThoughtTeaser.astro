@@ -11,7 +11,7 @@ export interface Props {
 }
 
 const {thought} = Astro.props
-const {title, pubDate, cover: {image, credits}} = thought.data;
+const {title, pubDate, cover: {image, credits}, excerpt} = thought.data;
 const {remarkPluginFrontmatter: {timeToReadMin}} = await thought.render()
 const slug = thought.slug;
 
@@ -43,5 +43,5 @@ const thoughtURL = `/thoughts/${slug}/`;
             </div>}
         </div>
     </a>
-    <p class="thought-digest">TBU</p>
+    <p class="thought-digest">{excerpt}</p>
 </article>

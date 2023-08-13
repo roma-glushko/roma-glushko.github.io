@@ -29,6 +29,7 @@ const thoughts = defineCollection({
 		title: z.string(),
 		keywords: z.array(z.string()),
 		draft: z.boolean().optional().transform((draft) => draft === undefined ? false : draft),
+		excerpt: z.string().optional(),
 		pubDate: z
 			.string()
 			.or(z.date())
