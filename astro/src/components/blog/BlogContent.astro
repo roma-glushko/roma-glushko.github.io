@@ -47,7 +47,7 @@ const {id, title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeT
       <PostKeywords keywords={keywords} />
     </header>
     <div class="blog-divider" />
-    <ReadingTracker id={id} contentType={ContentTypes.BLOG}>
+    <ReadingTracker id={id} contentType={ContentTypes.BLOG} client:load>
       <div class="content-wrapper">
         <TableOfContent client:load />
         <div class="content blog-content">

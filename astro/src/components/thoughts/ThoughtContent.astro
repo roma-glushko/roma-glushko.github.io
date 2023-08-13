@@ -45,7 +45,7 @@ const {id, title, pubDate, cover: {image, credits, aspectRatio}, timeToReadMin} 
         </div>
     </header>
     <div class="thought-divider" />
-    <ReadingTracker id={id} contentType={ContentTypes.THOUGHT}>
+    <ReadingTracker id={id} contentType={ContentTypes.THOUGHT} client:load>
         <div class="content thought-content">
             <slot />
         </div>

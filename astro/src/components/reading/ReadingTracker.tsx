@@ -21,9 +21,9 @@ const ReadingTracker = (props: Props): JSX.Element => {
   const [readingEnded, setReadingEnded] = useState<boolean>(false)
   const [readingEndedAt, setReadingEndedAt] = useState<number>(0)
 
-  const [readRepository, saveReadRepository] = useReadRepository(
-    props.contentType
-  )
+  const [readRepository, saveReadRepository] = useReadRepository(props.contentType)
+
+  console.log(readRepository)
 
   const trackReadingStart = (
     intersectedSections: IntersectionObserverEntry[]
