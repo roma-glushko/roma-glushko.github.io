@@ -14,7 +14,7 @@
     line-height: 1.4;
 }
 
-.resumes p {
+.resumes > p {
     font-size: 1.4rem;
     max-width: 40rem;
 }
