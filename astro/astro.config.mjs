@@ -37,6 +37,7 @@ export default defineConfig({
   output: 'static',
   compressHTML: true,
   markdown: {
+    gfm: true,
     drafts: true,
     syntaxHighlight: false,
     remarkPlugins: [rmMath, rmReadingTime],
