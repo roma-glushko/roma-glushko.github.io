@@ -15,12 +15,12 @@ cover:
 import Series from '@components/content/Series.tsx'
 import Note from '@components/content/Note.tsx'
 
-[Jupyter Notebooks](https://jupyter.org/) are a well-know part of the scintific toolkit. They help to execute code interactively and make it easy to plot diagrams as well as to show other kinds of graphics, forumals, etc. At this moment, it have gone beyond that and you can also have different controls (e.g. input boxes, sliders, file uploaders, so on), fully interactive charts (e.g. Plotly), or even your custom output types.
+[Jupyter Notebooks](https://jupyter.org/) are a well-know parts of the scientific toolkit. They help to execute code interactively and make it easy to plot diagrams as well as to show other kinds of graphics, formulas, etc. At this moment, it has gone beyond that and you can also have different controls (e.g. input boxes, sliders, file uploaders, and so on), fully interactive charts (e.g. Plotly), or even your custom output types.
 That's extremely useful in areas that highly lean on data analysis like natural or data science. 
 
 [TODO: Insert Jupyter Lab Screenshot with some fancy plotly output]
 
-That basically made it popular. It is so popular that nowadays every major cloud providers have offerings that includes hosted Jupyter Notebooks connected to their computational resources like Google Colab, AWS SageMaker Notebooks, etc.
+That basically made it popular. It is so popular that nowadays every major cloud providers have offerings that include hosted Jupyter Notebooks connected to their computational resources like Google Colab, AWS SageMaker Notebooks, etc.
 
 In this article, we are going to discover how core Jupyter architecture and some interesting implementation details. 
 
@@ -28,41 +28,41 @@ Since Jupyter universe is expanding along with Jupyter's popularity, in this pos
 
 ## Jupyter Kernels
 
-The heart of the Jupyter's architecture is in its kernel functionality. Jupyter kernel does all heavy lifting associtated with: 
+The heart of Jupyter's architecture is its kernel functionality. Jupyter kernel does all heavy lifting associtated with: 
 
 We have already mentioned some of the kernel functions briefly, but now let's outline them all:
 
-- code execution and resulting output/error propagation. This includes code that normally prompt users to type something in shell's stdin (like [Python's input() function](https://docs.python.org/3/library/functions.html#input))
+- code execution and resulting output/error propagation. This includes code that normally prompts users to type something in shell's stdin (like [Python's input() function](https://docs.python.org/3/library/functions.html#input))
 - code completion at a given cursor position
 - code inspection 
 - code debugging
 - kernel interruption on long code executions
-- execution history retrival
+- execution history retrieval
 - some more functions around kernel's information
 
-While this is a complete set of kenrnel actions, in reality some kernels may not not support of the functionality. 
-For example, R kernel is lacking support of [the kernel interruption](https://github.com/IRkernel/IRkernel/issues/727) and some other things.
+While this is a complete set of kernel actions, in reality, some kernels may not support all of the functionality. 
+For example, the R kernel is lacking support for [the kernel interruption](https://github.com/IRkernel/IRkernel/issues/727) and some other things.
 
 On the very basic level, Jupyter Kernel is a Unix process that binds five ports and allows to be controlled by sending messages there. 
-The ports are binded to <span class="blue">channels</span> and all communication between the kernel and external world happens asynchoniously via message exchange throught the channels.
+The ports are bound to <span class="blue">channels</span> and all communication between the kernel and external world happens asynchronously via message exchange through the channels.
 
 ## Jupyter Kernel Protocol
 
 ![Jupyter Kernel Overview](/blog/jupyter-kernel-architecture/jupyter-kernel-overview.png "Jupyter Kernel Overview")
 <div class="image-title">Jupyter Kernel Overview</div>
 
-The ports are connected to [ZMQ sockets](https://zguide.zeromq.org/docs/chapter2/) that implement either REQ/REP or PUB/SUB messaging patterns depending on the channel type.
+The ports are bound to [ZMQ sockets](https://zguide.zeromq.org/docs/chapter2/) that implement either REQ/REP or PUB/SUB messaging patterns depending on the channel type.
 
-Jupyter Kernels heavily use ZMQ primities and messaging patterns which impacted the way the kernel protocol was designed.
+Jupyter Kernels heavily use ZMQ primitives and messaging patterns which impacted the way the kernel protocol was designed.
 
-For example, The request-reply (e.g. REQ/REP) pattern implies that the client sends a request message that contains an action (e.g. execute code, complete code, retrieve history, etc) and then waits for corresponding reply message from the kernel. 
+For example, The request-reply (e.g. REQ/REP) pattern implies that the client sends a request message that contains an action (e.g. execute code, complete code, retrieve history, etc) and then waits for the corresponding reply message from the kernel. 
 It's essentially an async version of RPC calls.
 
 Here is a list of channels the kernel exposes:
 
 - <span class="blue">shell</span> (REQ/REP) - a main action request/reply channel for code execution, inspection, completion, execution status, messages, etc.
 - <span class="blue">iopub</span> (PUB/SUB) - a main broadcast channel that relays kernel status, execution output streams messages, etc.
-- <span class="blue">control</span> (REQ/REP) - a system "privillaged" channel to signal kernel shutdown, resume debugged code, interrupt code execution
+- <span class="blue">control</span> (REQ/REP) - a system "privileged" channel to signal kernel shutdown, resume debugged code, interrupt code execution
 - <span class="blue">stdin</span> (REQ/REP) - a channel for user prompt request/reply messages
 - <span class="blue">heartbeat</span> - Another system channel that for ping-pong-like health checks 
 
@@ -77,7 +77,7 @@ When you type something like `print("hey"){:python}` in a notebook cell and exec
 ![The Code Execution Workflow](/blog/jupyter-kernel-architecture/jupyter-kernel-exec-flow.png "The Code Execution Workflow")
 <div class="image-title">The Code Execution Workflow</div>
 
-First off, we need to request a code exectution via the <span class="blue">shell</span> channel by sending a message like this:
+First off, we need to request a code execution via the <span class="blue">shell</span> channel by sending a message like this:
 
 ```json {5, 11-18}
 {
@@ -105,9 +105,9 @@ First off, we need to request a code exectution via the <span class="blue">shell
 
 In this message, the `header.msg_type` indicates the target action in the `[action]_request` format. 
 The `content` field contains action's details like the exact code to execute.
-Since, this message inits a new code execution workflow, its header's data is going to be attached to all related messages triggered by the workflow.
+Since this message inits a new code execution workflow, its header's data is going to be attached to all related messages triggered by the workflow.
 
-The `execute_request` triggers a bunch of followup messages and most of them are sent via the <span class="blue">iopub</span> channel including the actual output of the executed cell:
+The `execute_request` triggers a bunch of follow-up messages and most of them are sent via the <span class="blue">iopub</span> channel including the actual output of the executed cell:
 
 ```json {5, 10-17, 21-24}
 {
@@ -141,7 +141,7 @@ The `execute_request` triggers a bunch of followup messages and most of them are
 The `parent_header` holds all information from the initial request message's header. This way both messages are linked. 
 The `stream` message type essentially means execution output stream and contains the output itself in the `content.text` field.
 
-Besides this message, we receive a few more regarding the kernel status and an sign that kernel is about to execute our code (which is useful if you execute a hell lot of cells).
+Besides this message, we receive a few more regarding the kernel status and a sign that the kernel is about to execute our code (which is useful if you execute a hell lot of cells).
 
 Finally, the `execute_reply` message comes on the <span class="blue">shell</span> channel back holding just some summary:
 
@@ -204,13 +204,13 @@ Alright, enough about message joggling. Let's zoom out a bit and see how some of
 
 ## Code Execution
 
-Thinking about Jupyter's central functionality which is code exection, we are really getting back to the project's roots. 
+Thinking about Jupyter's central functionality which is code execution, we are really getting back to the project's roots. 
 [Back then in 2011](https://en.wikipedia.org/wiki/Project_Jupyter), the pure core of Python's kernel was released as the IPython project, an interactive Python's REPL with ✨magic. 
 Then three years later, IPython was refactored to be used not only in the terminal but also in alternative UI like [Qt-](https://qtconsole.readthedocs.io/en/stable/) or web-based UI which became the main UI. 
 At that time, IPython was absorbed as a part of the bigger notebook idea.
 
 As of late, a decade later the IPython's interactive shell is still a part of the Python's kernel. 
-In fact the <span class="blue">shell</span> channel that is a gateway for all sorts of code executions in Jupyter is probably named after the interactive shell.
+In fact, the <span class="blue">shell</span> channel that is a gateway for all sorts of code executions in Jupyter is probably named after the interactive shell.
 
 ![The Code Execution Stages](/blog/jupyter-kernel-architecture/jupyter-code-execution-stages.png "The Code Execution Stages")
 <div class="image-title">The Code Execution Stages</div>
@@ -225,9 +225,9 @@ When the `execute_request` message gets into the kernel, it triggers a complex e
 
 Cell code is not just a pure Python/R/Julia/etc code, it also could contain some magic directives that Jupyter borrowed from Matematica. 
 The magic commands look like `%save` (aka line magic) or `%%sh` (aka cell magic). There is also a way to run a shell command via `!ls -lah`.
-Apperently, those special commands are not supported by the default interpreters, so Jupyter gets to transform the raw code to make them executable.
+Apparently, those special commands are not supported by the default interpreters, so Jupyter gets to transform the raw code to make them executable.
 
-To transform the magic commands into executable code, Jupyter simply replaces unsupported syntax by legitimit calls to the interactive shell methods:
+To transform the magic commands into executable code, Jupyter simply replaces unsupported syntax with legitimate calls to the interactive shell methods:
 
 | Magic Command | Transformation                                         |
 |---------------|--------------------------------------------------------|
@@ -238,14 +238,14 @@ To transform the magic commands into executable code, Jupyter simply replaces un
 
 `get_ipython(){:python}` is nothing else but the reference to the interactive shell and its public API via [user namespace setup](#eval--user-namespace).
 
-Another transformation Jupyter does is on the AST level. Jupyter compiles the cell code into an AST tree (basically, using the [codeop.Compiler](https://docs.python.org/3/library/codeop.html#codeop.Compile)) and then run AST transformers against it. This is a plug in point to further transform or reject the given code.
+Another transformation Jupyter does is on the AST level. Jupyter compiles the cell code into an AST tree (basically, using the [codeop.Compiler](https://docs.python.org/3/library/codeop.html#codeop.Compile)) and then run AST transformers against it. This is a plug-in point to further transform or reject the given code.
 
 ### Eval & User Namespace
 
 Finally, the code is ready for execution. 
 
 Jupyter leverages built-in [eval()](https://docs.python.org/3/library/functions.html#eval) and [exec()](https://docs.python.org/3/library/functions.html#exec) functions for that. 
-They provide a way to setup, isolate or restrict the scope in which user code is going to be executed. Jupyter calls it user namespace.
+They provide a way to setup, isolate or restrict the scope in which user code is going to be executed. Jupyter calls it a user namespace.
 
 The user namespace consists of two types: local and global one. Jupyter cares about both of them, however, by default, they are the same. Theoretically, they could be different in some sort of embedded environments.
 
@@ -312,7 +312,7 @@ Ultimately, a clean user namespace looks like this:
 ```
 
 Finally, the code and its output may be stored in the kernel history. 
-The kernel tracks the last N executions and store related information in [a SQLite database](https://www.sqlite.org/index.html) to simplify retriaval.
+The kernel tracks the last N executions and stores related information in [a SQLite database](https://www.sqlite.org/index.html) to simplify retrieval.
 
 ## Code Completion & Inspection
 
@@ -324,11 +324,11 @@ The jupyter kernel supports debugging of the cell code.
 In Python's case, the corresponding kernel employs [debugpy library](https://github.com/microsoft/debugpy) to perform actual code debugging. 
 DebugPy is an implementation of [Microsoft's Debug Adapter Protocol (or DAP)](https://microsoft.github.io/debug-adapter-protocol/overview) and Jupyter embeds it into its protocol.
 
-We could casually dive the whole debugging workflow into tree phases:
+We could casually dive the whole debugging workflow into three phases:
 
 - initialization of the debugger
 - breakpoint setup
-- code exectution with breakpoints
+- code execution with breakpoints
 
 ![The Debug Workflow](/blog/jupyter-kernel-architecture/jupyter-kernel-debug-flow.png "The Debug Workflow")
 <div class="image-title">The Debug Workflow</div>
@@ -368,7 +368,7 @@ import debugpy
 debugpy.listen("127.0.0.1", {debugpy channel port}) 
 ```
 
-Jupyter bindes one more port for the <span class="blue">debugpy</span> (REQ/REP) channel which is another bi-directional ZMQ stream that serves as a communication medium between the jupyter kernel and `debugpy`.
+Jupyter binds one more port for the <span class="blue">debugpy</span> (REQ/REP) channel which is another bi-directional ZMQ stream that serves as a communication medium between the jupyter kernel and `debugpy`.
 
 Once `debugpy` is listening to the <span class="blue">debugpy</span> channel, the client then sends the `debug_request.attach{:.entity.name.function}` command to finalize the initialization phase.
 
@@ -386,13 +386,13 @@ This is useful to restore the state of the UI after refreshing the page.
 
 In most languages, there are source files that could be directly executed, so DAP's breakpoint API works on the source file path level. 
 However, Jupyter notebooks are just storing executable cell code in the notebook file, but the file itself could not be executed directly by kernel's language interpreter like Python.
-That's why Jupyter got to dump cell code into a file that `debugpy` could futher work with.
+That's why Jupyter got to dump cell code into a file that `debugpy` could further work with.
 
 For that, the breakpoint flow starts with a special `debug_request.dumpCell` request that stores the cell's source code as a temporary file and retrieves its path in the reply.
 
 <Note title={`Avoid Collisions`} type={`info`}>
-  Each cell source code is saved a file with a unique name on the filesystem. 
-  To generare the file name, Jupyter doesn't use the default hash functions like `md5(){:python}`, for instance, but they introduced an implementation of [murmur2](https://en.wikipedia.org/wiki/MurmurHash) that has a better protection from collisions.
+  Each cell source code is saved as a file with a unique name on the filesystem. 
+  To generate the file name, Jupyter doesn't use the default hash functions like `md5(){:python}`, for instance, but they introduced an implementation of [murmur2](https://en.wikipedia.org/wiki/MurmurHash) that has a better protection from collisions.
 </Note>
 
 Then, the cell source file is referenced in the `debug_request.setBreakpoints{:.entity.name.function}` message along with breakpoint position. This is how the breakpoint gets registered on the `debugpy` end.
@@ -403,18 +403,18 @@ Now the most riveting part.
 
 When we send another `execution_request{:.entity.name.function}` message for a cell with breakpoints, Jupyter starts [executing it as usual](#code-execution) util it gets a `stopped` debug event.
 
-The `stopped` event holds information about reason of stopping (e.g. hitting a `breakpoint`) and the ID of thread that debugger has interrupted.
+The `stopped` event holds information about the reason of stopping (e.g. hitting a `breakpoint`) and the ID of thread that the debugger has interrupted.
 
-At the point, we could request more content by sending:
+At this point, we could request more content by sending:
 
 - `debug_request.stackTrace{:.entity.name.function}` to get the current stack trace where we have stopped
 - `debug_request.scopes{:.entity.name.function}` to get IDs of `global` and `local` scopes
 - `debug_request.variables{:.entity.name.function}` to get the list of variables and their content by the scope ID
 
-debugpy really stops the thread. Since the code execution happens in <span class="green">the main kernel thread</span>, Jupyter runs processing of the control channel's messages in <span class="green">a separate control thread</span>. 
+debugpy really suspends the thread. Since the code execution happens in <span class="green">the main kernel thread</span>, Jupyter runs processing of the control channel's messages in <span class="green">a separate control thread</span>. 
 Otherwise, the kernel would hang up forever.
 
-To keep executing the notebook, we could send a various of debug commands like `next{:.entity.name.function}`, `continue{:.entity.name.function}` and so on which is the same set of commands we see when debugging some code in a regular IDE. The code execution will go on until the next `stopped` event.
+To keep executing the notebook, we could send various debug commands like `next{:.entity.name.function}`, `continue{:.entity.name.function}` and so on which is the same set of commands we see when debugging some code in a regular IDE. The code execution will go on until the next `stopped` event.
 
 Finally, we could stop the debugger by sending `debug_request.disconnect{:.entity.name.function}` command.
 
@@ -422,9 +422,9 @@ Finally, we could stop the debugger by sending `debug_request.disconnect{:.entit
 
 Yet another interesting workflow is input handling. Normally, when the interpreter sees calls to `input(){:python}` or `getpass(){:python}` functions, it prompts the user to input something using the keyboard in runtime. This is not possible in the Jupyter kernel's case, since code execution is abstracted away.
 
-To cope with this problem, Jupyter simply replaces (or monkey patch) implementations of the functions by own ones before executing any user's code. Jupyter is already controls [the content](#code-execution) of `builtins` module which is important to achieve that.
+To cope with this problem, Jupyter simply replaces (or monkey patches) implementations of the functions with its own ones before executing any user's code. Jupyter is already controls [the content](#code-execution) of `builtins` module which is important to achieve that.
 
-The new functions just send a request message to the <span class="blue">stdin</span> channel and waits for the reply with the corresponding user input. After that, code execution goes as it would.
+The new functions just send a request message to the <span class="blue">stdin</span> channel and wait for the reply with the corresponding user input. After that, code execution goes as it would.
 
 ![The Stdin Workflow](/blog/jupyter-kernel-architecture/jupyter-input-stdin-flow.png "The Stdin Workflow")
 <div class="image-title">The Stdin Workflow</div>
@@ -437,15 +437,15 @@ That was a review of Jupyter kernel and how it works.
 
 You may notice that usage of ZMQ and binding five channels could mean a lot of implementation details exposed by most of potential Jupyter kernel consumers. That's why Jupyter provides [a client library](https://jupyter-client.readthedocs.io/) that further simplifies spawning and usage of Jupyter kernels.
 
-Furthermore, some people manage and use Jupyter kernels via [Jupyter Kernle Gateway](https://jupyter-kernel-gateway.readthedocs.io/en/latest/getting-started.html) that expose kernels via HTTP/Websocket API which is more convinient and popular than the ZMQ protocol. 
+Furthermore, some people manage and use Jupyter kernels via [Jupyter Kernle Gateway](https://jupyter-kernel-gateway.readthedocs.io/en/latest/getting-started.html) which exposes kernels via HTTP/Websocket API which is more convenient and popular than the ZMQ protocol. 
 This is also a way to access Jupyter kernels in a headless way. Although, this gateway is only capable of spawning local instances of kernels.
 
 ## To be Continued
 
 In this article, we have briefly reviewed all major architectural and implementation specifics of Jupyter kernels.
 
-The Jupyter kernel is a heart of the Jupyter stack, but it's only one compontent out of many Jupyter projects (e.g. Jupyter Server, JupyterLab, JupyterHub, Jupyter Enterprice Gateway).
-I hope to get to reviewing others in the followup articles. 
+The Jupyter kernel is the heart of the Jupyter stack, but it's only one component out of many Jupyter projects (e.g. Jupyter Server, JupyterLab, JupyterHub, Jupyter Enterprise Gateway).
+I hope to get to reviewing others in the follow-up articles. 
 
 Follow me on [LinkedIn](https://www.linkedin.com/in/glushko-roman/) to get notified when sequels are ready!
 
