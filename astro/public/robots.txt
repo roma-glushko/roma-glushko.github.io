@@ -1,0 +1,5 @@
+Host: https://www.romaglushko.com
+User-agent: *
+Allow: /
+
+Sitemap: https://www.romaglushko.com/sitemap-index.xml
