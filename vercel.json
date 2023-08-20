@@ -2,7 +2,13 @@
     "trailingSlash": true,
     "redirects": [
         {"source": "/lab/", "destination": "/blog/", "statusCode": 301},
-        {"source": "/lab/:path*", "destination": "/blog/:path*", "statusCode": 301},
         {"source": "/sitemap/sitemap-index.xml ", "destination": "/sitemap-index.xml", "statusCode": 301}
+    ],
+    "rewrites": [
+        {
+            "source": "/lab/:match*",
+            "destination": "/blog/:match*",
+            "permanent": true
+        }
     ]
 }
