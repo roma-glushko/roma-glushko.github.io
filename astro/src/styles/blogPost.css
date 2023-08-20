@@ -217,6 +217,12 @@ ul.blog-tags li {
     padding-bottom: 1rem;
 }
 
+@media (max-width: 767px) {
+    .blog-wrapper .cover .cover-image {
+        height: auto;
+    }
+}
+
 @media (max-width: 1200px) {
     .blog-wrapper .content-wrapper {
         display: block;
