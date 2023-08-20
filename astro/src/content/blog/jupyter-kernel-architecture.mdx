@@ -1,6 +1,6 @@
 ---
 id: 62b87b5115e35cd77d0d0e1c
-pubDate: "Aug 13, 2023"
+pubDate: "Aug 20, 2023"
 title: "Jupyter Kernel Architecture"
 draft: false
 excerpt: "How Jupyter executes, inspects, completes and debug code"
@@ -138,7 +138,7 @@ The `execute_request` triggers a bunch of follow-up messages and most of them ar
 }
 ```
 
-The `parent_header` holds all information from the initial request message's header. This way both messages are linked. 
+The `parent_header` holds all information from the initial request message's header. This way both messages are linked (it looks like [stamp coupling](https://wiki.c2.com/?StampCoupling)). 
 The `stream` message type essentially means execution output stream and contains the output itself in the `content.text` field.
 
 Besides this message, we receive a few more regarding the kernel status and a sign that the kernel is about to execute our code (which is useful if you execute a hell lot of cells).
@@ -314,9 +314,30 @@ Ultimately, a clean user namespace looks like this:
 Finally, the code and its output may be stored in the kernel history. 
 The kernel tracks the last N executions and stores related information in [a SQLite database](https://www.sqlite.org/index.html) to simplify retrieval.
 
-## Code Completion & Inspection
+## Autocompletion
 
-The user namespace is also useful during code completion and inspection.
+The user namespace is also useful during code completion.
+
+The code completion is a chain of matchers that grab information from different sources based on some completion context provided by the kernel. The context includes:
+
+- the full cell code
+- the line at which the cursor is being placed now
+- the cursor position at the line
+
+The major matcher in the pipeline is based on [the Jedi library](https://jedi.readthedocs.io/en/latest/docs/api.html#interpreter) that is capable of doing autocompletion based on code static analysis and a given user namespace.
+
+The dict key matcher can suggest keys of a `dict{:python}`, `pandas.DataFrame{:python}`, and `numpy.ndarray{:python}` objects. 
+It gets the reference for the object via `regexp`, evaluates its value and calls `keys()` method or other specific function based on that instance type. Optionally, the instance could implement the `_ipython_key_completions_(){:python}` method to override that behavior or to integrate with a custom class.
+
+Other than those two, there are:
+
+- the `file matcher` that matches files and directories on the filesystem
+- latex and unicode char matchers
+- magic command and arguments matchers
+
+## Code Inspection
+
+TBU
 
 ## Debugging
 
