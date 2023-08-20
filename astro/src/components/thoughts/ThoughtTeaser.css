@@ -50,3 +50,9 @@ html.dark {
     transform: translateZ(0);
     vertical-align: top;
 }
+
+@media screen and (max-width: 600px) {
+    .thought-item .cover-filter img {
+        height: auto;
+    }
+}
