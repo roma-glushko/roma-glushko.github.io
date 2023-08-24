@@ -1,8 +1,8 @@
 ---
 id: 62b87b5115e35cd77d0d0e1c
-pubDate: "Aug 21, 2023"
+pubDate: "Aug 24, 2023"
 title: "Jupyter Kernel Architecture"
-draft: true
+draft: false
 excerpt: "How Jupyter executes, inspects, completes and debug code"
 keywords:
   - open source
@@ -18,7 +18,8 @@ import Note from '@components/content/Note.tsx'
 [Jupyter Notebooks](https://jupyter.org/) are a well-know parts of the scientific toolkit. They help to execute code interactively and make it easy to plot diagrams as well as to show other kinds of graphics, formulas, etc. At this moment, it has gone beyond that and you can also have different controls (e.g. input boxes, sliders, file uploaders, and so on), fully interactive charts (e.g. Plotly), or even your custom output types.
 That's extremely useful in areas that highly lean on data analysis like natural or data science. 
 
-[TODO: Insert Jupyter Lab Screenshot with some fancy plotly output]
+`video: title: "JupyterLab In Action": /blog/jupyter-kernel-architecture/jupyterlab.mp4`
+<div class="image-title">JupyterLab In Action</div>
 
 That basically made it popular. It is so popular that nowadays every major cloud providers have offerings that include hosted Jupyter Notebooks connected to their computational resources like Google Colab, AWS SageMaker Notebooks, etc.
 
@@ -327,7 +328,7 @@ The code completion is a chain of matchers that grab information from different 
 The major matcher in the pipeline is based on [the Jedi library](https://jedi.readthedocs.io/en/latest/docs/api.html#interpreter) that is capable of doing autocompletion based on code static analysis and a given user namespace.
 
 The dict key matcher can suggest keys of a `dict{:python}`, `pandas.DataFrame{:python}`, and `numpy.ndarray{:python}` objects. 
-It gets the reference for the object via `regexp`, evaluates its value and calls `keys()` method or other specific function based on that instance type. Optionally, the instance could implement the `_ipython_key_completions_(){:python}` method to override that behavior or to integrate with a custom class.
+It gets the reference for the object via `regexp`, evaluates its value and calls the `keys()` method or other specific function based on that instance type. Optionally, the instance could implement the `_ipython_key_completions_(){:python}` method to override that behavior or to integrate with a custom class.
 
 Other than those two, there are:
 
@@ -337,7 +338,25 @@ Other than those two, there are:
 
 ## Code Inspection
 
-TBU
+The completion is built around Python's [inspect](https://docs.python.org/3/library/inspect.html) module. 
+The Jupyter kernel finds a given object in the namespace and then collects various information about that object based on its type (like objects, functions, vars, etc):
+
+- object type (e.g. `function` or `method`, `type` in case of class types, `type(obj).__name__{:python}` in case of class instances, `builtin_function_or_method`, etc.)
+- `__init__(){:python}` method definition and docstring
+- class's base classes and subclasses
+- source of the object and file where it's defined (even it was defined in the cell)
+- a string representation of class instance (what `__repr__(){:python}` returns)
+- a number of items in the list, chars in the string and just what `len(){:python}` retrieves
+
+```python caption="Inspection of a custom factory function"
+Signature: create_user(name: str, age: int) -> __main__.User
+Source:   
+def create_user(name: str, age: int) -> User:
+    """A User factory"""
+    return User(name, age)
+File:      /var/folders/s1/ts3nxvl965lfts126qzdcw300000gn/T/ipykernel_19221/3934999721.py
+Type:      function
+```
 
 ## Debugging
 
