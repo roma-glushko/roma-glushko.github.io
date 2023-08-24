@@ -57,12 +57,13 @@ pre code {
     counter-reset: line;
 }
 
-p > code {
+p > code, ul li > code {
     background-color: var(--codeHighlightColor);
     padding: 0.1em 0.25em;
     border: 1px solid var(--inlineCodeBorderColor);
     border-radius: 5px;
     font-size: 90%;
+    word-wrap: break-word;
 }
 
 [data-line] {
