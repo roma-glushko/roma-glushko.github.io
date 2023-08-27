@@ -19,6 +19,7 @@ import rhLazyLoading from 'rehype-plugin-image-native-lazy-loading';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rhSlug from 'rehype-slug';
 import rhAutolinkHeadings from 'rehype-autolink-headings'
+import rhExternalLinks from 'rehype-external-links';
 
 const shouldIndexPage = (pageUrl) => {
   return ![
@@ -90,6 +91,28 @@ export default defineConfig({
           ],
         },
       ],
+      [
+        rhExternalLinks,
+        {
+          target: '_blank',
+          rel: function (element) {
+            const href = element.properties.href;
+            const whiteListedStarts = [
+              '/',
+              '#',
+              'mailto:',
+              'https://github.com/roma-glushko',
+              'https://www.romaglushko.com',
+            ];
+
+            if (whiteListedStarts.some((start) => href.startsWith(start))) {
+              return [];
+            }
+
+            return 'noopener noreferrer';
+          },
+        }
+      ]
     ],
     extendDefaultPlugins: true,
   },
