@@ -22,8 +22,8 @@ import rhAutolinkHeadings from 'rehype-autolink-headings'
 
 const shouldIndexPage = (pageUrl) => {
   return ![
-    '/404/',
-    '/rss.xml/',
+    'https://www.romaglushko.com/rss.xml/404/',
+    'https://www.romaglushko.com/rss.xml/rss.xml/',
   ].includes(pageUrl);
 }
 
