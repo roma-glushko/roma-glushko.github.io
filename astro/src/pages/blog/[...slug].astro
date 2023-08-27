@@ -12,7 +12,7 @@ import ArticleSnippet from '@components/ArticleSnippet.astro';
 import ShareBlock from '@components/blog/ShareBlock';
 import ImageZoomer from '@components/blog/ImageZoomer.tsx';
 import ContentEnd from '@components/blog/ContentEnd.astro';
-import ReadingIndicator from '@components/reading/ReadingIndicator';
+import ReadingIndicator from '@components/reading/ReadingIndicator.tsx';
 
 export async function getStaticPaths() {
 	const posts = await getBlogPosts();
