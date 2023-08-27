@@ -10,10 +10,13 @@ import { getThoughts } from 'src/content/collections';
 import ThoughtAuthor from '@components/thoughts/ThoughtAuthor.astro';
 import ThoughtNavigation from '@components/thoughts/ThoughtNavigation.astro';
 import ArticleSnippet from '@components/ArticleSnippet.astro';
-
-import '@styles/thoughtView.css'
+import ReadingIndicator from '@components/reading/ReadingIndicator';
 import ShareBlock from '@components/blog/ShareBlock';
 import ContentEnd from '@components/blog/ContentEnd.astro';
+
+
+import '@styles/thoughtView.css'
+
 
 export async function getStaticPaths() {
 	const posts = await getThoughts();
@@ -52,6 +55,7 @@ const thoughtUrlPath = getThoughtUrl(slug)
   keywords={keywords}
   image={cover.image}
 >
+  <ReadingIndicator client:only />
   <main>
     <ThoughtContent
       id={slug}

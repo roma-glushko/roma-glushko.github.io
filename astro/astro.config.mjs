@@ -20,6 +20,13 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rhSlug from 'rehype-slug';
 import rhAutolinkHeadings from 'rehype-autolink-headings'
 
+const shouldIndexPage = (pageUrl) => {
+  return ![
+    '/404/',
+    '/rss.xml/',
+  ].includes(pageUrl);
+}
+
 const videoOptions = {
   width: "100%",
   height: "auto",
@@ -98,6 +105,6 @@ export default defineConfig({
         forward: ["dataLayer.push"],
       },
     }),
-    sitemap({changefreq: 'daily', lastmod: new Date()}),
+    sitemap({changefreq: 'daily', lastmod: new Date(), filter: shouldIndexPage}),
   ],
 });

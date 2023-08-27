@@ -12,6 +12,7 @@ import ArticleSnippet from '@components/ArticleSnippet.astro';
 import ShareBlock from '@components/blog/ShareBlock';
 import ImageZoomer from '@components/blog/ImageZoomer.tsx';
 import ContentEnd from '@components/blog/ContentEnd.astro';
+import ReadingIndicator from '@components/reading/ReadingIndicator';
 
 export async function getStaticPaths() {
 	const posts = await getBlogPosts();
@@ -45,6 +46,7 @@ const slug = current.slug
 const blogUrlPath = getBlogUrl(slug)
 ---
 <BlogPostLayout title={title} description={excerpt} keywords={keywords} image={cover.image}>
+	<ReadingIndicator client:only />
 	<main>
 		<BlogContent id={id || slug} title={title} pubDate={pubDate} keywords={keywords} cover={cover} timeToReadMin={timeToReadMin}>
 			<Content />
