@@ -26,6 +26,7 @@ a.resume-item {
     transition-duration: 0.2s;
     transition-property: all;
     transition-timing-function: ease;
+    font-weight: 100;
 }
 
 a.resume-item:hover {
