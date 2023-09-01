@@ -11,13 +11,14 @@ interface Job {
 }
 
 export interface Props {
+    topMargin: boolean;
     jobs: Job[];
 }
 
-const {jobs} = Astro.props;
+const {topMargin = true, jobs} = Astro.props;
 ---
 <section class="jobs">
-    <h2>
+    <h2 class={topMargin ? `` : `notop-margin`}>
         <span>Work Experience</span>
     </h2>
     <ul>
