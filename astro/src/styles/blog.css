@@ -36,6 +36,7 @@ html.dark {
 .blog-sidebar .misc {
     display: flex;
     justify-content: space-around;
+    height: 30px;
 }
 
 @media screen and (max-width: 575px) {

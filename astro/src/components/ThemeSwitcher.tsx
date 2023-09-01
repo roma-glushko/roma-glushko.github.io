@@ -24,6 +24,13 @@ const ThemeSwitcher = (): JSX.Element => {
   };
 
   useEffect(() => {
+
+    const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    darkQuery.addListener((e) => {
+      themeStore.set(e.matches ? Themes.DARK : Themes.LIGHT)
+    })
+
     setMounted(true)
   });
 
