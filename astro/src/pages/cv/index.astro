@@ -22,7 +22,7 @@ const resumes = await getResumes()
             {resumes && resumes.map((resume) => (
                 <CVTeaser slug={resume.slug} excerpt={resume.data.excerpt} position={resume.data.position} />
             ))}
+            <p>Have not found what you were looking for? Free free to connect with me in <a href={personMetadata.linkedinUrl} target="_blank">LinkedIn</a>.</p>
         </div>
-        <p>Have not found what you were looking for? Free free to connect with me in <a href={personMetadata.linkedinUrl} target="_blank">LinkedIn</a>.</p>
     </main>
 </CvListLayout>
