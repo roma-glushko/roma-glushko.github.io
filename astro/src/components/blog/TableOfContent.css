@@ -51,6 +51,7 @@ html.dark {
 
 .blog-content-nav-wrapper ul.blog-content-nav:hover li a {
     color: var(--gray);
+    font-weight: normal;
 }
 
 @media (max-width: 1200px) {
