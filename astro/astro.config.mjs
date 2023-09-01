@@ -111,7 +111,7 @@ export default defineConfig({
               return [];
             }
 
-            return 'noopener noreferrer';
+            return 'noopener noreferrer nofollow';
           },
         }
       ]

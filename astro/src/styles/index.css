@@ -46,6 +46,7 @@ html.dark {
     margin-top: 10px;
     margin-bottom: 5px;
     text-align: center;
+    min-height: 96px;
 }
 
 .homepagev2 .hero-header .title {
