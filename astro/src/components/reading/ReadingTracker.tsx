@@ -1,8 +1,8 @@
 import * as React from "react"
 // import { trackCustomEvent } from "gatsby-plugin-google-analytics"
-import { ReactNode, useEffect, useState } from "react"
+import { type ReactNode, useEffect, useState } from "react"
 import useReadRepository, {
-  ReadState,
+  type ReadState,
   ReadStatuses,
   ContentTypes,
 } from "../hooks/readRepository"

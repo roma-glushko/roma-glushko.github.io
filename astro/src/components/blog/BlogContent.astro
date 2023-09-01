@@ -1,5 +1,5 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import { Image } from "astro:assets";
 
 import Date from "@components/Date.astro"
 import ThemeSwitcher from "@components/ThemeSwitcher";
@@ -18,14 +18,14 @@ const {id, title, pubDate, keywords, cover: {image, credits, aspectRatio}, timeT
       <figure class="cover">
         <div class="cover-filter">
           {image && 
-            <Picture 
+            <Image 
               class="cover cover-image"
               loading="lazy" 
               src={image} 
               alt={title} 
-              widths={[1240, 620, 310, 155]} 
-              aspectRatio={aspectRatio} 
-              formats={['avif', 'jpeg', 'webp']} 
+              width={1400}
+              height={600}
+              decoding="async"
             />
           }
         </div>

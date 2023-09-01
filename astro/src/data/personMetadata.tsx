@@ -1,10 +1,8 @@
-import photoImg from '../assets/homepage/photo3.jpg';
-
 const personMetadata = {
     name: `Roman Glushko`,
     alternateName: `Roman Hlushko`,
     gender: `Male`,
-    image: photoImg,
+    image: "/me/photo3.jpg",
     jobTitle: `Machine Learning Engineer, Magento eCommerce Software Developer`,
     worksFor: {
         name: "DataRobot, Inc.",

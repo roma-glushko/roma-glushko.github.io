@@ -1,10 +1,9 @@
 import { h, s } from 'hastscript';
 
-import { defineConfig } from 'astro/config';
+import { defineConfig, sharpImageService } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from "@astrojs/react";
-import image from "@astrojs/image";
 import partytown from "@astrojs/partytown";
 import prefetch from "@astrojs/prefetch";
 
@@ -44,6 +43,9 @@ export default defineConfig({
   site: 'https://www.romaglushko.com/',
   output: 'static',
   compressHTML: true,
+  image: {
+    service: sharpImageService(),
+  },
   markdown: {
     gfm: true,
     drafts: true,
@@ -117,7 +119,6 @@ export default defineConfig({
     extendDefaultPlugins: true,
   },
   integrations: [
-    image(),
     mdx({
       drafts: true,
     }),

@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { Picture } from '@astrojs/image/components';
+import { Image, getImage } from "astro:assets"
 
 import { getBlogUrl } from 'src/content/routing';
 import PostKeywords from "@components/blog/PostKeywords.astro"
@@ -21,20 +21,28 @@ const slug = post.slug
 
 const postId = id || slug;
 const postURL = getBlogUrl(slug)
+
+const optimizedImage = await getImage({
+  src: image,
+  width: 336,
+  height: 200,
+  format: "webp",
+});
 ---
 <article class="blog-item">
   <a class="article-header" href={postURL}>
     <div class="cover-filter">
       {image && 
         <div class="cover">
-          <Picture 
+          <Image 
             class="cover-image"
             loading="lazy" 
-            src={image} 
+            src={optimizedImage.src} 
             alt={title} 
-            widths={[1240, 620, 310, 155]} 
-            aspectRatio={aspectRatio} 
-            formats={['avif', 'jpeg', 'webp']} 
+            width={336}
+            height={200}
+            decoding="async"
+            format="webp" 
           />
         </div>
         }

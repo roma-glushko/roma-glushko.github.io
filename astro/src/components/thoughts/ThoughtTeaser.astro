@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 
-import { Picture } from '@astrojs/image/components';
+import { Image } from "astro:assets";
 import Date from "@components/Date.astro"
 
 import "./ThoughtTeaser.css"
@@ -32,13 +32,13 @@ const thoughtURL = `/thoughts/${slug}/`;
         <div class="cover-filter">
             {image && 
             <div class="cover">
-                <Picture 
+                <Image 
                     loading="lazy" 
                     src={image} 
                     alt={title} 
-                    aspectRatio={"4:3"}
-                    widths={[1400, 700, 350, 175]} 
-                    formats={['avif', 'jpeg', 'webp']} 
+                    width={682}
+                    height={500}
+                    decoding="async"
                 />
             </div>}
         </div>
