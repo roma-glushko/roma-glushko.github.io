@@ -1,0 +1,229 @@
+---
+id: 62b87a6b15e35cd77d0d0ddd
+title: "OpenTelemetry"
+draft: false
+excerpt: "How OTEL SDK and Collector work"
+pubDate: "Sept 1, 2023"
+keywords:
+  - open source
+  - architecture
+  - observability
+cover:
+    image: /blog/opentelemetry/jennifer-lim-tamkican-Utt2Kc2JyAc-unsplash.jpg
+    credits: TBU
+---
+
+import Note from '@components/content/Note.tsx'
+
+With the raise of the open source community, people and organizations don't really want to invest into proprietary protocols and standards anymore.
+Instead, it's a mainstream to pick a widely-recognized open source project as a basis to build on top of it.
+
+In the observability domain, there are enough open source protocols that cover some of the thee key pilars:
+
+- `logs` - stdout and stderr streams your services or application outputs while running in the container.
+- `metrics` - aggregations of some measurements over a period of time
+- `traces` - a visualization of the steps or the execution path that your workflow passed
+
+![The Three Pillars of Observability](/blog/opentelemetry/observability-pillars.png "The Three Pillars of Observability")
+<div class="image-title">The Three Pillars of Observability</div>
+
+When you think about metrics, [Prometheus](https://prometheus.io/) and [statsd](https://github.com/statsd/statsd) may come to your mind. 
+On the traces side, there are [Jaeger](https://www.jaegertracing.io/) and [Zipkin](https://zipkin.io/).
+There are also various beats that could scrap your logs like [fluentd](https://www.fluentd.org/) or [Grafana Loki](https://grafana.com/oss/loki/).
+
+Now if you want to cover the all tree pilars, you need to pick a combination of collectors/protocols to cover each one (well, some are capable of covering a few pilars).
+However, there are still a few problems left:
+
+- even though the protocols are open source, they may still tightly connect your application to the underlying collector or storage, so it won't be that easy to switch gears and use something else
+- we have divided observability into three pieces, but in reality they are three different signals or point of views on the application work, so we may get the whole picture and max value out of them when they are well connected and correlated for us
+
+![The observability singals are unconnected](/blog/opentelemetry/observability-signals-unconnected.png "The observability singals are unconnected")
+<div class="image-title">The observability singals are unconnected when you use separate highly specifalized protocols</div>
+
+To sum it up, we want to have:
+
+- one open source vendor-lock-free protocol to rule all observability signals
+- a stable abstruction for us for the underlying observability storage(s) without a need to migrate our service every time that storage changes
+- a coverage of popular programming languages, not to be limited in what our tech stack looks like
+
+[TODO: Add a diagram where all siganls are connected]
+
+This idea is so compeling that at some point there were two projects, [OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/), that were trying to fill the gap. 
+They were trying to compete with each other, but there was not the right context to do that as they were working on the big unbiquitius protocol idea, so it didn't make sense to try to conquer some market shares, but rather it made to consolidate their effort and came there much quicker.
+And that's what happened. Both projects were merged into one known as [OpenTelemetry](https://opentelemetry.io/) (aka OTEL). 
+
+OpenTelemetry is an observability framework and an active [CNCF project](https://www.cncf.io/projects/opentelemetry/) that provides a vendor-neutral and tool-agnostic way to collect observability signals across your heterogeneus system.
+
+[TODO: Don't like that the first part of the intro is lil bit unconnected with this description]
+
+In this blog post, we will review:
+
+- how OpenTelemetry instrumentation works on the application side taking [Python's SDK](https://github.com/open-telemetry/opentelemetry-python/) as an example
+- the architecture of OpenTelemetry Collector and its capabilities
+
+## SDK
+
+Collecting logs, metrics and traces in a unified way across services implemented in different technical stacks is the central task of OpenTelemetry. 
+To get there, OpenTelemetry provides:
+
+- SDKs for [11+ the most popular languages](https://opentelemetry.io/docs/instrumentation/) (like Python, Go, NodeJS, Rust, Java, etc) that inits OTEL core components
+- library-specific instrumentations that provides tool/framework-specific signals and context automagically (e.g. [Starlette](https://www.starlette.io/), [HTTPX](https://www.python-httpx.org/), [aiopika](https://aio-pika.readthedocs.io/en/latest/) instrumentations, so on)
+
+The third thing you could do is to further instrument your codebase with business logic specific traces and metrics.
+
+This process is generally known as codebase *instrumentation*.
+
+There are two ways to setup OTEL in your application:
+
+- automatic - when you run some agent before the main application entry point that configures OpenTelemetry (but not all languages support it, for example, Golang doesn't)
+- manual - when you configure OpenTelemetry yourself to start collecting your observability signals.
+
+To understand how OpenTelemetry SDK is designed and implemented, we will delve into the manual setup.
+
+This is what it takes you to manually setup Python's service:
+
+```python {13-14,19-20,23,26}
+from opentelemetry import metrics, trace
+from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.metrics.export import (
+    ConsoleMetricExporter,
+    PeriodicExportingMetricReader,
+)
+from opentelemetry.sdk.resources import SERVICE_NAME, SERVICE_VERSION, Resource
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
+
+span_processor = BatchSpanProcessor(ConsoleSpanExporter())
+metric_reader = PeriodicExportingMetricReader(ConsoleMetricExporter())
+
+resource = Resource(
+    attributes={
+        SERVICE_NAME: "notifications",
+        SERVICE_VERSION: "v42",
+    }
+)
+
+trace_provider = TracerProvider(resource=resource)
+metrics_provider = MeterProvider(metric_readers=[metric_reader])
+
+trace_provider.add_span_processor(span_processor)
+
+# Sets the global default providers
+trace.set_tracer_provider(trace_provider)
+metrics.set_meter_provider(metrics_provider)
+
+# Creates a custom tracer from the global provider
+tracer = trace.get_tracer("notifications")
+
+# Creates a custom meter from the global provider
+meter = metrics.get_meter("notifications")
+```
+
+TODO: Add usage of tracer and meter
+
+<Note title={`Logs Support is in Development`} type={`warn`}>
+  OpenTelemetry is currently being developing their logs support. So eventuatlly this's going to be a full package, but as of now, it' still marked as unstable/beta/in development.
+  For this reason, we are not going to review how logs are collected and processed by OTEL leaving it as a topic for the future posts.
+</Note>
+
+Let's try to unpack what's going on there.
+
+## Resources
+
+First of all, let's pay attention to the `Resource{:.entity.name}`. It is an abstruction around entities that could generate signals:
+
+```python
+from opentelemetry.sdk.resources import SERVICE_NAME, SERVICE_VERSION, Resource
+
+resource = Resource(
+    attributes={
+        SERVICE_NAME: "notifications",
+        SERVICE_VERSION: "v42",
+    }
+)
+```
+
+Right off the bat, `Resource{:.entity.name}` illustrates a few important concepts in the observability domain.
+
+Most context in the observability signals are going to be conveyed via `attributes{:.variable.parameter}` or tags which are essentially a key-value pairs. Then, observability backend could do some processing of these values to correplate various pieces of information.
+
+OTEL strives to standardize the attribute names to keep them consistent across your system. That's why they come as constants. 
+In practice, this is an extremely dounting and challenging task, especially when multiple teams are working on different services in parallel.
+
+## Provider Registries
+
+Python's SDK comes with two modules called `trace{:python}` and `metrics{:python}`. 
+Both modules contain a global variable that holds the current provider and a setter method like `set_tracer_provider(){:.entity.name.function}` to configure it.
+
+If you don't want to configure a real provider, there are also `NoOpTracerProvider{:.entity.name.class}` or `NoOpMeterProvider{:.entity.name.class}` that are helpful to keep all custom instrumentaions in place without a need for removing them via `if{:python}`s, for example (this is [the null object pattern](https://en.wikipedia.org/wiki/Null_object_pattern) in action).
+
+Then, the rest of codebase refers the global providers when it needs to create traces or metrics.
+
+![The Tracer & Meter Registries](/blog/opentelemetry/opentelemetry-registries.png "The Tracer & Meter Registries")
+<div class="image-title">The Tracer & Meter Registries</div>
+
+## Traces
+
+The `TracerProvider{:.entity.name.class}` is basically a factory that creates `Tracer{:.entity.name.class}`s and passes most of its params down to a `Tracer{:.entity.name}`.
+`Tracer{:.entity.name}`s represent the specific `trace` that could contain many `spans`.
+
+Conceptually, `traces` are connected to the specific workflow or operation in the system. 
+That's why their names should the same for the same processes e.g. `GET /users/{user_id}/` may represent all requests to an API that returns user's data. 
+
+Then, `spans` may represent some steps in your workflow. For instance, to get the user information, you may need to perform a request to your database. 
+That action may be wrapped into a `span`. Additional `attributes{:.variable.parameter}` could be added to the span to record some events, action result statuses, etc.
+In the end, all `spans` forms a hierarical tree that could be viewed in the observability backend.
+
+[TODO: add an example of trace view]
+
+## Spans
+
+In OTEL protocol, `traces` are rather virtual entities that hold some execution context. The real data points that are being collected, processed and exported are `spans`.
+
+The `Span{:.entity.name.class}` consists of:
+
+- name - the human-friendly title of the step
+- kind like internal, server, client, producer, consumer
+- status like `not set`, `ok`, `error`
+- the span context
+- the parent span context
+- the resource context
+- the trace or instrumentation scope
+- span `attributes{:.variable.parameter}`
+- events - special entities with the name, timestamp and own set of `attributes{:.variable.parameter}`
+- start_time & end_time as `time.time_ns(){:python}`
+
+The `Span{:.entity.name.class}` class is also a [context manager](https://book.pythontips.com/en/latest/context_managers.html#context-managers), so when it starts and exits, the span signals the `SpanProcessor` about that.
+
+## Span Sampling
+
+There is also an optional opportunity to configure a span sampler.
+
+Sampling is a way to filter out some spans or other data points if they match some specific criteria or just randomly.
+The major reasons to sample are:
+
+- to optimize the cost of ingesting and storing observability signals
+- filter out boring regular data and mostly keep interesting one e.g. spans with errors, that took more than threshold
+- merely filter based on presense or abcense of `attributes{:.variable.parameter}` 
+
+Sampling on the SDK side could allow to perform filtering as soon as possible in the pipeline (or the head sampling).
+
+OTEL comes with a few span samplers out of the box:
+
+- `StaticSampler{:.entity.name.class}` that always or never drops spans
+- 
+
+![OTEL SDK Span Pipeline](/blog/opentelemetry/otel-traces-pipeline.png "OTEL SDK Span Pipeline")
+<div class="image-title">OTEL SDK Span Pipeline</div>
+
+## Span Processors
+
+TBU
+
+## References
+
+- [[OpenTelemetry] Python SDK](https://opentelemetry.io/docs/instrumentation/python/)
+- [[Github] OTEL Collector](https://github.com/open-telemetry/opentelemetry-collector)
+- [[OpenTelemetry] OTEL Collector](https://opentelemetry.io/docs/collector/)
+- [[OpenTelemetry] OpenTelemetry Collector Architecture](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md)
+- [[OpenTelemetry] Sampling](https://opentelemetry.io/docs/concepts/sampling/)
