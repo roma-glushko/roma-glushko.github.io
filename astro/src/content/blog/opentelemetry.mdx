@@ -3,7 +3,7 @@ id: 62b87a6b15e35cd77d0d0ddd
 title: "OpenTelemetry"
 draft: false
 excerpt: "How OTEL SDK and Collector work"
-pubDate: "Sept 1, 2023"
+pubDate: "Nov 7, 2023"
 keywords:
   - open source
   - architecture
@@ -246,8 +246,8 @@ In case of traces, user code actively creates trace spans and as soon as they ar
 The metrics dynamic is much more continues, so the collection really ends when the service shuts down. 
 Since service uptime could be measured in days if not weeks, we need to take a different approach here to export all measurements in between like doing metric data aggregations periodically over time window.
 
-Just like in the case of traces, OpenTelemetry provides `MeterProvider{:.entity.name.class}` that bridge all metrics with metric exporters. 
-`MeterProvider{:.entity.name.class}` creates new instances of `Meter{:.entity.name.class}`. 
+Just like in the case of traces, OpenTelemetry provides <span class="orange">MeterProvider</span> that bridge all metrics with metric exporters. 
+<span class="orange">MeterProvider</span> creates new instances of `Meter{:.entity.name.class}`. 
 Meters are instrumentation-specific measurement components. Each OTEL instrumentation library creates an own meter (e.g. HTTP client or server meters).
 When you do your custom measurements it's alright to have one global meter per service (but you certainly could have more).
 
@@ -260,16 +260,16 @@ Now, having a meter, you could create specific metrics (a.k.a. metric instrument
 
 OpenTelemetry supports the following metric types:
 
-- `Counter` (and `Observable Counter`) - an ever-growing (or monotonically increasing) value (for example, the number of requests processed by service)
-- `UpDownCounter` (and `Observable UpDownCounter`) - a value that could grow or fall (for example, the number of in-flight requests)
-- `Histogram` (and `Observable Histogram`) - suitable for measurements on which you want to calculate statistics (for example, request latency)
-- `Gauge` - just like the observable `UpDownCounter`, but each measurement is treated as a separate data point, so they are not summed up (for example, CPU or RAM utilizations)
+- <span class="green">Counter</span> (and <span class="green">Observable Counter</span>) - an ever-growing (or monotonically increasing) value (for example, the number of requests processed by service)
+- <span class="green">UpDownCounter</span> (and <span class="green">Observable UpDownCounter</span>) - a value that could grow or fall (for example, the number of in-flight requests)
+- <span class="green">Histogram</span> (and <span class="green">Observable Histogram</span>) - suitable for measurements on which you want to calculate statistics (for example, request latency)
+- <span class="green">Gauge</span> - just like the observable <span class="green">UpDownCounter</span>, but each measurement is treated as a separate data point, so they are not summed up (for example, CPU or RAM utilizations)
 
 ### Views & Aggregations
 
 With our metrics defined, we could start measuring, aggregating and collecting actual values.
 
-Metric instruments don't collect data directly but rather sending it to `MeasurementConsumer{:.entity.name.class}` that is a global component inited on the `MeterProvider{:.entity.name.class}`'s level.
+Metric instruments don't collect data directly but rather sending it to `MeasurementConsumer{:.entity.name.class}` that is a global component inited on the <span class="orange">MeterProvider's</span> level.
 `MeasurementConsumer{:.entity.name.class}` collects data for each and all `MetricReader{:.entity.name.class}`s configured on the provider.
 
 ![The Architecture of OTEL Metrics](/blog/opentelemetry/otel-metrics-architecture.png "The Architecture of OTEL Metrics")
@@ -283,13 +283,22 @@ OpenTelemetry provides a great flexibility there.
 
 First of all, aggregations could be configured on the metric exporter side. Maybe, you are an observability backend vendor like DataDog or Chronosphere and you come up with a better or specific way to deal with metric data points. This would be an opportunity for you to adjust exported data.
 
-Then, you could leverage a concept of views to override the config further. Views effectively allow to specify the aggregation strategy per metric insturment and its metadata (e.g. name, attributes).
+Then, you could leverage a concept of <span class="yellow">views</span> to override the config further. <span class="yellow">Views</span> effectively allow to specify the aggregation strategy per metric insturment and its metadata (e.g. name, attributes).
 
 By default, OTEL implements the following aggregations:
 
-- Drop Aggregation - a way to drop metric collection completely
-- Last Value Aggregation - keeps the last aggregated value until it's collected (used by gauges)
-- Sum Aggregation - ariphmetic sum of provided data points (used by counters)
+- <span class="yellow">Drop Aggregation</span> - a way to drop metric collection completely.
+- <span class="yellow">Last Value Aggregation</span> - keeps the last aggregated value until it's collected (used by gauges).
+- <span class="yellow">Sum Aggregation</span> - arithmetic sum of provided data points (used by counters).
+- <span class="yellow">Explicit Bucket Histogram Aggregation</span> - assigns collected data points to one of 15 predefined buckets. Besides that, it collects sum, count, min and max across given data.
+- <span class="yellow">Exponential Bucket Histogram Aggregation</span> - similar to the explicit bucket aggregation, but buckets are generated dynamically exponentially growing size of the next bucket and much more fine grained (by default, there are 150 buckets).
+
+The sum and histogram aggregations may collect data between probes as:
+
+- <span class="yellow">deltas</span> e.g. differences between the previous aggregated stats (e.g. sums, counts) and the current ones.
+- <span class="yellow">cumulative data</span> e.g. the previous and the current stats are summed up (so the values keep increasing over time).
+
+This is called <span class="yellow">aggregation temporality</span>.
 
 ### Metric Readers
 
