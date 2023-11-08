@@ -15,10 +15,9 @@ cover:
 
 import Note from '@components/content/Note.tsx'
 
-With the raise of the open source community, people and organizations don't really want to invest into proprietary protocols and standards anymore.
-Instead, it's a mainstream to pick a widely-recognized open source project as a basis to build on top of it.
+With the rise of the open source community, people and organizations don’t really want to invest into proprietary protocols and standards anymore. Instead, it's mainstream to pick a widely-recognized open source project as a basis to build on top of it.
 
-In the observability domain, there are enough open source protocols that cover some of the thee key pilars:
+In the observability domain, there are enough open source protocols that cover some of the three key pillars:
 
 - `Logs` - stdout and stderr streams your services or application outputs while running in the container.
 - `Metrics` - aggregations of some measurements over a period of time
@@ -31,7 +30,7 @@ When you think about metrics, [Prometheus](https://prometheus.io/) and [statsd](
 On the traces side, there are [Jaeger](https://www.jaegertracing.io/) and [Zipkin](https://zipkin.io/).
 There are also various beats that could scrap your logs like [fluentd](https://www.fluentd.org/) or [Grafana Loki](https://grafana.com/oss/loki/).
 
-Now if you want to cover the all tree pilars, you need to pick a combination of collectors/protocols to cover each one (well, some are capable of covering a few pilars).
+Now if you want to cover all three pillars, you need to pick a combination of collectors/protocols to cover each one (well, some are capable of covering a few pillars).
 However, there are still a few problems left:
 
 - even though the protocols are open source, they may still tightly connect your application to the underlying collector or storage, so it won't be that easy to switch gears and use something else
@@ -43,16 +42,16 @@ However, there are still a few problems left:
 To sum it up, we want to have:
 
 - one open source vendor-lock-free protocol to rule all observability signals
-- a stable abstruction for us for the underlying observability storage(s) without a need to migrate our service every time that storage changes
+- a stable abstraction for us for the underlying observability storage(s) without a need to migrate our service every time that storage changes
 - a coverage of popular programming languages, not to be limited in what our tech stack looks like
 
 [TODO: Add a diagram where all siganls are connected]
 
-This idea is so compeling that at some point there were two projects, [OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/), that were trying to fill the gap. 
-They were trying to compete with each other, but there was not the right context to do that as they were working on the big unbiquitius protocol idea, so it didn't make sense to try to conquer some market shares, but rather it made to consolidate their effort and came there much quicker.
+This idea is so compelling that at some point there were two projects, [OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/), that were trying to fill the gap. 
+They were trying to compete with each other, but there was not the right context to do that as they were working on the big ubiquitous protocol idea, so it didn't make sense to try to conquer some market shares, but rather it made to consolidate their effort and came there much quicker.
 And that's what happened. Both projects were merged into one known as [OpenTelemetry](https://opentelemetry.io/) (aka OTEL). 
 
-OpenTelemetry is an observability framework and an active [CNCF project](https://www.cncf.io/projects/opentelemetry/) that provides a vendor-neutral and tool-agnostic way to collect observability signals across your heterogeneus system.
+OpenTelemetry is an observability framework and an active [CNCF project](https://www.cncf.io/projects/opentelemetry/) that provides a vendor-neutral and tool-agnostic way to collect observability signals across your heterogeneous system.
 
 [TODO: Don't like that the first part of the intro is lil bit unconnected with this description]
 
@@ -123,7 +122,7 @@ TODO: Add usage of tracer and meter
 
 Let's try to unpack what's going on there.
 
-## Resources
+### Resources
 
 First of all, let's pay attention to the `Resource{:.entity.name}`. It is an abstruction around entities that could generate signals:
 
@@ -140,24 +139,23 @@ resource = Resource(
 
 Right off the bat, `Resource{:.entity.name}` illustrates a few important concepts in the observability domain.
 
-Most context in the observability signals are going to be conveyed via `attributes{:.variable.parameter}` or tags which are essentially a key-value pairs. Then, observability backend could do some processing of these values to correplate various pieces of information.
+Most context in the observability signals are going to be conveyed via `attributes{:.variable.parameter}` or tags which are essentially key-value pairs. Then, the observability backend could do some processing of these values to correplate various pieces of information.
 
 OTEL strives to standardize the attribute names to keep them consistent across your system. That's why they come as constants. 
-In practice, this is an extremely dounting and challenging task, especially when multiple teams are working on different services in parallel.
+In practice, this is an extremely daunting and challenging task, especially when multiple teams are working on different services in parallel.
 
-## Providers
+### Providers
 
 Python's SDK comes with two modules called `trace{:python}` and `metrics{:python}`. 
 Both modules contain a global variable that holds the current provider and a setter method like `set_tracer_provider(){:.entity.name.function}` to configure it.
 
-If you don't want to configure a real provider, there are also `NoOpTracerProvider{:.entity.name.class}` or `NoOpMeterProvider{:.entity.name.class}` that are helpful to keep all custom instrumentaions in place without a need for removing them via `if{:python}`s, for example (this is [the null object pattern](https://en.wikipedia.org/wiki/Null_object_pattern) in action).
+If you don't want to configure a real provider, there are also `NoOpTracerProvider{:.entity.name.class}` or `NoOpMeterProvider{:.entity.name.class}` that are helpful to keep all custom instrumentations in place without a need for removing them via `if{:python}`s, for example (this is [the null object pattern](https://en.wikipedia.org/wiki/Null_object_pattern) in action).
 
 <Note title={`Design Patterns in Wild`} type={`info`}>
-All providers have NoOp implementations which is a great example of [the null object pattern](https://refactoring.guru/introduce-null-object). Since telemetry could spread across all codebase, it would be disastrous to have `if{:python}` statements everywhere we had it in case we have no proper observability setup under some circumstances like like during automated testing.
+All providers have NoOp implementations which is a great example of [the null object pattern](https://refactoring.guru/introduce-null-object). Since telemetry could spread across all codebase, it would be disastrous to have `if{:python}` statements everywhere we had it in case we have no proper observability setup under some circumstances like during automated testing.
 </Note>
 
-
-Then, the rest of codebase refers the global providers when it needs to create traces or metrics.
+Then, the rest of the codebase refers to the global providers when it needs to create traces or metrics.
 
 ![The Tracer & Meter Registries](/blog/opentelemetry/opentelemetry-registries.png "The Tracer & Meter Registries")
 <div class="image-title">The Tracer & Meter Registries</div>
@@ -168,11 +166,11 @@ The `TracerProvider{:.entity.name.class}` is basically a factory that creates `T
 `Tracer{:.entity.name}`s represent the specific `trace` that could contain many `spans`.
 
 Conceptually, `traces` are connected to the specific workflow or operation in the system. 
-That's why their names should the same for the same processes e.g. `GET /users/{user_id}/` may represent all requests to an API that returns user's data. 
+That's why their names should be the same for the same processes e.g. `GET /users/{user_id}/` may represent all requests to an API that returns user's data. 
 
 Then, `spans` may represent some steps in your workflow. For instance, to get the user information, you may need to perform a request to your database. 
 That action may be wrapped into a `span`. Additional `attributes{:.variable.parameter}` could be added to the span to record some events, action result statuses, etc.
-In the end, all `spans` forms a hierarical tree that could be viewed in the observability backend.
+In the end, all `spans` form a hierarchical tree that could be viewed in the observability backend.
 
 [TODO: add an example of trace view]
 
@@ -190,7 +188,8 @@ The `Span{:.entity.name.class}` consists of:
 - the resource context
 - the trace or instrumentation scope
 - span `attributes{:.variable.parameter}`
-- events - special entities with the name, timestamp and own set of `attributes{:.variable.parameter}`
+- span events - special entities with the name, timestamp and own set of `attributes{:.variable.parameter}`
+- span links to other spans that have caused the current span
 - start_time & end_time as `time.time_ns(){:python}`
 
 The `Span{:.entity.name.class}` class is also a [context manager](https://book.pythontips.com/en/latest/context_managers.html#context-managers), so when it starts and exits, the span signals the `SpanProcessor` about that.
@@ -204,7 +203,7 @@ The major reasons to sample are:
 
 - to optimize the cost of ingesting and storing observability signals
 - filter out boring regular data and mostly keep interesting one e.g. spans with errors, that took more than threshold
-- merely filter based on presense or abcense of `attributes{:.variable.parameter}` 
+- merely filter based on presence or abcence of `attributes{:.variable.parameter}` 
 
 Sampling on the SDK side could allow filtering as soon as possible in the pipeline (or the head sampling).
 
@@ -230,7 +229,7 @@ When spans end, they come to span processors. Span processing is the last stage 
 
 The `BatchSpanProcessor` collects spans and exports them on schedule or when its queue is full. For that, it maintains a separate daemon thread where this logic is executed.
 
-There are also two `MultiSpanProcessors` that operates on a list of span processors and dispatch them sequentually or concurrently.
+There are also two `MultiSpanProcessors` that operate on a list of span processors and dispatch them sequentially or concurrently.
 
 <Note title={`Design Patterns in Wild`} type={`info`}>
     Guess what? MultiSpanProcessors are yet another [composites](https://refactoring.guru/design-patterns/composite).
@@ -238,15 +237,48 @@ There are also two `MultiSpanProcessors` that operates on a list of span process
 
 The concurrent span processing happens via [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor).
 
+### Context Propagation
+
+So far we have been talking about trace spans processing in scope of one services, 
+but the real value of traces unlocks when multiple microservices take part in a workflow and you could connect what they were doing there into a one coherent picture.
+
+In order to do that, OpenTelemetry needs to propagate some context during cross-service communication, 
+so the next microservice in the flow would know that all spans it was going to create should be attached to the parent trace created at the start of the workflow.
+
+![The Context Propagation in a Distributed Workflow](/blog/opentelemetry/otel-context-propagation.png "The Context Propagation in a Distributed Workflow")
+<div class="image-title">The Context Propagation in a Distributed Workflow</div>
+
+OTEL holds propagatable information in the <span class="green">runtime context</span>. 
+In Python's SDK, it's implemented using the convenient [contextvars](https://docs.python.org/3/library/contextvars.html) standard library which is a perfect mechanism to have scoped "global" variables on the level of asyncio.Task-s, for example.
+
+By default, OTEL defines two context vars:
+
+- the <span class="green">current span</span> - holds a reference to the currently active OTEL trace span
+- the <span class="green">baggage</span> - holds arbitrary key-value information that should be propagated as an additional context for every microservice involved
+
+Another important thing here is the actual <span class="blue">context propagation</span> which incurs context serialization and deserialization. 
+
+In the realm of HTTP-based communication, OpenTelemetry propagates the context via HTTP headers according to [the W3C Trace Context specification](https://www.w3.org/TR/trace-context/). According to the specification, the current span context is propagated as two headers:
+
+- `traceparent` - with trace span ID, parent span ID and parent span flags (e.g. trace was marked as sampled or not)
+- `tracestate` - arbitrary vendor-specific trace context or identifiers
+
+The <span class="green">baggage</span> context doesn't seem to be outlined in the specification, but OTEL shares it as one more identically named HTTP header.
+
+The microservice that receives such requests should be aware of context information in the headers, extract it and set it in the local <span class="green">runtime context</span>.
+
+Since OpenTelemetry is framework- or transport-protocol-agnostic, it just provides all needed functions to extract or inject context. 
+To actually propagate that information, you should instrument your clients and servers and OTEL provides a plenty of autoinstrumentors in [their registry](https://opentelemetry.io/ecosystem/registry/).
+
 ## Metrics
 
 Metrics are another observability pillar we are going to review next. The mechanism of collecting metrics is a bit different to traces. 
 
-In case of traces, user code actively creates trace spans and as soon as they are completed, OpenTelemetry could process and export them.
-The metrics dynamic is much more continues, so the collection really ends when the service shuts down. 
+In case of traces, user code actively creates trace spans and as soon as they are completed, OpenTelemetry can process and export them.
+The metrics dynamic is much more continuous, so the collection really ends when the service shuts down. 
 Since service uptime could be measured in days if not weeks, we need to take a different approach here to export all measurements in between like doing metric data aggregations periodically over time window.
 
-Just like in the case of traces, OpenTelemetry provides <span class="orange">MeterProvider</span> that bridge all metrics with metric exporters. 
+Just like in the case of traces, OpenTelemetry provides <span class="orange">MeterProvider</span> that bridges all metrics with metric exporters. 
 <span class="orange">MeterProvider</span> creates new instances of `Meter{:.entity.name.class}`. 
 Meters are instrumentation-specific measurement components. Each OTEL instrumentation library creates an own meter (e.g. HTTP client or server meters).
 When you do your custom measurements it's alright to have one global meter per service (but you certainly could have more).
@@ -255,8 +287,8 @@ When you do your custom measurements it's alright to have one global meter per s
 
 Now, having a meter, you could create specific metrics (a.k.a. metric instruments) that you want to measure or observe. Generally, OTEL divides metrics into two categories:
 
-- `Synchronious metrics` - theres are metrics that you measure directly right in your service workflows, so you observe them as soon as the event happens (e.g. a service increases a counter metric in the user login workflow)
-- `Asynchronius (or observable) metrics` - these metrics are read from "external" sources, so you just observe an aggregated or in-time statistics instead of measure the value directly (e.g. number of items in a queue given that you cannot instrument the queue directly and you could just read its size property)
+- `Synchronous metrics` - theres are metrics that you measure directly right in your service workflows, so you observe them as soon as the event happens (e.g. a service increases a counter metric in the user login workflow)
+- `Asynchronous (or observable) metrics` - these metrics are read from "external" sources, so you just observe an aggregated or in-time statistics instead of measure the value directly (e.g. number of items in a queue given that you cannot instrument the queue directly and you could just read its size property)
 
 OpenTelemetry supports the following metric types:
 
@@ -269,7 +301,7 @@ OpenTelemetry supports the following metric types:
 
 With our metrics defined, we could start measuring, aggregating and collecting actual values.
 
-Metric instruments don't collect data directly but rather sending it to `MeasurementConsumer{:.entity.name.class}` that is a global component inited on the <span class="orange">MeterProvider's</span> level.
+Metric instruments don't collect data directly but rather send it to `MeasurementConsumer{:.entity.name.class}` that is a global component initiated on the <span class="orange">MeterProvider's</span> level.
 `MeasurementConsumer{:.entity.name.class}` collects data for each and all `MetricReader{:.entity.name.class}`s configured on the provider.
 
 ![The Architecture of OTEL Metrics](/blog/opentelemetry/otel-metrics-architecture.png "The Architecture of OTEL Metrics")
@@ -283,7 +315,7 @@ OpenTelemetry provides a great flexibility there.
 
 First of all, aggregations could be configured on the metric exporter side. Maybe, you are an observability backend vendor like DataDog or Chronosphere and you come up with a better or specific way to deal with metric data points. This would be an opportunity for you to adjust exported data.
 
-Then, you could leverage a concept of <span class="yellow">views</span> to override the config further. <span class="yellow">Views</span> effectively allow to specify the aggregation strategy per metric insturment and its metadata (e.g. name, attributes).
+Then, you could leverage a concept of <span class="yellow">views</span> to override the config further. <span class="yellow">Views</span> effectively allow to specify the aggregation strategy per metric instrument and its metadata (e.g. name, attributes).
 
 By default, OTEL implements the following aggregations:
 
@@ -291,7 +323,7 @@ By default, OTEL implements the following aggregations:
 - <span class="yellow">Last Value Aggregation</span> - keeps the last aggregated value until it's collected (used by gauges).
 - <span class="yellow">Sum Aggregation</span> - arithmetic sum of provided data points (used by counters).
 - <span class="yellow">Explicit Bucket Histogram Aggregation</span> - assigns collected data points to one of 15 predefined buckets. Besides that, it collects sum, count, min and max across given data.
-- <span class="yellow">Exponential Bucket Histogram Aggregation</span> - similar to the explicit bucket aggregation, but buckets are generated dynamically exponentially growing size of the next bucket and much more fine grained (by default, there are 150 buckets).
+- <span class="yellow">Exponential Bucket Histogram Aggregation</span> - similar to the explicit bucket aggregation, but buckets are generated dynamically by the exponentially growing size of the next bucket and much more fine grained (by default, there are 150 buckets).
 
 The sum and histogram aggregations may collect data between probes as:
 
@@ -302,12 +334,12 @@ This is called <span class="yellow">aggregation temporality</span>.
 
 ### Metric Readers
 
-Metrics are read on schedule by `MetricReader{:.entity.name.class}` like `PeriodicExportingMetricReader{:.entity.name.class}` that 
-
+As we briefly have mentioned, metrics are collected on schedule by <span class="blue">MetricReader</span> like <span class="blue">PeriodicExportingMetricReader</span> that holds a ticker in a separate thread.
+The ticker initiates the metrics collection process that creates exportable data according to <span class="yellow">metrics aggregation temporalities</span>.
 
 ## Logs
 
-## Context Propagation
+TBU
 
 ## Signal Export
 
