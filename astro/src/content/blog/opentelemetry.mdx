@@ -15,6 +15,15 @@ cover:
 
 import Note from '@components/content/Note.tsx'
 
+OpenTelemetry is an observability framework and an active [CNCF project](https://www.cncf.io/projects/opentelemetry/) that provides a vendor-neutral and tool-agnostic way to collect observability signals across your heterogeneous system.
+
+In this blog post, we will dig into two big questions:
+
+- how OpenTelemetry instrumentation works on the application side taking [Python's SDK](https://github.com/open-telemetry/opentelemetry-python/) as an example. We will touch traces, metrics, logs and context propagation across services.
+- how OpenTelemetry Collector works under the hood
+
+## The Problem
+
 With the rise of the open source community, people and organizations don’t really want to invest into proprietary protocols and standards anymore. Instead, it's mainstream to pick a widely-recognized open source project as a basis to build on top of it.
 
 In the observability domain, there are enough open source protocols that cover some of the three key pillars:
@@ -47,18 +56,13 @@ To sum it up, we want to have:
 
 [TODO: Add a diagram where all siganls are connected]
 
+### The OTEL Origin
+
 This idea is so compelling that at some point there were two projects, [OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/), that were trying to fill the gap. 
 They were trying to compete with each other, but there was not the right context to do that as they were working on the big ubiquitous protocol idea, so it didn't make sense to try to conquer some market shares, but rather it made to consolidate their effort and came there much quicker.
 And that's what happened. Both projects were merged into one known as [OpenTelemetry](https://opentelemetry.io/) (aka OTEL). 
 
-OpenTelemetry is an observability framework and an active [CNCF project](https://www.cncf.io/projects/opentelemetry/) that provides a vendor-neutral and tool-agnostic way to collect observability signals across your heterogeneous system.
-
 [TODO: Don't like that the first part of the intro is lil bit unconnected with this description]
-
-In this blog post, we will review:
-
-- how OpenTelemetry instrumentation works on the application side taking [Python's SDK](https://github.com/open-telemetry/opentelemetry-python/) as an example
-- the architecture of OpenTelemetry Collector and its capabilities
 
 ## The SDK
 
@@ -237,7 +241,7 @@ There are also two `MultiSpanProcessors` that operate on a list of span processo
 
 The concurrent span processing happens via [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor).
 
-### Context Propagation
+## Context Propagation
 
 So far we have been talking about trace spans processing in scope of one services, 
 but the real value of traces unlocks when multiple microservices take part in a workflow and you could connect what they were doing there into a one coherent picture.
@@ -364,6 +368,53 @@ There is a dedicated LoggerProvider that holds log processors and exporters atta
 The processors send logs to exporters for further saving in observability backends.
 
 ## The Collector
+
+While reviewing the trace, metrics, log pipelines, we briefly have mentioned <span class="blue">exporters</span> at the end of the pipelines. 
+However, OpenTelemetry SDK does support some limited number of exporters like OTEL-compatible backends, Jeager or Zipkin (for traces), Prometheus (for metrics), it's recommended to send all signals out of your services as soon as possible, and does all needed signal processing in the OTEL Collector.
+
+The OpenTelemetry Collector could be seen as another layer of indirection that protects your bussiness logic from being modified on observability backend changes as your services are exposed to the collector only. 
+
+At the same time, the collector lets us keep the observability logic as simple as possible on the business service end. So reliable collection of obserbability data, its batching, sampling, cleaning, and finally robust exporting to various backends are done apart from your business logic.
+It simply separates that concern into a new vendor-agnostic infrastructural service that carries that out for you. 
+
+This approach is somewhat similar to having a database, a queue or an API gateway. Each of them offloads some responsibilities from your services simplifying them in the end. 
+Just like in those case, deploying the collector may make your system more complex as there is one more piece to maintain.
+
+### The Collector Architecture
+
+The high level architecture of the OTEL Collector is somewhat similar to the SDK trace and log systems. 
+The Collector consists of three uniform signal processing pipelines for each signal type.
+
+![The OTEL Collector Architecture](/blog/opentelemetry/opentelemetry-collector-pipelines.png "The OTEL Collector Architecture")
+<div class="image-title">The OTEL Collector Architecture</div>
+
+Each pipeline, in turn, consists of three stages.
+
+- the <span class="green">receiver</span> stage that accepts the signals from external data sources.
+- the processor stage that could do all sort of preprocessing like batching, filtering, attribute reduction, etc.
+- the <span class="blue">exporter</span> stage that fans out processed data into observability backends.
+
+It's facinationg that all of the pipelines could be assembled dynamically based on [the collector's config]().
+
+### Receivers
+
+As its name suggests, receives accept observability signals and this how the processing pipeline gets triggered. 
+
+Out of the box, the OTEL Collector provides HTTP- and gRPC-based OTEL receivers. 
+Since the OTEL protocol utilizes the push model, the OTEL reciever just starts a regular HTTP or gRPC servers and waits for instrumented services to reach them out.
+
+Besides the OTEL format, the collector could be configured to accept singals in [Jaeger](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/jaegerreceiver), [Zipkin](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/zipkinreceiver), AWS X-Ray, StatsD, Prometheus protocols.
+
+Furthermore, signals could be received from message queues like [Apache Kafka](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/kafkareceiver), GCP PubSub, Azure EventHub, etc.
+
+Additionally, not everything speaks the OTEL protocol, so a part of receivers could extract useful stats from various systems and turn them into OTEL signals. 
+It includes, Redis, MongoDB, RabbitMQ, NGINX, PostgreSQL, and [many more](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver).
+
+### Processors
+
+TBU
+
+### The Collector Config
 
 TBU
 
